@@ -4,7 +4,6 @@
 	import { assets } from '$app/paths';
 	import type { ConfigProperties, HTTPRequest } from './_config';
 	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
-	import { sha256 } from '$lib/sha256';
 	import { store_statistics_datapoint } from './_stats_storage';
 	import ScanStatsModal from './_scan_stats_modal.svelte';
 
@@ -47,7 +46,7 @@
 		const error = findCertificateError(cert);
 		if (error) throw new Error(error);
 
-		let code_digest = await sha256(code);
+		let code_digest = cert.fingerprint;
 		const last_validated = validated_passes.get(code_digest);
 		const now = Date.now();
 		if (last_validated && now - last_validated < prevent_revalidation_before_ms) {
