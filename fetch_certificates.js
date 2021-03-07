@@ -9,6 +9,9 @@ async function main() {
 	const OUTFILE = 'src/assets/Digital_Green_Certificate_Signing_Keys.json';
 	const ALL_DATA_FILE = '/tmp/tacv_data.json';
 	const VALIDITY_DATA_FILE = 'src/assets/validity_data.json';
+	// Concatenated sh256 fingerprints of blacklisted certificates
+	const BLACKLIST_FILE = 'src/assets/blacklist.json';
+
 	const TOKEN = process.env['TACV_TOKEN'];
 	if (!TOKEN)
 		return console.log(
@@ -17,14 +20,30 @@ async function main() {
 		);
 	const tacv_data = await get_data(TOKEN);
 
-	fs.promises.writeFile(ALL_DATA_FILE, JSON.stringify(tacv_data));
-	console.log('Saved all data to ' + ALL_DATA_FILE);
+	fs.promises
+		.writeFile(ALL_DATA_FILE, JSON.stringify(tacv_data))
+		.then(() => console.log('Saved all data to ' + ALL_DATA_FILE));
 
-	fs.promises.writeFile(
-		VALIDITY_DATA_FILE,
-		JSON.stringify(tacv_data.specificValues.validity, null, '\t') + '\n'
-	);
-	console.log('Saved validity data to ' + VALIDITY_DATA_FILE);
+	fs.promises
+		.writeFile(
+			VALIDITY_DATA_FILE,
+			JSON.stringify(tacv_data.specificValues.validity, null, '\t') + '\n'
+		)
+		.then(() => console.log('Saved validity data to ' + VALIDITY_DATA_FILE));
+
+	fs.promises
+		.writeFile(
+			BLACKLIST_FILE,
+			JSON.stringify(
+				[
+					...tacv_data.specificValues.blacklist.blacklistDCC,
+					...tacv_data.specificValues.blacklist.blacklist2DDOC
+				],
+				null,
+				'\t'
+			) + '\n'
+		)
+		.then(() => console.log('Saved blacklist to ' + BLACKLIST_FILE));
 
 	const certs = await get_certs(tacv_data);
 	const contents = JSON.stringify(certs, null, '\t') + '\n';

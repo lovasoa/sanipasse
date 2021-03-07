@@ -22,6 +22,7 @@ const DCCCertsPromise = import('../assets/Digital_Green_Certificate_Signing_Keys
 import type { HCert } from './digital_green_certificate_types';
 import type { CommonCertificateInfo } from './common_certificate_info';
 import { DGC_PREFIX } from './detect_certificate';
+import { sha256 } from './sha256';
 
 interface RawDGC {
 	hcert: HCert;
@@ -216,7 +217,7 @@ async function getCertificatePublicKey({
 	return public_key;
 }
 
-function getCertificateInfo(cert: DGC): CommonCertificateInfo {
+async function getCertificateInfo(cert: DGC): Promise<CommonCertificateInfo> {
 	const hcert = cert.hcert;
 	let dob = hcert.dob;
 	if (dob.search(/^(\d\d\.){2}(19|20)\d\d$/) != -1) {
@@ -230,33 +231,39 @@ function getCertificateInfo(cert: DGC): CommonCertificateInfo {
 		source: { format: 'dgc', cert }
 	} as const;
 	if (hcert.v && hcert.v.length) {
+		const v = hcert.v[0];
 		return {
 			type: 'vaccination',
-			vaccination_date: new Date(hcert.v[0].dt),
-			prophylactic_agent: hcert.v[0].vp,
-			doses_received: hcert.v[0].dn,
-			doses_expected: hcert.v[0].sd,
+			vaccination_date: new Date(v.dt),
+			prophylactic_agent: v.vp,
+			doses_received: v.dn,
+			doses_expected: v.sd,
+			fingerprint: await sha256(v.co.toUpperCase() + v.ci),
 			...common
 		};
 	}
 	if (hcert.t && hcert.t.length) {
+		const t = hcert.t[0];
 		return {
 			type: 'test',
-			test_date: new Date(hcert.t[0].sc),
-			test_type: hcert.t[0].tt,
+			test_date: new Date(t.sc),
+			test_type: t.tt,
 			// 260415000=not detected: http://purl.bioontology.org/ontology/SNOMEDCT/260415000
-			is_negative: hcert.t[0].tr === '260415000',
-			is_inconclusive: !['260415000', '260373001'].includes(hcert.t[0].tr),
+			is_negative: t.tr === '260415000',
+			is_inconclusive: !['260415000', '260373001'].includes(t.tr),
+			fingerprint: await sha256(t.co.toUpperCase() + t.ci),
 			...common
 		};
 	}
 	if (hcert.r && hcert.r.length) {
+		const r = hcert.r[0];
 		return {
 			type: 'test',
-			test_date: new Date(hcert.r[0].fr), // date of positive test
+			test_date: new Date(r.fr), // date of positive test
 			test_type: '943092', // PCR test
 			is_negative: false,
 			is_inconclusive: false,
+			fingerprint: await sha256(r.co.toUpperCase() + r.ci),
 			...common
 		};
 	}

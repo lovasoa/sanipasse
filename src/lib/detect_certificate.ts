@@ -1,6 +1,8 @@
 import type { CommonCertificateInfo } from './common_certificate_info';
 import type { DBEvent } from './event';
 import { validityInterval } from './tac_verif_rules';
+import blacklist_array from '../assets/blacklist.json';
+const blacklist_set = new Set(blacklist_array);
 
 export const DGC_PREFIX = 'HC1:';
 
@@ -39,6 +41,8 @@ export function findCertificateError(
 	c: CommonCertificateInfo,
 	event?: DBEvent
 ): string | undefined {
+	if (blacklist_set.has(c.fingerprint))
+		return 'Ce certificat est sur liste noire. Il est probablement frauduleux.';
 	const validity = validityInterval(c);
 	if ('invalid' in validity) return validity.invalid;
 	const { start, end } = validity;

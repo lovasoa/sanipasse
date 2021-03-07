@@ -23,6 +23,8 @@ export interface AllCommonInfo {
 	last_name: string;
 	date_of_birth: Date;
 	code: string;
+	/** sha256 fingerprint */
+	fingerprint: string;
 	source: { format: 'dgc'; cert: DGC } | { format: '2ddoc'; cert: Certificate2ddoc };
 }
 

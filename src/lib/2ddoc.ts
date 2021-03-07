@@ -1,5 +1,6 @@
 import { check_signature } from '$lib/2ddoc_check_signature';
 import type { CommonCertificateInfo } from './common_certificate_info';
+import { sha256 } from './sha256';
 
 const ALPHA = {
 	regex: 'A-Z\\-\\./ ',
@@ -219,7 +220,9 @@ const TOTAL_REGEX = new RegExp(
 	`^(?<data>${HEADER_REGEX}(?:${VACCINE_REGEX}|${TEST_REGEX}))${SIGNATURE_REGEX}$`
 );
 
-function getCertificateInfo(cert: Certificate2ddoc): CommonCertificateInfo {
+async function getCertificateInfo(cert: Certificate2ddoc): Promise<CommonCertificateInfo> {
+	const match = cert.code.match(/^[^\x1F]*/);
+	const fingerprint = await sha256(match ? match[0] : '');
 	if ('vaccinated_first_name' in cert) {
 		return {
 			type: 'vaccination',
@@ -236,6 +239,7 @@ function getCertificateInfo(cert: Certificate2ddoc): CommonCertificateInfo {
 			last_name: cert.vaccinated_last_name,
 			date_of_birth: cert.vaccinated_birth_date,
 			code: cert.code,
+			fingerprint,
 			source: { format: '2ddoc', cert }
 		};
 	} else if ('tested_first_name' in cert) {
@@ -249,6 +253,7 @@ function getCertificateInfo(cert: Certificate2ddoc): CommonCertificateInfo {
 			last_name: cert.tested_last_name,
 			date_of_birth: cert.tested_birth_date,
 			code: cert.code,
+			fingerprint,
 			source: { format: '2ddoc', cert }
 		};
 	}
