@@ -1,0 +1,14 @@
+{
+	"name": "Sanipasse",
+	"short_name": "Sanipasse",
+	"icons": [
+		{
+			"src": "favicon/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"theme_color": "#209CEE",
+	"background_color": "#209CEE",
+	"display": "standalone"
+}

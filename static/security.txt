@@ -1,0 +1,5 @@
+Contact: contact@ophir.dev
+Expires: Sun, 15 May 2022 00:00 +0200
+Acknowledgments: https://sanipasse.fr/apropos
+Preferred-Languages: fr, en
+Canonical: https://sanipasse.fr/security.txt
