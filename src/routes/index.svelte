@@ -25,6 +25,8 @@
 <svelte:head>
 	{#if event}
 		<title>Sanipasse: “{event.name}”</title>
+	{:else}
+		<title>Sanipasse: Vérification de pass sanitaire</title>
 	{/if}
 </svelte:head>
 
