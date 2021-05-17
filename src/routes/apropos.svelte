@@ -178,5 +178,5 @@ CEO: Martin Hetzner, Stephan Konvickova, Günther Müller
 			>
 		</figcaption>
 	</figure>
-	Le mot<i>pass</i> n'est lui pas dans le dictionnaire.
 </p>
+<p>Le mot <i>pass</i> n'est lui pas dans le dictionnaire.</p>
