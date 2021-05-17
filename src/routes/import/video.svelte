@@ -57,6 +57,10 @@
 	});
 </script>
 
+<aside class:d-none={!started} class="mb-3">
+	Faites apparaître le QR code de votre certificat de test ou de vaccination de manière bien
+	évidente, et avec une luminosité maximale.
+</aside>
 <!-- svelte-ignore a11y-media-has-caption -->
 <video bind:this={videoElement} class:started />
 
