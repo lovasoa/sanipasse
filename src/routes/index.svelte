@@ -45,8 +45,9 @@
 			ou un certificat de vaccination (de seconde dose si le vaccin en demande deux).
 		</p>
 		<p>
-			Votre passe sanitaire est <a href="apropos#donnees">strictement privée</a>. Il ne sera pas
-			conservé sur notre serveur, et <b>pas visible</b> par l'organisateur de l'événement.
+			Votre passe sanitaire est <a href="apropos#donnees">strictement privée</a>. Il ne sera
+			<b>pas conservé</b>
+			sur notre serveur, <b>ni visible</b> par l'organisateur de l'événement.
 		</p>
 	{:else}
 		<p>
@@ -70,12 +71,12 @@
 	{#if !eventId}
 		<p>
 			Vous pouvez également <i>Créer un événement</i>, pour construire une
-			<a href="apropos#liste">liste d'invités zéro-COVID</a>. Sanipasse générera un lien privé à envoyer à vos
-			invités, depuis lequel ils pourront confirmer leur participation en validant leur passe
-			sanitaire.
+			<a href="apropos#liste">liste d'invités zéro-COVID</a>. Sanipasse générera un lien privé à
+			envoyer à vos invités, depuis lequel ils pourront confirmer leur participation en validant
+			leur passe sanitaire.
 		</p>
 		<Row>
-			<a href=events class="btn btn-primary">📅 Créer un évènement</a>
+			<a href="events" class="btn btn-primary">📅 Créer un évènement</a>
 		</Row>
 	{/if}
 </footer>
