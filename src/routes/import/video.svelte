@@ -57,9 +57,13 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Sanipasse - Scanner un passe sanitaire</title>
+</svelte:head>
+
 <aside class:d-none={!started} class="mb-3">
-	Faites apparaître le QR code de votre certificat de test ou de vaccination de manière bien
-	évidente, et avec une luminosité maximale.
+	Pour décoder le <b>QR code de votre certificat de test ou de vaccination</b>, faites-le apparaître
+	de manière bien évidente, et avec une luminosité maximale.
 </aside>
 <!-- svelte-ignore a11y-media-has-caption -->
 <video bind:this={videoElement} class:started />

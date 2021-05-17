@@ -1,14 +1,18 @@
 <svelte:head>
-	<title>Sanipasse: Comment ça marche</title>
+	<title>Comment fonctionnent les passes sanitaires Sanipasse ?</title>
 </svelte:head>
 <h1>À propos de Sanipasse</h1>
 
 <p>Bonjour ! 👋</p>
 <p>
-	Moi c'est <a href="https://ophir.dev">Ophir</a>, et je suis le développeur de
-	<a href="https://sanipasse.fr">sanipasse</a>. Vous trouverez sur cette page la description du
-	fonctionnement de l'application, des informations sur sa sécurité et la gestion des données
-	personnelles, ainsi que les mentions légales.
+	Moi c'est <a href="https://ophir.dev">Ophir</a>, et je suis fier de vous présenter l'application
+	de vérification de passes sanitaires <a href="https://sanipasse.fr">sanipasse</a>.
+</p>
+<p>
+	Vous trouverez sur cette page des explications sur comment lire des certificats de test et de
+	vaccination, organiser des événements zéro-COVID, la description du fonctionnement interne de
+	l'application, des informations sur sa sécurité et la gestion des données personnelles, ainsi que
+	les mentions légales.
 </p>
 
 <h2 id="tuto">🤔 Comment utiliser Sanipasse</h2>
@@ -174,5 +178,5 @@ CEO: Martin Hetzner, Stephan Konvickova, Günther Müller
 			>
 		</figcaption>
 	</figure>
-	Le mot <i>pass</i> n'est lui pas dans le dictionnaire.
+	Le mot<i>pass</i> n'est lui pas dans le dictionnaire.
 </p>

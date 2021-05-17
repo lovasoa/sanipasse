@@ -73,6 +73,9 @@
 		}
 	}
 </script>
+<svelte:head>
+	<title>Sanipasse - Importer un passe sanitaire depuis un fichier</title>
+</svelte:head>
 
 <div class="card">
 	<canvas class="card-img-top" bind:this={canvasElement} width="0" height="0">Pas de canvas</canvas>

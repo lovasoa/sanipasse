@@ -37,9 +37,14 @@
 >
 	<h3>Créer un évènement</h3>
 
+	<p>
+		Les informations que vous rentrez dans ce formulaire seront affichées à vos invités sur la page
+		de validation de leur passe sanitaire.
+	</p>
+
 	<div class="mb-3">
 		<label class="form-label"
-			>Nom de l'évènement
+			><h6>Nom de l'évènement</h6>
 			<input
 				type="text"
 				name="name"
@@ -51,6 +56,10 @@
 		</label>
 	</div>
 	<h6>Date et heure de l'évènement</h6>
+	<p>
+		Cette date sera utilisée pour valider les tests de dépistage. Seuls les tests effectués moins de
+		72 heures avant le début de l'événement seront acceptés.
+	</p>
 	<div class="row">
 		<div class="col-sm-8">
 			<label class="form-label"
