@@ -11,7 +11,6 @@
 		{ href: 'import/text', text: '🔗 Entrer un lien TousAntiCovid' }
 	];
 	if (eventId) links = links.map((l) => ({ ...l, href: `${l.href}#${eventId}` }));
-	else links.push({ href: 'events', text: '📅 Créer un évènement' });
 	let promise: Promise<DBEvent | null> = eventId ? new Promise(() => {}) : Promise.resolve(null);
 	let event: DBEvent | null = null;
 	onMount(async () => {
@@ -45,6 +44,19 @@
 			Pour confirmer votre participation, vous devez scanner un certificat de test de moins de 72h,
 			ou un certificat de vaccination (de seconde dose si le vaccin en demande deux).
 		</p>
+		<p>
+			Votre passe sanitaire est <a href="apropos#donnees">strictement privée</a>. Il ne sera pas
+			conservé sur notre serveur, et <b>pas visible</b> par l'organisateur de l'événement.
+		</p>
+	{:else}
+		<p>
+			Ce site vous permet de vérifier des certificats sanitaires de test ou de vaccination, et
+			d'organiser des événements zéro-COVID.
+		</p>
+		<p>
+			La vérification proposée ci-dessous est <a href="apropos#donnees">strictement privée</a>, et
+			vos données ne quittent jamais votre appareil.
+		</p>
 	{/if}
 </header>
 
@@ -54,11 +66,25 @@
 	</Row>
 {/each}
 
+<footer class="mb-2">
+	{#if !eventId}
+		<p>
+			Vous pouvez également <i>Créer un événement</i>, pour construire une
+			<a href="apropos#liste">liste d'invités zéro-COVID</a>. Sanipasse générera un lien privé à envoyer à vos
+			invités, depuis lequel ils pourront confirmer leur participation en validant leur passe
+			sanitaire.
+		</p>
+		<Row>
+			<a href=events class="btn btn-primary">📅 Créer un évènement</a>
+		</Row>
+	{/if}
+</footer>
+
 <style>
 	a,
-	header {
+	header,
+	footer {
 		max-width: 512px;
-		margin: auto;
-		margin-top: 2em;
+		margin: 1em auto;
 	}
 </style>

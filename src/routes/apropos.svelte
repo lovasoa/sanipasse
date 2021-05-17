@@ -11,7 +11,7 @@
 	personnelles, ainsi que les mentions légales.
 </p>
 
-<h2>🤔 Comment utiliser Sanipasse</h2>
+<h2 id="tuto">🤔 Comment utiliser Sanipasse</h2>
 
 <p>Sanipasse est un logiciel libre qui a deux fonctions principales:</p>
 <ul>
@@ -30,7 +30,7 @@
 	règles sanitaires.
 </p>
 
-<h3>📜 Liste d'invités</h3>
+<h3 id="liste">📜 Liste d'invités</h3>
 <p>
 	Si vous organisez un évènement, vous avez peut-être déjà une liste d'invités. Et comme vous ne
 	voulez pas prendre de risque, vous aimeriez que tous vos invités soient vaccinés ou testés avant
@@ -61,7 +61,7 @@
 		directement depuis la liste d'invités que vous avez créée sur sanipasse.
 	</li>
 </ol>
-<h3>🔑 Sécurité</h3>
+<h3 id="securite">🔑 Sécurité</h3>
 <p>
 	Les certificats de test ou de vaccination contiennent une
 	<a href="https://fr.wikipedia.org/wiki/Signature_num%C3%A9rique">signature numérique</a>, ce qui
@@ -70,7 +70,7 @@
 	certificat.
 </p>
 
-<h3>🔒 Protection des données personnelles</h3>
+<h3 id="donnees">🔒 Protection des données personnelles</h3>
 <p>
 	Sanipasse restreint son utilisation des données personnelles au <b>strict minimum</b>.
 </p>
@@ -85,8 +85,7 @@
 	millisecondes), il est <i>immédiatement supprimé</i>. Nous ne gardons ensuite aucune trace des
 	informations sensibles, et conservons uniquement une donnée binaire: si oui ou non l'invitation
 	qui vous a été envoyée a été validée. Seule cette validation est visible par l'organisateur de
-	l'évènement. Aucun humain n'a ainsi eu accès aux informations contenues dans le certificat
-	sanitaire.
+	l'évènement. Aucun humain n'a ainsi accès aux informations contenues dans votre passe sanitaire.
 </p>
 <p>
 	Pour toute demande concernant la gestion de la vie privée dans sanipasse (information, demande de
@@ -95,7 +94,7 @@
 	>.
 </p>
 
-<h2>⚖️ Mentions légales</h2>
+<h2 id="legal">⚖️ Mentions légales</h2>
 <h5>Licéité du traitement</h5>
 <p>
 	Le traitement des données personnelles effectué par sanipasse se fonde sur l'
@@ -141,7 +140,7 @@ VAT Reg. No. DE 812871812
 CEO: Martin Hetzner, Stephan Konvickova, Günther Müller
 </pre>
 
-<h3>🍪 Cookies</h3>
+<h3 id="cookies">🍪 Cookies</h3>
 <p>
 	Ce site web n'utilise pas de cookies, et ne piste pas ses utilisateurs. Pas de bannière “accepter
 	les cookies” ici, et c'est tant mieux !
@@ -161,7 +160,7 @@ CEO: Martin Hetzner, Stephan Konvickova, Günther Müller
 	utilisation.
 </p>
 
-<h3>Orthographe</h3>
+<h3 id="orthographe">Orthographe</h3>
 <p>
 	Oui, je sais que le gouvernement écrit <i>pass sanitaire</i>, mais moi j'écris
 	<i>pass<b>e</b> sanitaire</i>.
