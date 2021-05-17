@@ -64,7 +64,8 @@
 			if (e instanceof NotFoundException)
 				error =
 					'Aucun code QR ou 2D-DOC détecté dans le document. ' +
-					'Essayez de recadrer le document pour que le code apparaisse clairement et dans une taille raisonnable.';
+					'Essayez de recadrer le document pour que le code apparaisse clairement et dans une taille raisonnable.' +
+					'Vous pouvez par exemple prendre une capture d’écran qui contient uniquement le QR code';
 			else error = `${e?.message || e}`;
 			codeFound = undefined;
 		} finally {
