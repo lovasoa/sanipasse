@@ -18,7 +18,7 @@ export async function put({
     const key = getKey(names);
     const people_table = P.sequelize?.escape(P.tableName);
     const events_table = P.sequelize?.escape(E.tableName);
-    const inserted = await P.sequelize?.query(
+    const query = P.sequelize?.query(
         `INSERT INTO ${people_table} (key, invited, eventPublicCode, createdAt, updatedAt) ` +
         `SELECT $key as key, true AS invited, public_code AS eventPublicCode, $now AS createdAt, $now AS updatedAt ` +
         `FROM ${events_table} WHERE private_code = $private_code`,
@@ -27,10 +27,17 @@ export async function put({
             type: 'INSERT'
         }
     );
-    return {
-        status: 201, //created
-        body: inserted as JSONValue
-    };
+
+    try {
+        return {
+            status: 201, //created
+            body: await query as JSONValue
+        };
+    } catch (error) {
+        return (error.name === "SequelizeUniqueConstraintError")
+            ? { status: 409, body: `${names.first_name} ${names.last_name} est déjà invité` }
+            : { status: 500, body: `${error?.message}` };
+    }
 }
 
 export async function del({
