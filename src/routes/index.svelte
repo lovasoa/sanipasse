@@ -51,8 +51,8 @@
 		</p>
 	{:else}
 		<p>
-			Ce site vous permet de vérifier des certificats sanitaires de test ou de vaccination, et
-			d'organiser des événements zéro-COVID.
+			Sanipasse est un logiciel libre de vérification des certificats de test ou de
+			vaccination, et d'organisation d’événements respectueux des règles sanitaires.
 		</p>
 		<p>
 			La vérification proposée ci-dessous est <a href="apropos#donnees">strictement privée</a>, et
