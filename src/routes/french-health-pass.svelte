@@ -180,15 +180,15 @@
 		From that link, they can confirm their attendance, but only if they have a valid health pass.
 	</p>
 	<p>
-		From a technical point of view, it's a <i>SvelteKit</i> isomorphic web application, which uses
-		the same code on the frontend and the backend to check the sanitary passes. In the backend, it has
-		a small SQL database which stores no personal information: just the list of invitees and their status.
+		From a technical point of view, it's a <i>SvelteKit</i> isomorphic web application, which uses the
+		same code on the frontend and the backend to check the sanitary passes. In the backend, it has a
+		small SQL database which stores no personal information: just the list of invitees and their status.
 	</p>
 	<h5>Security</h5>
 	<p>
 		The security of such an application is quite critical, so I tried to keep it as simple and small
 		as possible. I don't have the means to run a bug bounty, but if you like information security,
-		come and <a href="/security.txt">white hack</a> me !
+		come and <a href="/security.txt" target="_blank">white hack</a> me !
 	</p>
 	<p>
 		If you find something and disclose it responsibly, I'll credit you in the
