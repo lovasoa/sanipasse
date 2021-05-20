@@ -14,6 +14,7 @@
 	async function onCode(codeFound: string) {
 		try {
 			status = 'notsent';
+			promise = null;
 			if (codeFound) parsed = await parse(codeFound);
 			error = '';
 		} catch (err) {
