@@ -33,5 +33,5 @@ export async function put({
 		eventPublicCode: public_code,
 		validated: true
 	});
-	return { status: 201 };
+	return { status: 201, body: { validated: true } };
 }
