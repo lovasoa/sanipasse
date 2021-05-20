@@ -1,3 +1,7 @@
+<script lang=ts>
+	import { Tooltip } from 'sveltestrap';
+</script>
+
 <svelte:head>
 	<title>The French Health Pass - Sanipasse</title>
 </svelte:head>
@@ -83,16 +87,46 @@
 			A <a href="https://en.wikipedia.org/wiki/Data_Matrix">Data Matrix</a> containing the same
 			information, but without the link:
 			<code
-				>DC04 FR03 AHP11 E691E69 B201 FR F0 OPHIR
+				>DC04
+				<span id="countrycode">FR03</span>
+				<Tooltip target="countrycode">ID of the certificate authority</Tooltip>
+
+				<span id="signkey">AHP1</span>
+				<Tooltip target="signkey">ID of the signing key used to sign the document</Tooltip>
+
+				<span id="cdate">1E69</span>
+				<Tooltip target="cdate">Creation date of the document</Tooltip>
+
+				<span id="sdate">1E69</span>
+				<Tooltip target="sdate">Date of the signature of the document</Tooltip>
+
+				<span id="doctype">B2</span>
+				<Tooltip target="doctype">Document type (B2 = test, L1 = vaccine)</Tooltip>
+
+				01
+
+				<span id="countrycode2">FR</span>
+				<Tooltip target="countrycode2">Country Code</Tooltip>
+
+				F0 OPHIR
 				<abbr title="ASCII control character 29 (group separator)">\x1D</abbr>
 				F1 LOJKINE
 				<abbr title="ASCII control character 29 (group separator)">\x1D</abbr>
-				F2 16 04 1994 F3 M F4 945006
+
+				<span id="birth">F2 16 04 1994</span>
+				<Tooltip target="birth">Birth date</Tooltip>
+
+				F3 M F4 945006
+
 				<abbr title="ASCII control character 29 (group separator)">\x1D</abbr>
 				F5 N F6 24 04 2021 09 29
 				<abbr title="ASCII control character 31 (unit separator)">\x1F</abbr>
-				7N6GCZR3FHC3JL2WYDE4LQ3GHG7TJAK3U6RLBPZJYHK43KJDJA32RUZTXG2LVDKNVYXFL6YPP2TPWMVGPB3H7MNZUTE7X3GN3RZHCUY</code
-			> (whitespaces added for legibility).
+
+				<span id="sign">
+					7N6GCZR3FHC3JL2WYDE4LQ3GHG7TJAK3U6RLBPZJYHK43KJDJA32RUZTXG2LVDKNVYXFL6YPP2TPWMVGPB3H7MNZUTE7X3GN3RZHCUY
+				</span>
+				<Tooltip target="sign">Base32 ECDSA signature</Tooltip>
+			</code> (whitespaces added for legibility).
 		</li>
 	</ul>
 	<p>
