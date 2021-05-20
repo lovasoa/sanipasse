@@ -1,6 +1,6 @@
-<script>
-	import { not_equal } from 'svelte/internal';
-</script>
+<svelte:head>
+	<title>The French Health Pass - Sanipasse</title>
+</svelte:head>
 
 <main lang="en">
 	<h1>How does the french <i>health pass</i> work ?</h1>
