@@ -2,9 +2,11 @@
 	import { Icon } from 'sveltestrap';
 	import type { Invitees } from '$lib/invitees';
 	import { createEventDispatcher } from 'svelte';
+	import type { EventWithPeople } from '$lib/event';
 	const dispatch = createEventDispatcher<{ remove: string }>();
 	let search = '';
 	export let invitees: Invitees;
+	export let event: EventWithPeople | null = null;
 	$: filtered = invitees.filtered(search);
 </script>
 
@@ -52,7 +54,36 @@
 			</div>
 		</li>
 	{:else}
-		<li class="list-group-item fst-italic">Aucun invité</li>
+		{#if search}
+			<li class="list-group-item fst-italic">Aucun invité dont le nom comprend "{search}"</li>
+		{:else}
+			<li class="list-group-item">
+				<p class="text-center fst-italic">Aucun invité pour le moment</p>
+				<p>
+					La création d'une liste d'invités à l'avance n'est pas obligatoire. Vous pouvez simplement
+					{#if typeof navigator === 'object' && navigator.share && event}
+						<button
+							class="btn btn-primary btn-sm"
+							on:click={() =>
+								event &&
+								navigator.share({
+									title: `${event.name}: Invitation Sanipasse`,
+									text:
+										`Vous êtes invité à l'événement ${event.name}. ` +
+										`Pour participer, merci de bien vouloir valider votre passe sanitaire sur sanipasse.`,
+									url: 'https://sanipasse.fr#' + event.public_code
+								})}>partager</button
+						>
+					{:else}
+						envoyer
+					{/if}
+					dès maintenant le lien d'invitation fourni dans la section
+					<i>Communiquer auprès de vos invités</i>
+					, et le nom des personnes ayant validé leur invitation à l'aide d'un passe sanitaire apparaîtra
+					ici.
+				</p>
+			</li>
+		{/if}
 	{/each}
 </ul>
 

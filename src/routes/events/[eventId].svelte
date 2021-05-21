@@ -72,7 +72,7 @@
 {/if}
 <div class="row">
 	<div class="col-sm-12 col-md-6 col-lg-5 p-2">
-		<InviteesList {invitees} on:remove={(evt) => remove(evt.detail)} />
+		<InviteesList {invitees} {event} on:remove={(evt) => remove(evt.detail)} />
 		<ShowPromiseError promise={currentPromise} />
 	</div>
 	<div class="col-sm-12 col-md-6 col-lg-7 p-2">
