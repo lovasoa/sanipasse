@@ -78,9 +78,8 @@
 						envoyer
 					{/if}
 					dès maintenant le lien d'invitation fourni dans la section
-					<i>Communiquer auprès de vos invités</i>
-					, et le nom des personnes ayant validé leur invitation à l'aide d'un passe sanitaire apparaîtra
-					ici.
+					<i>Communiquer auprès de vos invités</i>, et le nom des personnes ayant validé leur
+					invitation à l'aide d'un passe sanitaire apparaîtra ici.
 				</p>
 			</li>
 		{/if}
