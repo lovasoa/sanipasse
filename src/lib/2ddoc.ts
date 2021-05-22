@@ -74,6 +74,7 @@ type OBJECT_WITH_FIELDS<FIELDS extends FIELDS_TYPES> = {
 export type TestCertificate = OBJECT_WITH_FIELDS<typeof TEST_FIELDS>;
 export type VaccineCertificate = OBJECT_WITH_FIELDS<typeof VACCINE_FIELDS>;
 interface HeaderData {
+	code: string,
 	creation_date?: Date,
 	signature_date?: Date,
 }
@@ -97,6 +98,7 @@ function parse_2ddoc_date(date_str: string): Date | undefined {
 }
 
 function extract_data<F extends FIELDS_TYPES>(
+	code: string,
 	fields: F,
 	o: Record<string, string>
 ): OBJECT_WITH_FIELDS<F> & HeaderData {
@@ -107,6 +109,7 @@ function extract_data<F extends FIELDS_TYPES>(
 		})
 	);
 	const header: HeaderData = {
+		code,
 		creation_date: parse_2ddoc_date(o.creation_date),
 		signature_date: parse_2ddoc_date(o.signature_date),
 	};
@@ -168,7 +171,7 @@ export async function parse(doc: string): Promise<Certificate> {
 	const fields = groups.certificate_type === 'B2' ? TEST_FIELDS : VACCINE_FIELDS;
 	const { data, public_key_id, signature } = groups;
 	await check_signature(data, public_key_id, signature);
-	return extract_data(fields, groups);
+	return extract_data(doc, fields, groups);
 }
 
 export function getNamesAndBirtdate(c: Certificate): Names & { birth_date: Date } {

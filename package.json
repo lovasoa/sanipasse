@@ -34,6 +34,7 @@
 		"@zxing/library": "^0.18.5",
 		"base64-js": "^1.5.1",
 		"isomorphic-webcrypto": "^2.3.8",
+		"localforage": "^1.9.0",
 		"pdfjs-dist": "^2.7.570",
 		"sequelize": "^6.6.2",
 		"sqlite3": "^5.0.2",

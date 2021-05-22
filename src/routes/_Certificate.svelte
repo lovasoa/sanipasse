@@ -1,8 +1,9 @@
 <script type="ts">
-	import { Alert, Row, Col } from 'sveltestrap';
+	import { Alert, Row, Col, Icon } from 'sveltestrap';
 	import { findCertificateError, getNamesAndBirtdate } from '$lib/2ddoc';
 	import type { TestCertificate, VaccineCertificate, Certificate } from '../lib/2ddoc';
 	export let certificate: Certificate;
+	export let with_fullscreen = false;
 	$: error = findCertificateError(certificate);
 	let vaccine: VaccineCertificate | null, test: TestCertificate | null;
 	$: [vaccine, test] =
@@ -10,7 +11,12 @@
 	$: info = getNamesAndBirtdate(certificate);
 </script>
 
-<Alert color={error ? 'warning' : 'info'}>
+<Alert color={error ? 'warning' : 'info'} fade={false}>
+	{#if with_fullscreen}
+		<a style="float:right" href="/fullscreen#{certificate.code}">
+			<Icon name="arrows-fullscreen" />
+		</a>
+	{/if}
 	<h4 class="text-center">{vaccine ? 'Vaccin' : 'Test de dépistage'}</h4>
 	<Row>
 		<div class="col-sm-0 col-md-3 text-center align-middle emoji">{vaccine ? '💉' : '🧪'}</div>

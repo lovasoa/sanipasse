@@ -5,6 +5,7 @@
 	import CertificateBox from './_Certificate.svelte';
 	import { put } from '$lib/http';
 	import ShowPromiseError from './_showPromiseError.svelte';
+	import wallet from './_myWalletStore';
 	const eventId = globalThis?.location?.hash?.slice(1);
 	export let codeFound: string | undefined = undefined;
 	let parsed: Certificate | null = null;
@@ -29,6 +30,11 @@
 	async function send(eventId: string, code: string) {
 		status = 'sending';
 		promise = put(`/api/publicevent-${eventId}/invite.json`, { code });
+	}
+
+	async function persist(code: string) {
+		const localforage = await import('localforage');
+		localforage.getItem('');
 	}
 
 	const toggle = () => (codeFound = undefined);
@@ -77,6 +83,20 @@
 						Envoi...
 					</Button>
 				{/if}
+			{:else if $wallet.includes(codeFound)}
+				<Button color="primary" disabled={true}>
+					<Icon name="download" />
+					Déjà enregistré dans mon carnet
+				</Button>
+			{:else}
+				<Button color="primary" on:click={() => wallet.add(codeFound)}>
+					<Icon name="download" />
+					Enregistrer dans mon carnet
+				</Button>
+				<p class="fst-italic" style="font-size: .7rem">
+					Votre carnet de test est enregistré localement sur votre appareil et n'est pas envoyé sur
+					les serveurs de sanipasse. Il est disponible depuis la page d'accueil.
+				</p>
 			{/if}
 		</ModalFooter>
 	</Modal>

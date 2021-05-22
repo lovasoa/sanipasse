@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	const eventId = globalThis?.location?.hash?.slice(1);
 	import { Row } from 'sveltestrap';
+	import Wallet from './wallet.svelte';
 	import ShowPromiseError from './_showPromiseError.svelte';
 	let links = [
 		{ href: 'import/video', text: '📸 Scanner un certificat' },
@@ -51,8 +52,8 @@
 		</p>
 	{:else}
 		<p>
-			Sanipasse est un logiciel libre de vérification des certificats de test ou de
-			vaccination, et d'organisation d’événements respectueux des règles sanitaires.
+			Sanipasse est un logiciel libre de vérification des certificats de test ou de vaccination, et
+			d'organisation d’événements respectueux des règles sanitaires.
 		</p>
 		<p>
 			La vérification proposée ci-dessous est <a href="apropos#donnees">strictement privée</a>, et
@@ -79,6 +80,7 @@
 			<a href="events" class="btn btn-primary">📅 Créer un évènement</a>
 		</Row>
 	{/if}
+	<Wallet />
 </footer>
 
 <style>
