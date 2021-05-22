@@ -27,19 +27,21 @@
 <div bind:this={div}><svg /></div>
 
 {#if code}
-	{#await parse(code) then certificate}
-		<Certificate {certificate} />
-	{:catch e}
-		<pre class="alert alert-danger">Certificat invalide: {e} </pre>
-	{/await}
-	{#if $wallet.includes(code)}
-		<button
-			class="btn btn-danger w-100"
-			on:click={(_) => {
-				wallet.remove(code);
-			}}>Supprimer de mon carnet</button
-		>
-	{/if}
+	<div class="mb-3 mt-3">
+		{#await parse(code) then certificate}
+			<Certificate {certificate} />
+		{:catch e}
+			<pre class="alert alert-danger">Certificat invalide: {e} </pre>
+		{/await}
+		{#if $wallet.includes(code)}
+			<button
+				class="btn btn-danger w-100"
+				on:click={(_) => {
+					wallet.remove(code);
+				}}>Supprimer de mon carnet</button
+			>
+		{/if}
+	</div>
 {/if}
 
 <style>
