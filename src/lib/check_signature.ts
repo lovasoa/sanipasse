@@ -58,7 +58,7 @@ export async function check_signature(
 	const public_key_promise = PUB_KEYS.get(public_key_id);
 	if (!public_key_promise)
 		throw new Error(
-			`🤨 Certificat signé par une entité non reconnue ${public_key_id};` +
+			`🤨 Certificat signé par une entité non reconnue ("${public_key_id}"); ` +
 				`ce certificat est peut-être contrefait.`
 		);
 	const public_key = await public_key_promise;
