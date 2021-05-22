@@ -1,8 +1,5 @@
 <script lang="ts">
-	import type { DBEvent } from '$lib/event';
-	import { get } from '$lib/http';
-	import { onMount } from 'svelte';
-	const eventId = globalThis?.location?.hash?.slice(1);
+	import invitedTo from './_invitedToStore';
 	import { Row } from 'sveltestrap';
 	import Wallet from './wallet.svelte';
 	import ShowPromiseError from './_showPromiseError.svelte';
@@ -11,20 +8,13 @@
 		{ href: 'import/file', text: '📁 Importer un fichier' },
 		{ href: 'import/text', text: '🔗 Entrer un lien TousAntiCovid' }
 	];
-	if (eventId) links = links.map((l) => ({ ...l, href: `${l.href}#${eventId}` }));
-	let promise: Promise<DBEvent | null> = eventId ? new Promise(() => {}) : Promise.resolve(null);
-	let event: DBEvent | null = null;
-	onMount(async () => {
-		if (eventId) {
-			promise = get(`/api/publicevent-${eventId}/event.json`);
-			event = await promise;
-		}
-	});
+	if ($invitedTo.eventId)
+		links = links.map((l) => ({ ...l, href: `${l.href}#${$invitedTo.eventId}` }));
 </script>
 
 <svelte:head>
-	{#if event}
-		<title>Sanipasse: “{event.name}”</title>
+	{#if $invitedTo.event}
+		<title>Sanipasse: “{$invitedTo.event.name}”</title>
 	{:else}
 		<title>Sanipasse: Vérification de pass sanitaire</title>
 	{/if}
@@ -33,13 +23,13 @@
 <header>
 	<h1>Bienvenue sur Sanipasse</h1>
 
-	<ShowPromiseError {promise} />
+	<ShowPromiseError promise={$invitedTo.promise} />
 
-	{#if eventId}
+	{#if $invitedTo.eventId}
 		<p>
 			Ceci est une invitation à l'évènement
-			<i class="bg-light">{event?.name || '...'}</i>, qui aura lieu le
-			{event ? new Date(event.date).toLocaleString('fr') : '...'}.
+			<i class="bg-light">{$invitedTo.event?.name || '...'}</i>, qui aura lieu le
+			{$invitedTo.event ? new Date($invitedTo.event.date).toLocaleString('fr') : '...'}.
 		</p>
 		<p>
 			Pour confirmer votre participation, vous devez scanner un certificat de test de moins de 72h,
@@ -69,7 +59,7 @@
 {/each}
 
 <footer class="mb-2">
-	{#if !eventId}
+	{#if !$invitedTo.eventId}
 		<p>
 			Vous pouvez également <i>Créer un événement</i>, pour construire une
 			<a href="apropos#liste">liste d'invités zéro-COVID</a>. Sanipasse générera un lien privé à

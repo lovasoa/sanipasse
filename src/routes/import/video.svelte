@@ -1,6 +1,6 @@
 <script lang="ts">
 	import CodeFound from '../_CodeFound.svelte';
-	import { Button, Alert, Input, ListGroup, ListGroupItem } from 'sveltestrap';
+	import { Alert, Input, ListGroup, ListGroupItem } from 'sveltestrap';
 	import { BarcodeFormat, DecodeHintType, NotFoundException } from '@zxing/library';
 	import type { Result } from '@zxing/library';
 	import { BrowserCodeReader, BrowserMultiFormatReader } from '@zxing/browser';

@@ -6,7 +6,7 @@
 	import { put } from '$lib/http';
 	import ShowPromiseError from './_showPromiseError.svelte';
 	import wallet from './_myWalletStore';
-	const eventId = globalThis?.location?.hash?.slice(1);
+	import invitedTo from './_invitedToStore';
 	export let codeFound: string | undefined = undefined;
 	let parsed: Certificate | null = null;
 	let error: string = '';
@@ -32,11 +32,6 @@
 		promise = put(`/api/publicevent-${eventId}/invite.json`, { code });
 	}
 
-	async function persist(code: string) {
-		const localforage = await import('localforage');
-		localforage.getItem('');
-	}
-
 	const toggle = () => (codeFound = undefined);
 </script>
 
@@ -50,7 +45,7 @@
 {:else if codeFound && parsed}
 	<Modal isOpen={!!codeFound} {toggle}>
 		<ModalHeader>
-			{#if eventId}Confirmer ma présence
+			{#if $invitedTo.eventId}Confirmer ma présence
 			{:else}Certificat détecté
 			{/if}
 		</ModalHeader>
@@ -66,16 +61,16 @@
 		</ModalBody>
 		<ModalFooter>
 			<Button color="secondary" on:click={toggle}>Fermer</Button>
-			{#if eventId}
+			{#if $invitedTo.eventId}
 				{#if status === 'notsent'}
-					<Button color="primary" on:click={() => send(eventId, codeFound)}>
+					<Button color="primary" on:click={() => send($invitedTo.eventId, codeFound)}>
 						<Icon name="upload" />
 						Envoyer mon certificat
 					</Button>
 					<hr />
 					<p class="fst-italic" style="font-size: .7rem">
 						Votre certificat ne sera pas stocké par Sanipasse, ni visible par l'organisateur de
-						l'événement.
+						l'événement <b>{$invitedTo.event?.name || ''}</b>.
 					</p>
 				{:else if status === 'sending'}
 					<Button color="secondary" disabled={true}>
