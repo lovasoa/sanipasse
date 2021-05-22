@@ -68,23 +68,49 @@ const VACCINE_FIELDS = [
 
 type FIELDS_TYPES = typeof TEST_FIELDS | typeof VACCINE_FIELDS;
 type OBJECT_WITH_FIELDS<FIELDS extends FIELDS_TYPES> = {
-	[T in FIELDS[number] as T['name']]: ReturnType<T['type']['parse']>;
+	[T in FIELDS[number]as T['name']]: ReturnType<T['type']['parse']>;
 };
 
 export type TestCertificate = OBJECT_WITH_FIELDS<typeof TEST_FIELDS>;
 export type VaccineCertificate = OBJECT_WITH_FIELDS<typeof VACCINE_FIELDS>;
-export type Certificate = VaccineCertificate | TestCertificate;
+interface HeaderData {
+	creation_date?: Date,
+	signature_date?: Date,
+}
+export type Certificate = (VaccineCertificate | TestCertificate) & HeaderData;
+
+
+function parse_2ddoc_date(date_str: string): Date | undefined {
+	/**
+	 * From the specification:
+	 * Date d’émission du document indiquée par le nombre de jours en hexadécimal
+	 * depuis le 1er janvier 2000.
+	 * Par exemple, 0294 le 31 décembre 2011,
+	 * il se sera écoulé 4382 jours, soit en 1F42 hexadécimal 111E.
+	 * Si le document n’est pas daté, alors la valeur sera codée FFFF.
+	 */
+	if (!date_str || date_str === 'FFFF') return undefined;
+	const days = parseInt(date_str, 16);
+	const ms = days * 24 * 60 * 60 * 1000;
+	const jan_2001 = new Date("2000-01-01");
+	return new Date(+jan_2001 + ms);
+}
 
 function extract_data<F extends FIELDS_TYPES>(
 	fields: F,
 	o: Record<string, string>
-): OBJECT_WITH_FIELDS<F> {
-	return Object.fromEntries(
+): OBJECT_WITH_FIELDS<F> & HeaderData {
+	const document_data: OBJECT_WITH_FIELDS<F> = Object.fromEntries(
 		fields.map((f: Field<PossibleFieldType>) => {
 			if (!(f.name in o)) throw new Error(`Missing data for field ${f.name}`);
 			return [f.name, f.type.parse(o[f.name])];
 		})
 	);
+	const header: HeaderData = {
+		creation_date: parse_2ddoc_date(o.creation_date),
+		signature_date: parse_2ddoc_date(o.signature_date),
+	};
+	return { ...header, ...document_data };
 }
 
 // See the specification at
@@ -95,9 +121,10 @@ const VACCINE_REGEX = VACCINE_FIELDS.map((x) => fieldRegex<PossibleFieldType>(x)
 
 const HEADER_REGEX =
 	'[A-Z\\d]{4}' +
-	'([A-Z\\d]{4})' +
+	'(?<certificate_authority_id>[A-Z\\d]{4})' +
 	'(?<public_key_id>[A-Z\\d]{4})' +
-	'[A-Z\\d]{8}' +
+	'(?<creation_date>[A-Z\\d]{4})' +
+	'(?<signature_date>[A-Z\\d]{4})' +
 	'(?<certificate_type>B2|L1)' +
 	'[A-Z\\d]{4}';
 
