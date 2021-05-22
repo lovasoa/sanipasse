@@ -26,6 +26,13 @@ function createWalletStore() {
                 return newWallet
             })
         },
+        remove: (cert: string) => {
+            update(wallet => {
+                const newWallet = wallet.filter(c => c !== cert);
+                walletSet(newWallet);
+                return newWallet
+            })
+        },
     };
 }
 

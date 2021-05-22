@@ -78,13 +78,13 @@
 						Envoi...
 					</Button>
 				{/if}
-			{:else if $wallet.includes(codeFound)}
+			{:else if $wallet.includes(parsed.code)}
 				<Button color="primary" disabled={true}>
 					<Icon name="download" />
 					Déjà enregistré dans mon carnet
 				</Button>
 			{:else}
-				<Button color="primary" on:click={() => wallet.add(codeFound)}>
+				<Button color="primary" on:click={() => wallet.add(parsed.code)}>
 					<Icon name="download" />
 					Enregistrer dans mon carnet
 				</Button>

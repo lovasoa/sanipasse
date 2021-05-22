@@ -4,6 +4,8 @@
 	import { parse } from '$lib/2ddoc';
 	import { BrowserQRCodeSvgWriter } from '@zxing/browser';
 	import Certificate from './_Certificate.svelte';
+	import wallet from './_myWalletStore';
+
 	const writer = new BrowserQRCodeSvgWriter();
 	function updateCode(div: HTMLElement) {
 		console.log(code);
@@ -30,6 +32,14 @@
 	{:catch e}
 		<pre class="alert alert-danger">Certificat invalide: {e} </pre>
 	{/await}
+	{#if $wallet.includes(code)}
+		<button
+			class="btn btn-danger w-100"
+			on:click={(_) => {
+				wallet.remove(code);
+			}}>Supprimer de mon carnet</button
+		>
+	{/if}
 {/if}
 
 <style>
