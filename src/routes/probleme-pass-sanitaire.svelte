@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>Le problème avec les passes sanitaires - Sanipasse</title>
+</svelte:head>
+
 <h1>Le problème avec les passes sanitaires</h1>
 <p>Le 18 mai 2021, l'instauration d'un système de passe sanitaire a été voté au Sénat.</p>
 <p>
