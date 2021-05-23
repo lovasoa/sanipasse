@@ -18,6 +18,11 @@
 	{:else}
 		<title>Sanipasse: Vérification de pass sanitaire</title>
 	{/if}
+	<meta
+		name="description"
+		content="Sanipasse permet de vérifier les certificats de test et de vaccination,
+et d'organiser des évènements en toute sécurité."
+	/>
 </svelte:head>
 
 <header>

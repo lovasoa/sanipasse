@@ -4,11 +4,6 @@
 
 <svelte:head>
 	<title>Sanipasse - vérification de pass sanitaire</title>
-	<meta
-		name="description"
-		content="Sanipasse permet de vérifier les certificats de test et de vaccination,
-	et d'organiser des évènements en toute sécurité."
-	/>
 </svelte:head>
 
 <Navbar color="light" light expand="md">

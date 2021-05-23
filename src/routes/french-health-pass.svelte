@@ -1,9 +1,13 @@
-<script lang=ts>
+<script lang ts>
 	import { Tooltip } from 'sveltestrap';
 </script>
 
 <svelte:head>
 	<title>The French Health Pass - Sanipasse</title>
+	<meta
+		name="description"
+		content="How does the french health pass work, and what are the privacy tradeoff involved ?"
+	/>
 </svelte:head>
 
 <main lang="en">
