@@ -1,5 +1,8 @@
 <svelte:head>
 	<title>Le problème avec les passes sanitaires - Sanipasse</title>
+	<meta property="og:title" content="Le problème avec les passes sanitaires" />
+	<meta property="og:type" content="article" />
+	<meta property="og:image" content="https://sanipasse.fr/mytest.png" />
 </svelte:head>
 
 <h1>Le problème avec les passes sanitaires</h1>
