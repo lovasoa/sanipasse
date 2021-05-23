@@ -53,9 +53,8 @@
 </p>
 <ul>
 	<li>
-		Elle est facilement contournable. La personne chargée du contrôle peut facilement scanner le
-		passe sanitaire différemment, et avoir accès aux informations qu'il n'est pas censé pouvoir
-		lire.
+		Elle est aisément contournable. La personne chargée du contrôle peut facilement scanner le passe
+		sanitaire différemment, et avoir accès aux informations qu'il n'est pas censé pouvoir lire.
 	</li>
 	<li>
 		Elle n'est pas auditable. Si l'application de vérification est privée (comme l'est actuellement
