@@ -68,7 +68,7 @@
 	</li>
 </ul>
 
-<h2>Une solution plus respectueuse de la vie privée</h2>
+<h2>Comment garantir le respect de la vie privée ?</h2>
 <p>
 	Puisque les informations privées sont contenues en clair dans les certificats, le seul moyen de
 	les cacher aux organisateurs d'événement est de ne pas leur montrer les certificats.
