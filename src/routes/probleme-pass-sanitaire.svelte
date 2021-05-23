@@ -35,7 +35,7 @@
 		title="format standardisé par l'agence nationale des titres sécurisés">2D-DOC</abbr
 	>), ni le format du futur "passe sanitaire européen" (<abbr title="Digital Green Certificate"
 		>DGC</abbr
-	>) ne permettent techniquement d'offrir cette garantie si ils sont présentés directement aux
+	>) ne permettent techniquement d'offrir cette garantie s'ils sont présentés directement aux
 	<i>personnes habilitées</i>.
 </p>
 
