@@ -48,7 +48,7 @@
 
 <p>
 	En effet, les codes contenant ces certificats contiennent toutes leurs informations en clair, et
-	peuvent être lus par tout un chacun avec une simple lecteur de QR code, ou avec le logiciel libre
+	peuvent être lus par tout un chacun avec un simple lecteur de QR code, ou avec le logiciel libre
 	<a href="/">sanipasse</a> présent sur ce site pour en mettre en forme tout le contenu, par exemple.
 </p>
 
@@ -56,12 +56,13 @@
 	La solution technique vers laquelle nous nous dirigeons est donc probablement la simple
 	distribution aux agents de vérification d'une application privée et propriétaire qui est
 	volontairement bridée pour ne pas afficher tous les champs de données contenus dans les passes des
-	personnes qu'ils contrôlent. Cette solution est problématique pour plusieurs raisons:
+	personnes qu'ils contrôlent. Cette solution pose problème pour plusieurs raisons:
 </p>
 <ul>
 	<li>
 		Elle est aisément contournable. La personne chargée du contrôle peut facilement scanner le passe
-		sanitaire différemment, et avoir accès aux informations qu'il n'est pas censé pouvoir lire.
+		sanitaire différemment, de façon à avoir accès aux informations qu’elle n’est pas censée pouvoir
+		lire.
 	</li>
 	<li>
 		Elle n'est pas auditable. Si l'application de vérification est privée (comme l'est actuellement
