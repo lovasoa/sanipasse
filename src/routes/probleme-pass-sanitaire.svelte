@@ -5,7 +5,7 @@
 	<meta property="og:image" content="https://sanipasse.fr/mytest.png" />
 	<meta
 		name="description"
-		content="Les passes sanitaires sont censés respecter la vie privée, mais toutes les informations médicales qu'ils contiennent sont en clair. "
+		content="Les passes sanitaires sont censés respecter la vie privée, mais toutes les informations médicales qu'ils contiennent sont en clair."
 	/>
 </svelte:head>
 

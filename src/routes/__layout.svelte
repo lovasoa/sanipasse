@@ -14,6 +14,9 @@
 		</NavbarBrand>
 		<Nav navbar>
 			<NavItem>
+				<NavLink href="/articles">Articles</NavLink>
+			</NavItem>
+			<NavItem>
 				<NavLink href="/apropos">À propos</NavLink>
 			</NavItem>
 		</Nav>
