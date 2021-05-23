@@ -2,6 +2,15 @@
 	import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Container, Icon } from 'sveltestrap';
 </script>
 
+<svelte:head>
+	<title>Sanipasse - vérification de pass sanitaire</title>
+	<meta
+		name="description"
+		content="Sanipasse permet de vérifier les certificats de test et de vaccination,
+	et d'organiser des évènements en toute sécurité."
+	/>
+</svelte:head>
+
 <Navbar color="light" light expand="md">
 	<Container>
 		<NavbarBrand href="/">
