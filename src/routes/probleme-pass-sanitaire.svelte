@@ -79,7 +79,7 @@
 	<i>Sanipasse</i> tente de répondre à ce problème en offrant un système open-source
 	<a href="/events">d’organisation d’événements</a> dans lequel les invités scannent eux-mêmes leur passe
 	sanitaire, qui est vérifié de manière sécurisée, et ensuite immédiatement supprimé. Cela offre ainsi
-	la garantie que les organisateurs n’ont accès à aucune autre information que ce à qu'ils ont légalement
+	la garantie que les organisateurs n’ont accès à aucune autre information que ce qu'ils ont légalement
 	l'autorisation de vérifier.
 </p>
 
