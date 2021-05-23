@@ -58,7 +58,7 @@
 	</li>
 	<li>
 		Elle n'est pas auditable. Si l'application de vérification est privée (comme l'est actuellement
-		l'application <i>TousAntiCovid-Vérif</i>), elle ne peut pas être auditée publiquement par des
+		l'application <i>TousAntiCovid-Vérif</i>), elle ne peut être auditée publiquement par des
 		chercheurs en sécurité indépendants.
 	</li>
 	<li>
