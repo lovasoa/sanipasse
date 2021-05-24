@@ -1,5 +1,16 @@
 <script lang="ts">
-	import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Container, Icon } from 'sveltestrap';
+	import {
+		Navbar,
+		NavbarBrand,
+		Nav,
+		Collapse,
+		NavbarToggler,
+		NavItem,
+		NavLink,
+		Container,
+		Icon
+	} from 'sveltestrap';
+	let isOpen = false;
 </script>
 
 <svelte:head>
@@ -12,14 +23,17 @@
 			<Icon name="calendar2-check" />
 			Sanipasse
 		</NavbarBrand>
-		<Nav navbar>
-			<NavItem>
-				<NavLink href="/articles">Articles</NavLink>
-			</NavItem>
-			<NavItem>
-				<NavLink href="/apropos">À propos</NavLink>
-			</NavItem>
-		</Nav>
+		<NavbarToggler on:click={() => (isOpen = !isOpen)} class="me-2" />
+		<Collapse {isOpen} navbar>
+			<Nav navbar>
+				<NavItem>
+					<NavLink href="/articles">Articles</NavLink>
+				</NavItem>
+				<NavItem>
+					<NavLink href="/apropos">À propos</NavLink>
+				</NavItem>
+			</Nav>
+		</Collapse>
 	</Container>
 </Navbar>
 
