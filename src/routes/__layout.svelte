@@ -24,8 +24,8 @@
 			Sanipasse
 		</NavbarBrand>
 		<NavbarToggler on:click={() => (isOpen = !isOpen)} class="me-2" />
-		<Collapse {isOpen} navbar>
-			<Nav navbar>
+		<Collapse {isOpen} navbar expand="md" on:update={(e) => (isOpen = e.detail.isOpen)}>
+			<Nav navbar class="ms-auto">
 				<NavItem>
 					<NavLink href="/articles">Articles</NavLink>
 				</NavItem>
