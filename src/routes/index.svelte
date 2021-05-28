@@ -4,9 +4,9 @@
 	import Wallet from './wallet.svelte';
 	import ShowPromiseError from './_showPromiseError.svelte';
 	let links = [
-		{ href: 'import/video', text: '📸 Scanner un certificat' },
-		{ href: 'import/file', text: '📁 Importer un fichier' },
-		{ href: 'import/text', text: '🔗 Entrer un lien TousAntiCovid' }
+		{ href: '/import/video', text: '📸 Scanner un certificat' },
+		{ href: '/import/file', text: '📁 Importer un fichier' },
+		{ href: '/import/text', text: '🔗 Entrer un lien TousAntiCovid' }
 	];
 	if ($invitedTo.eventId)
 		links = links.map((l) => ({ ...l, href: `${l.href}#${$invitedTo.eventId}` }));
