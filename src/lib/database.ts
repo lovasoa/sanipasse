@@ -3,10 +3,10 @@ const { Sequelize, STRING, DATE, BOOLEAN, Model } = SequelizePKG;
 import { generateKey } from '$lib/event';
 import type { DBEvent, DBPerson } from '$lib/event';
 
-const DATABASE_CONNECTION_STRING = process.env.DATABASE_CONNECTION_STRING || 'sqlite:sanipasse.db';
+const DATABASE_CONNECTION_STRING = process.env['DATABASE_CONNECTION_STRING'] || 'sqlite:sanipasse.db';
 const sequelize = new Sequelize(DATABASE_CONNECTION_STRING);
 
-class Event extends Model<DBEvent> {}
+class Event extends Model<DBEvent> { }
 Event.init(
 	{
 		public_code: {
@@ -31,7 +31,7 @@ Event.init(
 interface ModelPerson extends DBPerson {
 	eventPublicCode: string;
 }
-class Person extends Model<ModelPerson> {}
+class Person extends Model<ModelPerson> { }
 Person.init(
 	{
 		key: { type: STRING, primaryKey: true },
