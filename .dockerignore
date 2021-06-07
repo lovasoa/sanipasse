@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+/.svelte-kit
+/build
+/functions
+/sanipasse.db
+/docs
+LICENSE
+netlify.toml
+sanipasse.db
+README.md
