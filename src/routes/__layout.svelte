@@ -2,7 +2,6 @@
 	import {
 		Navbar,
 		NavbarBrand,
-		Nav,
 		Collapse,
 		NavbarToggler,
 		NavItem,
@@ -25,14 +24,14 @@
 		</NavbarBrand>
 		<NavbarToggler on:click={() => (isOpen = !isOpen)} class="me-2" />
 		<Collapse {isOpen} navbar expand="md" on:update={(e) => (isOpen = e.detail.isOpen)}>
-			<Nav navbar class="ms-auto">
+			<ul class="ms-auto navbar-nav">
 				<NavItem>
 					<NavLink href="/articles">Articles</NavLink>
 				</NavItem>
 				<NavItem>
 					<NavLink href="/apropos">À propos</NavLink>
 				</NavItem>
-			</Nav>
+			</ul>
 		</Collapse>
 	</Container>
 </Navbar>

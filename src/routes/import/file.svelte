@@ -57,7 +57,7 @@
 			const buffer = await file.arrayBuffer();
 			const render = file.name.endsWith('.pdf') ? renderPdf : renderImage;
 			await render(canvasElement, buffer);
-			const result = await codeReader.decodeFromCanvas(canvasElement);
+			const result = codeReader.decodeFromCanvas(canvasElement);
 			codeFound = result.getText();
 		} catch (e) {
 			console.log(e);

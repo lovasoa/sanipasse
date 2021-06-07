@@ -1,13 +1,11 @@
 <script type="ts">
 	import { Alert, Row, Col, Icon } from 'sveltestrap';
 	import { findCertificateError, getNamesAndBirtdate } from '$lib/2ddoc';
-	import type { TestCertificate, VaccineCertificate, Certificate } from '../lib/2ddoc';
+	import type { Certificate } from '../lib/2ddoc';
 	export let certificate: Certificate;
 	export let with_fullscreen = false;
 	$: error = findCertificateError(certificate);
-	let vaccine: VaccineCertificate | null, test: TestCertificate | null;
-	$: [vaccine, test] =
-		'vaccinated_first_name' in certificate ? [certificate, null] : [null, certificate];
+	$: vaccine = 'vaccinated_first_name' in certificate;
 	$: info = getNamesAndBirtdate(certificate);
 </script>
 

@@ -63,7 +63,7 @@
 			<Button color="secondary" on:click={toggle}>Fermer</Button>
 			{#if $invitedTo.eventId}
 				{#if status === 'notsent'}
-					<Button color="primary" on:click={() => send($invitedTo.eventId, codeFound)}>
+					<Button color="primary" on:click={() => $invitedTo.eventId && codeFound && send($invitedTo.eventId, codeFound)}>
 						<Icon name="upload" />
 						Envoyer mon certificat
 					</Button>
@@ -84,7 +84,7 @@
 					Déjà enregistré dans mon carnet
 				</Button>
 			{:else}
-				<Button color="primary" on:click={() => wallet.add(parsed.code)}>
+				<Button color="primary" on:click={() => parsed && wallet.add(parsed.code)}>
 					<Icon name="download" />
 					Enregistrer dans mon carnet
 				</Button>
