@@ -10,7 +10,6 @@
 		Container,
 		Icon
 	} from 'sveltestrap';
-	const MyNav: any = Nav; // workaround for sveltestrap type bug
 	let isOpen = false;
 	const onupdate = (e: any) => (isOpen = e.detail.isOpen);
 </script>
@@ -26,14 +25,14 @@
 	</NavbarBrand>
 	<NavbarToggler on:click={() => (isOpen = !isOpen)} class="me-2" />
 	<Collapse {isOpen} navbar expand="md" on:update={onupdate}>
-		<MyNav navbar class="ms-auto">
+		<Nav navbar class="ms-auto">
 			<NavItem>
 				<NavLink href="/articles">Articles</NavLink>
 			</NavItem>
 			<NavItem>
 				<NavLink href="/apropos">À propos</NavLink>
 			</NavItem>
-		</MyNav>
+		</Nav>
 	</Collapse>
 </Navbar>
 
