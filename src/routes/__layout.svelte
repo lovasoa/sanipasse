@@ -3,13 +3,16 @@
 		Navbar,
 		NavbarBrand,
 		Collapse,
+		Nav,
 		NavbarToggler,
 		NavItem,
 		NavLink,
 		Container,
 		Icon
 	} from 'sveltestrap';
+	const MyNav: any = Nav; // workaround for sveltestrap type bug
 	let isOpen = false;
+	const onupdate = (e: any) => (isOpen = e.detail.isOpen);
 </script>
 
 <svelte:head>
@@ -17,23 +20,21 @@
 </svelte:head>
 
 <Navbar color="light" light expand="md">
-	<Container>
-		<NavbarBrand href="/">
-			<Icon name="calendar2-check" />
-			Sanipasse
-		</NavbarBrand>
-		<NavbarToggler on:click={() => (isOpen = !isOpen)} class="me-2" />
-		<Collapse {isOpen} navbar expand="md" on:update={(e) => (isOpen = e.detail.isOpen)}>
-			<ul class="ms-auto navbar-nav">
-				<NavItem>
-					<NavLink href="/articles">Articles</NavLink>
-				</NavItem>
-				<NavItem>
-					<NavLink href="/apropos">À propos</NavLink>
-				</NavItem>
-			</ul>
-		</Collapse>
-	</Container>
+	<NavbarBrand href="/">
+		<Icon name="calendar2-check" />
+		Sanipasse
+	</NavbarBrand>
+	<NavbarToggler on:click={() => (isOpen = !isOpen)} class="me-2" />
+	<Collapse {isOpen} navbar expand="md" on:update={onupdate}>
+		<MyNav navbar class="ms-auto">
+			<NavItem>
+				<NavLink href="/articles">Articles</NavLink>
+			</NavItem>
+			<NavItem>
+				<NavLink href="/apropos">À propos</NavLink>
+			</NavItem>
+		</MyNav>
+	</Collapse>
 </Navbar>
 
 <main>
