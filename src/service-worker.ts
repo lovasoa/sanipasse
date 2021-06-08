@@ -6,15 +6,12 @@ import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 // Used to limit entries in cache, remove entries after a certain period of time
 import { ExpirationPlugin } from 'workbox-expiration';
 
-import { precacheAndRoute } from 'workbox-precaching';
+import { precacheAndRoute, precache } from 'workbox-precaching';
 import { build, files, timestamp } from '$service-worker';
 
-const all_assets = [...build, ...files].map(url => ({
-    url,
-    revision: new Date(timestamp).toISOString()
-}));
+const revision = new Date(timestamp).toISOString();
 
-precacheAndRoute(all_assets);
+precache([{ url: '/', revision }]);
 
 // Cache page navigations (html) with a Network First strategy
 registerRoute(
@@ -36,3 +33,7 @@ registerRoute(
         ],
     }),
 );
+
+
+const all_assets = [...build, ...files].map(url => ({ url, revision }));
+precacheAndRoute(all_assets, { cleanURLs: false });
