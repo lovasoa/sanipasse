@@ -11,7 +11,8 @@ import { build, files, timestamp } from '$service-worker';
 
 const revision = new Date(timestamp).toISOString();
 
-precache([{ url: '/', revision }]);
+const main_routes = ["/", "/import/video", "/import/file", "/fullscreen", "/apropos"];
+precache(main_routes.map(url => ({ url, revision })));
 
 // Cache page navigations (html) with a Network First strategy
 registerRoute(
