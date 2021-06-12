@@ -1,6 +1,6 @@
 import type { EndpointOutput } from '@sveltejs/kit';
 import { Person, Event } from '$lib/database';
-import { parse, getNamesAndBirtdate, findCertificateError } from '$lib/2ddoc';
+import { parse, getNamesAndBirthdate, findCertificateError } from '$lib/2ddoc';
 import { getKey } from '$lib/invitees';
 import type { DBEvent } from '$lib/event';
 
@@ -27,7 +27,7 @@ export async function put({
 	if (!event) return { status: 404, body: 'event not found' };
 	const error = findCertificateError(parsed, event.toJSON() as DBEvent);
 	if (error) return { status: 401, body: error };
-	const key = getKey(getNamesAndBirtdate(parsed));
+	const key = getKey(getNamesAndBirthdate(parsed));
 	(await Person).upsert({
 		key,
 		eventPublicCode: public_code,
