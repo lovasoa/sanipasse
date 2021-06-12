@@ -183,7 +183,7 @@ export async function parse(doc: string): Promise<Certificate> {
 	return extract_data(doc, fields, groups);
 }
 
-export function getNamesAndBirtdate(c: Certificate): Names & { birth_date: Date } {
+export function getNamesAndBirthdate(c: Certificate): Names & { birth_date: Date } {
 	if ('vaccinated_first_name' in c) {
 		return {
 			first_name: c.vaccinated_first_name,

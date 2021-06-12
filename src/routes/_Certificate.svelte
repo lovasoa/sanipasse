@@ -1,12 +1,12 @@
 <script type="ts">
 	import { Alert, Row, Col, Icon } from 'sveltestrap';
-	import { findCertificateError, getNamesAndBirtdate } from '$lib/2ddoc';
+	import { findCertificateError, getNamesAndBirthdate } from '$lib/2ddoc';
 	import type { Certificate } from '../lib/2ddoc';
 	export let certificate: Certificate;
 	export let with_fullscreen = false;
 	$: error = findCertificateError(certificate);
 	$: vaccine = 'vaccinated_first_name' in certificate;
-	$: info = getNamesAndBirtdate(certificate);
+	$: info = getNamesAndBirthdate(certificate);
 </script>
 
 <Alert color={error ? 'warning' : 'info'} fade={false}>
