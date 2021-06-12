@@ -26,6 +26,8 @@ const DATE = {
 	}
 };
 
+// Correspondance code court (Ex: FR03) et nom de l'autorité (Ex: Dhimyotis)
+// Source: https://ants.gouv.fr/content/download/517/5670/version/23/file/TLS_valide-signed-xades-baseline-b.xml
 const CERTIFICATE_AUTHORITIES = new Map<string, string>([
 	['FR01', 'AriadNEXT'],
 	['FR02', 'LEX PERSONA'],
@@ -44,6 +46,8 @@ export function getCertificateAuthority(certificateAuthorityId: string): string 
 	return certificateAuthority;
 }
 
+// Correspondance identifiant du certificat (Ex: AHP1) et nom de l'entité (Ex: Assistance Publique Hopitaux de Paris)
+// Source: certificates.certigna.fr/search.php?name=[ID_CERTIFICAT]
 const PUBLIC_KEYS = new Map<string, string>([
 	['AHP1', 'Assistance Publique Hopitaux de Paris (APHP)'],
 	['AHP2', 'Assistance Publique Hopitaux de Paris (APHP)'],
@@ -61,6 +65,8 @@ export function getPublicKey(publicKeyId: string): string | undefined {
 	return publicKey;
 }
 
+// Source: https://ants.gouv.fr/content/download/516/5665/version/11/file/Specifications-techniques-des-codes-a-barres_2D-Doc_v3.1.3.pdf
+// 7.14. Identifiants de données relatives aux résultats des tests virologiques - F3 (Page 81)
 export function getSex(sex: string): string {
 	switch (sex) {
 		case 'M':
@@ -72,6 +78,8 @@ export function getSex(sex: string): string {
 	}
 }
 
+// Source: https://ants.gouv.fr/content/download/516/5665/version/11/file/Specifications-techniques-des-codes-a-barres_2D-Doc_v3.1.3.pdf
+// 7.14. Identifiants de données relatives aux résultats des tests virologiques - F5 (Page 81)
 export function getAnalysisResult(analysisResult: string): string {
 	switch (analysisResult) {
 		case 'P':
