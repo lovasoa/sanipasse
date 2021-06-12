@@ -26,6 +26,65 @@ const DATE = {
 	}
 };
 
+const CERTIFICATE_AUTHORITIES = new Map<string, string>([
+	['FR01', 'AriadNEXT'],
+	['FR02', 'LEX PERSONA'],
+	['FR03', 'Dhimyotis'],
+	['FR04', 'AriadNEXT'],
+	['FR05', 'ANTS']
+]);
+
+export function getCertificateAuthority(certificateAuthorityId: string): string | undefined {
+	const certificateAuthority = CERTIFICATE_AUTHORITIES.get(certificateAuthorityId);
+
+	if (certificateAuthority === undefined) {
+		return 'Autorité inconnue';
+	}
+
+	return certificateAuthority;
+}
+
+const PUBLIC_KEYS = new Map<string, string>([
+	['AHP1', 'Assistance Publique Hopitaux de Paris (APHP)'],
+	['AHP2', 'Assistance Publique Hopitaux de Paris (APHP)'],
+	['AV01', 'Caisse Nationale d\'Assurance Maladie (CNAM)'],
+	['AV02', 'Caisse Nationale d\'Assurance Maladie (CNAM)'],
+]);
+
+export function getPublicKey(publicKeyId: string): string | undefined {
+	const publicKey = PUBLIC_KEYS.get(publicKeyId);
+
+	if (publicKey === undefined) {
+		return 'Certificat inconnu';
+	}
+
+	return publicKey;
+}
+
+export function getSex(sex: string): string {
+	switch (sex) {
+		case 'M':
+			return 'Masculin';
+		case 'F':
+			return 'Féminin';
+		default:
+			return 'Inconnu';
+	}
+}
+
+export function getAnalysisResult(analysisResult: string): string {
+	switch (analysisResult) {
+		case 'P':
+			return 'Positif';
+		case 'N':
+			return 'Négatif';
+		case 'X':
+			return 'Prélèvement non conforme';
+		default:
+			return 'Indéterminé';
+	}
+}
+
 type PossibleFieldType = Date | string | number;
 
 interface Field<T extends PossibleFieldType> {
@@ -77,8 +136,14 @@ interface HeaderData {
 	code: string,
 	creation_date?: Date,
 	signature_date?: Date,
+	certificate_authority_id?: string,
+	public_key_id?: string,
+	document_version?: string,
+	document_type?: string,
+	document_perimeter?: string,
+	document_country?: string,
 }
-export type Certificate = (VaccineCertificate | TestCertificate) & HeaderData;
+export type Certificate = (VaccineCertificate | TestCertificate) & HeaderData & { signature?: string };
 
 
 function parse_2ddoc_date(date_str: string): Date | undefined {
@@ -112,8 +177,14 @@ function extract_data<F extends FIELDS_TYPES>(
 		code,
 		creation_date: parse_2ddoc_date(o.creation_date),
 		signature_date: parse_2ddoc_date(o.signature_date),
+		certificate_authority_id: o.certificate_authority_id,
+		public_key_id: o.public_key_id,
+		document_version: o.document_version,
+		document_type: o.document_type,
+		document_perimeter: o.document_perimeter,
+		document_country: o.document_country
 	};
-	return { ...header, ...document_data };
+	return { ...header, ...document_data, signature: o.signature };
 }
 
 // See the specification at
@@ -123,13 +194,15 @@ const TEST_REGEX = TEST_FIELDS.map((x) => fieldRegex<PossibleFieldType>(x)).join
 const VACCINE_REGEX = VACCINE_FIELDS.map((x) => fieldRegex<PossibleFieldType>(x)).join('');
 
 const HEADER_REGEX =
-	'[A-Z\\d]{4}' +
+	'DC' +
+	'(?<document_version>[0-9]{2})' +
 	'(?<certificate_authority_id>[A-Z\\d]{4})' +
 	'(?<public_key_id>[A-Z\\d]{4})' +
 	'(?<creation_date>[A-Z\\d]{4})' +
 	'(?<signature_date>[A-Z\\d]{4})' +
-	'(?<certificate_type>B2|L1)' +
-	'[A-Z\\d]{4}';
+	'(?<document_type>[A-Z\\d]{2})' +
+	'(?<document_perimeter>[A-Z\\d]{2})' +
+	'(?<document_country>[A-Z]{2})';
 
 const SIGNATURE_REGEX =
 	'\\x1F{1}' + // This character is separating the message from its signature.
@@ -177,7 +250,7 @@ export async function parse(doc: string): Promise<Certificate> {
 	doc = extractLink(doc);
 	const groups = doc.match(TOTAL_REGEX)?.groups;
 	if (!groups) throw new Error('Format de certificat invalide');
-	const fields = groups.certificate_type === 'B2' ? TEST_FIELDS : VACCINE_FIELDS;
+	const fields = groups.document_type === 'B2' ? TEST_FIELDS : VACCINE_FIELDS;
 	const { data, public_key_id, signature } = groups;
 	await check_signature(data, public_key_id, signature);
 	return extract_data(doc, fields, groups);

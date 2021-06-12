@@ -43,12 +43,14 @@
 		</Alert>
 	</div>
 {:else if codeFound && parsed}
-	<Modal isOpen={!!codeFound} {toggle}>
+	<Modal isOpen={!!codeFound} {toggle} size="lg">
+
+		{#if $invitedTo.eventId}
 		<ModalHeader>
-			{#if $invitedTo.eventId}Confirmer ma présence
-			{:else}Certificat détecté
-			{/if}
+			Confirmer ma présence
 		</ModalHeader>
+		{/if}
+
 		<ModalBody>
 			<CertificateBox certificate={parsed} />
 			<ShowPromiseError {promise} />
