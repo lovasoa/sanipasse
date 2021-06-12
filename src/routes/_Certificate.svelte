@@ -1,5 +1,5 @@
 <script type="ts">
-	import { Alert, Row, Col, Icon, Table, Accordion, AccordionItem } from 'sveltestrap';
+	import { Alert, Row, Col, Icon, Table, Card, CardHeader, CardBody, CardTitle } from 'sveltestrap';
 	import { findCertificateError, getNamesAndBirthdate, getCertificateAuthority, getPublicKey, getSex, getAnalysisResult } from '$lib/2ddoc';
 	import type { Certificate } from '../lib/2ddoc';
 	export let certificate: Certificate;
@@ -31,15 +31,16 @@
 			<p class="error">⚠️ <strong>{error}</strong></p>
 		{/if}
 
-		<Accordion>
-			<AccordionItem header="Données techniques">
-				<Accordion>
-					<AccordionItem header="Données brutes">
-						<code>{certificate.code}</code>
-					</AccordionItem>
-
-					<AccordionItem header="Informations entête">
-						<Table>
+		<p>
+			<details>
+				<summary>Détails techniques</summary>
+				
+				<Card class="mb-3 mt-3">
+					<CardHeader>
+						<CardTitle>Informations entête</CardTitle>
+					</CardHeader>
+					<CardBody>
+						<Table class="table-sm">
 							<tbody>
 								<tr>
 									<th class="text-start">Version 2D-Doc</th>
@@ -55,15 +56,15 @@
 								</tr>
 								<tr>
 									<th class="text-start">ID Autorité de certification</th>
-									<td class="text-end"><abbr title="{getCertificateAuthority(certificate.certificate_authority_id)}">{certificate.certificate_authority_id}</abbr></td>
+									<td class="text-end">{getCertificateAuthority(certificate.certificate_authority_id)} <small>({certificate.certificate_authority_id})</small></td>
 								</tr>
 								<tr>
 									<th class="text-start">ID Certificat</th>
-									<td class="text-end"><abbr title="{getPublicKey(certificate.public_key_id)}">{certificate.public_key_id}</abbr></td>
+									<td class="text-end">{getPublicKey(certificate.public_key_id)} <small>({certificate.public_key_id})</small></td>
 								</tr>
 								<tr>
 									<th class="text-start">Type document</th>
-									<td class="text-end"><abbr title="{certificate.document_type == 'B2' ? 'Résultat de test virologique' : 'Attestation vaccinale'}">{certificate.document_type}</abbr></td>
+									<td class="text-end">{certificate.document_type == 'B2' ? 'Résultat de test virologique' : 'Attestation vaccinale'} <small>({certificate.document_type})</small></td>
 								</tr>
 								<tr>
 									<th class="text-start">Perimetre</th>
@@ -75,117 +76,165 @@
 								</tr>
 							</tbody>
 						</Table>
-					</AccordionItem>
+					</CardBody>
+				</Card>
 
-					<AccordionItem header="Informations message">
-						<Table>
+				<Card class="mb-3">
+					<CardHeader>
+						<CardTitle>Informations message</CardTitle>
+					</CardHeader>
+					<CardBody>
+						<Table class="table-sm">
 							<tbody>
+								{#if 'tested_first_name' in certificate}
 								<tr>
 									<th class="text-start">Prénom(s)</th>
-									<td class="text-end">{certificate.tested_first_name ? certificate.tested_first_name : certificate.vaccinated_first_name}</td>
-								</tr>
-								<tr>
-									<th class="text-start">Nom</th>
-									<td class="text-end">{certificate.tested_last_name ? certificate.tested_last_name : certificate.vaccinated_last_name}</td>
-								</tr>
-								<tr>
-									<th class="text-start">Date de naissance</th>
-									<td class="text-end">{(certificate.tested_birth_date ? certificate.tested_birth_date : certificate.vaccinated_birth_date).toLocaleDateString('fr-FR')}</td>
-								</tr>
-
-								{#if certificate.sex}
-								<tr>
-									<th class="text-start">Genre</th>
-									<td class="text-end"><abbr title="{getSex(certificate.sex)}">{certificate.sex}</abbr></td>
+									<td class="text-end">{certificate.tested_first_name}</td>
 								</tr>
 								{/if}
 
-								{#if certificate.analysis_code}
+								{#if 'tested_last_name' in certificate}
+								<tr>
+									<th class="text-start">Nom</th>
+									<td class="text-end">{certificate.tested_last_name}</td>
+								</tr>
+								{/if}
+
+								{#if 'tested_birth_date' in certificate}
+								<tr>
+									<th class="text-start">Date de naissance</th>
+									<td class="text-end">{certificate.tested_birth_date.toLocaleDateString('fr-FR')}</td>
+								</tr>
+								{/if}
+								
+								{#if 'vaccinatedd_first_name' in certificate}
+								<tr>
+									<th class="text-start">Prénom(s)</th>
+									<td class="text-end">{certificate.vaccinated_first_name}</td>
+								</tr>
+								{/if}
+
+								{#if 'vaccinated_last_name' in certificate}
+								<tr>
+									<th class="text-start">Nom</th>
+									<td class="text-end">{certificate.vaccinated_last_name}</td>
+								</tr>
+								{/if}
+
+								{#if 'vaccinated_birth_date' in certificate}
+								<tr>
+									<th class="text-start">Date de naissance</th>
+									<td class="text-end">{certificate.vaccinated_birth_date.toLocaleDateString('fr-FR')}</td>
+								</tr>
+								{/if}
+
+								{#if 'sex' in certificate}
+								<tr>
+									<th class="text-start">Genre</th>
+									<td class="text-end">{getSex(certificate.sex)} <small>({certificate.sex})</small></td>
+								</tr>
+								{/if}
+
+								{#if 'analysis_code' in certificate}
 								<tr>
 									<th class="text-start">Code analyse</th>
 									<td class="text-end">{certificate.analysis_code}</td>
 								</tr>
 								{/if}
 
-								{#if certificate.analysis_result}
+								{#if 'analysis_result' in certificate}
 								<tr>
 									<th class="text-start">Resultat analyse</th>
-									<td class="text-end"><abbr title="{getAnalysisResult(certificate.analysis_result)}">{certificate.analysis_result}</abbr></td>
+									<td class="text-end">{getAnalysisResult(certificate.analysis_result)} <small>({certificate.analysis_result})</small></td>
 								</tr>
 								{/if}
 
-								{#if certificate.analysis_datetime}
+								{#if 'analysis_datetime' in certificate}
 								<tr>
 									<th class="text-start">Date prélèvement</th>
 									<td class="text-end">{certificate.analysis_datetime.toLocaleDateString('fr-FR')}</td>
 								</tr>
 								{/if}
 
-								{#if certificate.disease}
+								{#if 'disease' in certificate}
 								<tr>
 									<th class="text-start">Maladie couverte</th>
 									<td class="text-end">{certificate.disease}</td>
 								</tr>
 								{/if}
 
-								{#if certificate.prophylactic_agent}
+								{#if 'prophylactic_agent' in certificate}
 								<tr>
 									<th class="text-start"><a href="https://fr.wikipedia.org/wiki/Classification_ATC" target="_blank">Agent prophylactique</a></th>
 									<td class="text-end">{certificate.prophylactic_agent}</td>
 								</tr>
 								{/if}
 
-								{#if certificate.vaccine}
+								{#if 'vaccine' in certificate}
 								<tr>
 									<th class="text-start">Nom vaccin</th>
 									<td class="text-end">{certificate.vaccine}</td>
 								</tr>
 								{/if}
 
-								{#if certificate.vaccine_maker}
+								{#if 'vaccine_maker' in certificate}
 								<tr>
 									<th class="text-start">Fabricant vaccin</th>
 									<td class="text-end">{certificate.vaccine_maker}</td>
 								</tr>
 								{/if}
 
-								{#if certificate.doses_received}
+								{#if 'doses_received' in certificate}
 								<tr>
 									<th class="text-start">Doses reçues</th>
 									<td class="text-end">{certificate.doses_received}</td>
 								</tr>
 								{/if}
 
-								{#if certificate.doses_expected}
+								{#if 'doses_expected' in certificate}
 								<tr>
 									<th class="text-start">Doses attendues</th>
 									<td class="text-end">{certificate.doses_expected}</td>
 								</tr>
 								{/if}
 
-								{#if certificate.last_dose_date}
+								{#if 'last_dose_date' in certificate}
 								<tr>
 									<th class="text-start">Date dernière dose</th>
 									<td class="text-end">{certificate.last_dose_date.toLocaleDateString('fr-FR')}</td>
 								</tr>
 								{/if}
 
-								{#if certificate.cycle_state}
+								{#if 'cycle_state' in certificate}
 								<tr>
 									<th class="text-start">Etat vaccination</th>
-									<td class="text-end"><abbr title="{certificate.cycle_state === 'TE' ? 'Terminé' : 'En cours'}">{certificate.cycle_state}</abbr></td>
+									<td class="text-end">{certificate.cycle_state === 'TE' ? 'Terminé' : 'En cours'} <small>({certificate.cycle_state})</small></td>
 								</tr>
 								{/if}
 							</tbody>
 						</Table>
-					</AccordionItem>
+					</CardBody>
+				</Card>
 
-					<AccordionItem header="Informations signature">
+				<Card class="mb-3">
+					<CardHeader>
+						<CardTitle>Informations signature</CardTitle>
+					</CardHeader>
+					<CardBody>
 						<code>{ certificate.signature }</code>
-					</AccordionItem>
-				</Accordion>
-			</AccordionItem>
-		</Accordion>
+					</CardBody>
+				</Card>
+
+				<Card class="mb-3">
+					<CardHeader>
+						<CardTitle>Données brutes</CardTitle>
+					</CardHeader>
+					<CardBody>
+						<code>{certificate.code}</code>
+					</CardBody>
+				</Card>
+			</details>
+		</p>
 	</div>
 </Alert>
 
