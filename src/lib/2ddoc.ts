@@ -141,9 +141,18 @@ const TOTAL_REGEX = new RegExp(
 
 function extractLink(doc: string): string {
 	doc = doc.trim();
-	if (doc.startsWith('http')) {
+	
+	// TousAntiCovid QRCode v1
+	if (doc.startsWith('https://bonjour.tousanticovid.gouv.fr/app/wallet?v=')) {
 		return new URL(doc).searchParams.get('v') || '';
 	}
+
+	// TousAntiCovid QRCode v2
+	if (doc.startsWith('https://bonjour.tousanticovid.gouv.fr/app/wallet2d#')) {
+		const url = new URL(doc);
+		return url.hash.length > 0 ? decodeURI(url.hash.substring(1)) : '';
+	}
+
 	return doc;
 }
 
