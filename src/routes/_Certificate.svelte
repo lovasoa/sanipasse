@@ -1,5 +1,5 @@
 <script type="ts">
-	import { Alert, Row, Col, Icon, Table, Card, CardHeader, CardBody, CardTitle } from 'sveltestrap';
+	import { Alert, Icon, Table, Card, CardHeader, CardBody, CardTitle } from 'sveltestrap';
 	import { findCertificateError, getNamesAndBirthdate, getCertificateAuthority, getPublicKey, getSex, getAnalysisResult } from '$lib/2ddoc';
 	import type { Certificate } from '../lib/2ddoc';
 	export let certificate: Certificate;
@@ -48,11 +48,11 @@
 								</tr>
 								<tr>
 									<th scope="row" class="text-start">Date de création</th>
-									<td class="text-end">{certificate.creation_date.toLocaleDateString('fr-FR')}</td>
+									<td class="text-end">{certificate.creation_date ? certificate.creation_date.toLocaleDateString('fr-FR') : ' - '}</td>
 								</tr>
 								<tr>
 									<th class="text-start">Date de signature</th>
-									<td class="text-end">{certificate.signature_date.toLocaleDateString('fr-FR')}</td>
+									<td class="text-end">{certificate.signature_date ? certificate.signature_date.toLocaleDateString('fr-FR') : ' - '}</td>
 								</tr>
 								<tr>
 									<th class="text-start">ID Autorité de certification</th>
@@ -107,7 +107,7 @@
 								</tr>
 								{/if}
 								
-								{#if 'vaccinatedd_first_name' in certificate}
+								{#if 'vaccinated_first_name' in certificate}
 								<tr>
 									<th class="text-start">Prénom(s)</th>
 									<td class="text-end">{certificate.vaccinated_first_name}</td>
@@ -239,17 +239,10 @@
 </Alert>
 
 <style>
-	.emoji {
-		font-size: 4em;
-		margin: auto;
-	}
 	.first_name {
 		text-transform: capitalize;
 	}
 	p {
 		margin-bottom: 0.5rem;
-	}
-	pre {
-		font-size: 0.8em;
 	}
 </style>
