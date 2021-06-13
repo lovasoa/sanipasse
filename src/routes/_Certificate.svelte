@@ -4,11 +4,11 @@
 		findCertificateError,
 		getNamesAndBirthdate,
 		getCertificateAuthority,
-		getPublicKey,
-		getSex,
-		getAnalysisResult
+		getPublicKey
 	} from '$lib/2ddoc';
 	import type { Certificate } from '../lib/2ddoc';
+	import CertificateVaccineInfo from './_CertificateVaccineInfo.svelte';
+	import CertificateTestInfo from './_CertificateTestInfo.svelte';
 	export let certificate: Certificate;
 	export let with_fullscreen = false;
 	$: error = findCertificateError(certificate);
@@ -44,7 +44,7 @@
 
 				<Card class="mb-3 mt-3">
 					<CardHeader>
-						<CardTitle>Informations entête</CardTitle>
+						<CardTitle>Informations générales</CardTitle>
 					</CardHeader>
 					<CardBody>
 						<Table class="table-sm">
@@ -70,21 +70,21 @@
 									>
 								</tr>
 								<tr>
-									<th class="text-start">ID Autorité de certification</th>
+									<th class="text-start">Autorité de certification</th>
 									<td class="text-end"
 										>{getCertificateAuthority(certificate.certificate_authority_id)}
 										<small>({certificate.certificate_authority_id})</small></td
 									>
 								</tr>
 								<tr>
-									<th class="text-start">ID Certificat</th>
+									<th class="text-start">Clé de chiffrement</th>
 									<td class="text-end"
 										>{getPublicKey(certificate.public_key_id)}
 										<small>({certificate.public_key_id})</small></td
 									>
 								</tr>
 								<tr>
-									<th class="text-start">Type document</th>
+									<th class="text-start">Type de document</th>
 									<td class="text-end"
 										>{certificate.document_type == 'B2'
 											? 'Résultat de test virologique'
@@ -92,11 +92,11 @@
 									>
 								</tr>
 								<tr>
-									<th class="text-start">Perimetre</th>
+									<th class="text-start">Périmètre</th>
 									<td class="text-end">{certificate.document_perimeter}</td>
 								</tr>
 								<tr>
-									<th class="text-start">Pays emetteur</th>
+									<th class="text-start">Pays émetteur</th>
 									<td class="text-end">{certificate.document_country}</td>
 								</tr>
 							</tbody>
@@ -104,131 +104,11 @@
 					</CardBody>
 				</Card>
 
-				<Card class="mb-3">
-					<CardHeader>
-						<CardTitle>Informations message</CardTitle>
-					</CardHeader>
-					<CardBody>
-						<Table class="table-sm">
-							<tbody>
-								<tr>
-									<th class="text-start">Prénom(s)</th>
-									<td class="text-end">{info.first_name}</td>
-								</tr>
-
-								<tr>
-									<th class="text-start">Nom</th>
-									<td class="text-end">{info.last_name}</td>
-								</tr>
-
-								<tr>
-									<th class="text-start">Date de naissance</th>
-									<td class="text-end">{info.birth_date.toLocaleDateString('fr-FR')}</td>
-								</tr>
-
-								{#if 'sex' in certificate}
-									<tr>
-										<th class="text-start">Genre</th>
-										<td class="text-end"
-											>{getSex(certificate.sex)} <small>({certificate.sex})</small></td
-										>
-									</tr>
-								{/if}
-
-								{#if 'analysis_code' in certificate}
-									<tr>
-										<th class="text-start">Code analyse</th>
-										<td class="text-end">{certificate.analysis_code}</td>
-									</tr>
-								{/if}
-
-								{#if 'analysis_result' in certificate}
-									<tr>
-										<th class="text-start">Resultat analyse</th>
-										<td class="text-end"
-											>{getAnalysisResult(certificate.analysis_result)}
-											<small>({certificate.analysis_result})</small></td
-										>
-									</tr>
-								{/if}
-
-								{#if 'analysis_datetime' in certificate}
-									<tr>
-										<th class="text-start">Date prélèvement</th>
-										<td class="text-end"
-											>{certificate.analysis_datetime.toLocaleDateString('fr-FR')}</td
-										>
-									</tr>
-								{/if}
-
-								{#if 'disease' in certificate}
-									<tr>
-										<th class="text-start">Maladie couverte</th>
-										<td class="text-end">{certificate.disease}</td>
-									</tr>
-								{/if}
-
-								{#if 'prophylactic_agent' in certificate}
-									<tr>
-										<th class="text-start"
-											><a href="https://fr.wikipedia.org/wiki/Classification_ATC" target="_blank"
-												>Agent prophylactique</a
-											></th
-										>
-										<td class="text-end">{certificate.prophylactic_agent}</td>
-									</tr>
-								{/if}
-
-								{#if 'vaccine' in certificate}
-									<tr>
-										<th class="text-start">Nom vaccin</th>
-										<td class="text-end">{certificate.vaccine}</td>
-									</tr>
-								{/if}
-
-								{#if 'vaccine_maker' in certificate}
-									<tr>
-										<th class="text-start">Fabricant vaccin</th>
-										<td class="text-end">{certificate.vaccine_maker}</td>
-									</tr>
-								{/if}
-
-								{#if 'doses_received' in certificate}
-									<tr>
-										<th class="text-start">Doses reçues</th>
-										<td class="text-end">{certificate.doses_received}</td>
-									</tr>
-								{/if}
-
-								{#if 'doses_expected' in certificate}
-									<tr>
-										<th class="text-start">Doses attendues</th>
-										<td class="text-end">{certificate.doses_expected}</td>
-									</tr>
-								{/if}
-
-								{#if 'last_dose_date' in certificate}
-									<tr>
-										<th class="text-start">Date dernière dose</th>
-										<td class="text-end"
-											>{certificate.last_dose_date.toLocaleDateString('fr-FR')}</td
-										>
-									</tr>
-								{/if}
-
-								{#if 'cycle_state' in certificate}
-									<tr>
-										<th class="text-start">Etat vaccination</th>
-										<td class="text-end"
-											>{certificate.cycle_state === 'TE' ? 'Terminé' : 'En cours'}
-											<small>({certificate.cycle_state})</small></td
-										>
-									</tr>
-								{/if}
-							</tbody>
-						</Table>
-					</CardBody>
-				</Card>
+				{#if 'vaccinated_first_name' in certificate}
+					<CertificateVaccineInfo {certificate} />
+				{:else}
+					<CertificateTestInfo {certificate} />
+				{/if}
 
 				<Card class="mb-3">
 					<CardHeader>
