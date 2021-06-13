@@ -3,6 +3,12 @@
 	import { getSex, getAnalysisResult } from '$lib/2ddoc';
 	import type { TestCertificate } from '../lib/2ddoc';
 	export let certificate: TestCertificate;
+
+	function loincLink(analysis_code: string): string {
+		const p1 = analysis_code.slice(0, 5);
+		const p2 = analysis_code.slice(5);
+		return `https://loinc.org/${p1}-${p2}`;
+	}
 </script>
 
 <Card class="mb-3">
@@ -33,8 +39,10 @@
 				</tr>
 
 				<tr>
-					<th class="text-start">Code analyse</th>
-					<td class="text-end">{certificate.analysis_code}</td>
+					<th class="text-start">Code LOINC</th>
+					<td class="text-end">
+						<a href={loincLink(certificate.analysis_code)}>{certificate.analysis_code}</a></td
+					>
 				</tr>
 
 				<tr>
