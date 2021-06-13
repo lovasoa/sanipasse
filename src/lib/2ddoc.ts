@@ -36,7 +36,11 @@ const CERTIFICATE_AUTHORITIES = new Map<string, string>([
 	['FR05', 'ANTS']
 ]);
 
-export function getCertificateAuthority(certificateAuthorityId: string): string | undefined {
+export function getCertificateAuthority(certificateAuthorityId?: string): string | undefined {
+	if (certificateAuthorityId === undefined) {
+		return '';
+	}
+
 	const certificateAuthority = CERTIFICATE_AUTHORITIES.get(certificateAuthorityId);
 
 	if (certificateAuthority === undefined) {
@@ -47,7 +51,7 @@ export function getCertificateAuthority(certificateAuthorityId: string): string 
 }
 
 // Correspondance identifiant du certificat (Ex: AHP1) et nom de l'entité (Ex: Assistance Publique Hopitaux de Paris)
-// Source: certificates.certigna.fr/search.php?name=[ID_CERTIFICAT]
+// Source: http://certificates.certigna.fr/search.php?name=[ID_CERTIFICAT]
 const PUBLIC_KEYS = new Map<string, string>([
 	['AHP1', 'Assistance Publique Hopitaux de Paris (APHP)'],
 	['AHP2', 'Assistance Publique Hopitaux de Paris (APHP)'],
@@ -55,7 +59,11 @@ const PUBLIC_KEYS = new Map<string, string>([
 	['AV02', 'Caisse Nationale d\'Assurance Maladie (CNAM)'],
 ]);
 
-export function getPublicKey(publicKeyId: string): string | undefined {
+export function getPublicKey(publicKeyId?: string): string | undefined {
+	if (publicKeyId === undefined) {
+		return '';
+	}
+
 	const publicKey = PUBLIC_KEYS.get(publicKeyId);
 
 	if (publicKey === undefined) {
