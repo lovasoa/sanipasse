@@ -18,3 +18,5 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+      - name: Check that the code was formatted with "npm run format"
+        run: npx prettier --check --plugin-search-dir=. .
