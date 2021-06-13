@@ -41,12 +41,12 @@
 				</tr>
 
 				<tr>
-					<th class="text-start">Nom vaccin</th>
+					<th class="text-start">Nom du vaccin</th>
 					<td class="text-end">{certificate.vaccine}</td>
 				</tr>
 
 				<tr>
-					<th class="text-start">Fabricant vaccin</th>
+					<th class="text-start">Fabricant du vaccin</th>
 					<td class="text-end">{certificate.vaccine_maker}</td>
 				</tr>
 
@@ -61,14 +61,14 @@
 				</tr>
 
 				<tr>
-					<th class="text-start">Date dernière dose</th>
+					<th class="text-start">Dernière dose le</th>
 					<td class="text-end">{certificate.last_dose_date.toLocaleDateString('fr-FR')}</td>
 				</tr>
 
 				<tr>
-					<th class="text-start">Etat vaccination</th>
+					<th class="text-start">Vaccination</th>
 					<td class="text-end"
-						>{certificate.cycle_state === 'TE' ? 'Terminé' : 'En cours'}
+						>{certificate.cycle_state === 'TE' ? 'Terminée' : 'En cours'}
 						<small>({certificate.cycle_state})</small></td
 					>
 				</tr>

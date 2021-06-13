@@ -121,7 +121,7 @@
 								<td class="text-end"><code class="rawdata">{certificate.code}</code></td>
 							</tr>
 							<tr>
-								<td class="text-start">Signature ECDSA</td>
+								<td class="text-start">Signature</td>
 								<td class="text-end"><code class="rawdata">{certificate.signature}</code></td>
 							</tr>
 						</tbody>
