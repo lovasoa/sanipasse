@@ -9,7 +9,7 @@
 	import invitedTo from './_invitedToStore';
 	export let codeFound: string | undefined = undefined;
 	let parsed: Certificate | null = null;
-	let error: string = '';
+	let error = '';
 	let status: 'notsent' | 'sending' | 'validated' | 'error' = 'notsent';
 	$: if (codeFound) onCode(codeFound);
 	async function onCode(codeFound: string) {

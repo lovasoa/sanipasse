@@ -39,7 +39,7 @@
 		img.src = imageUrl;
 		await new Promise((accept, reject) => {
 			img.onload = accept;
-			img.onerror = (_) => reject(new Error("Le fichier n'est pas une image valide."));
+			img.onerror = () => reject(new Error("Le fichier n'est pas une image valide."));
 		});
 		canvasElement.width = img.width;
 		canvasElement.height = img.height;

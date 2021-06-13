@@ -4,7 +4,7 @@
 	import { put } from '$lib/http';
 	import ShowPromiseError from '../_showPromiseError.svelte';
 
-	let name: string = '';
+	let name = '';
 	let date: Date = new Date();
 	date.setHours(12, 0, 0, 0);
 	$: hours =

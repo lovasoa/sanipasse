@@ -5,8 +5,8 @@
 
 	const dispatch = createEventDispatcher<{ invitee: Names }>();
 
-	let first_name: string = '';
-	let last_name: string = '';
+	let first_name = '';
+	let last_name = '';
 
 	let firstField: HTMLInputElement | null = null;
 
