@@ -51,8 +51,8 @@ export function getCertificateAuthority(certificateAuthorityId: string): string 
 const PUBLIC_KEYS = new Map<string, string>([
 	['AHP1', 'Assistance Publique Hopitaux de Paris (APHP)'],
 	['AHP2', 'Assistance Publique Hopitaux de Paris (APHP)'],
-	['AV01', 'Caisse Nationale d\'Assurance Maladie (CNAM)'],
-	['AV02', 'Caisse Nationale d\'Assurance Maladie (CNAM)'],
+	['AV01', "Caisse Nationale d'Assurance Maladie (CNAM)"],
+	['AV02', "Caisse Nationale d'Assurance Maladie (CNAM)"]
 ]);
 
 export function getPublicKey(publicKeyId: string): string | undefined {
@@ -135,24 +135,24 @@ const VACCINE_FIELDS = [
 
 type FIELDS_TYPES = typeof TEST_FIELDS | typeof VACCINE_FIELDS;
 type OBJECT_WITH_FIELDS<FIELDS extends FIELDS_TYPES> = {
-	[T in FIELDS[number]as T['name']]: ReturnType<T['type']['parse']>;
+	[T in FIELDS[number] as T['name']]: ReturnType<T['type']['parse']>;
 };
 
 export type TestCertificate = OBJECT_WITH_FIELDS<typeof TEST_FIELDS>;
 export type VaccineCertificate = OBJECT_WITH_FIELDS<typeof VACCINE_FIELDS>;
 interface HeaderData {
-	code: string,
-	creation_date?: Date,
-	signature_date?: Date,
-	certificate_authority_id: string,
-	public_key_id: string,
-	document_version: string,
-	document_type: string,
-	document_perimeter: string,
-	document_country: string,
+	code: string;
+	creation_date?: Date;
+	signature_date?: Date;
+	certificate_authority_id: string;
+	public_key_id: string;
+	document_version: string;
+	document_type: string;
+	document_perimeter: string;
+	document_country: string;
 }
-export type Certificate = (VaccineCertificate | TestCertificate) & HeaderData & { signature?: string };
-
+export type Certificate = (VaccineCertificate | TestCertificate) &
+	HeaderData & { signature?: string };
 
 function parse_2ddoc_date(date_str: string): Date | undefined {
 	/**
@@ -166,7 +166,7 @@ function parse_2ddoc_date(date_str: string): Date | undefined {
 	if (!date_str || date_str === 'FFFF') return undefined;
 	const days = parseInt(date_str, 16);
 	const ms = days * 24 * 60 * 60 * 1000;
-	const jan_2001 = new Date("2000-01-01");
+	const jan_2001 = new Date('2000-01-01');
 	return new Date(+jan_2001 + ms);
 }
 
@@ -222,7 +222,7 @@ const TOTAL_REGEX = new RegExp(
 
 function extractLink(doc: string): string {
 	doc = doc.trim();
-	
+
 	// TousAntiCovid QRCode v1
 	if (doc.startsWith('https://bonjour.tousanticovid.gouv.fr/app/wallet?v=')) {
 		return new URL(doc).searchParams.get('v') || '';

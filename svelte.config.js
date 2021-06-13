@@ -5,7 +5,7 @@ import adapter_node from '@sveltejs/adapter-node';
 const adapter =
 	process.env.SVELTEKIT_ADAPTER === 'node'
 		? adapter_node({})
-		: adapter_static({ fallback: "index.html" });
+		: adapter_static({ fallback: 'index.html' });
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -22,8 +22,7 @@ const config = {
 				chunkSizeWarningLimit: 700
 			}
 		}
-	},
-
+	}
 };
 
 export default config;

@@ -11,30 +11,29 @@ import { build, files, timestamp } from '$service-worker';
 
 const revision = new Date(timestamp).toISOString();
 
-const main_routes = ["/", "/import/video", "/import/file", "/fullscreen", "/apropos"];
-precache(main_routes.map(url => ({ url, revision })));
+const main_routes = ['/', '/import/video', '/import/file', '/fullscreen', '/apropos'];
+precache(main_routes.map((url) => ({ url, revision })));
 
 // Cache page navigations (html) with a Network First strategy
 registerRoute(
-    // Check to see if the request is a navigation to a new page
-    ({ request }) => request.mode === 'navigate' || request.destination === 'document',
-    // Use a Network First caching strategy
-    new NetworkFirst({
-        // Put all cached files in a cache named 'pages'
-        cacheName: 'pages',
-        networkTimeoutSeconds: 5,
-        plugins: [
-            // Ensure that only requests that result in a 200 status are cached
-            new CacheableResponsePlugin({ statuses: [200] }),
-            // Don't cache more than 10 items, and expire them after 7 days
-            new ExpirationPlugin({
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 7, // 7 Days
-            }),
-        ],
-    }),
+	// Check to see if the request is a navigation to a new page
+	({ request }) => request.mode === 'navigate' || request.destination === 'document',
+	// Use a Network First caching strategy
+	new NetworkFirst({
+		// Put all cached files in a cache named 'pages'
+		cacheName: 'pages',
+		networkTimeoutSeconds: 5,
+		plugins: [
+			// Ensure that only requests that result in a 200 status are cached
+			new CacheableResponsePlugin({ statuses: [200] }),
+			// Don't cache more than 10 items, and expire them after 7 days
+			new ExpirationPlugin({
+				maxEntries: 10,
+				maxAgeSeconds: 60 * 60 * 24 * 7 // 7 Days
+			})
+		]
+	})
 );
 
-
-const all_assets = [...build, ...files].map(url => ({ url, revision }));
+const all_assets = [...build, ...files].map((url) => ({ url, revision }));
 precacheAndRoute(all_assets, { cleanURLs: false });

@@ -44,11 +44,8 @@
 	</div>
 {:else if codeFound && parsed}
 	<Modal isOpen={!!codeFound} {toggle} size="lg">
-
 		{#if $invitedTo.eventId}
-		<ModalHeader>
-			Confirmer ma présence
-		</ModalHeader>
+			<ModalHeader>Confirmer ma présence</ModalHeader>
 		{/if}
 
 		<ModalBody>
@@ -65,7 +62,10 @@
 			<Button color="secondary" on:click={toggle}>Fermer</Button>
 			{#if $invitedTo.eventId}
 				{#if status === 'notsent'}
-					<Button color="primary" on:click={() => $invitedTo.eventId && codeFound && send($invitedTo.eventId, codeFound)}>
+					<Button
+						color="primary"
+						on:click={() => $invitedTo.eventId && codeFound && send($invitedTo.eventId, codeFound)}
+					>
 						<Icon name="upload" />
 						Envoyer mon certificat
 					</Button>

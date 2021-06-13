@@ -16,7 +16,7 @@ export interface Names {
 	first_name: string;
 	last_name: string;
 }
-export interface NamedInvitee extends Names, DBPerson { }
+export interface NamedInvitee extends Names, DBPerson {}
 
 export function getKey(i: Names): Key {
 	return `${normalize(i.first_name)}|${normalize(i.last_name)}`;
@@ -62,6 +62,6 @@ export class Invitees {
 			)
 				result.push({ ...names, ...person });
 		}
-		return result.sort((a, b) => a.last_name > b.last_name ? 1 : -1);
+		return result.sort((a, b) => (a.last_name > b.last_name ? 1 : -1));
 	}
 }

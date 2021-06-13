@@ -73,6 +73,7 @@
 		}
 	}
 </script>
+
 <svelte:head>
 	<title>Sanipasse - Importer un passe sanitaire depuis un fichier</title>
 </svelte:head>
