@@ -86,47 +86,20 @@
 					<CardBody>
 						<Table class="table-sm">
 							<tbody>
-								{#if 'tested_first_name' in certificate}
 								<tr>
 									<th class="text-start">Prénom(s)</th>
-									<td class="text-end">{certificate.tested_first_name}</td>
+									<td class="text-end">{info.first_name}</td>
 								</tr>
-								{/if}
 
-								{#if 'tested_last_name' in certificate}
 								<tr>
 									<th class="text-start">Nom</th>
-									<td class="text-end">{certificate.tested_last_name}</td>
+									<td class="text-end">{info.last_name}</td>
 								</tr>
-								{/if}
 
-								{#if 'tested_birth_date' in certificate}
 								<tr>
 									<th class="text-start">Date de naissance</th>
-									<td class="text-end">{certificate.tested_birth_date.toLocaleDateString('fr-FR')}</td>
+									<td class="text-end">{info.birth_date.toLocaleDateString('fr-FR')}</td>
 								</tr>
-								{/if}
-								
-								{#if 'vaccinated_first_name' in certificate}
-								<tr>
-									<th class="text-start">Prénom(s)</th>
-									<td class="text-end">{certificate.vaccinated_first_name}</td>
-								</tr>
-								{/if}
-
-								{#if 'vaccinated_last_name' in certificate}
-								<tr>
-									<th class="text-start">Nom</th>
-									<td class="text-end">{certificate.vaccinated_last_name}</td>
-								</tr>
-								{/if}
-
-								{#if 'vaccinated_birth_date' in certificate}
-								<tr>
-									<th class="text-start">Date de naissance</th>
-									<td class="text-end">{certificate.vaccinated_birth_date.toLocaleDateString('fr-FR')}</td>
-								</tr>
-								{/if}
 
 								{#if 'sex' in certificate}
 								<tr>
