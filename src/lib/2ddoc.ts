@@ -142,8 +142,8 @@ export type TestCertificate = OBJECT_WITH_FIELDS<typeof TEST_FIELDS>;
 export type VaccineCertificate = OBJECT_WITH_FIELDS<typeof VACCINE_FIELDS>;
 interface HeaderData {
 	code: string,
-	creation_date: Date,
-	signature_date: Date,
+	creation_date?: Date,
+	signature_date?: Date,
 	certificate_authority_id: string,
 	public_key_id: string,
 	document_version: string,
