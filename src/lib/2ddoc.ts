@@ -36,11 +36,7 @@ const CERTIFICATE_AUTHORITIES = new Map<string, string>([
 	['FR05', 'ANTS']
 ]);
 
-export function getCertificateAuthority(certificateAuthorityId?: string): string | undefined {
-	if (certificateAuthorityId === undefined) {
-		return '';
-	}
-
+export function getCertificateAuthority(certificateAuthorityId: string): string | undefined {
 	const certificateAuthority = CERTIFICATE_AUTHORITIES.get(certificateAuthorityId);
 
 	if (certificateAuthority === undefined) {
@@ -59,11 +55,7 @@ const PUBLIC_KEYS = new Map<string, string>([
 	['AV02', 'Caisse Nationale d\'Assurance Maladie (CNAM)'],
 ]);
 
-export function getPublicKey(publicKeyId?: string): string | undefined {
-	if (publicKeyId === undefined) {
-		return '';
-	}
-
+export function getPublicKey(publicKeyId: string): string | undefined {
 	const publicKey = PUBLIC_KEYS.get(publicKeyId);
 
 	if (publicKey === undefined) {
@@ -150,14 +142,14 @@ export type TestCertificate = OBJECT_WITH_FIELDS<typeof TEST_FIELDS>;
 export type VaccineCertificate = OBJECT_WITH_FIELDS<typeof VACCINE_FIELDS>;
 interface HeaderData {
 	code: string,
-	creation_date?: Date,
-	signature_date?: Date,
-	certificate_authority_id?: string,
-	public_key_id?: string,
-	document_version?: string,
-	document_type?: string,
-	document_perimeter?: string,
-	document_country?: string,
+	creation_date: Date,
+	signature_date: Date,
+	certificate_authority_id: string,
+	public_key_id: string,
+	document_version: string,
+	document_type: string,
+	document_perimeter: string,
+	document_country: string,
 }
 export type Certificate = (VaccineCertificate | TestCertificate) & HeaderData & { signature?: string };
 
