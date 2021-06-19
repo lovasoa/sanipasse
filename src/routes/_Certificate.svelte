@@ -120,10 +120,6 @@
 								<td class="text-start">Code 2D-Doc</td>
 								<td class="text-end"><code class="rawdata">{certificate.code}</code></td>
 							</tr>
-							<tr>
-								<td class="text-start">Signature</td>
-								<td class="text-end"><code class="rawdata">{certificate.signature}</code></td>
-							</tr>
 						</tbody>
 					</Table>
 				</CardBody>
@@ -140,10 +136,7 @@
 		margin-bottom: 0.5rem;
 	}
 	.rawdata {
-		display: inline-block;
-		max-width: 270px;
-		white-space: nowrap;
-		overflow: scroll;
+		word-break: break-all;
 	}
 	.emoji {
 		font-size: 3.5em;
