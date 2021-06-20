@@ -29,7 +29,7 @@ L'image expose uniquement un serveur HTTP, mais pour fonctionner correctement, l
 Il vous faudra donc mettre un place un reverse proxy ([nginx](https://www.nginx.com/), par exemple)
 et obtenir un certificat SSL (avec [letsencrypt](https://certbot.eff.org/lets-encrypt/sharedhost-nginx), par exemple).
 Une manière simple et automatisée de mettre cela en place sur un serveur personnel est d'utiliser [dokku](https://dokku.com/)
-avec [dokku-letsencrypt](https://github.com/dokku/dokku-letsencrypt#dokku-letsencrypt). 
+avec [dokku-letsencrypt](https://github.com/dokku/dokku-letsencrypt#dokku-letsencrypt).
 
 ## Developing
 
