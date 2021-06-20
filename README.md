@@ -11,6 +11,26 @@ Application opensource de vérification de passeport sanitaire et d'organisation
     <td><img src="./docs/screenshots/test.jpg" width="250" />
 </table>
 
+## Héberger son instance Sanipasse
+
+La manière recommandée d'auto-héberger une instance de sanipasse est d'utiliser l'image docker officielle
+[lovasoa/sanipasse](https://hub.docker.com/repository/docker/lovasoa/sanipasse).
+
+L'image écoute en HTTP sur le port 3000 et stocke ses données persistentes dans le répertoire `/data/`.
+
+Pour lancer le service sur le port 80 sur un serveur, en coonservant les données dans `/your-volume/sanipasse/`,
+on peut utiliser la commande suivante :
+
+```
+docker run -d -p 80:3000 -v /your-volume/sanipasse/:/data/ --name sanipasse --rm lovasoa/sanipasse
+```
+
+L'image expose uniquement un serveur HTTP, mais pour fonctionner correctement, l'application doit être servie en HTTPS.
+Il vous faudra donc mettre un place un reverse proxy ([nginx](https://www.nginx.com/), par exemple)
+et obtenir un certificat SSL (avec [letsencrypt](https://certbot.eff.org/lets-encrypt/sharedhost-nginx), par exemple).
+Une manière simple et automatisée de mettre cela en place sur un serveur personnel est d'utiliser [dokku](https://dokku.com/)
+avec [dokku-letsencrypt](https://github.com/dokku/dokku-letsencrypt#dokku-letsencrypt). 
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
