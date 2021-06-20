@@ -18,7 +18,7 @@ La manière recommandée d'auto-héberger une instance de sanipasse est d'utilis
 
 L'image écoute en HTTP sur le port 3000 et stocke ses données persistentes dans le répertoire `/data/`.
 
-Pour lancer le service sur le port 80 sur un serveur, en coonservant les données dans `/your-volume/sanipasse/`,
+Pour lancer le service sur le port 80 sur un serveur, en conservant les données dans `/your-volume/sanipasse/`,
 on peut utiliser la commande suivante :
 
 ```
