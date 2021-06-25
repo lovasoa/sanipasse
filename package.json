@@ -35,6 +35,7 @@
 		"base64-js": "^1.5.1",
 		"bootstrap": "^5.0.1",
 		"bootstrap-icons": "^1.5.0",
+		"cosette": "^0.5.3",
 		"isomorphic-webcrypto": "^2.3.8",
 		"localforage": "^1.9.0",
 		"pdfjs-dist": "^2.7.570",
