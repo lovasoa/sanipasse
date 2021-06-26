@@ -12,8 +12,10 @@
  */
 import { decode as decodeb45 } from 'base45-ts';
 import { Buffer } from 'buffer';
-import { inflate } from 'pako';
+import Ajv from 'ajv/dist/2020.js';
 import * as cbor from 'cbor-web';
+import { inflate } from 'pako';
+import * as DCCSchema from '../assets/DCC.combined-schema.1.3.0.json';
 import type { HCert } from './digital_green_certificate_types';
 
 interface UnsafeDGC {
@@ -87,10 +89,22 @@ async function unsafeDGCFromCoseData(rawCoseData: Uint8Array): Promise<UnsafeDGC
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const cborData: Map<number, any> = await cbor.decodeFirst(cosePayload);
 
-	// TODO validate HCERT against the JSON schema.
+	// Validate the payload against the JSON schema.
+	const hcert = cborData.get(CWT_CLAIMS.HCERT)?.get(1) || {};
+	const ajv = new Ajv();
+	// Enhance the validator with their custom properties:
+	const dateValidator = (s: string) => !isNaN(Date.parse(s));
+	ajv.addFormat('date', dateValidator);
+	ajv.addFormat('date-time', dateValidator);
+	ajv.addKeyword('valueset-uri'); // We won't validate that.
+	const hcertValid = ajv.validate(DCCSchema, hcert);
+	if (!hcertValid) {
+		const validationErrors = ajv.errors?.map((err) => err.message).join('\n');
+		throw Error(`DGC validation failed:\n${validationErrors}.`);
+	}
 
 	return {
-		hcert: cborData.get(CWT_CLAIMS.HCERT),
+		hcert,
 		kid,
 		issuer: cborData.get(CWT_CLAIMS.ISSUER) || null,
 		issuedAt: cborData.get(CWT_CLAIMS.ISSUED_AT) || null,

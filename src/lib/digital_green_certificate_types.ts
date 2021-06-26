@@ -1,5 +1,17 @@
-// Types generated with:
-//   $ quicktype -s schema DCC.combined-schema.1.3.0.json -o types.ts --just-types --top-level HCert
+/*
+ Types generated with:
+    $ tmp_file=$(mktemp)
+    $ npm run quicktype \
+        --src https://raw.githubusercontent.com/ehn-dcc-development/ehn-dcc-schema/release/1.3.0/DCC.combined-schema.json \
+        --src-lang schema \
+        --lang typescript \
+        --just-types \
+        --top-level HCert \
+        --out ${tmp_file}
+    $ sed -i -e 's/: Date;/: string;/g'
+    $ sed -i -e 's/interface HCERT/interface HCert/g' ${tmp_file}
+    $ cat ${tmp_file}
+*/
 
 /**
  * EU Digital Covid Certificate
@@ -72,15 +84,15 @@ export interface RElement {
 	/**
 	 * ISO 8601 complete date: Certificate Valid From
 	 */
-	df: Date;
+	df: string;
 	/**
 	 * ISO 8601 complete date: Certificate Valid Until
 	 */
-	du: Date;
+	du: string;
 	/**
 	 * ISO 8601 complete date of first positive NAA test result
 	 */
-	fr: Date;
+	fr: string;
 	/**
 	 * Certificate Issuer
 	 */
@@ -115,7 +127,7 @@ export interface TElement {
 	/**
 	 * Date/Time of Sample Collection
 	 */
-	sc: Date;
+	sc: string;
 	/**
 	 * Testing Centre
 	 */
@@ -150,7 +162,7 @@ export interface VElement {
 	/**
 	 * ISO8601 complete date: Date of Vaccination
 	 */
-	dt: Date;
+	dt: string;
 	/**
 	 * Certificate Issuer
 	 */
