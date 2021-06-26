@@ -12,7 +12,7 @@
  */
 import { decode as decodeb45 } from 'base45-ts';
 import { Buffer } from 'buffer';
-import Ajv from 'ajv/dist/2020.js';
+import Ajv from 'ajv/dist/2020.js'; // .js extension seems required to build successfully :(
 import * as cbor from 'cbor-web';
 import { inflate } from 'pako';
 import * as DCCSchema from '../assets/DCC.combined-schema.1.3.0.json';
