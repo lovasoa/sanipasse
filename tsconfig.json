@@ -25,7 +25,8 @@
 		"checkJs": true,
 		"paths": {
 			"$lib/*": ["src/lib/*"]
-		}
+		},
+		"typeRoots": ["./src/types", "./node_modules/@types"]
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
 }
