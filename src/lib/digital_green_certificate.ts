@@ -44,6 +44,7 @@ interface DSC {
 	signatureAlgorithm: string;
 	fingerprint: string;
 	signature: string;
+	publicKeyAlgorithm: string;
 	publicKeyFingerprint: string;
 	publicKeyPem: string;
 }
@@ -199,7 +200,8 @@ async function findDGCPublicKey(dgc: DGC): Promise<CryptoKey | undefined> {
 		signatureAlgorithm: x509cert.signatureAlgorithm.name,
 		signature: Buffer.from(x509cert.signature).toString('base64'),
 		fingerprint: Buffer.from(await x509cert.getThumbprint()).toString('hex'),
-		publicKeyFingerprint: Buffer.from(await x509cert.getThumbprint()).toString('hex'),
+		publicKeyAlgorithm: x509cert.publicKey.algorithm.name,
+		publicKeyFingerprint: Buffer.from(await x509cert.publicKey.getThumbprint()).toString('hex'),
 		publicKeyPem: await exportPublicKeyToPEM(pk)
 	};
 
