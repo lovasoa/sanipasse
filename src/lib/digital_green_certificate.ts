@@ -177,7 +177,7 @@ async function verifyDGCClaims(dgc: DGC): Promise<void> {
 /**
  * Find the DSC that matches this DSC KID.
  */
-async function findDGCCertificate(dgc: DGC): Promise<X509Certificate | undefined> {
+async function findDGCPublicKey(dgc: DGC): Promise<CryptoKey | undefined> {
 	// Find the KID in known DSCs
 	if (!(dgc.kid in DCCCerts)) {
 		// Unknown KID
@@ -208,7 +208,7 @@ async function findDGCCertificate(dgc: DGC): Promise<X509Certificate | undefined
 		dgc.errors.push(DGC_ERROR_INVALID_CERTIFICATE);
 	}
 
-	return x509cert;
+	return pk;
 }
 
 /**
@@ -245,12 +245,11 @@ async function verifyDGC(unsafeDGC: UnsafeDGC, rawCoseData: Uint8Array): Promise
 
 	await verifyDGCClaims(dgc);
 
-	const x509cert = await findDGCCertificate(dgc);
-	if (!x509cert) {
+	const pk = await findDGCPublicKey(dgc);
+	if (!pk) {
 		return dgc;
 	}
 
-	const pk = await x509cert.publicKey.export();
 	await verifyDGCSignature(dgc, rawCoseData, pk);
 
 	dgc.isValid = dgc.errors.length === 0;
