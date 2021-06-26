@@ -48,8 +48,21 @@ interface DSC {
 	publicKeyPem: string;
 }
 
-interface DGC extends UnsafeDGC {
+export const DGC_ERROR_ISSUED_IN_FUTURE = 'DGC_ISSUED_IN_FUTURE';
+export const DGC_ERROR_EXPIRED = 'DGC_EXPIRED';
+export const DGC_ERROR_UNKNOWN_KID = 'DGC_UNKNOWN_KID';
+export const DGC_ERROR_INVALID_CERTIFICATE = 'DGC_INVALID_CERTIFICATE';
+export const DGC_ERROR_INVALID_SIGNATURE = 'DGC_INVALID_SIGNATURE';
+export type DGC_ERROR =
+	| typeof DGC_ERROR_ISSUED_IN_FUTURE
+	| typeof DGC_ERROR_EXPIRED
+	| typeof DGC_ERROR_UNKNOWN_KID
+	| typeof DGC_ERROR_INVALID_CERTIFICATE
+	| typeof DGC_ERROR_INVALID_SIGNATURE;
+
+export interface DGC extends UnsafeDGC {
 	isValid: boolean;
+	errors: DGC_ERROR[];
 	certificate: DSC | null;
 }
 
@@ -130,7 +143,7 @@ async function unsafeDGCFromCoseData(rawCoseData: Uint8Array): Promise<UnsafeDGC
 		kid,
 		issuer: cborData.get(CWT_CLAIMS.ISSUER) || null,
 		issuedAt: cborData.get(CWT_CLAIMS.ISSUED_AT) || null,
-		expiresAt: cborData.get(CWT_CLAIMS.ISSUED_AT) || null
+		expiresAt: cborData.get(CWT_CLAIMS.EXPIRATION) || null
 	};
 }
 
@@ -147,19 +160,29 @@ async function exportPublicKeyToPEM(pk: CryptoKey): Promise<string> {
 }
 
 /**
- * Check the DGC Signature.
+ * Verifies the CWT claims of the DGC.
  */
-async function checkDGCSignature(dgc: UnsafeDGC, rawCoseData: Uint8Array): Promise<DGC> {
-	const result: DGC = {
-		...dgc,
-		isValid: false,
-		certificate: null
-	};
+async function verifyDGCClaims(dgc: DGC): Promise<void> {
+	const now = Math.floor(Date.now() / 1000);
 
+	if (dgc.issuedAt !== null && now < dgc.issuedAt) {
+		dgc.errors.push(DGC_ERROR_ISSUED_IN_FUTURE);
+	}
+
+	if (dgc.expiresAt !== null && dgc.expiresAt < now) {
+		dgc.errors.push(DGC_ERROR_EXPIRED);
+	}
+}
+
+/**
+ * Find the DSC that matches this DSC KID.
+ */
+async function findDGCCertificate(dgc: DGC): Promise<X509Certificate | undefined> {
 	// Find the KID in known DSCs
 	if (!(dgc.kid in DCCCerts)) {
 		// Unknown KID
-		return result;
+		dgc.errors.push(DGC_ERROR_UNKNOWN_KID);
+		return undefined;
 	}
 
 	const pem = DCCCerts[dgc.kid as keyof typeof DCCCerts];
@@ -167,7 +190,7 @@ async function checkDGCSignature(dgc: UnsafeDGC, rawCoseData: Uint8Array): Promi
 	const pk = await x509cert.publicKey.export();
 
 	// Export the certificate data.
-	result.certificate = {
+	dgc.certificate = {
 		serialNumber: x509cert.serialNumber,
 		subject: x509cert.subject,
 		issuer: x509cert.issuer,
@@ -182,22 +205,56 @@ async function checkDGCSignature(dgc: UnsafeDGC, rawCoseData: Uint8Array): Promi
 
 	// Verifiy that the certificat is still valid.
 	if (!x509cert.verify()) {
-		return result;
+		dgc.errors.push(DGC_ERROR_INVALID_CERTIFICATE);
 	}
 
-	// Finally verify the signature of the COSE data.
+	return x509cert;
+}
+
+/**
+ * Verify the DGC signature.
+ */
+async function verifyDGCSignature(
+	dgc: DGC,
+	rawCoseData: Uint8Array,
+	key: CryptoKey
+): Promise<void> {
 	try {
-		await verify(rawCoseData, { key: pk });
+		await verify(rawCoseData, { key });
 	} catch (err) {
 		if (err instanceof SignatureMismatchError) {
-			return result;
+			dgc.errors.push(DGC_ERROR_INVALID_SIGNATURE);
 		}
 		throw err;
 	}
+}
 
-	// Signature and certificate are valid, we can go on.
-	result.isValid = true;
-	return result;
+/**
+ * Verify that the DGC is authentic:
+ *   - Check that the certificate is still valid
+ *   - Check the COSE signature
+ *   - Check the CWT claims
+ */
+async function verifyDGC(unsafeDGC: UnsafeDGC, rawCoseData: Uint8Array): Promise<DGC> {
+	let dgc: DGC = {
+		...unsafeDGC,
+		isValid: false,
+		errors: [],
+		certificate: null
+	};
+
+	await verifyDGCClaims(dgc);
+
+	const x509cert = await findDGCCertificate(dgc);
+	if (!x509cert) {
+		return dgc;
+	}
+
+	const pk = await x509cert.publicKey.export();
+	await verifyDGCSignature(dgc, rawCoseData, pk);
+
+	dgc.isValid = dgc.errors.length === 0;
+	return dgc;
 }
 
 export async function parse(doc: string): Promise<DGC> {
@@ -210,7 +267,7 @@ export async function parse(doc: string): Promise<DGC> {
 		// 	   cosette doesn't seem to permit that yet.
 		const dgc = await unsafeDGCFromCoseData(rawCoseData);
 
-		return checkDGCSignature(dgc, rawCoseData);
+		return verifyDGC(dgc, rawCoseData);
 	} catch (err) {
 		// FIXME: For debugging purposes ATM. Remove that try/catch block at some point.
 		console.error('Error while decoding QR Code:', err);
