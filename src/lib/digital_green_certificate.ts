@@ -25,7 +25,7 @@ interface UnsafeDGC {
 }
 
 interface DGC extends UnsafeDGC {
-	isValidSignature: boolean;
+	isSignatureValid: boolean;
 	certificate: string;
 }
 
@@ -105,7 +105,7 @@ async function checkDGCSignature(dgc: UnsafeDGC, _rawCoseData: Uint8Array): Prom
 	// TODO
 	return {
 		...dgc,
-		isValidSignature: false,
+		isSignatureValid: false,
 		certificate: ''
 	};
 }
