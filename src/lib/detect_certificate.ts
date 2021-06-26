@@ -16,40 +16,42 @@ export async function parse_any(doc: string): Promise<Certificate2ddoc> {
 }
 
 export interface CommonCertificateInfo {
-	type: "vaccination" | "test" | "recovery";
+	type: 'vaccination' | 'test' | 'recovery';
 	first_name: string;
 	last_name: string;
 	date_of_birth: Date;
 	source:
-	{ format: 'dgc', cert: DigitalGreenCertificate } |
-	{ format: '2ddoc', cert: Certificate2ddoc }
+		| { format: 'dgc'; cert: DigitalGreenCertificate }
+		| { format: '2ddoc'; cert: Certificate2ddoc };
 }
 
-export function getCertificateInfo(cert: Certificate2ddoc | DigitalGreenCertificate): CommonCertificateInfo {
-	if ("vaccinated_first_name" in cert) {
+export function getCertificateInfo(
+	cert: Certificate2ddoc | DigitalGreenCertificate
+): CommonCertificateInfo {
+	if ('vaccinated_first_name' in cert) {
 		return {
 			type: 'vaccination',
 			first_name: cert.vaccinated_first_name,
 			last_name: cert.vaccinated_last_name,
 			date_of_birth: cert.vaccinated_birth_date,
 			source: { format: '2ddoc', cert }
-		}
-	} else if ("tested_first_name" in cert) {
+		};
+	} else if ('tested_first_name' in cert) {
 		return {
 			type: 'test',
 			first_name: cert.tested_first_name,
 			last_name: cert.tested_last_name,
 			date_of_birth: cert.tested_birth_date,
 			source: { format: '2ddoc', cert }
-		}
-	} else if ("dob" in cert) {
+		};
+	} else if ('dob' in cert) {
 		return {
-			type: cert.t && 'test' || cert.v && 'vaccination' || 'recovery',
+			type: (cert.t && 'test') || (cert.v && 'vaccination') || 'recovery',
 			first_name: cert.nam.gnt || cert.nam.gn || '-',
 			last_name: cert.nam.fnt,
 			date_of_birth: new Date(cert.dob),
 			source: { format: 'dgc', cert }
-		}
+		};
 	}
-	throw new Error("Unsupported certificate");
+	throw new Error('Unsupported certificate');
 }
