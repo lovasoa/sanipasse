@@ -14,7 +14,7 @@ import { X509Certificate } from '@peculiar/x509';
 import Ajv from 'ajv/dist/2020.js'; // .js extension seems required to build successfully :(
 import { decode as decodeb45 } from 'base45-ts';
 import { Buffer } from 'buffer';
-import { SignatureMismatchError, verify } from 'cosette/build/sign';
+import { SignatureMismatchError, verify } from 'cosette/build/sign.js';
 import * as cbor from 'cbor-web';
 import { inflate } from 'pako';
 import DCCSchema from '../assets/DCC.combined-schema.1.3.0.json';
