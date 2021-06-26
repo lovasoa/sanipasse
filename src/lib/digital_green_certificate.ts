@@ -10,12 +10,15 @@
  *
  * The payload schema can be found here: https://github.com/ehn-digital-green-development/ehn-dgc-schema/
  */
+import { X509Certificate } from '@peculiar/x509';
+import Ajv from 'ajv/dist/2020.js'; // .js extension seems required to build successfully :(
 import { decode as decodeb45 } from 'base45-ts';
 import { Buffer } from 'buffer';
-import Ajv from 'ajv/dist/2020.js'; // .js extension seems required to build successfully :(
+import { SignatureMismatchError, verify } from 'cosette/build/sign';
 import * as cbor from 'cbor-web';
 import { inflate } from 'pako';
-import * as DCCSchema from '../assets/DCC.combined-schema.1.3.0.json';
+import DCCSchema from '../assets/DCC.combined-schema.1.3.0.json';
+import DCCCerts from '../assets/dccCerts.json';
 import type { HCert } from './digital_green_certificate_types';
 
 interface UnsafeDGC {
@@ -26,9 +29,28 @@ interface UnsafeDGC {
 	expiresAt: number | null;
 }
 
+/**
+ * Per specification, a DSC is a certificate that contains
+ * a public key used to sign DGCs.
+ */
+interface DSC {
+	serialNumber: string;
+	subject: string;
+	// This is the CSCA. Per specification, a CSCA is a root
+	// certificate authority of a member state.
+	issuer: string;
+	notBefore: string;
+	notAfter: string;
+	signatureAlgorithm: string;
+	fingerprint: string;
+	signature: string;
+	publicKeyFingerprint: string;
+	publicKeyPem: string;
+}
+
 interface DGC extends UnsafeDGC {
-	isSignatureValid: boolean;
-	certificate: string;
+	isValid: boolean;
+	certificate: DSC | null;
 }
 
 const COSE_HEADERS = Object.freeze({
@@ -112,16 +134,70 @@ async function unsafeDGCFromCoseData(rawCoseData: Uint8Array): Promise<UnsafeDGC
 	};
 }
 
+async function exportPublicKeyToPEM(pk: CryptoKey): Promise<string> {
+	const spki = await crypto.subtle.exportKey('spki', pk);
+
+	let pem = Buffer.from(spki).toString('base64');
+	// Non-null assertion should be safe here because there's no capture group.
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	pem = pem.match(/.{1,64}/g)!.join('\n');
+	pem = `-----BEGIN PUBLIC KEY-----\n${pem}\n-----END PUBLIC KEY-----`;
+
+	return pem;
+}
+
 /**
  * Check the DGC Signature.
  */
-async function checkDGCSignature(dgc: UnsafeDGC, _rawCoseData: Uint8Array): Promise<DGC> {
-	// TODO
-	return {
+async function checkDGCSignature(dgc: UnsafeDGC, rawCoseData: Uint8Array): Promise<DGC> {
+	const result: DGC = {
 		...dgc,
-		isSignatureValid: false,
-		certificate: ''
+		isValid: false,
+		certificate: null
 	};
+
+	// Find the KID in known DSCs
+	if (!(dgc.kid in DCCCerts)) {
+		// Unknown KID
+		return result;
+	}
+
+	const pem = DCCCerts[dgc.kid as keyof typeof DCCCerts];
+	const x509cert = new X509Certificate(pem);
+	const pk = await x509cert.publicKey.export();
+
+	// Export the certificate data.
+	result.certificate = {
+		serialNumber: x509cert.serialNumber,
+		subject: x509cert.subject,
+		issuer: x509cert.issuer,
+		notBefore: x509cert.notBefore.toISOString(),
+		notAfter: x509cert.notAfter.toISOString(),
+		signatureAlgorithm: x509cert.signatureAlgorithm.name,
+		signature: Buffer.from(x509cert.signature).toString('base64'),
+		fingerprint: Buffer.from(await x509cert.getThumbprint()).toString('hex'),
+		publicKeyFingerprint: Buffer.from(await x509cert.getThumbprint()).toString('hex'),
+		publicKeyPem: await exportPublicKeyToPEM(pk)
+	};
+
+	// Verifiy that the certificat is still valid.
+	if (!x509cert.verify()) {
+		return result;
+	}
+
+	// Finally verify the signature of the COSE data.
+	try {
+		await verify(rawCoseData, { key: pk });
+	} catch (err) {
+		if (err instanceof SignatureMismatchError) {
+			return result;
+		}
+		throw err;
+	}
+
+	// Signature and certificate are valid, we can go on.
+	result.isValid = true;
+	return result;
 }
 
 export async function parse(doc: string): Promise<DGC> {

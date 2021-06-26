@@ -8,7 +8,8 @@ import type { DigitalGreenCertificate } from './digital_green_certificate_types'
  */
 export async function parse_any(doc: string): Promise<Certificate2ddoc> {
 	if (doc.startsWith(DGC_PREFIX)) {
-		await parse_dgc(doc);
+		const dgc = await parse_dgc(doc);
+		console.log('dgc: ', dgc);
 		throw Error('HCert unsupported for now.');
 	} else {
 		return parse_2ddoc(doc);
