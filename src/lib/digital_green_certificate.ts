@@ -236,7 +236,7 @@ async function verifyDGCSignature(
  *   - Check the CWT claims
  */
 async function verifyDGC(unsafeDGC: UnsafeDGC, rawCoseData: Uint8Array): Promise<DGC> {
-	let dgc: DGC = {
+	const dgc: DGC = {
 		...unsafeDGC,
 		isValid: false,
 		errors: [],
