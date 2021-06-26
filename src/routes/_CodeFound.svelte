@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Alert, Modal, ModalBody, ModalFooter, ModalHeader, Button, Icon } from 'sveltestrap';
-	import type { Certificate } from '$lib/2ddoc';
+	import type { Certificate2ddoc } from '$lib/2ddoc';
 	import CertificateBox from './_Certificate.svelte';
 	import { put } from '$lib/http';
 	import ShowPromiseError from './_showPromiseError.svelte';
@@ -8,7 +8,7 @@
 	import invitedTo from './_invitedToStore';
 	import { parse_any } from '$lib/detect_certificate';
 	export let codeFound: string | undefined = undefined;
-	let parsed: Certificate | null = null;
+	let parsed: Certificate2ddoc | null = null;
 	let error = '';
 	let status: 'notsent' | 'sending' | 'validated' | 'error' = 'notsent';
 	$: if (codeFound) onCode(codeFound);
