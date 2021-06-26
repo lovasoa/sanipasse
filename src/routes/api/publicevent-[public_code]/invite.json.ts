@@ -1,9 +1,9 @@
 import type { EndpointOutput } from '@sveltejs/kit';
 import { Person, Event } from '$lib/database';
-import { getNamesAndBirthdate, findCertificateError } from '$lib/2ddoc';
+import { findCertificateError } from '$lib/2ddoc';
 import { getKey } from '$lib/invitees';
 import type { DBEvent } from '$lib/event';
-import { parse_any } from '$lib/detect_certificate';
+import { getCertificateInfo, parse_any } from '$lib/detect_certificate';
 
 export async function post({ rawBody }: { rawBody: Uint8Array | string }): Promise<EndpointOutput> {
 	const code = rawBody instanceof Uint8Array ? new TextDecoder().decode(rawBody) : rawBody;
@@ -28,7 +28,7 @@ export async function put({
 	if (!event) return { status: 404, body: 'event not found' };
 	const error = findCertificateError(parsed, event.toJSON() as DBEvent);
 	if (error) return { status: 401, body: error };
-	const key = getKey(getNamesAndBirthdate(parsed));
+	const key = getKey(getCertificateInfo(parsed));
 	(await Person).upsert({
 		key,
 		eventPublicCode: public_code,
