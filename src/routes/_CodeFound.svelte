@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { Alert, Modal, ModalBody, ModalFooter, ModalHeader, Button, Icon } from 'sveltestrap';
-	import type { Certificate2ddoc } from '$lib/2ddoc';
 	import CertificateBox from './_Certificate.svelte';
 	import { put } from '$lib/http';
 	import ShowPromiseError from './_showPromiseError.svelte';
 	import wallet from './_myWalletStore';
 	import invitedTo from './_invitedToStore';
-	import { getCertificateInfo, parse_any } from '$lib/detect_certificate';
+	import { parse_any } from '$lib/detect_certificate';
+	import type { CommonCertificateInfo } from '$lib/detect_certificate';
 	export let codeFound: string | undefined = undefined;
-	let parsed: Certificate2ddoc | null = null;
+	let info: CommonCertificateInfo | null = null;
 	let error = '';
 	let status: 'notsent' | 'sending' | 'validated' | 'error' = 'notsent';
 	$: if (codeFound) onCode(codeFound);
@@ -16,7 +16,7 @@
 		try {
 			status = 'notsent';
 			promise = null;
-			if (codeFound) parsed = await parse_any(codeFound);
+			if (codeFound) info = await parse_any(codeFound);
 			error = '';
 		} catch (err) {
 			error = `${err}`;
@@ -42,14 +42,14 @@
 			<code>{error}</code>
 		</Alert>
 	</div>
-{:else if codeFound && parsed}
+{:else if codeFound && info}
 	<Modal isOpen={!!codeFound} {toggle} size="lg">
 		{#if $invitedTo.eventId}
 			<ModalHeader>Confirmer ma présence</ModalHeader>
 		{/if}
 
 		<ModalBody>
-			<CertificateBox info={getCertificateInfo(parsed)} />
+			<CertificateBox {info} />
 			<ShowPromiseError {promise} />
 			{#if status === 'validated'}
 				<div class="alert alert-success mt-4" role="alert">
@@ -80,13 +80,13 @@
 						Envoi...
 					</Button>
 				{/if}
-			{:else if $wallet.includes(parsed.code)}
+			{:else if $wallet.includes(info.code)}
 				<Button color="primary" disabled={true}>
 					<Icon name="download" />
 					Déjà enregistré dans mon carnet
 				</Button>
 			{:else}
-				<Button color="primary" on:click={() => parsed && wallet.add(parsed.code)}>
+				<Button color="primary" on:click={() => info && wallet.add(info.code)}>
 					<Icon name="download" />
 					Enregistrer dans mon carnet
 				</Button>

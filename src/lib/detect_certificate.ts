@@ -6,13 +6,11 @@ import type { DBEvent } from './event';
 /**
  * Detects the type of a certificate and parses it
  */
-export async function parse_any(doc: string): Promise<Certificate2ddoc> {
-	if (doc.startsWith(DGC_PREFIX)) {
-		const dgc = await parse_dgc(doc);
-		throw Error('HCert unsupported for now: ' + JSON.stringify(dgc));
-	} else {
-		return parse_2ddoc(doc);
-	}
+export async function parse_any(doc: string): Promise<CommonCertificateInfo> {
+	const parsed = doc.startsWith(DGC_PREFIX)
+		? parse_dgc(doc)
+		: parse_2ddoc(doc);
+	return getCertificateInfo(await parsed)
 }
 
 export interface CommonVaccineInfo {
@@ -41,7 +39,7 @@ export interface AllCommonInfo {
 
 export type CommonCertificateInfo = AllCommonInfo & (CommonVaccineInfo | CommonTestInfo);
 
-export function getCertificateInfo(
+function getCertificateInfo(
 	cert: Certificate2ddoc | DGC
 ): CommonCertificateInfo {
 	if ('vaccinated_first_name' in cert) {
