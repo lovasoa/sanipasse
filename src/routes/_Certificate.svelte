@@ -1,6 +1,7 @@
 <script type="ts">
 	import { Alert, Icon, Row, Col } from 'sveltestrap';
-	import { CommonCertificateInfo, findCertificateError } from '$lib/detect_certificate';
+	import { findCertificateError } from '$lib/detect_certificate';
+	import type { CommonCertificateInfo } from '$lib/detect_certificate';
 	import Certificate2ddocDetails from './_Certificate2ddocDetails.svelte';
 	import CertificateDgcDetails from './_CertificateDGCDetails.svelte';
 	export let info: CommonCertificateInfo;
