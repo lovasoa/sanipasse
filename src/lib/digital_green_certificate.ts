@@ -58,16 +58,16 @@ export class DgcError extends Error {
 	}
 }
 export class DgcIssuedInFutureError extends DgcError {
-	name = "Date de signature dans le futur"
+	name = 'Date de signature dans le futur';
 }
 export class ExpiredDgcError extends DgcError {
-	name = "Signature expirée"
+	name = 'Signature expirée';
 }
 export class UnknownKidError extends DgcError {
-	name = "Signataire non reconnu"
+	name = 'Signataire non reconnu';
 }
 export class InvalidCertificateError extends DgcError {
-	name = "Certificat de signature invalide"
+	name = 'Certificat de signature invalide';
 }
 
 export interface DGC extends UnsafeDGC {
