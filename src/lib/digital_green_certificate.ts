@@ -207,7 +207,7 @@ async function findDGCPublicKey(
 		publicKeyPem: await exportPublicKeyToPEM(public_key)
 	};
 
-	// Verifiy that the certificat is still valid.
+	// Verify that the certificate is still valid.
 	const now = new Date();
 	if (now > x509cert.notAfter || now < x509cert.notBefore) throw new InvalidCertificateError(dgc);
 
