@@ -229,8 +229,8 @@ async function verifyDGC(dgc: UnsafeDGC, rawCoseData: Uint8Array, code: string):
 function getCertificateInfo(cert: DGC): CommonCertificateInfo {
 	const hcert = cert.hcert;
 	const common = {
-		first_name: hcert.nam.gnt || hcert.nam.gn || '-',
-		last_name: hcert.nam.fnt,
+		first_name: hcert.nam.gn || (hcert.nam.gnt || '-').replace(/</g, " "),
+		last_name: hcert.nam.fn || hcert.nam.fnt.replace(/</g, " "),
 		date_of_birth: new Date(hcert.dob),
 		code: cert.code,
 		source: { format: 'dgc', cert }
