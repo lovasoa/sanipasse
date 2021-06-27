@@ -39,7 +39,7 @@
 	<div class="row mt-5">
 		<Alert color="danger" fade={false}>
 			<h4>Erreur</h4>
-			<code>{error}</code>
+			<code><pre>{error}</pre></code>
 		</Alert>
 	</div>
 {:else if codeFound && info}
