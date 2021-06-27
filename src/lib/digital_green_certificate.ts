@@ -153,7 +153,7 @@ async function exportPublicKeyToPEM(pk: CryptoKey): Promise<string> {
 	const spki = await crypto.subtle.exportKey('spki', pk);
 
 	let pem = Buffer.from(spki).toString('base64');
-	// Non-null assertion should be safe here because there's no capture group.
+	// Non-null assertion should be safe here because PEM are never empty.
 	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	pem = pem.match(/.{1,64}/g)!.join('\n');
 	pem = `-----BEGIN PUBLIC KEY-----\n${pem}\n-----END PUBLIC KEY-----`;
