@@ -12,7 +12,7 @@
 
 <Alert color={error ? 'warning' : 'info'} fade={false}>
 	{#if with_fullscreen}
-		<a style="float:right" href="/fullscreen#{info.code}">
+		<a style="float:right" href="/fullscreen#{encodeURIComponent(info.code)}">
 			<Icon name="arrows-fullscreen" />
 		</a>
 	{/if}
