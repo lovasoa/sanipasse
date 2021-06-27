@@ -1,18 +1,19 @@
 <script lang="ts">
 	const code: string = decodeURIComponent(globalThis?.location?.hash.slice(1) || '');
 	let div: HTMLElement | null = null;
-	import { parse } from '$lib/2ddoc';
+	import { isDGC, parse_any } from '$lib/detect_certificate';
 	import { BrowserQRCodeSvgWriter } from '@zxing/browser';
 	import Certificate from './_Certificate.svelte';
 	import wallet from './_myWalletStore';
 
 	const writer = new BrowserQRCodeSvgWriter();
 	function updateCode(div: HTMLElement) {
-		console.log(code);
 		div.innerHTML = '';
 		const width = 512,
 			height = 512;
-		const contents = 'https://bonjour.tousanticovid.gouv.fr/app/wallet?v=' + code;
+		const contents = isDGC(code)
+			? code
+			: 'https://bonjour.tousanticovid.gouv.fr/app/wallet2d#' + encodeURIComponent(code);
 		writer.writeToDom(div, contents, width, height, new Map());
 		// See https://github.com/zxing-js/browser/pull/59
 		const svg = div.querySelector('svg');
@@ -28,8 +29,8 @@
 
 {#if code}
 	<div class="mb-3 mt-3">
-		{#await parse(code) then certificate}
-			<Certificate {certificate} />
+		{#await parse_any(code) then info}
+			<Certificate {info} />
 		{:catch e}
 			<pre class="alert alert-danger">Certificat invalide: {e} </pre>
 		{/await}
@@ -49,7 +50,6 @@
 		margin: auto;
 		width: 100%;
 		min-height: 50vh;
-		text-align: center;
 	}
 	div svg {
 		width: 100%;

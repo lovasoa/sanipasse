@@ -1,6 +1,5 @@
-import { check_signature } from '$lib/check_signature';
-import type { DBEvent } from './event';
-import type { Names } from './invitees';
+import { check_signature } from '$lib/2ddoc_check_signature';
+import type { CommonCertificateInfo } from './common_certificate_info';
 
 const ALPHA = {
 	regex: 'A-Z\\-\\./ ',
@@ -151,7 +150,7 @@ interface HeaderData {
 	document_perimeter: string;
 	document_country: string;
 }
-export type Certificate = (VaccineCertificate | TestCertificate) &
+export type Certificate2ddoc = (VaccineCertificate | TestCertificate) &
 	HeaderData & { signature?: string };
 
 function parse_2ddoc_date(date_str: string): Date | undefined {
@@ -237,45 +236,42 @@ function extractLink(doc: string): string {
 	return doc;
 }
 
-export function findCertificateError(c: Certificate, event?: DBEvent): string | undefined {
-	const MAX_TEST_AGE_HOURS = 72;
-	if ('vaccinated_first_name' in c) {
-		if (c.doses_received < c.doses_expected)
-			return `Vous n'avez reçu que ${c.doses_received} dose sur les ${c.doses_expected} que ce vaccin demande.`;
-	} else {
-		const target_date = event?.date || new Date();
-		if (c.analysis_result !== 'N') return `Ce test n'est pas négatif !`;
-		const test_age = (+target_date - +c.analysis_datetime) / (3600 * 1000);
-		if (test_age > MAX_TEST_AGE_HOURS)
-			return (
-				`Ce test a ${test_age.toLocaleString('fr', { maximumFractionDigits: 0 })} heures.` +
-				` Un test de moins de ${MAX_TEST_AGE_HOURS} heures est demandé.`
-			);
+function getCertificateInfo(cert: Certificate2ddoc): CommonCertificateInfo {
+	if ('vaccinated_first_name' in cert) {
+		return {
+			type: 'vaccination',
+			vaccination_date: cert.last_dose_date,
+			prophylactic_agent: cert.prophylactic_agent,
+			doses_received: cert.doses_received,
+			doses_expected: cert.doses_expected,
+			first_name: cert.vaccinated_first_name,
+			last_name: cert.vaccinated_last_name,
+			date_of_birth: cert.vaccinated_birth_date,
+			code: cert.code,
+			source: { format: '2ddoc', cert }
+		};
+	} else if ('tested_first_name' in cert) {
+		return {
+			type: 'test',
+			test_date: cert.analysis_datetime,
+			is_negative: cert.analysis_result === 'N',
+			first_name: cert.tested_first_name,
+			last_name: cert.tested_last_name,
+			date_of_birth: cert.tested_birth_date,
+			code: cert.code,
+			source: { format: '2ddoc', cert }
+		};
 	}
+	throw new Error('Unsupported or empty certificate: ' + JSON.stringify(cert));
 }
 
-export async function parse(doc: string): Promise<Certificate> {
+export async function parse(doc: string): Promise<CommonCertificateInfo> {
 	doc = extractLink(doc);
 	const groups = doc.match(TOTAL_REGEX)?.groups;
 	if (!groups) throw new Error('Format de certificat invalide');
 	const fields = groups.document_type === 'B2' ? TEST_FIELDS : VACCINE_FIELDS;
 	const { data, public_key_id, signature } = groups;
 	await check_signature(data, public_key_id, signature);
-	return extract_data(doc, fields, groups);
-}
-
-export function getNamesAndBirthdate(c: Certificate): Names & { birth_date: Date } {
-	if ('vaccinated_first_name' in c) {
-		return {
-			first_name: c.vaccinated_first_name,
-			last_name: c.vaccinated_last_name,
-			birth_date: c.vaccinated_birth_date
-		};
-	} else {
-		return {
-			first_name: c.tested_first_name,
-			last_name: c.tested_last_name,
-			birth_date: c.tested_birth_date
-		};
-	}
+	const raw_data = extract_data(doc, fields, groups);
+	return getCertificateInfo(raw_data);
 }
