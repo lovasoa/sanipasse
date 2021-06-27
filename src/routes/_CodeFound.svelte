@@ -6,7 +6,7 @@
 	import wallet from './_myWalletStore';
 	import invitedTo from './_invitedToStore';
 	import { parse_any } from '$lib/detect_certificate';
-	import type { CommonCertificateInfo } from '$lib/detect_certificate';
+	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	export let codeFound: string | undefined = undefined;
 	let info: CommonCertificateInfo | null = null;
 	let error = '';

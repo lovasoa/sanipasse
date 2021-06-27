@@ -1,4 +1,5 @@
 import { check_signature } from '$lib/2ddoc_check_signature';
+import type { CommonCertificateInfo } from './common_certificate_info';
 
 const ALPHA = {
 	regex: 'A-Z\\-\\./ ',
@@ -235,12 +236,42 @@ function extractLink(doc: string): string {
 	return doc;
 }
 
-export async function parse(doc: string): Promise<Certificate2ddoc> {
+function getCertificateInfo(cert: Certificate2ddoc): CommonCertificateInfo {
+	if ('vaccinated_first_name' in cert) {
+		return {
+			type: 'vaccination',
+			vaccination_date: cert.last_dose_date,
+			prophylactic_agent: cert.prophylactic_agent,
+			doses_received: cert.doses_received,
+			doses_expected: cert.doses_expected,
+			first_name: cert.vaccinated_first_name,
+			last_name: cert.vaccinated_last_name,
+			date_of_birth: cert.vaccinated_birth_date,
+			code: cert.code,
+			source: { format: '2ddoc', cert }
+		};
+	} else if ('tested_first_name' in cert) {
+		return {
+			type: 'test',
+			test_date: cert.analysis_datetime,
+			is_negative: cert.analysis_result === 'N',
+			first_name: cert.tested_first_name,
+			last_name: cert.tested_last_name,
+			date_of_birth: cert.tested_birth_date,
+			code: cert.code,
+			source: { format: '2ddoc', cert }
+		};
+	}
+	throw new Error('Unsupported or empty certificate: ' + JSON.stringify(cert));
+}
+
+export async function parse(doc: string): Promise<CommonCertificateInfo> {
 	doc = extractLink(doc);
 	const groups = doc.match(TOTAL_REGEX)?.groups;
 	if (!groups) throw new Error('Format de certificat invalide');
 	const fields = groups.document_type === 'B2' ? TEST_FIELDS : VACCINE_FIELDS;
 	const { data, public_key_id, signature } = groups;
 	await check_signature(data, public_key_id, signature);
-	return extract_data(doc, fields, groups);
+	const raw_data = extract_data(doc, fields, groups);
+	return getCertificateInfo(raw_data);
 }

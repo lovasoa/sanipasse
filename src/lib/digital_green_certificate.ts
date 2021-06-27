@@ -14,12 +14,13 @@ import { X509Certificate } from '@peculiar/x509';
 import Ajv from 'ajv/dist/2020.js'; // .js extension seems required to build successfully :(
 import { decode as decodeb45 } from 'base45-ts';
 import { Buffer } from 'buffer';
-import { SignatureMismatchError, verify } from 'cosette/build/sign.js';
+import { verify } from 'cosette/build/sign.js';
 import * as cbor from 'cbor-web';
 import { inflate } from 'pako';
 import DCCSchema from '../assets/DCC.combined-schema.1.3.0.json';
 import DCCCerts from '../assets/dccCerts.json';
 import type { HCert } from './digital_green_certificate_types';
+import type { CommonCertificateInfo } from './common_certificate_info';
 
 interface UnsafeDGC {
 	hcert: HCert;
@@ -49,22 +50,20 @@ interface DSC {
 	publicKeyPem: string;
 }
 
-export const DGC_ERROR_ISSUED_IN_FUTURE = 'DGC_ISSUED_IN_FUTURE';
-export const DGC_ERROR_EXPIRED = 'DGC_EXPIRED';
-export const DGC_ERROR_UNKNOWN_KID = 'DGC_UNKNOWN_KID';
-export const DGC_ERROR_INVALID_CERTIFICATE = 'DGC_INVALID_CERTIFICATE';
-export const DGC_ERROR_INVALID_SIGNATURE = 'DGC_INVALID_SIGNATURE';
-export type DGC_ERROR =
-	| typeof DGC_ERROR_ISSUED_IN_FUTURE
-	| typeof DGC_ERROR_EXPIRED
-	| typeof DGC_ERROR_UNKNOWN_KID
-	| typeof DGC_ERROR_INVALID_CERTIFICATE
-	| typeof DGC_ERROR_INVALID_SIGNATURE;
+export class DgcError extends Error {
+	dgc: UnsafeDGC;
+	constructor(dgc: UnsafeDGC) {
+		super(`Invalid digital green certificate: ${JSON.stringify(dgc)}`);
+		this.dgc = dgc;
+	}
+}
+export class DgcIssuedInFutureError extends DgcError {}
+export class ExpiredDgcError extends DgcError {}
+export class UnknownKidError extends DgcError {}
+export class InvalidCertificateError extends DgcError {}
 
 export interface DGC extends UnsafeDGC {
-	isValid: boolean;
-	errors: DGC_ERROR[];
-	certificate: DSC | null;
+	certificate: DSC;
 	code: string;
 }
 
@@ -164,35 +163,29 @@ async function exportPublicKeyToPEM(pk: CryptoKey): Promise<string> {
 /**
  * Verifies the CWT claims of the DGC.
  */
-async function verifyDGCClaims(dgc: DGC): Promise<void> {
+async function verifyDGCClaims(dgc: UnsafeDGC): Promise<void> {
 	const now = Math.floor(Date.now() / 1000);
 
-	if (dgc.issuedAt !== null && now < dgc.issuedAt) {
-		dgc.errors.push(DGC_ERROR_ISSUED_IN_FUTURE);
-	}
+	if (dgc.issuedAt !== null && now < dgc.issuedAt) throw new DgcIssuedInFutureError(dgc);
 
-	if (dgc.expiresAt !== null && dgc.expiresAt < now) {
-		dgc.errors.push(DGC_ERROR_EXPIRED);
-	}
+	if (dgc.expiresAt !== null && dgc.expiresAt < now) throw new ExpiredDgcError(dgc);
 }
 
 /**
  * Find the DSC that matches this DSC KID.
  */
-async function findDGCPublicKey(dgc: DGC): Promise<CryptoKey | undefined> {
+async function findDGCPublicKey(
+	dgc: UnsafeDGC
+): Promise<{ certificate: DSC; public_key: CryptoKey }> {
 	// Find the KID in known DSCs
-	if (!(dgc.kid in DCCCerts)) {
-		// Unknown KID
-		dgc.errors.push(DGC_ERROR_UNKNOWN_KID);
-		return undefined;
-	}
+	if (!(dgc.kid in DCCCerts)) throw new UnknownKidError(dgc);
 
 	const pem = DCCCerts[dgc.kid as keyof typeof DCCCerts];
 	const x509cert = new X509Certificate(pem);
-	const pk = await x509cert.publicKey.export();
+	const public_key = await x509cert.publicKey.export();
 
 	// Export the certificate data.
-	dgc.certificate = {
+	const certificate = {
 		serialNumber: x509cert.serialNumber,
 		subject: x509cert.subject,
 		issuer: x509cert.issuer,
@@ -203,33 +196,13 @@ async function findDGCPublicKey(dgc: DGC): Promise<CryptoKey | undefined> {
 		fingerprint: Buffer.from(await x509cert.getThumbprint()).toString('hex'),
 		publicKeyAlgorithm: x509cert.publicKey.algorithm.name,
 		publicKeyFingerprint: Buffer.from(await x509cert.publicKey.getThumbprint()).toString('hex'),
-		publicKeyPem: await exportPublicKeyToPEM(pk)
+		publicKeyPem: await exportPublicKeyToPEM(public_key)
 	};
 
 	// Verifiy that the certificat is still valid.
-	if (!x509cert.verify()) {
-		dgc.errors.push(DGC_ERROR_INVALID_CERTIFICATE);
-	}
+	if (!(await x509cert.verify())) throw new InvalidCertificateError(dgc);
 
-	return pk;
-}
-
-/**
- * Verify the DGC signature.
- */
-async function verifyDGCSignature(
-	dgc: DGC,
-	rawCoseData: Uint8Array,
-	key: CryptoKey
-): Promise<void> {
-	try {
-		await verify(rawCoseData, { key });
-	} catch (err) {
-		if (err instanceof SignatureMismatchError) {
-			dgc.errors.push(DGC_ERROR_INVALID_SIGNATURE);
-		}
-		throw err;
-	}
+	return { certificate, public_key };
 }
 
 /**
@@ -238,47 +211,60 @@ async function verifyDGCSignature(
  *   - Check the COSE signature
  *   - Check the CWT claims
  */
-async function verifyDGC(
-	unsafeDGC: UnsafeDGC,
-	rawCoseData: Uint8Array,
-	code: string
-): Promise<DGC> {
-	const dgc: DGC = {
-		...unsafeDGC,
-		isValid: false,
-		errors: [],
-		certificate: null,
-		code
-	};
-
+async function verifyDGC(dgc: UnsafeDGC, rawCoseData: Uint8Array, code: string): Promise<DGC> {
 	await verifyDGCClaims(dgc);
-
-	const pk = await findDGCPublicKey(dgc);
-	if (!pk) {
-		return dgc;
-	}
-
-	await verifyDGCSignature(dgc, rawCoseData, pk);
-
-	dgc.isValid = dgc.errors.length === 0;
-	return dgc;
+	const { certificate, public_key } = await findDGCPublicKey(dgc);
+	await verify(rawCoseData, { key: public_key });
+	return { ...dgc, certificate, code };
 }
 
-export async function parse(doc: string): Promise<DGC> {
-	try {
-		const rawCoseData = await extractCoseFromQRCode(doc);
-
-		// We need to parse COSE data without verifying signature first:
-		//   - to get the KID that was used
-		//   - to allow inspection of the data on invalid signature as
-		// 	   cosette doesn't seem to permit that yet.
-		const dgc = await unsafeDGCFromCoseData(rawCoseData);
-
-		return verifyDGC(dgc, rawCoseData, doc);
-	} catch (err) {
-		// FIXME: For debugging purposes ATM. Remove that try/catch block at some point.
-		console.error('Error while decoding QR Code:', err);
-
-		throw err;
+function getCertificateInfo(cert: DGC): CommonCertificateInfo {
+	const hcert = cert.hcert;
+	const common = {
+		first_name: hcert.nam.gnt || hcert.nam.gn || '-',
+		last_name: hcert.nam.fnt,
+		date_of_birth: new Date(hcert.dob),
+		code: cert.code,
+		source: { format: 'dgc', cert }
+	} as const;
+	if (hcert.v && hcert.v.length) {
+		return {
+			type: 'vaccination',
+			vaccination_date: new Date(hcert.v[0].dt),
+			prophylactic_agent: hcert.v[0].vp,
+			doses_received: hcert.v[0].dn,
+			doses_expected: hcert.v[0].sd,
+			...common
+		};
 	}
+	if (hcert.t && hcert.t.length) {
+		return {
+			type: 'test',
+			test_date: new Date(hcert.t[0].sc),
+			// 260415000=not detected: http://purl.bioontology.org/ontology/SNOMEDCT/260415000
+			is_negative: hcert.t[0].tr === '260415000',
+			...common
+		};
+	}
+	if (hcert.r && hcert.r.length) {
+		return {
+			type: 'test',
+			test_date: new Date(hcert.r[0].fr), // date of positive test
+			is_negative: false,
+			...common
+		};
+	}
+	throw new Error('Unsupported or empty certificate: ' + JSON.stringify(cert));
+}
+
+export async function parse(doc: string): Promise<CommonCertificateInfo> {
+	const rawCoseData = await extractCoseFromQRCode(doc);
+
+	// We need to parse COSE data without verifying signature first:
+	//   - to get the KID that was used
+	//   - to allow inspection of the data on invalid signature as
+	// 	   cosette doesn't seem to permit that yet.
+	const unsafe_dgc = await unsafeDGCFromCoseData(rawCoseData);
+	const dgc = await verifyDGC(unsafe_dgc, rawCoseData, doc);
+	return getCertificateInfo(dgc);
 }
