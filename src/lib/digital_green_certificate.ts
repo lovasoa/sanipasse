@@ -53,14 +53,22 @@ interface DSC {
 export class DgcError extends Error {
 	dgc: UnsafeDGC;
 	constructor(dgc: UnsafeDGC) {
-		super(`Invalid digital green certificate: ${JSON.stringify(dgc)}`);
+		super(`Ce certificat est invalide: ${JSON.stringify(dgc, null, '\t')}`);
 		this.dgc = dgc;
 	}
 }
-export class DgcIssuedInFutureError extends DgcError {}
-export class ExpiredDgcError extends DgcError {}
-export class UnknownKidError extends DgcError {}
-export class InvalidCertificateError extends DgcError {}
+export class DgcIssuedInFutureError extends DgcError {
+	name = "Date de signature dans le futur"
+}
+export class ExpiredDgcError extends DgcError {
+	name = "Signature expirée"
+}
+export class UnknownKidError extends DgcError {
+	name = "Signataire non reconnu"
+}
+export class InvalidCertificateError extends DgcError {
+	name = "Certificat de signature invalide"
+}
 
 export interface DGC extends UnsafeDGC {
 	certificate: DSC;
