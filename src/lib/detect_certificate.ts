@@ -39,7 +39,8 @@ export function findCertificateError(
 			if (test_age_days < MIN_POSITIVE_TEST_AGE_DAYS || test_age_days > MAX_POSITIVE_TEST_AGE_DAYS)
 				return (
 					`Ce test a ${test_age_days.toLocaleString('fr', { maximumFractionDigits: 0 })} jours.` +
-					` Un test de plus de ${MIN_POSITIVE_TEST_AGE_DAYS} jours et de moins de ${MAX_POSITIVE_TEST_AGE_DAYS / 30
+					` Un test de plus de ${MIN_POSITIVE_TEST_AGE_DAYS} jours et de moins de ${
+						MAX_POSITIVE_TEST_AGE_DAYS / 30
 					} mois est demandé.`
 				);
 		}
