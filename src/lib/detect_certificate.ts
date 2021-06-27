@@ -7,10 +7,8 @@ import type { DBEvent } from './event';
  * Detects the type of a certificate and parses it
  */
 export async function parse_any(doc: string): Promise<CommonCertificateInfo> {
-	const parsed = doc.startsWith(DGC_PREFIX)
-		? parse_dgc(doc)
-		: parse_2ddoc(doc);
-	return getCertificateInfo(await parsed)
+	const parsed = doc.startsWith(DGC_PREFIX) ? parse_dgc(doc) : parse_2ddoc(doc);
+	return getCertificateInfo(await parsed);
 }
 
 export interface CommonVaccineInfo {
@@ -32,16 +30,12 @@ export interface AllCommonInfo {
 	last_name: string;
 	date_of_birth: Date;
 	code: string;
-	source:
-	| { format: 'dgc'; cert: DGC }
-	| { format: '2ddoc'; cert: Certificate2ddoc };
+	source: { format: 'dgc'; cert: DGC } | { format: '2ddoc'; cert: Certificate2ddoc };
 }
 
 export type CommonCertificateInfo = AllCommonInfo & (CommonVaccineInfo | CommonTestInfo);
 
-function getCertificateInfo(
-	cert: Certificate2ddoc | DGC
-): CommonCertificateInfo {
+function getCertificateInfo(cert: Certificate2ddoc | DGC): CommonCertificateInfo {
 	if ('vaccinated_first_name' in cert) {
 		return {
 			type: 'vaccination',
@@ -82,8 +76,8 @@ function getCertificateInfo(
 				prophylactic_agent: hcert.v[0].vp,
 				doses_received: hcert.v[0].dn,
 				doses_expected: hcert.v[0].sd,
-				...common,
-			}
+				...common
+			};
 		}
 		if (hcert.t && hcert.t.length) {
 			return {
@@ -91,29 +85,33 @@ function getCertificateInfo(
 				test_date: new Date(hcert.t[0].sc),
 				// 260415000=not detected: http://purl.bioontology.org/ontology/SNOMEDCT/260415000
 				is_negative: hcert.t[0].tr === '260415000',
-				...common,
-			}
+				...common
+			};
 		}
 		if (hcert.r && hcert.r.length) {
 			return {
 				type: 'test',
 				test_date: new Date(hcert.r[0].fr), // date of positive test
 				is_negative: false,
-				...common,
-			}
+				...common
+			};
 		}
 	}
 	throw new Error('Unsupported or empty certificate: ' + JSON.stringify(cert));
 }
 
-export function findCertificateError(c: CommonCertificateInfo, event?: DBEvent): string | undefined {
+export function findCertificateError(
+	c: CommonCertificateInfo,
+	event?: DBEvent
+): string | undefined {
 	const MAX_NEGATIVE_TEST_AGE_HOURS = 72;
 	const MIN_POSITIVE_TEST_AGE_DAYS = 15;
 	const MAX_POSITIVE_TEST_AGE_DAYS = 6 * 30;
-	if (c.type === "vaccination") {
+	if (c.type === 'vaccination') {
 		if (c.doses_received < c.doses_expected)
 			return `Vous n'avez reçu que ${c.doses_received} dose sur les ${c.doses_expected} que ce vaccin demande.`;
-	} else { // test
+	} else {
+		// test
 		const target_date = event?.date || new Date();
 		const test_age_hours = (+target_date - +c.test_date) / (3600 * 1000);
 		const test_age_days = test_age_hours * 24;
@@ -123,11 +121,14 @@ export function findCertificateError(c: CommonCertificateInfo, event?: DBEvent):
 					`Ce test a ${test_age_hours.toLocaleString('fr', { maximumFractionDigits: 0 })} heures.` +
 					` Un test de moins de ${MAX_NEGATIVE_TEST_AGE_HOURS} heures est demandé.`
 				);
-		} else { //positive test
+		} else {
+			//positive test
 			if (test_age_days < MIN_POSITIVE_TEST_AGE_DAYS || test_age_days > MAX_POSITIVE_TEST_AGE_DAYS)
 				return (
 					`Ce test a ${test_age_days.toLocaleString('fr', { maximumFractionDigits: 0 })} jours.` +
-					` Un test de plus de ${MIN_POSITIVE_TEST_AGE_DAYS} jours et de moins de ${MAX_POSITIVE_TEST_AGE_DAYS / 30} mois est demandé.`
+					` Un test de plus de ${MIN_POSITIVE_TEST_AGE_DAYS} jours et de moins de ${
+						MAX_POSITIVE_TEST_AGE_DAYS / 30
+					} mois est demandé.`
 				);
 		}
 	}

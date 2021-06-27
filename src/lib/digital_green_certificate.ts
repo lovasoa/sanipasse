@@ -238,7 +238,11 @@ async function verifyDGCSignature(
  *   - Check the COSE signature
  *   - Check the CWT claims
  */
-async function verifyDGC(unsafeDGC: UnsafeDGC, rawCoseData: Uint8Array, code: string): Promise<DGC> {
+async function verifyDGC(
+	unsafeDGC: UnsafeDGC,
+	rawCoseData: Uint8Array,
+	code: string
+): Promise<DGC> {
 	const dgc: DGC = {
 		...unsafeDGC,
 		isValid: false,
