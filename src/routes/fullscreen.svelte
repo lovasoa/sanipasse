@@ -49,7 +49,6 @@
 		margin: auto;
 		width: 100%;
 		min-height: 50vh;
-		text-align: center;
 	}
 	div svg {
 		width: 100%;
