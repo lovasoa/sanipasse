@@ -1,14 +1,16 @@
-import type { Certificate2ddoc } from './2ddoc';
 import { parse as parse_2ddoc } from './2ddoc';
 import type { CommonCertificateInfo } from './common_certificate_info';
-import { DGC, DGC_PREFIX, parse as parse_dgc } from './digital_green_certificate';
+import { DGC_PREFIX, parse as parse_dgc } from './digital_green_certificate';
 import type { DBEvent } from './event';
 
+export function isDGC(code: string): boolean {
+	return code.startsWith(DGC_PREFIX);
+}
 /**
  * Detects the type of a certificate and parses it
  */
 export async function parse_any(doc: string): Promise<CommonCertificateInfo> {
-	return await (doc.startsWith(DGC_PREFIX) ? parse_dgc(doc) : parse_2ddoc(doc));
+	return await (isDGC(doc) ? parse_dgc(doc) : parse_2ddoc(doc));
 }
 
 export function findCertificateError(
@@ -37,8 +39,7 @@ export function findCertificateError(
 			if (test_age_days < MIN_POSITIVE_TEST_AGE_DAYS || test_age_days > MAX_POSITIVE_TEST_AGE_DAYS)
 				return (
 					`Ce test a ${test_age_days.toLocaleString('fr', { maximumFractionDigits: 0 })} jours.` +
-					` Un test de plus de ${MIN_POSITIVE_TEST_AGE_DAYS} jours et de moins de ${
-						MAX_POSITIVE_TEST_AGE_DAYS / 30
+					` Un test de plus de ${MIN_POSITIVE_TEST_AGE_DAYS} jours et de moins de ${MAX_POSITIVE_TEST_AGE_DAYS / 30
 					} mois est demandé.`
 				);
 		}
