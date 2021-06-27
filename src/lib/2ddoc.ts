@@ -1,6 +1,4 @@
-import { check_signature } from '$lib/check_signature';
-import type { DBEvent } from './event';
-import type { Names } from './invitees';
+import { check_signature } from '$lib/2ddoc_check_signature';
 
 const ALPHA = {
 	regex: 'A-Z\\-\\./ ',
@@ -235,23 +233,6 @@ function extractLink(doc: string): string {
 	}
 
 	return doc;
-}
-
-export function findCertificateError(c: Certificate2ddoc, event?: DBEvent): string | undefined {
-	const MAX_TEST_AGE_HOURS = 72;
-	if ('vaccinated_first_name' in c) {
-		if (c.doses_received < c.doses_expected)
-			return `Vous n'avez reçu que ${c.doses_received} dose sur les ${c.doses_expected} que ce vaccin demande.`;
-	} else {
-		const target_date = event?.date || new Date();
-		if (c.analysis_result !== 'N') return `Ce test n'est pas négatif !`;
-		const test_age = (+target_date - +c.analysis_datetime) / (3600 * 1000);
-		if (test_age > MAX_TEST_AGE_HOURS)
-			return (
-				`Ce test a ${test_age.toLocaleString('fr', { maximumFractionDigits: 0 })} heures.` +
-				` Un test de moins de ${MAX_TEST_AGE_HOURS} heures est demandé.`
-			);
-	}
 }
 
 export async function parse(doc: string): Promise<Certificate2ddoc> {

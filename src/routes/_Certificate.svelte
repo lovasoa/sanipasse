@@ -1,20 +1,17 @@
 <script type="ts">
 	import { Alert, Icon, Row, Col } from 'sveltestrap';
-	import { findCertificateError } from '$lib/2ddoc';
-	import type { Certificate2ddoc } from '../lib/2ddoc';
-	import { getCertificateInfo } from '$lib/detect_certificate';
+	import { CommonCertificateInfo, findCertificateError } from '$lib/detect_certificate';
 	import Certificate2ddocDetails from './_Certificate2ddocDetails.svelte';
 	import CertificateDgcDetails from './_CertificateDGCDetails.svelte';
-	export let certificate: Certificate2ddoc;
+	export let info: CommonCertificateInfo;
 	export let with_fullscreen = false;
-	$: error = findCertificateError(certificate);
-	$: info = getCertificateInfo(certificate);
+	$: error = findCertificateError(info);
 	$: source = info.source;
 </script>
 
 <Alert color={error ? 'warning' : 'info'} fade={false}>
 	{#if with_fullscreen}
-		<a style="float:right" href="/fullscreen#{certificate.code}">
+		<a style="float:right" href="/fullscreen#{info.code}">
 			<Icon name="arrows-fullscreen" />
 		</a>
 	{/if}

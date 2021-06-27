@@ -1,7 +1,7 @@
 <script lang="ts">
 	const code: string = decodeURIComponent(globalThis?.location?.hash.slice(1) || '');
 	let div: HTMLElement | null = null;
-	import { parse } from '$lib/2ddoc';
+	import { getCertificateInfo, parse_any } from '$lib/detect_certificate';
 	import { BrowserQRCodeSvgWriter } from '@zxing/browser';
 	import Certificate from './_Certificate.svelte';
 	import wallet from './_myWalletStore';
@@ -28,8 +28,8 @@
 
 {#if code}
 	<div class="mb-3 mt-3">
-		{#await parse(code) then certificate}
-			<Certificate {certificate} />
+		{#await parse_any(code) then certificate}
+			<Certificate info={getCertificateInfo(certificate)} />
 		{:catch e}
 			<pre class="alert alert-danger">Certificat invalide: {e} </pre>
 		{/await}

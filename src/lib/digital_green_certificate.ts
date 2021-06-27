@@ -65,6 +65,7 @@ export interface DGC extends UnsafeDGC {
 	isValid: boolean;
 	errors: DGC_ERROR[];
 	certificate: DSC | null;
+	code: string;
 }
 
 const COSE_HEADERS = Object.freeze({
@@ -237,12 +238,13 @@ async function verifyDGCSignature(
  *   - Check the COSE signature
  *   - Check the CWT claims
  */
-async function verifyDGC(unsafeDGC: UnsafeDGC, rawCoseData: Uint8Array): Promise<DGC> {
+async function verifyDGC(unsafeDGC: UnsafeDGC, rawCoseData: Uint8Array, code: string): Promise<DGC> {
 	const dgc: DGC = {
 		...unsafeDGC,
 		isValid: false,
 		errors: [],
-		certificate: null
+		certificate: null,
+		code
 	};
 
 	await verifyDGCClaims(dgc);
@@ -268,7 +270,7 @@ export async function parse(doc: string): Promise<DGC> {
 		// 	   cosette doesn't seem to permit that yet.
 		const dgc = await unsafeDGCFromCoseData(rawCoseData);
 
-		return verifyDGC(dgc, rawCoseData);
+		return verifyDGC(dgc, rawCoseData, doc);
 	} catch (err) {
 		// FIXME: For debugging purposes ATM. Remove that try/catch block at some point.
 		console.error('Error while decoding QR Code:', err);

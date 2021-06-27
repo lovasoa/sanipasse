@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { parse } from '$lib/2ddoc';
+	import { getCertificateInfo, parse_any } from '$lib/detect_certificate';
 	import Certificate from './_Certificate.svelte';
 	import CodeFound from './_CodeFound.svelte';
 
@@ -19,7 +19,7 @@
 {/if}
 
 {#each $wallet as cert}
-	{#await parse(cert)}
+	{#await parse_any(cert)}
 		décodage...
 	{:then certificate}
 		<div
@@ -28,7 +28,7 @@
 				if ($invitedTo.eventId) codeFound = cert;
 			}}
 		>
-			<Certificate {certificate} with_fullscreen={!$invitedTo.eventId} />
+			<Certificate info={getCertificateInfo(certificate)} with_fullscreen={!$invitedTo.eventId} />
 		</div>
 	{/await}
 {:else}

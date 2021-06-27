@@ -6,7 +6,7 @@
 	import ShowPromiseError from './_showPromiseError.svelte';
 	import wallet from './_myWalletStore';
 	import invitedTo from './_invitedToStore';
-	import { parse_any } from '$lib/detect_certificate';
+	import { getCertificateInfo, parse_any } from '$lib/detect_certificate';
 	export let codeFound: string | undefined = undefined;
 	let parsed: Certificate2ddoc | null = null;
 	let error = '';
@@ -49,7 +49,7 @@
 		{/if}
 
 		<ModalBody>
-			<CertificateBox certificate={parsed} />
+			<CertificateBox info={getCertificateInfo(parsed)} />
 			<ShowPromiseError {promise} />
 			{#if status === 'validated'}
 				<div class="alert alert-success mt-4" role="alert">
