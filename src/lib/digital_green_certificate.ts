@@ -208,7 +208,8 @@ async function findDGCPublicKey(
 	};
 
 	// Verifiy that the certificat is still valid.
-	if (!(await x509cert.verify())) throw new InvalidCertificateError(dgc);
+	const now = new Date();
+	if (now > x509cert.notAfter || now < x509cert.notBefore) throw new InvalidCertificateError(dgc);
 
 	return { certificate, public_key };
 }
