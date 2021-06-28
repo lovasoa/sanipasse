@@ -26,7 +26,7 @@
 		pdfjs.GlobalWorkerOptions.workerSrc = await import('pdfjs-dist/build/pdf.worker.entry');
 		const doc = await pdfjs.getDocument(new Uint8Array(buffer)).promise;
 		const page = await doc.getPage(1);
-		const viewport = page.getViewport({ scale: 4 });
+		const viewport = page.getViewport({ scale: 2 });
 		canvasElement.width = viewport.width;
 		canvasElement.height = viewport.height;
 		await page.render({ canvasContext, viewport }).promise;
