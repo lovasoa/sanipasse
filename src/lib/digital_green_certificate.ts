@@ -15,7 +15,6 @@ import Ajv from 'ajv/dist/2020.js'; // .js extension seems required to build suc
 import { decode as decodeb45 } from 'base45-ts';
 import { Buffer } from 'buffer';
 import { verify } from 'cosette/build/sign.js';
-import cbor from 'cbor-web';
 import { inflate } from 'pako';
 import DCCSchema from '../assets/DCC.combined-schema.1.3.0.json';
 import DCCCerts from '../assets/dccCerts.json';
@@ -23,6 +22,10 @@ import type { HCert } from './digital_green_certificate_types';
 import type { CommonCertificateInfo } from './common_certificate_info';
 import crypto from 'isomorphic-webcrypto';
 import { DGC_PREFIX } from './detect_certificate';
+
+// Ugly hack to make the cbor import work both when packaged with vite (in dev) and with rollup (in prod)
+import cbor_default, * as cbor_all from 'cbor-web';
+const cbor = cbor_default || cbor_all;
 
 interface UnsafeDGC {
 	hcert: HCert;
