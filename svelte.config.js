@@ -19,10 +19,10 @@ const config = {
 		adapter,
 		vite: {
 			build: {
-				chunkSizeWarningLimit: 800,
+				chunkSizeWarningLimit: 800
 			}
 		}
-	},
+	}
 };
 
 export default config;

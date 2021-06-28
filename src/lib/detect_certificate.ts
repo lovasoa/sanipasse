@@ -3,15 +3,34 @@ import type { DBEvent } from './event';
 
 export const DGC_PREFIX = 'HC1:';
 
+function extractCodeFromLink(doc: string): string {
+	doc = doc.trim();
+	let url: URL | undefined;
+	try {
+		url = new URL(doc);
+	} catch (e) {
+		/** ignore non-URL docs*/
+	}
+	if (url && url.host === 'bonjour.tousanticovid.gouv.fr') {
+		// The first  TousAntiCovid QR codes used "/app/wallet?v=..."
+		const v = url.searchParams.get('v');
+		if (v) return v;
+		// The latest TousAntiCovid links use "/app/wallet2d#..." and "/app/walletdcc#..."
+		else return decodeURIComponent(url.hash.slice(1));
+	}
+	return doc;
+}
 
 export function isDGC(code: string): boolean {
 	return code.startsWith(DGC_PREFIX);
 }
+
 /**
  * Detects the type of a certificate and parses it
  */
-export async function parse_any(doc: string): Promise<CommonCertificateInfo> {
-	const {parse} = await import(isDGC(doc) ? "./digital_green_certificate" : "./2ddoc");
+export async function parse_any(doc_or_link: string): Promise<CommonCertificateInfo> {
+	const doc = extractCodeFromLink(doc_or_link);
+	const { parse } = await import(isDGC(doc) ? './digital_green_certificate' : './2ddoc');
 	return await parse(doc);
 }
 

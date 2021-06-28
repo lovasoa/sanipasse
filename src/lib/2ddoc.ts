@@ -219,23 +219,6 @@ const TOTAL_REGEX = new RegExp(
 	`^(?<data>${HEADER_REGEX}(?:${VACCINE_REGEX}|${TEST_REGEX}))${SIGNATURE_REGEX}$`
 );
 
-function extractLink(doc: string): string {
-	doc = doc.trim();
-
-	// TousAntiCovid QRCode v1
-	if (doc.startsWith('https://bonjour.tousanticovid.gouv.fr/app/wallet?v=')) {
-		return new URL(doc).searchParams.get('v') || '';
-	}
-
-	// TousAntiCovid QRCode v2
-	if (doc.startsWith('https://bonjour.tousanticovid.gouv.fr/app/wallet2d#')) {
-		const url = new URL(doc);
-		return url.hash.length > 0 ? decodeURI(url.hash.substring(1)) : '';
-	}
-
-	return doc;
-}
-
 function getCertificateInfo(cert: Certificate2ddoc): CommonCertificateInfo {
 	if ('vaccinated_first_name' in cert) {
 		return {
@@ -266,7 +249,6 @@ function getCertificateInfo(cert: Certificate2ddoc): CommonCertificateInfo {
 }
 
 export async function parse(doc: string): Promise<CommonCertificateInfo> {
-	doc = extractLink(doc);
 	const groups = doc.match(TOTAL_REGEX)?.groups;
 	if (!groups) throw new Error('Format de certificat invalide');
 	const fields = groups.document_type === 'B2' ? TEST_FIELDS : VACCINE_FIELDS;
