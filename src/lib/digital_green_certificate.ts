@@ -21,6 +21,7 @@ import DCCSchema from '../assets/DCC.combined-schema.1.3.0.json';
 import DCCCerts from '../assets/dccCerts.json';
 import type { HCert } from './digital_green_certificate_types';
 import type { CommonCertificateInfo } from './common_certificate_info';
+import crypto from 'isomorphic-webcrypto';
 
 interface UnsafeDGC {
 	hcert: HCert;
@@ -190,7 +191,7 @@ async function findDGCPublicKey(
 
 	const pem = DCCCerts[dgc.kid as keyof typeof DCCCerts];
 	const x509cert = new X509Certificate(pem);
-	const public_key = await x509cert.publicKey.export();
+	const public_key = await x509cert.publicKey.export(crypto);
 
 	// Export the certificate data.
 	const certificate = {
@@ -201,9 +202,9 @@ async function findDGCPublicKey(
 		notAfter: x509cert.notAfter.toISOString(),
 		signatureAlgorithm: x509cert.signatureAlgorithm.name,
 		signature: Buffer.from(x509cert.signature).toString('base64'),
-		fingerprint: Buffer.from(await x509cert.getThumbprint()).toString('hex'),
+		fingerprint: Buffer.from(await x509cert.getThumbprint(crypto)).toString('hex'),
 		publicKeyAlgorithm: x509cert.publicKey.algorithm.name,
-		publicKeyFingerprint: Buffer.from(await x509cert.publicKey.getThumbprint()).toString('hex'),
+		publicKeyFingerprint: Buffer.from(await x509cert.publicKey.getThumbprint(crypto)).toString('hex'),
 		publicKeyPem: await exportPublicKeyToPEM(public_key)
 	};
 
