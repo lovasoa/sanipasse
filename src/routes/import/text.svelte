@@ -15,6 +15,6 @@
 <Input
 	type="url"
 	bind:value={codeFound}
-	placeholder="https://bonjour.tousanticovid.gouv.fr/app/wallet?v=DC..."
+	placeholder="https://bonjour.tousanticovid.gouv.fr/app/walletdcc#HC1:..."
 />
 <CodeFound bind:codeFound />
