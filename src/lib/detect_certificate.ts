@@ -1,7 +1,8 @@
-import { parse as parse_2ddoc } from './2ddoc';
 import type { CommonCertificateInfo } from './common_certificate_info';
-import { DGC_PREFIX, parse as parse_dgc } from './digital_green_certificate';
 import type { DBEvent } from './event';
+
+export const DGC_PREFIX = 'HC1:';
+
 
 export function isDGC(code: string): boolean {
 	return code.startsWith(DGC_PREFIX);
@@ -10,7 +11,8 @@ export function isDGC(code: string): boolean {
  * Detects the type of a certificate and parses it
  */
 export async function parse_any(doc: string): Promise<CommonCertificateInfo> {
-	return await (isDGC(doc) ? parse_dgc(doc) : parse_2ddoc(doc));
+	const {parse} = await import(isDGC(doc) ? "./digital_green_certificate" : "./2ddoc");
+	return await parse(doc);
 }
 
 export function findCertificateError(

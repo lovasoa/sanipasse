@@ -15,13 +15,14 @@ import Ajv from 'ajv/dist/2020.js'; // .js extension seems required to build suc
 import { decode as decodeb45 } from 'base45-ts';
 import { Buffer } from 'buffer';
 import { verify } from 'cosette/build/sign.js';
-import * as cbor from 'cbor-web';
+import cbor from 'cbor-web';
 import { inflate } from 'pako';
 import DCCSchema from '../assets/DCC.combined-schema.1.3.0.json';
 import DCCCerts from '../assets/dccCerts.json';
 import type { HCert } from './digital_green_certificate_types';
 import type { CommonCertificateInfo } from './common_certificate_info';
 import crypto from 'isomorphic-webcrypto';
+import { DGC_PREFIX } from './detect_certificate';
 
 interface UnsafeDGC {
 	hcert: HCert;
@@ -88,8 +89,6 @@ const CWT_CLAIMS = Object.freeze({
 	ISSUED_AT: 6,
 	HCERT: -260
 });
-
-export const DGC_PREFIX = 'HC1:';
 
 async function extractCoseFromQRCode(qrCode: string): Promise<Uint8Array> {
 	// Strip prefix
