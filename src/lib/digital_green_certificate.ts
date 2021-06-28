@@ -204,7 +204,9 @@ async function findDGCPublicKey(
 		signature: Buffer.from(x509cert.signature).toString('base64'),
 		fingerprint: Buffer.from(await x509cert.getThumbprint(crypto)).toString('hex'),
 		publicKeyAlgorithm: x509cert.publicKey.algorithm.name,
-		publicKeyFingerprint: Buffer.from(await x509cert.publicKey.getThumbprint(crypto)).toString('hex'),
+		publicKeyFingerprint: Buffer.from(await x509cert.publicKey.getThumbprint(crypto)).toString(
+			'hex'
+		),
 		publicKeyPem: await exportPublicKeyToPEM(public_key)
 	};
 
