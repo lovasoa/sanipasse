@@ -19,6 +19,7 @@
 			if (codeFound) info = await parse_any(codeFound);
 			error = '';
 		} catch (err) {
+			console.log("Unable to parse certificate", err);
 			error = `${err}`;
 		}
 	}
