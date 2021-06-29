@@ -10,14 +10,14 @@
  *
  * The payload schema can be found here: https://github.com/ehn-digital-green-development/ehn-dgc-schema/
  */
-import { X509Certificate } from '@peculiar/x509';
 import Ajv from 'ajv/dist/2020.js'; // .js extension seems required to build successfully :(
 import { decode as decodeb45 } from 'base45-ts';
+import { toByteArray as decodeb64 } from 'base64-js';
 import { Buffer } from 'buffer';
 import { verify } from 'cosette/build/sign.js';
 import { inflate } from 'pako';
 import DCCSchema from '../assets/DCC.combined-schema.1.3.0.json';
-import DCCCerts from '../assets/dccCerts.json';
+import DCCCerts from '../assets/Digital_Green_Certificate_Signing_Keys.json';
 import type { HCert } from './digital_green_certificate_types';
 import type { CommonCertificateInfo } from './common_certificate_info';
 import crypto from 'isomorphic-webcrypto';
@@ -49,9 +49,7 @@ interface DSC {
 	notAfter: string;
 	signatureAlgorithm: string;
 	fingerprint: string;
-	signature: string;
 	publicKeyAlgorithm: string;
-	publicKeyFingerprint: string;
 	publicKeyPem: string;
 }
 
@@ -159,18 +157,6 @@ async function unsafeDGCFromCoseData(rawCoseData: Uint8Array): Promise<UnsafeDGC
 	};
 }
 
-async function exportPublicKeyToPEM(pk: CryptoKey): Promise<string> {
-	const spki = await crypto.subtle.exportKey('spki', pk);
-
-	let pem = Buffer.from(spki).toString('base64');
-	// Non-null assertion should be safe here because PEM are never empty.
-	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-	pem = pem.match(/.{1,64}/g)!.join('\n');
-	pem = `-----BEGIN PUBLIC KEY-----\n${pem}\n-----END PUBLIC KEY-----`;
-
-	return pem;
-}
-
 /**
  * Verifies the CWT claims of the DGC.
  */
@@ -190,32 +176,20 @@ async function findDGCPublicKey(
 ): Promise<{ certificate: DSC; public_key: CryptoKey }> {
 	// Find the KID in known DSCs
 	if (!(dgc.kid in DCCCerts)) throw new UnknownKidError(dgc);
-
-	const pem = DCCCerts[dgc.kid as keyof typeof DCCCerts];
-	const x509cert = new X509Certificate(pem);
-	const public_key = await x509cert.publicKey.export(crypto);
-
-	// Export the certificate data.
-	const certificate = {
-		serialNumber: x509cert.serialNumber,
-		subject: x509cert.subject,
-		issuer: x509cert.issuer,
-		notBefore: x509cert.notBefore.toISOString(),
-		notAfter: x509cert.notAfter.toISOString(),
-		signatureAlgorithm: x509cert.signatureAlgorithm.name,
-		signature: Buffer.from(x509cert.signature).toString('base64'),
-		fingerprint: Buffer.from(await x509cert.getThumbprint(crypto)).toString('hex'),
-		publicKeyAlgorithm: x509cert.publicKey.algorithm.name,
-		publicKeyFingerprint: Buffer.from(await x509cert.publicKey.getThumbprint(crypto)).toString(
-			'hex'
-		),
-		publicKeyPem: await exportPublicKeyToPEM(public_key)
-	};
-
+	const certificate: DSC = DCCCerts[dgc.kid as keyof typeof DCCCerts];
+	const notAfter = new Date(certificate.notAfter);
+	const notBefore = new Date(certificate.notBefore);
 	// Verify that the certificate is still valid.
 	const now = new Date();
-	if (now > x509cert.notAfter || now < x509cert.notBefore) throw new InvalidCertificateError(dgc);
-
+	if (now > notAfter || now < notBefore) throw new InvalidCertificateError(dgc);
+	const asn1 = decodeb64(certificate.publicKeyPem);
+	const public_key = await crypto.subtle.importKey(
+		'spki',
+		asn1,
+		certificate.publicKeyAlgorithm,
+		true,
+		['verify']
+	);
 	return { certificate, public_key };
 }
 

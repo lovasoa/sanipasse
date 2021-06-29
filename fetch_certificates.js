@@ -2,10 +2,20 @@
 import base64 from 'base64-js';
 import fetch from 'node-fetch';
 import { X509Certificate } from '@peculiar/x509';
+import crypto from 'isomorphic-webcrypto';
+import fs from 'fs';
 
 async function main() {
+	const OUTFILE = 'src/assets/Digital_Green_Certificate_Signing_Keys.json';
 	const TOKEN = process.env['TACV_TOKEN'];
-	await get_data(TOKEN);
+	if (!TOKEN)
+		return console.log(
+			'Missing environment variable TACV_TOKEN.' +
+				'You can get the value of the token from the TousAntiCovid Verif application.'
+		);
+	const certs = await get_data(TOKEN);
+	await fs.promises.writeFile(OUTFILE, JSON.stringify(certs, null, '\t'));
+	console.log(`Wrote ${Object.keys(certs).length} certificates to ${OUTFILE}`);
 }
 
 async function get_data(token) {
@@ -15,14 +25,40 @@ async function get_data(token) {
 	});
 	if (resp.status !== 200) throw new Error(`API returned error: ${await resp.text()}`);
 	const { certificates2DDoc, certificatesDCC } = await resp.json();
-	const sorted = Object.entries(certificatesDCC).sort(([a], [b]) => (a > b ? 1 : -1));
+	const entries = Object.entries(certificatesDCC);
+	const parsed = await Promise.all(
+		entries.map(async ([kid, cert]) => [kid, await parseCert(cert)])
+	);
+	const sorted = parsed.sort(([k1, a], [k2, b]) => (a.subject < b.subject ? -1 : 1));
+	return Object.fromEntries(sorted);
+}
+async function parseCert(cert) {
+	// Certs are doube-base64 encoded
+	const raw = base64.toByteArray(cert);
+	const pem = new TextDecoder().decode(raw);
+	return exportCertificate(pem);
+}
 
-	for (const [kid, cert] of sorted) {
-		console.log(kid, cert);
-		const raw = base64.toByteArray(cert);
-		const pem = new TextDecoder().decode(raw);
-		console.log(new X509Certificate(pem));
-	}
+async function exportCertificate(pem) {
+	const x509cert = new X509Certificate(pem);
+	// Export the certificate data.
+	return {
+		serialNumber: x509cert.serialNumber,
+		subject: x509cert.subject,
+		issuer: x509cert.issuer,
+		notBefore: x509cert.notBefore.toISOString(),
+		notAfter: x509cert.notAfter.toISOString(),
+		signatureAlgorithm: x509cert.signatureAlgorithm.name,
+		fingerprint: Buffer.from(await x509cert.getThumbprint(crypto)).toString('hex'),
+		publicKeyAlgorithm: x509cert.publicKey.algorithm.name,
+		publicKeyPem: await exportPublicKey(x509cert)
+	};
+}
+
+async function exportPublicKey(x509cert) {
+	const public_key = await x509cert.publicKey.export(crypto);
+	const spki = await crypto.subtle.exportKey('spki', public_key);
+	return Buffer.from(spki).toString('base64');
 }
 
 main();
