@@ -188,5 +188,3 @@ export interface VElement {
 	 */
 	vp: string;
 }
-
-export type DigitalGreenCertificate = HCert;
