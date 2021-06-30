@@ -1,6 +1,7 @@
 import preprocess from 'svelte-preprocess';
 import adapter_static from '@sveltejs/adapter-static';
 import adapter_node from '@sveltejs/adapter-node';
+import vite_plugin_legacy from '@vitejs/plugin-legacy';
 
 const adapter =
 	process.env.SVELTEKIT_ADAPTER === 'node'
@@ -18,6 +19,13 @@ const config = {
 		target: '#svelte',
 		adapter,
 		vite: {
+			plugins: [
+				vite_plugin_legacy({
+					targets: ['ie >= 11'],
+					additionalLegacyPolyfills: ['regenerator-runtime/runtime']
+				})
+			],
+
 			build: {
 				chunkSizeWarningLimit: 800
 			}
