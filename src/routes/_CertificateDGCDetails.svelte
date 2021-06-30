@@ -7,8 +7,17 @@
 		const source = typeof time_seconds === 'number' ? time_seconds * 1000 : time_seconds;
 		return new Date(source).toLocaleDateString('fr-FR');
 	}
-	function lineIf<E, F>(elem: E | undefined | null | false, map: (x: E) => F): F[] {
+	function lineIf<E, F>(elem: E | undefined | null, map: (x: E) => F): F[] {
 		return !elem ? [] : [map(elem)];
+	}
+
+	function lineIfDifferent<F>(
+		a: string | undefined,
+		b: string | undefined,
+		map: (x: string) => F
+	): F[] {
+		if (a && b && a.toLowerCase() === b.toLowerCase()) return [];
+		return lineIf(a, map);
 	}
 
 	const manufacturers: { [code: string]: string } = {
@@ -65,7 +74,7 @@
 					name: 'Nom',
 					value
 				})),
-				...lineIf(hcert.nam.fnt != hcert.nam.fn && hcert.nam.fnt, (value) => ({
+				...lineIfDifferent(hcert.nam.fnt, hcert.nam.fn, (value) => ({
 					name: 'Translittération latine du nom',
 					value
 				})),
@@ -73,7 +82,7 @@
 					name: 'Prénom',
 					value
 				})),
-				...lineIf(hcert.nam.gnt != hcert.nam.gn && hcert.nam.gnt, (value) => ({
+				...lineIfDifferent(hcert.nam.gnt, hcert.nam.gn, (value) => ({
 					name: 'Translittération latine du prénom',
 					value
 				})),
