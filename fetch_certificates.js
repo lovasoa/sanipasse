@@ -14,7 +14,8 @@ async function main() {
 				'You can get the value of the token from the TousAntiCovid Verif application.'
 		);
 	const certs = await get_data(TOKEN);
-	await fs.promises.writeFile(OUTFILE, JSON.stringify(certs, null, '\t'));
+	const contents = JSON.stringify(certs, null, '\t') + '\n';
+	await fs.promises.writeFile(OUTFILE, contents);
 	console.log(`Wrote ${Object.keys(certs).length} certificates to ${OUTFILE}`);
 }
 

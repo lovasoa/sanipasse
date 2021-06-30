@@ -2,7 +2,7 @@ name: Renew certificate list
 
 on:
   schedule: # every day at 3:37 and 13:37 UTC
-    - cron:  '37 3,13 * * *'
+    - cron: '37 3,13 * * *'
   push:
     branches: ['auto_fetch_certificate']
 
