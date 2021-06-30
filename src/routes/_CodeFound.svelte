@@ -10,13 +10,14 @@
 	export let codeFound: string | undefined = undefined;
 	let info: CommonCertificateInfo | null = null;
 	let error = '';
-	let status: 'notsent' | 'sending' | 'validated' | 'error' = 'notsent';
+	let status: 'decoding' | 'notsent' | 'sending' | 'validated' | 'error' = 'notsent';
 	$: if (codeFound) onCode(codeFound);
 	async function onCode(codeFound: string) {
 		try {
-			status = 'notsent';
+			status = 'decoding';
 			promise = null;
 			if (codeFound) info = await parse_any(codeFound);
+			status = 'notsent';
 			error = '';
 		} catch (err) {
 			console.log('Unable to parse certificate', err);
@@ -43,6 +44,8 @@
 			<code><pre>{error}</pre></code>
 		</Alert>
 	</div>
+{:else if status === 'decoding'}
+	<Alert color="secondary" fade={false}>Décodage du certificat...</Alert>
 {:else if codeFound && info}
 	<Modal isOpen={!!codeFound} {toggle} size="lg">
 		{#if $invitedTo.eventId}

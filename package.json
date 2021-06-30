@@ -8,9 +8,11 @@
 		"lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --write --plugin-search-dir=. .",
 		"test": "svelte-check --fail-on-hints",
+		"update-certificates": "node ./fetch_certificates.js",
 		"start": "SVELTEKIT_ADAPTER=node npm run build && node build"
 	},
 	"devDependencies": {
+		"@peculiar/x509": "^1.3.2",
 		"@sveltejs/adapter-node": "next",
 		"@sveltejs/adapter-static": "next",
 		"@sveltejs/kit": "next",
@@ -21,6 +23,7 @@
 		"eslint": "^7.22.0",
 		"eslint-config-prettier": "^8.1.0",
 		"eslint-plugin-svelte3": "^3.2.0",
+		"node-fetch": "^2.6.1",
 		"prettier": "~2.2.1",
 		"prettier-plugin-svelte": "^2.2.0",
 		"svelte": "^3.38.2",
@@ -32,7 +35,6 @@
 	"type": "module",
 	"dependencies": {
 		"@ctrl/ts-base32": "^1.2.6",
-		"@peculiar/x509": "^1.3.2",
 		"@zxing/browser": "^0.0.9",
 		"@zxing/library": "^0.18.5",
 		"ajv": "^8.6.0",
