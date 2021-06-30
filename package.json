@@ -8,6 +8,7 @@
 		"lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --write --plugin-search-dir=. .",
 		"test": "svelte-check --fail-on-hints",
+		"update-certificates": "node ./fetch_certificates.js",
 		"start": "SVELTEKIT_ADAPTER=node npm run build && node build"
 	},
 	"devDependencies": {

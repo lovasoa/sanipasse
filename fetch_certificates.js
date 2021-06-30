@@ -10,7 +10,7 @@ async function main() {
 	const TOKEN = process.env['TACV_TOKEN'];
 	if (!TOKEN)
 		return console.log(
-			'Missing environment variable TACV_TOKEN.' +
+			'Missing environment variable TACV_TOKEN. ' +
 				'You can get the value of the token from the TousAntiCovid Verif application.'
 		);
 	const certs = await get_data(TOKEN);

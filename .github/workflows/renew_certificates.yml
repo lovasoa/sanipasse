@@ -1,0 +1,24 @@
+name: Renew certificate list
+
+on:
+  schedule: # every day at 3:37 and 13:37 UTC
+    - cron:  '37 3,13 * * *'
+  push:
+    branches: ['auto_fetch_certificate']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with: { node-version: '16' }
+      - run: npm run update-certificates
+        env:
+          TACV_TOKEN: ${{ secrets.TACV_TOKEN }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@6bb739433928fbc2bdc635d41105e124d0dce021
+        with:
+          commit-message: Auto-update certificates from TAC-Verif
+          branch: auto-certificate-updates
+          title: '[Bot] Update Digital Green Certificate signing keys'
