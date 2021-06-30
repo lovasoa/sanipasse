@@ -1993,6 +1993,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEPUwE7htr+kD1eVnJBfRf5tx0kA17qu4p1wRz3EKPxsJyyIznIqr9+HsnMd7k9ID/f0deqjP8dulzS2cFrVVnFQ=="
 	},
+	"MrT00mhDxLQ=": {
+		"serialNumber": "21523cfbba4224a760db505fd7f90c9c",
+		"subject": "CN=LV DSC 002, O=Nacionālais veselības dienests, C=LV",
+		"issuer": "C=LV, O=VAS Latvijas Valsts radio un televīzijas centrs, 2.5.4.97=NTRLV-40003011203, CN=Digital Green Certificate CSCA",
+		"notBefore": "2021-06-29T16:54:55.000Z",
+		"notAfter": "2023-06-29T16:54:55.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "be1e9eff2fdf0b543e7e485e9abf6ff75a7316c4",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5/m2YdN8L81Ajoi+2brFJbul628alfXRXU26t7hRYEvvsb74tSVm2Dm9cbuhrgFJ+/wXecdxh0tTSHCkMfB0hQ=="
+	},
 	"QacbC7DdD4U=": {
 		"serialNumber": "7a34bb777ed55e01",
 		"subject": "CN=MLT-DSC-TEST-001, O=Government of Malta, C=MT",
