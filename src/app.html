@@ -12,5 +12,16 @@
 
 	<body>
 		<div id="svelte">%svelte.body%</div>
+		<script nomodule>
+			setTimeout(function () {
+				alert(
+					'Il semblerait que votre navigateur ne soit pas à jour.\n\n' +
+						'Non seulement Sanipasse risque de ne pas fonctionner correctement, ' +
+						'mais il se peut que vous courriez un risque de sécurité ' +
+						"si vous n'appliquez pas régulièrement les mises à jour de sécurité de votre navigateur.\n\n" +
+						'Vous pouvez télécharger la dernière version de firefox sur https://firefox.com/'
+				);
+			}, 1000);
+		</script>
 	</body>
 </html>
