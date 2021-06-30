@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { Alert } from 'sveltestrap';
+
 	import { parse_any } from '$lib/detect_certificate';
 	import Certificate from './_Certificate.svelte';
 	import CodeFound from './_CodeFound.svelte';
@@ -20,7 +22,7 @@
 
 {#each $wallet as cert}
 	{#await parse_any(cert)}
-		décodage...
+		<Alert color="secondary" fade={false}>Décodage du certificat...</Alert>
 	{:then info}
 		<div
 			class:clickCert={!!$invitedTo.eventId}

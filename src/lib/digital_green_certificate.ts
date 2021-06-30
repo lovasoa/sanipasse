@@ -183,10 +183,15 @@ function findDGCPublicKey(dgc: UnsafeDGC): DSC {
 	return certificate;
 }
 
-async function getCertificatePublicKey({publicKeyAlgorithm, publicKeyPem}:DSC) : Promise<CryptoKey> {
+async function getCertificatePublicKey({
+	publicKeyAlgorithm,
+	publicKeyPem
+}: DSC): Promise<CryptoKey> {
 	const der = decodeb64(publicKeyPem);
-	const public_key = await crypto.subtle.importKey('spki',der,publicKeyAlgorithm,true,['verify']);
-	return public_key
+	const public_key = await crypto.subtle.importKey('spki', der, publicKeyAlgorithm, true, [
+		'verify'
+	]);
+	return public_key;
 }
 /**
  * Verify that the DGC is authentic:
@@ -196,7 +201,7 @@ async function getCertificatePublicKey({publicKeyAlgorithm, publicKeyPem}:DSC) :
  */
 async function verifyDGC(dgc: UnsafeDGC, rawCoseData: Uint8Array, code: string): Promise<DGC> {
 	await verifyDGCClaims(dgc);
-	const certificate= findDGCPublicKey(dgc);
+	const certificate = findDGCPublicKey(dgc);
 	const key = await getCertificatePublicKey(certificate);
 	await verify(rawCoseData, { key });
 	return { ...dgc, certificate, code };

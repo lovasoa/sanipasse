@@ -41,7 +41,7 @@ async function parseCert(cert) {
 
 async function exportCertificate(pem) {
 	const x509cert = new X509Certificate(pem);
-    const public_key = await x509cert.publicKey.export(crypto);
+	const public_key = await x509cert.publicKey.export(crypto);
 	const spki = await crypto.subtle.exportKey('spki', public_key);
 
 	// Export the certificate data.
