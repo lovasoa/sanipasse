@@ -66,7 +66,7 @@
 			canvas.width /= 2;
 			canvas.height /= 2;
 			ctx.drawImage(original, 0, 0, canvas.width, canvas.height);
-			console.log(`Resized canvas to ${canvas.width}x${canvas.height}`)
+			console.log(`Resized canvas to ${canvas.width}x${canvas.height}`);
 			await new Promise((r) => setTimeout(r, 1000)); // wait 100ms
 		} while (canvas.width > 100 && canvas.height > 100);
 		throw err;
