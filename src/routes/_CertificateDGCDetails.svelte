@@ -177,3 +177,9 @@
 	<summary>Données brutes</summary>
 	<code><pre>{JSON.stringify(certificate, null, '  ')}</pre></code>
 </details>
+
+<style>
+	tbody {
+		overflow-wrap: anywhere;
+	}
+</style>
