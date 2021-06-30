@@ -2,6 +2,7 @@
 	import CodeFound from '../_CodeFound.svelte';
 	import { Alert } from 'sveltestrap';
 	import { BarcodeFormat, DecodeHintType, NotFoundException } from '@zxing/library';
+	import type { Result as ZXingResult } from '@zxing/library';
 	import { BrowserMultiFormatReader } from '@zxing/browser';
 	const pdfjs_promise = import('pdfjs-dist');
 
@@ -46,6 +47,31 @@
 		canvasElement.getContext('2d')?.drawImage(img, 0, 0);
 	}
 
+	// ZXing fails to detect QR codes on large images.
+	// When decoding fails, we retry at a lower resolution
+	async function detectMultiSize(canvas: HTMLCanvasElement): Promise<ZXingResult> {
+		const ctx = canvas.getContext('2d');
+		if (!ctx) throw new Error('unable to create canvas context');
+		const original = document.createElement('canvas');
+		original.width = canvas.width;
+		original.height = canvas.height;
+		original.getContext('2d')?.drawImage(canvas, 0, 0, canvas.width, canvas.height);
+		let err = null;
+		do {
+			try {
+				return codeReader.decodeFromCanvas(canvas);
+			} catch (e) {
+				err = e;
+			}
+			canvas.width /= 2;
+			canvas.height /= 2;
+			ctx.drawImage(original, 0, 0, canvas.width, canvas.height);
+			console.log(`Resized canvas to ${canvas.width}x${canvas.height}`)
+			await new Promise((r) => setTimeout(r, 1000)); // wait 100ms
+		} while (canvas.width > 100 && canvas.height > 100);
+		throw err;
+	}
+
 	async function checkFile() {
 		try {
 			processing = true;
@@ -57,7 +83,7 @@
 			const buffer = await file.arrayBuffer();
 			const render = file.name.endsWith('.pdf') ? renderPdf : renderImage;
 			await render(canvasElement, buffer);
-			const result = codeReader.decodeFromCanvas(canvasElement);
+			const result = await detectMultiSize(canvasElement);
 			codeFound = result.getText();
 		} catch (e) {
 			console.log(e);
