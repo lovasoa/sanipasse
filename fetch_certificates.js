@@ -41,6 +41,9 @@ async function parseCert(cert) {
 
 async function exportCertificate(pem) {
 	const x509cert = new X509Certificate(pem);
+    const public_key = await x509cert.publicKey.export(crypto);
+	const spki = await crypto.subtle.exportKey('spki', public_key);
+
 	// Export the certificate data.
 	return {
 		serialNumber: x509cert.serialNumber,
@@ -50,15 +53,9 @@ async function exportCertificate(pem) {
 		notAfter: x509cert.notAfter.toISOString(),
 		signatureAlgorithm: x509cert.signatureAlgorithm.name,
 		fingerprint: Buffer.from(await x509cert.getThumbprint(crypto)).toString('hex'),
-		publicKeyAlgorithm: x509cert.publicKey.algorithm.name,
-		publicKeyPem: await exportPublicKey(x509cert)
+		publicKeyAlgorithm: public_key.algorithm,
+		publicKeyPem: Buffer.from(spki).toString('base64')
 	};
-}
-
-async function exportPublicKey(x509cert) {
-	const public_key = await x509cert.publicKey.export(crypto);
-	const spki = await crypto.subtle.exportKey('spki', public_key);
-	return Buffer.from(spki).toString('base64');
 }
 
 main();

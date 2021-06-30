@@ -49,7 +49,7 @@ interface DSC {
 	notAfter: string;
 	signatureAlgorithm: string;
 	fingerprint: string;
-	publicKeyAlgorithm: string;
+	publicKeyAlgorithm: KeyAlgorithm;
 	publicKeyPem: string;
 }
 
@@ -171,9 +171,7 @@ async function verifyDGCClaims(dgc: UnsafeDGC): Promise<void> {
 /**
  * Find the DSC that matches this DSC KID.
  */
-async function findDGCPublicKey(
-	dgc: UnsafeDGC
-): Promise<{ certificate: DSC; public_key: CryptoKey }> {
+function findDGCPublicKey(dgc: UnsafeDGC): DSC {
 	// Find the KID in known DSCs
 	if (!(dgc.kid in DCCCerts)) throw new UnknownKidError(dgc);
 	const certificate: DSC = DCCCerts[dgc.kid as keyof typeof DCCCerts];
@@ -182,17 +180,14 @@ async function findDGCPublicKey(
 	// Verify that the certificate is still valid.
 	const now = new Date();
 	if (now > notAfter || now < notBefore) throw new InvalidCertificateError(dgc);
-	const asn1 = decodeb64(certificate.publicKeyPem);
-	const public_key = await crypto.subtle.importKey(
-		'spki',
-		asn1,
-		certificate.publicKeyAlgorithm,
-		true,
-		['verify']
-	);
-	return { certificate, public_key };
+	return certificate;
 }
 
+async function getCertificatePublicKey({publicKeyAlgorithm, publicKeyPem}:DSC) : Promise<CryptoKey> {
+	const der = decodeb64(publicKeyPem);
+	const public_key = await crypto.subtle.importKey('spki',der,publicKeyAlgorithm,true,['verify']);
+	return public_key
+}
 /**
  * Verify that the DGC is authentic:
  *   - Check that the certificate is still valid
@@ -201,8 +196,9 @@ async function findDGCPublicKey(
  */
 async function verifyDGC(dgc: UnsafeDGC, rawCoseData: Uint8Array, code: string): Promise<DGC> {
 	await verifyDGCClaims(dgc);
-	const { certificate, public_key } = await findDGCPublicKey(dgc);
-	await verify(rawCoseData, { key: public_key });
+	const certificate= findDGCPublicKey(dgc);
+	const key = await getCertificatePublicKey(certificate);
+	await verify(rawCoseData, { key });
 	return { ...dgc, certificate, code };
 }
 
