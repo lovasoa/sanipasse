@@ -49,7 +49,7 @@ interface DSC {
 	notAfter: string;
 	signatureAlgorithm: string;
 	fingerprint: string;
-	publicKeyAlgorithm: KeyAlgorithm;
+	publicKeyAlgorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams ;
 	publicKeyPem: string;
 }
 
