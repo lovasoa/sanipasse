@@ -1998,6 +1998,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEO42X7C2X5bSDTnfSJwnk4qAjSk2m11Cy/mmFqryl7J1MhrZDfy77ky4uS0o1iW181Ev51mAiW0J3i3SeKYeEOw=="
 	},
+	"HeWuzGwEM5c=": {
+		"serialNumber": "704b",
+		"subject": "CN=IS-DSC-testrec-1, 2.5.4.5=2, OU=Directorate of Health, O=Directorate of Health, C=IS",
+		"issuer": "CN=IS DGC CSCA 1, 2.5.4.5=1, OU=Directorate of Health, O=Directorate of Health, C=IS",
+		"notBefore": "2021-07-02T18:10:48.000Z",
+		"notAfter": "2023-07-02T18:10:48.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "58f78179f2e11163a2f423b2c9ab7091b42d9edf",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvwlwjQL5cId7nINp/A/b+XNY/WzgX9sIOde8ggZmZjXvIYhDhz7Fvs52ozmdqatDp3yIwPpr6nAMmaNTj0KdZg=="
+	},
 	"MtI93IMknMk=": {
 		"serialNumber": "243c6b316b131e673e",
 		"subject": "CN=Inspección General de Sanidad de la Defensa, 2.5.4.5=S2830001J, OU=SELLO ELECTRONICO, OU=Inspección General de Sanidad de la Defensa, 2.5.4.97=VATES-S2830001J, O=Ministerio de Defensa, C=ES",
