@@ -1,3 +1,4 @@
+import "vite/dynamic-import-polyfill"
 import { writable } from 'svelte/store';
 
 const localforage = import('localforage'); // Can fail on node

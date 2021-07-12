@@ -1,3 +1,4 @@
+import "vite/dynamic-import-polyfill"
 import type { CommonCertificateInfo } from './common_certificate_info';
 import type { DBEvent } from './event';
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import "vite/dynamic-import-polyfill"
 	import CodeFound from '../_CodeFound.svelte';
 	import { Alert } from 'sveltestrap';
 	import { BarcodeFormat, DecodeHintType, NotFoundException } from '@zxing/library';
