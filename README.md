@@ -2,7 +2,7 @@
 
 Application opensource de vérification de passeport sanitaire et d'organisation d'événements zéro-COVID.
 
-Cette application sait lire les codes 2D-DOC français ainsi que les "digital green certificates" européens.
+Cette application sait lire les codes 2D-DOC français ainsi que les "digital green certificates" européens (sous forme de QR code).
 
 ## Screenshots
 
