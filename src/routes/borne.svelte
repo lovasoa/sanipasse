@@ -24,10 +24,10 @@
 		codeFoundPromise = validateCertificateCode(code);
 	}
 
-	function onPaste({clipboardData}: ClipboardEvent) {
-        if(!clipboardData) return;
-        codeFoundPromise = validateCertificateCode(clipboardData.getData('text'));
-        resetCode();
+	function onPaste({ clipboardData }: ClipboardEvent) {
+		if (!clipboardData) return;
+		codeFoundPromise = validateCertificateCode(clipboardData.getData('text'));
+		resetCode();
 	}
 
 	async function validateCertificateCode(code: string): Promise<CommonCertificateInfo> {
