@@ -11,7 +11,7 @@ async function main() {
 	if (!TOKEN)
 		return console.log(
 			'Missing environment variable TACV_TOKEN. ' +
-			'You can get the value of the token from the TousAntiCovid Verif application.'
+				'You can get the value of the token from the TousAntiCovid Verif application.'
 		);
 	const certs = await get_data(TOKEN);
 	const contents = JSON.stringify(certs, null, '\t') + '\n';
@@ -29,11 +29,11 @@ async function get_data(token) {
 	const entries = Object.entries(certificatesDCC);
 	const parsed = await Promise.all(
 		entries.map(async ([kid, cert]) => {
-			return [kid, await parseCert(cert)]
+			return [kid, await parseCert(cert)];
 		})
 	);
 	const sorted = parsed
-		.filter(cert => !!cert) // Remove certificates that could not be decoded
+		.filter((cert) => !!cert) // Remove certificates that could not be decoded
 		.sort(([k1, a], [k2, b]) => (a.subject < b.subject ? -1 : 1));
 	return Object.fromEntries(sorted);
 }
@@ -65,7 +65,7 @@ async function exportCertificate(pem) {
 		notAfter: x509cert.notAfter.toISOString(),
 		signatureAlgorithm: x509cert.signatureAlgorithm.name,
 		fingerprint: Buffer.from(await x509cert.getThumbprint(crypto)).toString('hex'),
-		...await exportPublicKeyInfo(x509cert.publicKey)
+		...(await exportPublicKeyInfo(x509cert.publicKey))
 	};
 }
 
@@ -77,17 +77,16 @@ async function exportCertificate(pem) {
 async function exportPublicAsCert(pem) {
 	// Export the certificate data.
 	return {
-		serialNumber: "",
-		subject: "UNKNOWN",
-		issuer: "UNKNOWN",
-		notBefore: "2020-01-01",
-		notAfter: "2030-01-01",
-		signatureAlgorithm: "",
-		fingerprint: "",
-		...await exportPublicKeyInfo(new PublicKey(pem))
+		serialNumber: '',
+		subject: 'UNKNOWN',
+		issuer: 'UNKNOWN',
+		notBefore: '2020-01-01',
+		notAfter: '2030-01-01',
+		signatureAlgorithm: '',
+		fingerprint: '',
+		...(await exportPublicKeyInfo(new PublicKey(pem)))
 	};
 }
-
 
 /**
  * @param {PublicKey} pubkey
