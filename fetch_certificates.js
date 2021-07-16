@@ -1,7 +1,7 @@
 // Node.js script to refresh the accepted certificates list
 import base64 from 'base64-js';
 import fetch from 'node-fetch';
-import { X509Certificate } from '@peculiar/x509';
+import { X509Certificate, PublicKey } from '@peculiar/x509';
 import crypto from 'isomorphic-webcrypto';
 import fs from 'fs';
 
@@ -28,22 +28,33 @@ async function get_data(token) {
 	const { certificates2DDoc, certificatesDCC } = await resp.json();
 	const entries = Object.entries(certificatesDCC);
 	const parsed = await Promise.all(
-		entries.map(async ([kid, cert]) => [kid, await parseCert(cert)])
+		entries.map(async ([kid, cert]) => {
+			return [kid, await parseCert(cert)];
+		})
 	);
-	const sorted = parsed.sort(([k1, a], [k2, b]) => (a.subject < b.subject ? -1 : 1));
+	const sorted = parsed
+		.filter((cert) => !!cert) // Remove certificates that could not be decoded
+		.sort(([k1, a], [k2, b]) => (a.subject < b.subject ? -1 : 1));
 	return Object.fromEntries(sorted);
 }
 async function parseCert(cert) {
 	// Certs are doube-base64 encoded
 	const raw = base64.toByteArray(cert);
 	const pem = new TextDecoder().decode(raw);
-	return exportCertificate(pem);
+	try {
+		return await exportCertificate(pem);
+	} catch (err) {
+		// The server returns both certificates and raw public keys
+		return await exportPublicAsCert(pem);
+	}
 }
 
+/**
+ * @param {string} pem base64-encoded PEM x509 certificate
+ * @returns {Promise<import("./src/lib/digital_green_certificate").DSC>}
+ */
 async function exportCertificate(pem) {
 	const x509cert = new X509Certificate(pem);
-	const public_key = await x509cert.publicKey.export(crypto);
-	const spki = await crypto.subtle.exportKey('spki', public_key);
 
 	// Export the certificate data.
 	return {
@@ -54,6 +65,42 @@ async function exportCertificate(pem) {
 		notAfter: x509cert.notAfter.toISOString(),
 		signatureAlgorithm: x509cert.signatureAlgorithm.name,
 		fingerprint: Buffer.from(await x509cert.getThumbprint(crypto)).toString('hex'),
+		...(await exportPublicKeyInfo(x509cert.publicKey))
+	};
+}
+
+/**
+ * Generate a DSC from a single public key without certificate information
+ * @param {string} pem base64-encoded PEM x509 certificate
+ * @returns {Promise<import("./src/lib/digital_green_certificate").DSC>}
+ */
+async function exportPublicAsCert(pem) {
+	// Export the certificate data.
+	return {
+		serialNumber: '',
+		subject: 'UNKNOWN',
+		issuer: 'UNKNOWN',
+		notBefore: '2020-01-01',
+		notAfter: '2030-01-01',
+		signatureAlgorithm: '',
+		fingerprint: '',
+		...(await exportPublicKeyInfo(new PublicKey(pem)))
+	};
+}
+
+/**
+ * @param {PublicKey} pubkey
+ * @returns {Promise<{
+ * 	publicKeyAlgorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams;
+ * 	publicKeyPem: string;
+ * }>}
+ */
+async function exportPublicKeyInfo(publicKey) {
+	const public_key = await publicKey.export(crypto);
+	const spki = await crypto.subtle.exportKey('spki', public_key);
+
+	// Export the certificate data.
+	return {
 		publicKeyAlgorithm: public_key.algorithm,
 		publicKeyPem: Buffer.from(spki).toString('base64')
 	};

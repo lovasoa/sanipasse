@@ -2410,5 +2410,39 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEManlPIcO9J8UBpHCAbku/KkAfiBrGLIre1buTIzhhoncL0YIO+DQ9uPs6UfzPKXzQq791V5I5avhmpQ6j2zFsQ=="
+	},
+	"S2V5MVJF": {
+		"serialNumber": "",
+		"subject": "UNKNOWN",
+		"issuer": "UNKNOWN",
+		"notBefore": "2020-01-01",
+		"notAfter": "2030-01-01",
+		"signatureAlgorithm": "",
+		"fingerprint": "",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEOFOUp1+SLuaM3NnV+OMZKZOoPg76T7D+vqRCasD0BrRZmlUH2gD+aVlpKvp+u7h8ywTR7T6Z6/iI2Qe6F5begg=="
+	},
+	"S2V5MVBSTw==": {
+		"serialNumber": "",
+		"subject": "UNKNOWN",
+		"issuer": "UNKNOWN",
+		"notBefore": "2020-01-01",
+		"notAfter": "2030-01-01",
+		"signatureAlgorithm": "",
+		"fingerprint": "",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE+4ukUdmm9f4AmyQBwTLQFKPPCQj4fP2BpQkIl2hb4p6FxPGDP9z3JkIo2w2xkoxqs2JrTHn2MCdyh3aeyZWD4A=="
 	}
 }
