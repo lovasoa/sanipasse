@@ -39,7 +39,7 @@ interface UnsafeDGC {
  * Per specification, a DSC is a certificate that contains
  * a public key used to sign DGCs.
  */
-interface DSC {
+export interface DSC {
 	serialNumber: string;
 	subject: string;
 	// This is the CSCA. Per specification, a CSCA is a root
