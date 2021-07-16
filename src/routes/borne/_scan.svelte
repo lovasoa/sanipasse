@@ -3,12 +3,14 @@
 	import { findCertificateError, parse_any } from '$lib/detect_certificate';
 	import { assets } from '$app/paths';
 
+	export let decode_after_s: number;
+	export let reset_after_s: number;
+
+	export let place_name: string;
+
 	let code: string = '';
 	let codeFoundPromise: Promise<CommonCertificateInfo> | undefined = undefined;
-	let decode_after_ms = 1000;
-	let reset_after_ms = 4000;
 
-	let place_name = '';
 	let animate = false;
 	let timeout: NodeJS.Timeout | undefined = undefined;
 	let reset_timeout: NodeJS.Timeout | undefined = undefined;
@@ -17,7 +19,7 @@
 		code += event.key;
 		if (timeout !== undefined) clearTimeout(timeout);
 		if (reset_timeout !== undefined) clearTimeout(reset_timeout);
-		timeout = setTimeout(resetCode, decode_after_ms);
+		timeout = setTimeout(resetCode, decode_after_s * 1000);
 		animate = false;
 		setTimeout(() => (animate = true), 5);
 		event.preventDefault();
@@ -43,7 +45,7 @@
 		code = '';
 		reset_timeout = setTimeout(() => {
 			codeFoundPromise = undefined;
-		}, reset_after_ms);
+		}, reset_after_s * 1000);
 	}
 
 	function showName({ first_name, last_name }: CommonCertificateInfo): string {
@@ -64,7 +66,7 @@
 			class="progress-bar"
 			role="progressbar"
 			class:animate
-			style="animation-duration: {decode_after_ms}ms"
+			style="animation-duration: {decode_after_s}s"
 		/>
 	</div>
 {:else if codeFoundPromise != undefined}
@@ -83,7 +85,7 @@
 						<div
 							class="progress-bar bg-success animate"
 							role="progressbar"
-							style="animation-duration: {reset_after_ms}ms"
+							style="animation-duration: {reset_after_s}s"
 						/>
 					</div>
 				</div>
@@ -102,7 +104,7 @@
 						<div
 							class="progress-bar bg-danger animate"
 							role="progressbar"
-							style="animation-duration: {reset_after_ms}ms"
+							style="animation-duration: {reset_after_s}s"
 						/>
 					</div>
 				</div>
