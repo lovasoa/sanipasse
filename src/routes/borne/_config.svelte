@@ -1,15 +1,19 @@
 <script lang="ts">
+	import type { ConfigProperties } from './_config';
 	export let start: boolean = false;
-	export let decode_after_s: number;
-	export let reset_after_s: number;
-	export let place_name: string;
+	export let config: ConfigProperties;
 </script>
 
 <h2>Configuration de l'interface de validation des passes</h2>
 <form class="row g-3">
 	<label class="col-md-12">
 		Nom du lieu
-		<input type="text" class="form-control" bind:value={place_name} placeholder="mon petit resto" />
+		<input
+			type="text"
+			class="form-control"
+			bind:value={config.place_name}
+			placeholder="mon petit resto"
+		/>
 	</label>
 	<fieldset class="col-md-12">
 		<legend>Durée d'attente...</legend>
@@ -24,7 +28,7 @@
 						class="form-control"
 						placeholder="1"
 						id="wait"
-						bind:value={decode_after_s}
+						bind:value={config.decode_after_s}
 					/>
 					<div class="input-group-text">secondes</div>
 				</div>
@@ -38,7 +42,7 @@
 						class="form-control"
 						placeholder="4"
 						id="back"
-						bind:value={reset_after_s}
+						bind:value={config.reset_after_s}
 					/>
 					<div class="input-group-text">secondes</div>
 				</div>

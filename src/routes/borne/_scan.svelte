@@ -2,11 +2,10 @@
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import { findCertificateError, parse_any } from '$lib/detect_certificate';
 	import { assets } from '$app/paths';
+	import type { ConfigProperties } from './_config';
 
-	export let decode_after_s: number;
-	export let reset_after_s: number;
-
-	export let place_name: string;
+	export let config: ConfigProperties;
+	const { decode_after_s, reset_after_s, place_name } = config;
 
 	let code: string = '';
 	let codeFoundPromise: Promise<CommonCertificateInfo> | undefined = undefined;
