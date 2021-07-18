@@ -94,7 +94,7 @@
 <p>
 	Pour toute demande concernant la gestion de la vie privée dans sanipasse (information, demande de
 	modification, ou de rétractation), vous pouvez m'envoyer un mail à <a
-		href="mailto:contact@ophirdev?subject=Sanipasse, données personnelles">contact@ophir.dev</a
+		href="mailto:contact@ophir.dev?subject=Sanipasse, données personnelles">contact@ophir.dev</a
 	>.
 </p>
 
