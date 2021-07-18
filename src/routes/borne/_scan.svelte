@@ -119,11 +119,11 @@
 
 	<h1>{config.title}</h1>
 	<p>{config.description}</p>
-
-	<p class="fixed-bottom text-muted fw-lighter fst-italic" style="font-size: .8em">
-		{config.bottom_infos}
-	</p>
 {/if}
+
+<p class="fixed-bottom text-muted fw-lighter fst-italic" style="font-size: .8em">
+	{config.bottom_infos}
+</p>
 
 <style>
 	.progress-bar {
