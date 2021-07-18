@@ -5,7 +5,7 @@
 	import type { ConfigProperties } from './_config';
 
 	export let config: ConfigProperties;
-	const { decode_after_s, reset_after_s, place_name } = config;
+	const { decode_after_s, reset_after_s } = config;
 
 	let code: string = '';
 	let codeFoundPromise: Promise<CommonCertificateInfo> | undefined = undefined;
@@ -111,13 +111,17 @@
 		</div>
 	{/await}
 {:else}
-	<h1>
-		Bienvenue {#if place_name}chez {place_name} {/if}!
-	</h1>
-	<p>
-		Scannez votre passe sanitaire depuis la section “carnets“ de votre application TousAntiCovid ou
-		Sanipasse. Vous pouvez aussi scanner directement le QR code papier qui vous a été remis lors de
-		votre test ou de votre vaccination.
+	<div class="row justify-content-center">
+		{#each config.logo_urls as url}
+			<img alt="logo" src={url} class="col" style="object-fit: contain; max-height: 10em;" />
+		{/each}
+	</div>
+
+	<h1>{config.title}</h1>
+	<p>{config.description}</p>
+
+	<p class="fixed-bottom text-muted fw-lighter fst-italic" style="font-size: .8em">
+		{config.bottom_infos}
 	</p>
 {/if}
 
