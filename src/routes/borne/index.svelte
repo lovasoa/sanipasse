@@ -6,10 +6,22 @@
 	import Scan from './_scan.svelte';
 	let start = false;
 	let config: ConfigProperties = DEFAULT_CONFIG;
+	let scan_elem: HTMLDivElement | null = null;
+	$: if (start && scan_elem) {
+		scan_elem.requestFullscreen({ navigationUI: 'hide' });
+	}
 </script>
 
 {#if start}
-	<Scan bind:config />
+	<div
+		bind:this={scan_elem}
+		style="background:white"
+		on:fullscreenchange={() => {
+			start = !!document.fullscreenElement;
+		}}
+	>
+		<Scan bind:config />
+	</div>
 {:else}
 	<Config bind:start bind:config />
 {/if}

@@ -59,73 +59,79 @@
 
 <svelte:window on:keypress={onKeyPress} on:paste={onPaste} />
 
-{#if timeout !== undefined}
-	<div class="progress">
-		<div
-			class="progress-bar"
-			role="progressbar"
-			class:animate
-			style="animation-duration: {decode_after_s}s"
-		/>
-	</div>
-{:else if codeFoundPromise != undefined}
-	{#await codeFoundPromise}
-		Décodage du code...
-	{:then pass}
-		<!-- svelte-ignore a11y-media-has-caption -->
-		<audio autoplay src="{assets}/valid.mp3" />
-		<div class="alert alert-success" role="alert">
-			<div class="row">
-				<div class="col-md-2"><div class="sign shallpass" /></div>
-				<div class="col-md-10">
-					<h3>Bienvenue, {showName(pass)}</h3>
-					<p>Votre passe est validé.</p>
-					<div class="progress">
-						<div
-							class="progress-bar bg-success animate"
-							role="progressbar"
-							style="animation-duration: {reset_after_s}s"
-						/>
+<div class="main container">
+	{#if timeout !== undefined}
+		<div class="progress">
+			<div
+				class="progress-bar"
+				role="progressbar"
+				class:animate
+				style="animation-duration: {decode_after_s}s"
+			/>
+		</div>
+	{:else if codeFoundPromise != undefined}
+		{#await codeFoundPromise}
+			Décodage du code...
+		{:then pass}
+			<!-- svelte-ignore a11y-media-has-caption -->
+			<audio autoplay src="{assets}/valid.mp3" />
+			<div class="alert alert-success" role="alert">
+				<div class="row">
+					<div class="col-md-2"><div class="sign shallpass" /></div>
+					<div class="col-md-10">
+						<h3>Bienvenue, {showName(pass)}</h3>
+						<p>Votre passe est validé.</p>
+						<div class="progress">
+							<div
+								class="progress-bar bg-success animate"
+								role="progressbar"
+								style="animation-duration: {reset_after_s}s"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	{:catch err}
-		<!-- svelte-ignore a11y-media-has-caption -->
-		<audio autoplay src="{assets}/invalid.mp3" />
-		<div class="alert alert-danger" role="alert">
-			<div class="row">
-				<div class="col-md-2"><div class="sign shallnotpass" /></div>
-				<div class="col-md-10">
-					<h3>Passe sanitaire invalide</h3>
-					<pre>{err.message}</pre>
-					<div class="progress">
-						<div
-							class="progress-bar bg-danger animate"
-							role="progressbar"
-							style="animation-duration: {reset_after_s}s"
-						/>
+		{:catch err}
+			<!-- svelte-ignore a11y-media-has-caption -->
+			<audio autoplay src="{assets}/invalid.mp3" />
+			<div class="alert alert-danger" role="alert">
+				<div class="row">
+					<div class="col-md-2"><div class="sign shallnotpass" /></div>
+					<div class="col-md-10">
+						<h3>Passe sanitaire invalide</h3>
+						<pre>{err.message}</pre>
+						<div class="progress">
+							<div
+								class="progress-bar bg-danger animate"
+								role="progressbar"
+								style="animation-duration: {reset_after_s}s"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
+		{/await}
+	{:else}
+		<div class="row justify-content-center w-100">
+			{#each config.logo_urls as url}
+				<img alt="logo" src={url} class="col" style="object-fit: contain; max-height: 10em;" />
+			{/each}
 		</div>
-	{/await}
-{:else}
-	<div class="row justify-content-center">
-		{#each config.logo_urls as url}
-			<img alt="logo" src={url} class="col" style="object-fit: contain; max-height: 10em;" />
-		{/each}
-	</div>
 
-	<h1>{config.title}</h1>
-	<p>{config.description}</p>
-{/if}
+		<h1>{config.title}</h1>
+		<p>{config.description}</p>
+	{/if}
 
-<p class="fixed-bottom text-muted fw-lighter fst-italic" style="font-size: .8em">
-	{config.bottom_infos}
-</p>
+	<p class="fixed-bottom text-muted fw-lighter fst-italic" style="font-size: .8em">
+		{config.bottom_infos}
+	</p>
+</div>
 
 <style>
+	.main {
+		margin-top: 30vh;
+	}
+
 	.progress-bar {
 		width: 100%;
 		transition: 100ms;
