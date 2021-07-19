@@ -3,10 +3,15 @@
 	import type { DGC } from '$lib/digital_green_certificate';
 	export let certificate: DGC;
 	const { hcert } = certificate;
-	function showTimestamp(time_seconds: number | string) {
+
+	function showTimestamp(time_seconds: number | string, options: { include_time?: boolean } = {}) {
 		const source = typeof time_seconds === 'number' ? time_seconds * 1000 : time_seconds;
-		return new Date(source).toLocaleDateString('fr-FR');
+		const date = new Date(source);
+		const date_str = date.toLocaleDateString('fr-FR');
+		const time_str = date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+		return options.include_time ? `${date_str} à ${time_str}` : date_str;
 	}
+
 	function lineIf<E, F>(elem: E | undefined | null, map: (x: E) => F): F[] {
 		return !elem ? [] : [map(elem)];
 	}
@@ -108,12 +113,15 @@
 			title: 'Informations du test de dépistage',
 			lines: [
 				{ name: 'Résultat du test', value: test_result[test.tr] || test.tr },
+				...lineIf(test.sc, (d) => ({
+					name: 'Date de prélèvement',
+					value: showTimestamp(d, { include_time: true })
+				})),
 				{ name: 'Pays de test', value: `${flag_emoji(test.co)} (${test.co})` },
 				{ name: 'Type de test', value: showTimestamp(test.tt) },
 				{ name: 'Entité émettrice', value: test.is },
 				...lineIf(test.ma, (value) => ({ name: 'Nom RAT du test et du fabricant', value })),
 				...lineIf(test.nm, (value) => ({ name: 'Nom NAA', value })),
-				...lineIf(test.sc, (d) => ({ name: 'Date', value: showTimestamp(d) })),
 				{ name: 'Identifiant unique', value: test.ci }
 			]
 		})),
@@ -121,18 +129,18 @@
 			title: 'Informations de rémission',
 			lines: [
 				{ name: 'Valide à partir du', value: showTimestamp(r.df) },
-				{ name: "Valide jusqu'au", value: showTimestamp(r.du) },
+				{ name: "Valide jusqu'au", value: showTimestamp(r.du, { include_time: true }) },
 				{ name: 'Date du premier test positif', value: showTimestamp(r.fr) },
 				{ name: 'Pays du test', value: r.co },
 				{ name: 'Identifiant unique', value: r.ci }
 			]
 		})),
 		{
-			title: 'Informations générales de la signature',
+			title: 'Informations sur la signature numérique',
 			lines: [
 				...lineIf(certificate.issuedAt, (issuedAt) => ({
 					name: 'Date de Création',
-					value: showTimestamp(issuedAt)
+					value: showTimestamp(issuedAt, { include_time: true })
 				})),
 				...lineIf(certificate.expiresAt, (expiresAt) => ({
 					name: "Date d'expiration",
