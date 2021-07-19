@@ -25,6 +25,11 @@
 		return lineIf(a, map);
 	}
 
+	function parseX509Attributes(line: string): { C?: string; O?: string; CN?: string; OU?: string } {
+		const attrs = line.split(',');
+		return Object.fromEntries(attrs.map((line) => line.trim().split('=')));
+	}
+
 	const manufacturers: { [code: string]: string } = {
 		'ORG-100001699': 'AstraZeneca AB',
 		'ORG-100030215': 'Biontech Manufacturing GmbH',
@@ -56,6 +61,13 @@
 		'260415000': 'Not detected',
 		'260373001': 'Detected'
 	};
+
+	const organizations: { [code: string]: string } = {
+		CNAM: "Caisse Nationale d'assurance Maladie"
+	};
+
+	const issuer_info = parseX509Attributes(certificate.certificate.issuer);
+	const subject_info = parseX509Attributes(certificate.certificate.subject);
 
 	function flag_emoji(country: string) {
 		const codes = [0xd83c, 0xdde6, 0xd83c, 0xdde6]; // 🇦🇦
@@ -161,8 +173,16 @@
 		{
 			title: 'Informations générales du certificat de signature',
 			lines: [
-				{ name: 'Émetteur', value: certificate.certificate.issuer },
-				{ name: 'Sujet', value: certificate.certificate.subject },
+				...lineIf(issuer_info.C, (c) => ({
+					name: "Pays d'origine",
+					value: `${flag_emoji(c)} (${c})`
+				})),
+				...lineIf(subject_info.O, (org) => ({
+					name: 'Organisation émettrice',
+					value: (organizations[org] || org) + (subject_info.OU ? ' - ' + subject_info.OU : '')
+				})),
+				...lineIf(subject_info.CN, (value) => ({ name: 'Nom du certificat', value })),
+				{ name: 'Certificat signé par', value: certificate.certificate.issuer },
 				{
 					name: 'Date de début de validité',
 					value: showTimestamp(certificate.certificate.notBefore)
