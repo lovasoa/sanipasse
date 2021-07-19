@@ -63,7 +63,7 @@
 	};
 
 	const organizations: { [code: string]: string } = {
-		CNAM: "Caisse Nationale d'assurance Maladie"
+		CNAM: "Caisse nationale de l'Assurance Maladie"
 	};
 
 	const issuer_info = parseX509Attributes(certificate.certificate.issuer);
@@ -114,7 +114,7 @@
 				{ name: 'Numéro de la dose', value: vaccine.dn },
 				{ name: 'Nombre de doses requises', value: vaccine.sd },
 				{ name: 'Date de vaccination', value: showTimestamp(vaccine.dt) },
-				{ name: 'Entité émettrice', value: vaccine.is },
+				{ name: 'Entité émettrice', value: organizations[vaccine.is] || vaccine.is },
 				{ name: 'Fabricant de vaccin', value: manufacturers[vaccine.ma] || vaccine.ma },
 				{
 					name: 'Produit vaccinal',
@@ -136,7 +136,7 @@
 				})),
 				{ name: 'Pays de test', value: `${flag_emoji(test.co)} (${test.co})` },
 				{ name: 'Type de test', value: showTimestamp(test.tt) },
-				{ name: 'Entité émettrice', value: test.is },
+				{ name: 'Entité émettrice', value: organizations[test.is] || test.is },
 				...lineIf(test.ma, (value) => ({ name: 'Nom RAT du test et du fabricant', value })),
 				...lineIf(test.nm, (value) => ({ name: 'Nom NAA', value })),
 				{ name: 'Identifiant unique', value: test.ci }
