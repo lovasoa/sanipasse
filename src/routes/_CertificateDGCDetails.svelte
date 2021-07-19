@@ -38,10 +38,10 @@
 	};
 
 	const vaccines: { [code: string]: string } = {
-		'EU/1/20/1528': 'Comirnaty',
-		'EU/1/20/1507': 'COVID-19 Vaccine Moderna',
-		'EU/1/21/1529': 'Vaxzevria',
-		'EU/1/20/1525': 'COVID-19 Vaccine Janssen'
+		'EU/1/20/1528': 'vaccin Pfizer–BioNTech contre la Covid-19',
+		'EU/1/20/1507': 'vaccin de Moderna contre la Covid-19',
+		'EU/1/21/1529': "vaccin d'AstraZeneca-Oxford contre la Covid-19",
+		'EU/1/20/1525': 'vaccin de Janssen contre la Covid-19'
 	};
 
 	const diseases: { [code: string]: string } = {
@@ -66,6 +66,7 @@
 	interface Line {
 		name: string;
 		value: string | number;
+		link?: string;
 	}
 	interface Card {
 		title: string;
@@ -103,7 +104,11 @@
 				{ name: 'Date de vaccination', value: showTimestamp(vaccine.dt) },
 				{ name: 'Entité émettrice', value: vaccine.is },
 				{ name: 'Fabricant de vaccin', value: manufacturers[vaccine.ma] || vaccine.ma },
-				{ name: 'Produit vaccinal', value: vaccines[vaccine.mp] || vaccine.mp },
+				{
+					name: 'Produit vaccinal',
+					value: vaccines[vaccine.mp] || vaccine.mp,
+					link: vaccines[vaccine.mp] && 'https://fr.wikipedia.org/wiki/' + vaccines[vaccine.mp]
+				},
 				{ name: 'Agent prophylactique', value: vaccine.vp },
 				{ name: 'Maladie ciblée', value: diseases[vaccine.tg] || vaccine.tg },
 				{ name: 'Identifiant unique', value: vaccine.ci }
@@ -179,7 +184,13 @@
 					{#each card.lines as line}
 						<tr>
 							<th scope="row" class="text-start">{line.name}</th>
-							<td class="text-end">{line.value}</td>
+							<td class="text-end">
+								{#if line.link}
+									<a href={line.link}>{line.value}</a>
+								{:else}
+									{line.value}
+								{/if}
+							</td>
 						</tr>
 					{:else}
 						Aucune information
