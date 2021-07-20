@@ -58,8 +58,8 @@
 	};
 
 	const test_result: { [code: string]: string } = {
-		'260415000': 'Not detected',
-		'260373001': 'Detected'
+		'260415000': 'Test négatif',
+		'260373001': 'Test positif'
 	};
 
 	const organizations: { [code: string]: string } = {
@@ -129,7 +129,11 @@
 		...(hcert.t || []).map((test) => ({
 			title: 'Informations du test de dépistage',
 			lines: [
-				{ name: 'Résultat du test', value: test_result[test.tr] || test.tr },
+				{
+					name: 'Résultat du test',
+					value: test_result[test.tr] || test.tr,
+					link: 'http://purl.bioontology.org/ontology/SNOMEDCT/' + test.tr
+				},
 				...lineIf(test.sc, (d) => ({
 					name: 'Date de prélèvement',
 					value: showTimestamp(d, { include_time: true })
