@@ -156,7 +156,10 @@
 					value,
 					link: 'https://covid-19-diagnostics.jrc.ec.europa.eu/devices/detail/' + value
 				})),
-				...lineIf(test.nm, (value) => ({ name: 'Nom NAA', value })),
+				...lineIf(test.nm, (value) => ({
+					name: "Nom du test par amplification d'acide nucléique",
+					value
+				})),
 				{ name: 'Identifiant unique', value: test.ci }
 			]
 		})),
