@@ -128,10 +128,6 @@
 </div>
 
 <style>
-	.main {
-		margin-top: 30vh;
-	}
-
 	.progress-bar {
 		width: 100%;
 		transition: 100ms;

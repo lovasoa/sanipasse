@@ -1,7 +1,13 @@
 <script lang="ts">
-	import type { ConfigProperties } from './_config';
-	export let start: boolean = false;
-	export let config: ConfigProperties;
+	import { goto } from '$app/navigation';
+
+	import { load_config, save_config, DEFAULT_CONFIG } from './_config';
+	let config = DEFAULT_CONFIG;
+	let config_promise = load_config();
+	$: config_promise.then((data) => {
+		config = data;
+	});
+
 	function fileUrlFromInput(evt: { currentTarget: HTMLInputElement }): Promise<string[]> {
 		const { files } = evt.currentTarget;
 		if (!files || !files.length) throw new Error('No file in input');
@@ -15,8 +21,18 @@
 	}
 </script>
 
+{#await config_promise}
+	Chargement de la configuration...
+{/await}
+
 <h2>Configuration de l'interface de validation des passes</h2>
-<form class="row g-3">
+<form
+	class="row g-3"
+	on:submit|preventDefault={async (e) => {
+		await save_config(config);
+		await goto('/borne');
+	}}
+>
 	<fieldset class="col-md-12">
 		<legend>Durée d'attente...</legend>
 
@@ -26,7 +42,7 @@
 				<div class="input-group">
 					<input
 						type="number"
-						step="0.1"
+						step="0.01"
 						class="form-control"
 						placeholder="1"
 						id="wait"
@@ -105,12 +121,5 @@
 			</label>
 		</div>
 	</fieldset>
-	<input
-		type="submit"
-		class="btn btn-primary col-md-6 offset-md-6 mt-6"
-		on:click={() => {
-			start = true;
-		}}
-		value="Démarrer"
-	/>
+	<input type="submit" class="btn btn-primary col-md-6 offset-md-6 mt-6" value="Démarrer" />
 </form>
