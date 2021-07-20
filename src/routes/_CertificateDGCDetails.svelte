@@ -62,8 +62,14 @@
 		'260373001': 'Test positif'
 	};
 
+	const test_types: { [code: string]: string } = {
+		'LP217198-3': 'Test immunologique rapide',
+		'LP6464-4': "Amplification d'acide nucléique (PCR)"
+	};
+
 	const organizations: { [code: string]: string } = {
-		CNAM: "Caisse nationale de l'Assurance Maladie"
+		CNAM: "Caisse nationale de l'Assurance Maladie",
+		APHP: 'Assistance Publique – Hôpitaux de Paris'
 	};
 
 	const issuer_info = parseX509Attributes(certificate.certificate.issuer);
@@ -139,9 +145,17 @@
 					value: showTimestamp(d, { include_time: true })
 				})),
 				{ name: 'Pays de test', value: `${flag_emoji(test.co)} (${test.co})` },
-				{ name: 'Type de test', value: showTimestamp(test.tt) },
+				{
+					name: 'Type de test',
+					value: test_types[test.tt] || test.tt,
+					link: 'https://loinc.org/' + test.tt
+				},
 				{ name: 'Entité émettrice', value: organizations[test.is] || test.is },
-				...lineIf(test.ma, (value) => ({ name: 'Nom RAT du test et du fabricant', value })),
+				...lineIf(test.ma, (value) => ({
+					name: 'Identifiant européen du test antigénique',
+					value,
+					link: 'https://covid-19-diagnostics.jrc.ec.europa.eu/devices/detail/' + value
+				})),
 				...lineIf(test.nm, (value) => ({ name: 'Nom NAA', value })),
 				{ name: 'Identifiant unique', value: test.ci }
 			]
