@@ -12,7 +12,10 @@
 	let stop = () => {};
 
 	const codeReader = new BrowserMultiFormatReader(
-		new Map([[DecodeHintType.POSSIBLE_FORMATS, [BarcodeFormat.DATA_MATRIX, BarcodeFormat.QR_CODE]]])
+		new Map([
+			[DecodeHintType.POSSIBLE_FORMATS, [BarcodeFormat.DATA_MATRIX, BarcodeFormat.QR_CODE]],
+			[DecodeHintType.TRY_HARDER, true as any]
+		])
 	);
 
 	let devices: Promise<MediaDeviceInfo[]> = Promise.resolve([]);
