@@ -10,7 +10,6 @@
 	let code: string = '';
 	let codeFoundPromise: Promise<CommonCertificateInfo> | undefined = undefined;
 
-	let animate = false;
 	let timeout: NodeJS.Timeout | undefined = undefined;
 	let reset_timeout: NodeJS.Timeout | undefined = undefined;
 
@@ -23,8 +22,6 @@
 		if (timeout !== undefined) clearTimeout(timeout);
 		if (reset_timeout !== undefined) clearTimeout(reset_timeout);
 		timeout = setTimeout(launchParsing, decode_after_s * 1000);
-		animate = false;
-		setTimeout(() => (animate = true), 5);
 		event.preventDefault();
 	}
 

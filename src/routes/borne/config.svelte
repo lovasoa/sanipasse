@@ -29,7 +29,7 @@
 <h2>Configuration de l'interface de validation des passes</h2>
 <form
 	class="row g-3"
-	on:submit|preventDefault={async (e) => {
+	on:submit|preventDefault={async () => {
 		loading = true;
 		await save_config(config);
 		await goto('/borne');
