@@ -7,11 +7,13 @@ export interface ConfigProperties {
 	description: string;
 	logo_urls: string[];
 	bottom_infos: string;
+	debug: boolean;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
 	decode_after_s: 0.5,
 	reset_after_s: 4.0,
+	debug: false,
 	title: 'Bienvenue',
 	description:
 		'Scannez votre passe sanitaire depuis la section “carnets“ de votre application TousAntiCovid ou ' +

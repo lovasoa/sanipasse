@@ -14,7 +14,10 @@
 	let timeout: NodeJS.Timeout | undefined = undefined;
 	let reset_timeout: NodeJS.Timeout | undefined = undefined;
 
+	let last_event: KeyboardEvent | null = null;
+
 	function onKeyPress(event: KeyboardEvent) {
+		last_event = event;
 		if (event.key.length > 1) return;
 		code += event.key;
 		if (timeout !== undefined) clearTimeout(timeout);
@@ -114,6 +117,15 @@
 
 		<h1>{config.title}</h1>
 		<p>{config.description}</p>
+	{/if}
+
+	{#if config.debug}
+		<div>
+			Code:
+			<p class="text-break font-monospace">{code}</p>
+			<p>Code length: {code.length}</p>
+			<p>Last key pressed: {JSON.stringify(last_event?.key, null, ' ')}</p>
+		</div>
 	{/if}
 
 	<p class="fixed-bottom text-muted fw-lighter fst-italic" style="font-size: .8em">

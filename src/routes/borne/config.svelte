@@ -7,6 +7,7 @@
 	$: config_promise.then((data) => {
 		config = data;
 	});
+	let loading = false;
 
 	function fileUrlFromInput(evt: { currentTarget: HTMLInputElement }): Promise<string[]> {
 		const { files } = evt.currentTarget;
@@ -29,8 +30,10 @@
 <form
 	class="row g-3"
 	on:submit|preventDefault={async (e) => {
+		loading = true;
 		await save_config(config);
 		await goto('/borne');
+		loading = false;
 	}}
 >
 	<fieldset class="col-md-12">
@@ -119,7 +122,16 @@
 					placeholder="Affiché en petits caractères en sous l'interface de scan"
 				/>
 			</label>
+			<label class="col-12 mb-3">
+				<input type="checkbox" bind:checked={config.debug} />
+				Affichage des informations de débogage
+			</label>
 		</div>
 	</fieldset>
-	<input type="submit" class="btn btn-primary col-md-6 offset-md-6 mt-6" value="Démarrer" />
+	<input
+		type="submit"
+		class="btn btn-primary col-md-6 offset-md-6 mt-6"
+		disabled={loading}
+		value={loading ? 'Chargement' : 'Démarrer'}
+	/>
 </form>
