@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-
+	import b64 from 'base64-js';
 	import { load_config, save_config, DEFAULT_CONFIG } from './_config';
 	let config = DEFAULT_CONFIG;
 	let config_promise = load_config();
@@ -14,8 +14,8 @@
 		return Promise.all(
 			Array.from(files).map(async (f) => {
 				const buffer = await f.arrayBuffer();
-				const blob = new Blob([buffer], { type: f.type });
-				return URL.createObjectURL(blob);
+				const bytes = new Uint8Array(buffer);
+				return `data:${f.type};base64,${b64.fromByteArray(bytes)}`;
 			})
 		);
 	}
