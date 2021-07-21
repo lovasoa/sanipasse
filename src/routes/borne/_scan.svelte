@@ -15,20 +15,20 @@
 	let reset_timeout: NodeJS.Timeout | undefined = undefined;
 
 	function onKeyPress(event: KeyboardEvent) {
+		if (event.key.length > 1) return;
 		code += event.key;
 		if (timeout !== undefined) clearTimeout(timeout);
 		if (reset_timeout !== undefined) clearTimeout(reset_timeout);
-		timeout = setTimeout(resetCode, decode_after_s * 1000);
+		timeout = setTimeout(launchParsing, decode_after_s * 1000);
 		animate = false;
 		setTimeout(() => (animate = true), 5);
 		event.preventDefault();
-		codeFoundPromise = validateCertificateCode(code);
 	}
 
 	function onPaste({ clipboardData }: ClipboardEvent) {
 		if (!clipboardData) return;
 		codeFoundPromise = validateCertificateCode(clipboardData.getData('text'));
-		resetCode();
+		launchParsing();
 	}
 
 	async function validateCertificateCode(code: string): Promise<CommonCertificateInfo> {
@@ -38,8 +38,9 @@
 		else return cert;
 	}
 
-	function resetCode() {
+	function launchParsing() {
 		console.log('Detected code before reset: ', code);
+		codeFoundPromise = validateCertificateCode(code);
 		timeout = undefined;
 		code = '';
 		reset_timeout = setTimeout(() => {
@@ -61,14 +62,7 @@
 
 <div class="main container">
 	{#if timeout !== undefined}
-		<div class="progress">
-			<div
-				class="progress-bar"
-				role="progressbar"
-				class:animate
-				style="animation-duration: {decode_after_s}s"
-			/>
-		</div>
+		Scan du QR code en cours...
 	{:else if codeFoundPromise != undefined}
 		{#await codeFoundPromise}
 			Décodage du code...
