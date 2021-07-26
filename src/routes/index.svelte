@@ -41,7 +41,7 @@ et d'organiser des évènements en toute sécurité."
 			ou un certificat de vaccination (de seconde dose si le vaccin en demande deux).
 		</p>
 		<p>
-			Votre passe sanitaire est <a href="apropos#donnees">strictement privée</a>. Il ne sera
+			Votre passe sanitaire est <a href="apropos#donnees">strictement privé</a>. Il ne sera
 			<b>pas conservé</b>
 			sur notre serveur, <b>ni visible</b> par l'organisateur de l'événement.
 		</p>
