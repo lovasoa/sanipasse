@@ -74,6 +74,14 @@ et d'organiser des évènements en toute sécurité."
 		<Row>
 			<a href="events" class="btn btn-primary">📅 Créer un évènement</a>
 		</Row>
+		<p>
+			<b>Sanipasse borne</b> permet de mettre en place une borne autonome de vérification des passes
+			sanitaires, munie d'un scanner de QR code physique.
+			<small><a href="https://www.smart-diffusion.com/">plus d'informations</a></small>
+		</p>
+		<Row>
+			<a href="/borne/config" class="btn btn-primary">🤖 Configurer Sanipasse borne</a>
+		</Row>
 	{/if}
 	<Wallet />
 </footer>
