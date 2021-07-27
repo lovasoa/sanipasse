@@ -27,6 +27,12 @@
 {/await}
 
 <h2>Configuration de l'interface de validation des passes</h2>
+<p>
+	Cette page vous permet de configurer l'interface de scan des passes sanitaires. Une fois sur
+	l'interface, il vous faudra un lecteur physique de QR code pour lire les passes sanitaires. Pour
+	commander ou louer une borne, contacter <a href="https://smart-diffusion.com/">Smart Diffusion</a
+	>.
+</p>
 <form
 	class="row g-3"
 	on:submit|preventDefault={async () => {
