@@ -48,7 +48,7 @@ export function findCertificateError(
 		// test
 		const target_date = event?.date || new Date();
 		const test_age_hours = (+target_date - +c.test_date) / (3600 * 1000);
-		const test_age_days = test_age_hours * 24;
+		const test_age_days = test_age_hours / 24;
 		if (c.is_negative) {
 			if (test_age_hours > MAX_NEGATIVE_TEST_AGE_HOURS)
 				return (
