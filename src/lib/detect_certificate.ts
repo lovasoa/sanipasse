@@ -41,25 +41,34 @@ export function findCertificateError(
 	const MAX_NEGATIVE_TEST_AGE_HOURS = 72;
 	const MIN_POSITIVE_TEST_AGE_DAYS = 15;
 	const MAX_POSITIVE_TEST_AGE_DAYS = 6 * 30;
+	const MIN_VACCINATION_AGE_DAYS = 7;
+
+	const target_date = event?.date || new Date();
+	const event_date = c.type === 'vaccination' ? c.vaccination_date : c.test_date;
+	const age_hours = (+target_date - +event_date) / (3600 * 1000);
+	const age_days = age_hours / 24;
+
 	if (c.type === 'vaccination') {
 		if (c.doses_received < c.doses_expected)
 			return `Vous n'avez reçu que ${c.doses_received} dose sur les ${c.doses_expected} que ce vaccin demande.`;
+		if (age_days < MIN_VACCINATION_AGE_DAYS)
+			return (
+				`La vaccination est totalement efficace après au moins ${MIN_VACCINATION_AGE_DAYS} jours. ` +
+				`Ce certificat n'a que ${age_days | 0} jours.`
+			);
 	} else {
-		// test
-		const target_date = event?.date || new Date();
-		const test_age_hours = (+target_date - +c.test_date) / (3600 * 1000);
-		const test_age_days = test_age_hours / 24;
+		// test	
 		if (c.is_negative) {
-			if (test_age_hours > MAX_NEGATIVE_TEST_AGE_HOURS)
+			if (age_hours > MAX_NEGATIVE_TEST_AGE_HOURS)
 				return (
-					`Ce test a ${test_age_hours.toLocaleString('fr', { maximumFractionDigits: 0 })} heures.` +
+					`Ce test a ${age_hours.toLocaleString('fr', { maximumFractionDigits: 0 })} heures.` +
 					` Un test de moins de ${MAX_NEGATIVE_TEST_AGE_HOURS} heures est demandé.`
 				);
 		} else {
 			//positive test
-			if (test_age_days < MIN_POSITIVE_TEST_AGE_DAYS || test_age_days > MAX_POSITIVE_TEST_AGE_DAYS)
+			if (age_days < MIN_POSITIVE_TEST_AGE_DAYS || age_days > MAX_POSITIVE_TEST_AGE_DAYS)
 				return (
-					`Ce test a ${test_age_days.toLocaleString('fr', { maximumFractionDigits: 0 })} jours.` +
+					`Ce test a ${age_days.toLocaleString('fr', { maximumFractionDigits: 0 })} jours.` +
 					` Un test de plus de ${MIN_POSITIVE_TEST_AGE_DAYS} jours et de moins de ${
 						MAX_POSITIVE_TEST_AGE_DAYS / 30
 					} mois est demandé.`
