@@ -1816,6 +1816,40 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE6qxT6sSK3TDheWFHTBkfveooRhtUWqEqrELD9B7aAk7xjPS3MBETtmnWb4nRzBINvFwrLDxQCqTX8Jevp33c4Q=="
 	},
+	"r9RtWK9x7dM=": {
+		"serialNumber": "7804c5ca331aa224fce032899a2354ef6fa69158",
+		"subject": "C=SM, ST=San Marino, L=City of San Marino, O=Istituto per la Sicurezza Sociale\\ , OU=DGCOperations, CN=DSC_CSR_DGC_SM_01, E=smdcc@iss.sm",
+		"issuer": "C=SM, ST=SM, L=City of San Marino, O=San Marino Innovation, OU=DGCOperations, CN=CSCA_DGC_SM_01",
+		"notBefore": "2021-06-10T10:45:59.000Z",
+		"notAfter": "2023-06-10T10:45:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "fc975789cd83adfcf2b5d268e2ebb29b0a12cf48",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEH2+GOTdCPhSUdDZmaM7hq/hRJkZCd3wPyOwB8lS30s4N81r4XFpv1Yev+1bfB4A173DByhZyIKkdnZc/FfaAXQ=="
+	},
+	"crm1HLAeaTo=": {
+		"serialNumber": "73fe8b011a5693b6",
+		"subject": "C=VA, O=STATO CITTA’ DEL VATICANO, OU=DIREZIONE DI SANITA' E IGIENE, CN=DSC_DGC_VA_01",
+		"issuer": "C=VA, O=STATO CITTA’ DEL VATICANO, OU=DIREZIONE DI SANITA' E IGIENE, CN=CSCA_DGC_VA_01",
+		"notBefore": "2021-06-25T09:47:00.000Z",
+		"notAfter": "2023-06-25T09:47:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "9fe204a0f633c6d04870470cf6ce5026fefde1d7",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEI6Q/krjPDaHJ2WsrBzR9sGYnYjFqkflAAWhJgXbXt3RuUVfJt4c53N6v9J2BE3kPqCVl9FbYrwqQ0vZ+Ps5e+Q=="
+	},
 	"EzYR1uk/E0I=": {
 		"serialNumber": "16",
 		"subject": "CN=02-2021_DCC, 2.5.4.5=02-2021, C=EE, O=Estonia, OU=Health and Welfare Information Systems Centre",
