@@ -8,6 +8,7 @@ export interface ConfigProperties {
 	logo_urls: string[];
 	bottom_infos: string;
 	debug: boolean;
+	prevent_revalidation_before_minutes?: number;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
@@ -21,7 +22,8 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 		'votre test ou de votre vaccination.',
 	logo_urls: [],
 	bottom_infos:
-		'Borne par SAS LED SERVICES; logiciel sanipasse.fr fourni par Ophir Lojkine sous licence AGPLv3.'
+		'Borne par SAS LED SERVICES; logiciel sanipasse.fr fourni par Ophir Lojkine sous licence AGPLv3.',
+	prevent_revalidation_before_minutes: 0
 };
 
 const STORAGE_KEY = 'borne_config';

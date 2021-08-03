@@ -5,7 +5,7 @@
 	import type { ConfigProperties } from './_config';
 
 	export let config: ConfigProperties;
-	const { decode_after_s, reset_after_s } = config;
+	const { decode_after_s, reset_after_s, prevent_revalidation_before_minutes } = config;
 
 	let code: string = '';
 	let codeFoundPromise: Promise<CommonCertificateInfo> | undefined = undefined;
@@ -14,6 +14,9 @@
 	let reset_timeout: NodeJS.Timeout | undefined = undefined;
 
 	let last_event: KeyboardEvent | null = null;
+	let validated_passes: Map<string, number> = new Map();
+
+	const prevent_revalidation_before_ms = (prevent_revalidation_before_minutes || 0) * 60 * 1000;
 
 	function onKeyPress(event: KeyboardEvent) {
 		last_event = event;
@@ -35,7 +38,16 @@
 		const cert = await parse_any(code);
 		const error = findCertificateError(cert);
 		if (error) throw new Error(error);
-		else return cert;
+		const last_validated = validated_passes.get(code);
+		if (last_validated && last_validated > Date.now() - prevent_revalidation_before_ms) {
+			const duration_minutes = ((Date.now() - last_validated) / 60 / 1000) | 0;
+			throw new Error(
+				`Passe déjà scanné par quelqu'un d'autre il y a ` +
+					(duration_minutes ? duration_minutes + ' minutes.' : "moins d'une minute.")
+			);
+		}
+		validated_passes.set(code, Date.now());
+		return cert;
 	}
 
 	function launchParsing() {

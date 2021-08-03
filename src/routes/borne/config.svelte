@@ -46,7 +46,7 @@
 		<legend>Durée d'attente...</legend>
 
 		<div class="row">
-			<div class="form-label col-xl-6">
+			<div class="form-label col-xl-4">
 				<label for="wait">...avant la validation du code saisi</label>
 				<div class="input-group">
 					<input
@@ -60,7 +60,7 @@
 					<div class="input-group-text">secondes</div>
 				</div>
 			</div>
-			<div class="form-label col-xl-6">
+			<div class="form-label col-xl-4">
 				<label for="back">...avant le retour à l'interface de scan</label>
 				<div class="input-group">
 					<input
@@ -72,6 +72,19 @@
 						bind:value={config.reset_after_s}
 					/>
 					<div class="input-group-text">secondes</div>
+				</div>
+			</div>
+			<div class="form-label col-xl-4">
+				<label for="norevalidation">...avant de pouvoir réutiliser un même passe</label>
+				<div class="input-group">
+					<input
+						type="number"
+						class="form-control"
+						placeholder="pas de revalidation avant:"
+						id="norevalidation"
+						bind:value={config.prevent_revalidation_before_minutes}
+					/>
+					<div class="input-group-text">minutes</div>
 				</div>
 			</div>
 		</div>
