@@ -57,7 +57,7 @@ export function findCertificateError(
 				`Ce certificat n'a que ${age_days | 0} jours.`
 			);
 	} else {
-		// test	
+		// test
 		if (c.is_negative) {
 			if (age_hours > MAX_NEGATIVE_TEST_AGE_HOURS)
 				return (
