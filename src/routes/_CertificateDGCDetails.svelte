@@ -1,8 +1,19 @@
 <script type="ts">
 	import { Table, Card, CardHeader, CardBody, CardTitle } from 'sveltestrap';
 	import type { DGC } from '$lib/digital_green_certificate';
+	import crypto from 'isomorphic-webcrypto';
 	export let certificate: DGC;
 	const { hcert } = certificate;
+
+	async function sha256(i: string): Promise<string> {
+		const input_bytes = new TextEncoder().encode(i);
+		const digest_bytes = await crypto.subtle.digest('SHA-256', input_bytes);
+		return hex(digest_bytes);
+	}
+
+	function hex(i: ArrayBuffer): string {
+		return [...new Uint8Array(i)].map((n) => n.toString(16).padStart(2, '0')).join('');
+	}
 
 	function showTimestamp(time_seconds: number | string, options: { include_time?: boolean } = {}) {
 		const source = typeof time_seconds === 'number' ? time_seconds * 1000 : time_seconds;
@@ -83,7 +94,7 @@
 
 	interface Line {
 		name: string;
-		value: string | number;
+		value: Promise<string> | string | number;
 		link?: string;
 	}
 	interface Card {
@@ -129,7 +140,11 @@
 				},
 				{ name: 'Agent prophylactique', value: vaccine.vp },
 				{ name: 'Maladie ciblée', value: diseases[vaccine.tg] || vaccine.tg },
-				{ name: 'Identifiant unique', value: vaccine.ci }
+				{ name: 'Identifiant unique', value: vaccine.ci },
+				{
+					name: 'Empreinte numérique',
+					value: sha256(vaccine.co.toUpperCase() + vaccine.ci)
+				}
 			]
 		})),
 		...(hcert.t || []).map((test) => ({
@@ -160,7 +175,11 @@
 					name: "Nom du test par amplification d'acide nucléique",
 					value
 				})),
-				{ name: 'Identifiant unique', value: test.ci }
+				{ name: 'Identifiant unique', value: test.ci },
+				{
+					name: 'Empreinte numérique',
+					value: sha256(test.co.toUpperCase() + test.ci)
+				}
 			]
 		})),
 		...(hcert.r || []).map((r) => ({
@@ -229,7 +248,13 @@
 								{#if line.link}
 									<a href={line.link}>{line.value}</a>
 								{:else}
-									{line.value}
+									{#await line.value}
+										chargement...
+									{:then value}
+										{value}
+									{:catch e}
+										<pre class="bg-warning">{e}</pre>
+									{/await}
 								{/if}
 							</td>
 						</tr>
