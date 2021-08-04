@@ -73,7 +73,7 @@
 
 <svelte:window on:keypress={onKeyPress} on:paste={onPaste} />
 
-<div class="main container">
+<div class="main container" style="font-family: {config.font}; font-size: {config.font_size}px">
 	{#if timeout !== undefined}
 		Scan du QR code en cours...
 	{:else if codeFoundPromise != undefined}
@@ -227,5 +227,8 @@
 	.videoinput {
 		max-height: 40vh;
 		display: flex;
+	}
+	h1{
+		font-size: 2em;
 	}
 </style>

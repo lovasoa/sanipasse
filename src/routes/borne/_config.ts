@@ -11,6 +11,8 @@ export interface ConfigProperties {
 	prevent_revalidation_before_minutes?: number;
 	/// If false, get the QR code from the keyboard
 	video_scan?: boolean;
+	font?: string;
+	font_size?: number;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
@@ -26,7 +28,7 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 	bottom_infos:
 		'Borne par SAS LED SERVICES; logiciel sanipasse.fr fourni par Ophir Lojkine sous licence AGPLv3.',
 	prevent_revalidation_before_minutes: 0,
-	video_scan: true,
+	video_scan: true
 };
 
 const STORAGE_KEY = 'borne_config';
