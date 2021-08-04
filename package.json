@@ -46,7 +46,6 @@
 		"buffer": "^6.0.3",
 		"cbor-web": "^7.0.5",
 		"cosette": "^0.6.0",
-		"isomorphic-webcrypto": "^2.3.8",
 		"localforage": "^1.9.0",
 		"pako": "^2.0.3",
 		"pdfjs-dist": "^2.7.570",
