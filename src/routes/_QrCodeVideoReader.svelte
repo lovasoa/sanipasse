@@ -77,18 +77,18 @@
 	onMount(loadCamera);
 </script>
 
-<!-- svelte-ignore a11y-media-has-caption -->
-<video
-	style="display:{started ? 'block' : 'none'}"
-	bind:this={videoElement}
-	class:started
-	on:click={() => {
-		if (allowSwap) {
-			facingMode = facingMode === 'environment' ? 'user' : 'environment';
-			loadCamera();
-		}
-	}}
-/>
+<div class="video-container">
+	<!-- svelte-ignore a11y-media-has-caption -->
+	<video style="display:{started ? 'block' : 'none'}" bind:this={videoElement} class:started />
+	{#if allowSwap}
+		<button
+			on:click|preventDefault={() => {
+				facingMode = facingMode === 'environment' ? 'user' : 'environment';
+				loadCamera();
+			}}>🔄</button
+		>
+	{/if}
+</div>
 
 {#await decodePromise}
 	<div class="alert alert-light">Chargement de la caméra...</div>
@@ -100,6 +100,22 @@
 {/await}
 
 <style>
+	.video-container {
+		position: relative;
+	}
+	.video-container button {
+		position: absolute;
+		bottom: 10px;
+		right: 7px;
+		width: 16px;
+		height: 16px;
+		background: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+		opacity: 0.5;
+	}
+
 	video {
 		width: 100%;
 		object-fit: contain;
