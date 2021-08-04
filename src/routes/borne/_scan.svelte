@@ -228,7 +228,7 @@
 		max-height: 40vh;
 		display: flex;
 	}
-	h1{
+	h1 {
 		font-size: 2em;
 	}
 </style>
