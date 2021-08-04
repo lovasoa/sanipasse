@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Alert } from 'sveltestrap';
 	import { BarcodeFormat, DecodeHintType, NotFoundException } from '@zxing/library';
 	import type { Result } from '@zxing/library';
 	import { BrowserMultiFormatReader } from '@zxing/browser';
@@ -8,8 +7,9 @@
 
 	const dispatch = createEventDispatcher<{ qrcode: string }>();
 
-	export let facingMode: string | undefined = undefined;
+	export let facingMode: string | undefined = 'environment';
 	export let started = false;
+	export let allowSwap = false;
 
 	let videoElement: HTMLVideoElement | undefined = undefined;
 	let stop = () => {};
@@ -63,7 +63,8 @@
 		started = false;
 	}
 
-	onMount(() => {
+	function loadCamera() {
+		stop();
 		decodePromise = navigator.mediaDevices
 			.getUserMedia({
 				audio: false,
@@ -71,24 +72,39 @@
 			})
 			.then(start);
 		return onUnMount;
-	});
+	}
+
+	onMount(loadCamera);
 </script>
 
 <!-- svelte-ignore a11y-media-has-caption -->
-<video bind:this={videoElement} class:started />
+<video
+	style="display:{started ? 'block' : 'none'}"
+	bind:this={videoElement}
+	class:started
+	on:click={() => {
+		if (allowSwap) {
+			facingMode = facingMode === 'environment' ? 'user' : 'environment';
+			loadCamera();
+		}
+	}}
+/>
 
 {#await decodePromise}
-	<Alert fade={false} color="light">Chargement de la caméra...</Alert>
+	<div class="alert alert-light">Chargement de la caméra...</div>
 {:catch error}
-	<Alert color="danger">
+	<div class="alert alert-danger">
 		<h4>Impossible d'accéder à la caméra</h4>
 		<code>{error}</code>
-	</Alert>
+	</div>
 {/await}
 
 <style>
 	video {
 		width: 100%;
 		object-fit: contain;
+	}
+	.alert {
+		height: 100%;
 	}
 </style>

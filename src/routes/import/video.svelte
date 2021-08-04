@@ -16,7 +16,11 @@
 </aside>
 
 <div class="videoinput" class:started>
-	<QrCodeVideoReader on:qrcode={({ detail }) => (codeFound = detail)} bind:started />
+	<QrCodeVideoReader
+		on:qrcode={({ detail }) => (codeFound = detail)}
+		bind:started
+		allowSwap={true}
+	/>
 </div>
 <CodeFound bind:codeFound />
 
