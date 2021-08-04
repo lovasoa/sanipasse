@@ -50,10 +50,10 @@
 		return cert;
 	}
 
-	function launchParsing(code: string) {
+	function launchParsing(code_input: string) {
 		if (codeFoundPromise) return;
-		console.log('Detected code before reset: ', code);
-		codeFoundPromise = validateCertificateCode(code);
+		console.log('Detected code before reset: ', code_input);
+		codeFoundPromise = validateCertificateCode(code_input);
 		timeout = undefined;
 		code = '';
 		reset_timeout = setTimeout(() => {
@@ -73,7 +73,10 @@
 
 <svelte:window on:keypress={onKeyPress} on:paste={onPaste} />
 
-<div class="main container" style="font-family: {config.font}; font-size: {config.font_size}px">
+<div
+	class="main container"
+	style="font-family: {config.font || 'inherit'}; font-size: {config.font_size || 16}px"
+>
 	{#if timeout !== undefined}
 		Scan du QR code en cours...
 	{:else if codeFoundPromise != undefined}
@@ -127,11 +130,12 @@
 
 		<h1>{config.title}</h1>
 		<p>{config.description}</p>
-		{#if config.video_scan}
-			<div class="videoinput">
-				<QrCodeVideoReader on:qrcode={({ detail }) => launchParsing(detail)} />
-			</div>
-		{/if}
+	{/if}
+
+	{#if config.video_scan}
+		<div class="videoinput w-100" style="display: {codeFoundPromise ? 'none' : 'block'}">
+			<QrCodeVideoReader on:qrcode={({ detail }) => launchParsing(detail)} />
+		</div>
 	{/if}
 
 	{#if config.debug}

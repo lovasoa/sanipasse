@@ -31,13 +31,14 @@
 				videoElement,
 				(result, err) => {
 					console.log(`zxing callback called, result: ${result}, err: ${err}`);
+					if (!started) return;
 					if (err || !result) {
 						if (!(err instanceof NotFoundException)) error = `${err}`;
 						return;
 					} else onResult(result);
 				}
 			);
-			stop = controls.stop;
+			stop = controls.stop.bind(controls);
 			started = true;
 		} catch (e) {
 			error = e.toString();
@@ -51,7 +52,9 @@
 
 	function onUnMount() {
 		stop();
+		started = false;
 	}
+
 	onMount(() => {
 		devices = BrowserCodeReader.listVideoInputDevices();
 		devices.then((devices) => {
