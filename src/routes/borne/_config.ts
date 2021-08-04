@@ -27,7 +27,7 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 		'votre test ou de votre vaccination.',
 	logo_urls: [],
 	bottom_infos:
-		'Borne par SAS LED SERVICES; logiciel sanipasse.fr fourni par Ophir Lojkine sous licence AGPLv3.',
+		'logiciel sanipasse.fr fourni par Ophir Lojkine sous licence AGPLv3.',
 	prevent_revalidation_before_minutes: 0,
 	video_scan: true
 };
