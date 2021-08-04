@@ -26,17 +26,15 @@
 	}
 
 	let video_preview: HTMLVideoElement | undefined = undefined;
+	let has_video_preview = false;
 	async function setPreview() {
-		const stream = await navigator.mediaDevices.getUserMedia({
+		if (!video_preview || !video_scan_num) return;
+		has_video_preview = false;
+		video_preview.srcObject = await navigator.mediaDevices.getUserMedia({
 			audio: false,
 			video: { facingMode: config.video_facing_mode }
 		});
-		if (!video_preview) return;
-		video_preview.width = stream.getVideoTracks()[0].getSettings().width || 100;
-		video_preview.height = stream.getVideoTracks()[0].getSettings().height || 100;
-		video_preview.autoplay = true;
-		video_preview.srcObject = stream;
-		video_preview.play();
+		has_video_preview = true;
 	}
 </script>
 
@@ -182,7 +180,7 @@
 				Scanneur de QR code USB physique
 			</label>
 			<label class="col-4 mb-3">
-				<input type="radio" bind:group={video_scan_num} value={1} on:click={setPreview} />
+				<input type="radio" bind:group={video_scan_num} value={1} on:change={setPreview} />
 				Scanner les QR code par vidéo
 			</label>
 			{#if video_scan_num}
@@ -193,7 +191,7 @@
 							type="radio"
 							bind:group={config.video_facing_mode}
 							value="environment"
-							on:click={setPreview}
+							on:change={setPreview}
 						/>
 						arrière
 					</label>
@@ -202,15 +200,18 @@
 							type="radio"
 							bind:group={config.video_facing_mode}
 							value="user"
-							on:click={setPreview}
+							on:change={setPreview}
 						/>
 						avant
 					</label>
 				</div>
 				<div class="col-6">
 					<p>Aperçu de la vidéo:</p>
+					{#if !has_video_preview}
+						<button class="btn btn-secondary" on:click|preventDefault={setPreview}>Afficher</button>
+					{/if}
 					<!-- svelte-ignore a11y-media-has-caption -->
-					<video bind:this={video_preview} />
+					<video height={has_video_preview ? 100 : 0} autoplay={true} bind:this={video_preview} />
 				</div>
 			{/if}
 		</div>
