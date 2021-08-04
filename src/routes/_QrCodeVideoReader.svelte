@@ -64,6 +64,7 @@
 	}
 
 	function loadCamera() {
+		started = false;
 		stop();
 		decodePromise = navigator.mediaDevices
 			.getUserMedia({
@@ -80,7 +81,7 @@
 <div class="video-container">
 	<!-- svelte-ignore a11y-media-has-caption -->
 	<video style="display:{started ? 'block' : 'none'}" bind:this={videoElement} class:started />
-	{#if allowSwap}
+	{#if allowSwap && started}
 		<button
 			on:click|preventDefault={() => {
 				facingMode = facingMode === 'environment' ? 'user' : 'environment';
