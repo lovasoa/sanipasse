@@ -8,7 +8,7 @@
 
 	const dispatch = createEventDispatcher<{ qrcode: string }>();
 
-	export let facingMode = 'environment';
+	export let facingMode: string | undefined = undefined;
 	export let started = false;
 
 	let videoElement: HTMLVideoElement | undefined = undefined;
@@ -43,7 +43,10 @@
 					} else onResult(result);
 				}
 			);
-			stop = controls.stop.bind(controls);
+			stop = () => {
+				controls.stop();
+				mediaStream.getTracks().forEach((track) => track.stop());
+			};
 			started = true;
 		} catch (e) {
 			error(e);
@@ -64,7 +67,7 @@
 		decodePromise = navigator.mediaDevices
 			.getUserMedia({
 				audio: false,
-				video: { facingMode }
+				video: facingMode ? { facingMode } : true
 			})
 			.then(start);
 		return onUnMount;
