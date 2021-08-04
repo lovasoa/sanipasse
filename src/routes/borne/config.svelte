@@ -3,11 +3,15 @@
 	import b64 from 'base64-js';
 	import { load_config, save_config, DEFAULT_CONFIG } from './_config';
 	let config = DEFAULT_CONFIG;
+	let video_scan_num = 0;
+
 	let config_promise = load_config();
-	$: config_promise.then((data) => {
+	config_promise.then((data) => {
 		config = data;
+		video_scan_num = +(config.video_scan || 0);
 	});
 	let loading = false;
+	$: config.video_scan = !!video_scan_num;
 
 	function fileUrlFromInput(evt: { currentTarget: HTMLInputElement }): Promise<string[]> {
 		const { files } = evt.currentTarget;
@@ -19,6 +23,18 @@
 				return `data:${f.type};base64,${b64.fromByteArray(bytes)}`;
 			})
 		);
+	}
+
+	let video_preview: HTMLVideoElement | undefined = undefined;
+	let has_video_preview = false;
+	async function setPreview() {
+		if (!video_preview || !video_scan_num) return;
+		has_video_preview = false;
+		video_preview.srcObject = await navigator.mediaDevices.getUserMedia({
+			audio: false,
+			video: { facingMode: config.video_facing_mode }
+		});
+		has_video_preview = true;
 	}
 </script>
 
@@ -37,6 +53,7 @@
 	class="row g-3"
 	on:submit|preventDefault={async () => {
 		loading = true;
+		console.log(config);
 		await save_config(config);
 		await goto('/borne');
 		loading = false;
@@ -141,10 +158,62 @@
 					placeholder="Affiché en petits caractères en sous l'interface de scan"
 				/>
 			</label>
-			<label class="col-12 mb-3">
+			<label class="col-6 mb-3">
+				Police de caractères du texte
+				<input
+					type="text"
+					class="form-control"
+					bind:value={config.font}
+					placeholder="Arial, Helvetica, Garamond, ..."
+				/>
+			</label>
+			<label class="col-6 mb-3">
+				Taille du texte
+				<input type="text" class="form-control" bind:value={config.font_size} placeholder="12" />
+			</label>
+			<label class="col-4 mb-3">
 				<input type="checkbox" bind:checked={config.debug} />
 				Affichage des informations de débogage
 			</label>
+			<label class="col-4 mb-3">
+				<input type="radio" bind:group={video_scan_num} value={0} />
+				Scanneur de QR code USB physique
+			</label>
+			<label class="col-4 mb-3">
+				<input type="radio" bind:group={video_scan_num} value={1} on:change={setPreview} />
+				Scanner les QR code par vidéo
+			</label>
+			{#if video_scan_num}
+				<div class="col-6 mb-3">
+					Caméra à utiliser de préférence:
+					<label>
+						<input
+							type="radio"
+							bind:group={config.video_facing_mode}
+							value="environment"
+							on:change={setPreview}
+						/>
+						arrière
+					</label>
+					<label>
+						<input
+							type="radio"
+							bind:group={config.video_facing_mode}
+							value="user"
+							on:change={setPreview}
+						/>
+						avant
+					</label>
+				</div>
+				<div class="col-6">
+					<p>Aperçu de la vidéo:</p>
+					{#if !has_video_preview}
+						<button class="btn btn-secondary" on:click|preventDefault={setPreview}>Afficher</button>
+					{/if}
+					<!-- svelte-ignore a11y-media-has-caption -->
+					<video height={has_video_preview ? 100 : 0} autoplay={true} bind:this={video_preview} />
+				</div>
+			{/if}
 		</div>
 	</fieldset>
 	<input
@@ -154,3 +223,10 @@
 		value={loading ? 'Chargement' : 'Démarrer'}
 	/>
 </form>
+
+<style>
+	video {
+		max-width: 200px;
+		max-height: 200px;
+	}
+</style>

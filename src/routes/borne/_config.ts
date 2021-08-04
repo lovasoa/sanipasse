@@ -9,6 +9,11 @@ export interface ConfigProperties {
 	bottom_infos: string;
 	debug: boolean;
 	prevent_revalidation_before_minutes?: number;
+	/// If false, get the QR code from the keyboard
+	video_scan?: boolean;
+	font?: string;
+	font_size?: number;
+	video_facing_mode?: string;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
@@ -21,9 +26,9 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 		'Sanipasse. Vous pouvez aussi scanner directement le QR code papier qui vous a été remis lors de ' +
 		'votre test ou de votre vaccination.',
 	logo_urls: [],
-	bottom_infos:
-		'Borne par SAS LED SERVICES; logiciel sanipasse.fr fourni par Ophir Lojkine sous licence AGPLv3.',
-	prevent_revalidation_before_minutes: 0
+	bottom_infos: 'logiciel sanipasse.fr fourni par Ophir Lojkine sous licence AGPLv3.',
+	prevent_revalidation_before_minutes: 0,
+	video_scan: true
 };
 
 const STORAGE_KEY = 'borne_config';

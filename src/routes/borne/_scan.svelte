@@ -3,6 +3,7 @@
 	import { findCertificateError, parse_any } from '$lib/detect_certificate';
 	import { assets } from '$app/paths';
 	import type { ConfigProperties } from './_config';
+	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
 
 	export let config: ConfigProperties;
 	const { decode_after_s, reset_after_s, prevent_revalidation_before_minutes } = config;
@@ -24,14 +25,13 @@
 		code += event.key;
 		if (timeout !== undefined) clearTimeout(timeout);
 		if (reset_timeout !== undefined) clearTimeout(reset_timeout);
-		timeout = setTimeout(launchParsing, decode_after_s * 1000);
+		timeout = setTimeout(launchParsing, decode_after_s * 1000, code);
 		event.preventDefault();
 	}
 
 	function onPaste({ clipboardData }: ClipboardEvent) {
 		if (!clipboardData) return;
-		codeFoundPromise = validateCertificateCode(clipboardData.getData('text'));
-		launchParsing();
+		launchParsing(clipboardData.getData('text'));
 	}
 
 	async function validateCertificateCode(code: string): Promise<CommonCertificateInfo> {
@@ -50,9 +50,10 @@
 		return cert;
 	}
 
-	function launchParsing() {
-		console.log('Detected code before reset: ', code);
-		codeFoundPromise = validateCertificateCode(code);
+	function launchParsing(code_input: string) {
+		if (codeFoundPromise) return;
+		console.log('Detected code before reset: ', code_input);
+		codeFoundPromise = validateCertificateCode(code_input);
 		timeout = undefined;
 		code = '';
 		reset_timeout = setTimeout(() => {
@@ -72,7 +73,10 @@
 
 <svelte:window on:keypress={onKeyPress} on:paste={onPaste} />
 
-<div class="main container">
+<div
+	class="main container"
+	style="font-family: {config.font || 'inherit'}; font-size: {config.font_size || 16}px"
+>
 	{#if timeout !== undefined}
 		Scan du QR code en cours...
 	{:else if codeFoundPromise != undefined}
@@ -126,6 +130,15 @@
 
 		<h1>{config.title}</h1>
 		<p>{config.description}</p>
+	{/if}
+
+	{#if config.video_scan}
+		<div class="videoinput w-100" style="display: {codeFoundPromise ? 'none' : 'flex'}">
+			<QrCodeVideoReader
+				on:qrcode={({ detail }) => launchParsing(detail)}
+				facingMode={config.video_facing_mode || 'environment'}
+			/>
+		</div>
 	{/if}
 
 	{#if config.debug}
@@ -217,5 +230,12 @@
 		to {
 			transform: rotate(0);
 		}
+	}
+	.videoinput {
+		max-height: 40vh;
+		display: flex;
+	}
+	h1 {
+		font-size: 2em;
 	}
 </style>
