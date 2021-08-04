@@ -3,11 +3,15 @@
 	import b64 from 'base64-js';
 	import { load_config, save_config, DEFAULT_CONFIG } from './_config';
 	let config = DEFAULT_CONFIG;
+	let video_scan_num = 0;
+
 	let config_promise = load_config();
-	$: config_promise.then((data) => {
+	config_promise.then((data) => {
 		config = data;
+		video_scan_num = +(config.video_scan || 0);
 	});
 	let loading = false;
+	$: config.video_scan = !!video_scan_num;
 
 	function fileUrlFromInput(evt: { currentTarget: HTMLInputElement }): Promise<string[]> {
 		const { files } = evt.currentTarget;
@@ -37,6 +41,7 @@
 	class="row g-3"
 	on:submit|preventDefault={async () => {
 		loading = true;
+		console.log(config);
 		await save_config(config);
 		await goto('/borne');
 		loading = false;
@@ -141,9 +146,17 @@
 					placeholder="Affiché en petits caractères en sous l'interface de scan"
 				/>
 			</label>
-			<label class="col-12 mb-3">
+			<label class="col-4 mb-3">
 				<input type="checkbox" bind:checked={config.debug} />
 				Affichage des informations de débogage
+			</label>
+			<label class="col-4 mb-3">
+				<input type="radio" bind:group={video_scan_num} value={0} />
+				Scanneur de QR code USB physique
+			</label>
+			<label class="col-4 mb-3">
+				<input type="radio" bind:group={video_scan_num} value={1} />
+				Scanner les QR code par vidéo
 			</label>
 		</div>
 	</fieldset>

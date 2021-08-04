@@ -3,6 +3,7 @@
 	import { findCertificateError, parse_any } from '$lib/detect_certificate';
 	import { assets } from '$app/paths';
 	import type { ConfigProperties } from './_config';
+	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
 
 	export let config: ConfigProperties;
 	const { decode_after_s, reset_after_s, prevent_revalidation_before_minutes } = config;
@@ -24,14 +25,13 @@
 		code += event.key;
 		if (timeout !== undefined) clearTimeout(timeout);
 		if (reset_timeout !== undefined) clearTimeout(reset_timeout);
-		timeout = setTimeout(launchParsing, decode_after_s * 1000);
+		timeout = setTimeout(launchParsing, decode_after_s * 1000, code);
 		event.preventDefault();
 	}
 
 	function onPaste({ clipboardData }: ClipboardEvent) {
 		if (!clipboardData) return;
-		codeFoundPromise = validateCertificateCode(clipboardData.getData('text'));
-		launchParsing();
+		launchParsing(clipboardData.getData('text'));
 	}
 
 	async function validateCertificateCode(code: string): Promise<CommonCertificateInfo> {
@@ -50,7 +50,8 @@
 		return cert;
 	}
 
-	function launchParsing() {
+	function launchParsing(code: string) {
+		if (codeFoundPromise) return;
 		console.log('Detected code before reset: ', code);
 		codeFoundPromise = validateCertificateCode(code);
 		timeout = undefined;
@@ -126,6 +127,11 @@
 
 		<h1>{config.title}</h1>
 		<p>{config.description}</p>
+		{#if config.video_scan}
+			<div class="videoinput">
+				<QrCodeVideoReader on:qrcode={({ detail }) => launchParsing(detail)} />
+			</div>
+		{/if}
 	{/if}
 
 	{#if config.debug}
@@ -217,5 +223,9 @@
 		to {
 			transform: rotate(0);
 		}
+	}
+	.videoinput {
+		max-height: 40vh;
+		display: flex;
 	}
 </style>
