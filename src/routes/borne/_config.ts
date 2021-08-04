@@ -13,6 +13,7 @@ export interface ConfigProperties {
 	video_scan?: boolean;
 	font?: string;
 	font_size?: number;
+	video_facing_mode?: string;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
