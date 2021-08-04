@@ -136,7 +136,7 @@
 		<div class="videoinput w-100" style="display: {codeFoundPromise ? 'none' : 'flex'}">
 			<QrCodeVideoReader
 				on:qrcode={({ detail }) => launchParsing(detail)}
-				facingMode={config.video_facing_mode || 'environment'}
+				facingMode={config.video_facing_mode}
 			/>
 		</div>
 	{/if}

@@ -19,6 +19,7 @@
 	<QrCodeVideoReader
 		on:qrcode={({ detail }) => (codeFound = detail)}
 		bind:started
+		facingMode="environment"
 		allowSwap={true}
 	/>
 </div>

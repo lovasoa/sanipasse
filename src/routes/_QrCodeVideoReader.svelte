@@ -7,7 +7,7 @@
 
 	const dispatch = createEventDispatcher<{ qrcode: string }>();
 
-	export let facingMode: string | undefined = 'environment';
+	export let facingMode: string | undefined = undefined;
 	export let started = false;
 	export let allowSwap = false;
 
