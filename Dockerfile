@@ -4,7 +4,7 @@ WORKDIR /code
 
 # Create a docker layer with only dependencies
 COPY package.json package-lock.json /code/
-RUN npm ci
+RUN npm ci --no-optional
 COPY . /code
 
 # Build the code
