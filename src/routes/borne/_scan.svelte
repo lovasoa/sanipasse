@@ -63,7 +63,7 @@
 
 	function showName({ first_name, last_name }: CommonCertificateInfo): string {
 		return (
-			first_name[0].toUpperCase() +
+			(first_name[0] || '').toUpperCase() +
 			first_name.slice(1).toLowerCase() +
 			' ' +
 			last_name.toUpperCase()
