@@ -232,6 +232,7 @@ function getCertificateInfo(cert: DGC): CommonCertificateInfo {
 			test_date: new Date(hcert.t[0].sc),
 			// 260415000=not detected: http://purl.bioontology.org/ontology/SNOMEDCT/260415000
 			is_negative: hcert.t[0].tr === '260415000',
+			is_inconclusive: !['260415000', '260373001'].includes(hcert.t[0].tr),
 			...common
 		};
 	}
@@ -240,6 +241,7 @@ function getCertificateInfo(cert: DGC): CommonCertificateInfo {
 			type: 'test',
 			test_date: new Date(hcert.r[0].fr), // date of positive test
 			is_negative: false,
+			is_inconclusive: false,
 			...common
 		};
 	}

@@ -58,7 +58,9 @@ export function findCertificateError(
 			);
 	} else {
 		// test
-		if (c.is_negative) {
+		if (c.is_inconclusive) {
+			return `Ce test n'a pas permis de déterminer de manière certaine la présence ou l'absence de la substance recherchée.`;
+		} else if (c.is_negative) {
 			if (age_hours > MAX_NEGATIVE_TEST_AGE_HOURS)
 				return (
 					`Ce test a ${age_hours.toLocaleString('fr', { maximumFractionDigits: 0 })} heures.` +
