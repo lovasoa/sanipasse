@@ -109,7 +109,7 @@
 					<div class="col-md-2"><div class="sign shallnotpass" /></div>
 					<div class="col-md-10">
 						<h3>Passe sanitaire invalide</h3>
-						<pre>{err.message}</pre>
+						<p class="font-monospace">{err.message}</p>
 						<div class="progress">
 							<div
 								class="progress-bar bg-danger animate"
