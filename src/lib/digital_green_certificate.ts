@@ -12,27 +12,28 @@
  */
 import Ajv from 'ajv/dist/2020.js'; // .js extension seems required to build successfully :(
 import { decode as decodeb45 } from 'base45-ts';
-import { toByteArray as decodeb64 } from 'base64-js';
-import { Buffer } from 'buffer';
-import { verify } from 'cosette/build/sign.js';
+import { fromByteArray as encodeb64, toByteArray as decodeb64 } from 'base64-js';
+import { verify, webcrypto, cbor } from 'cosette/build/sign.js';
+import type { Verifier } from 'cosette/build/sign.js';
+
 import { inflate } from 'pako';
 import DCCSchema from '../assets/DCC.combined-schema.1.3.0.json';
-import DCCCerts from '../assets/Digital_Green_Certificate_Signing_Keys.json';
+const DCCCertsPromise = import('../assets/Digital_Green_Certificate_Signing_Keys.json');
 import type { HCert } from './digital_green_certificate_types';
 import type { CommonCertificateInfo } from './common_certificate_info';
-import crypto from 'isomorphic-webcrypto';
 import { DGC_PREFIX } from './detect_certificate';
 
-// Ugly hack to make the cbor import work both when packaged with vite (in dev) and with rollup (in prod)
-import cbor_default, * as cbor_all from 'cbor-web';
-const cbor = cbor_default || cbor_all;
-
-interface UnsafeDGC {
+interface RawDGC {
 	hcert: HCert;
 	kid: string;
 	issuer: string | null;
 	issuedAt: number | null;
 	expiresAt: number | null;
+	certificate: DSC;
+}
+
+export interface DGC extends RawDGC {
+	code: string;
 }
 
 /**
@@ -54,10 +55,10 @@ export interface DSC {
 }
 
 export class DgcError extends Error {
-	dgc: UnsafeDGC;
-	constructor(dgc: UnsafeDGC) {
-		super(`Ce certificat est invalide: ${JSON.stringify(dgc, null, '\t')}`);
-		this.dgc = dgc;
+	hcert: HCert;
+	constructor(hcert: HCert) {
+		super(`Ce certificat est invalide: ${JSON.stringify(hcert, null, '\t')}`);
+		this.hcert = hcert;
 	}
 }
 export class DgcIssuedInFutureError extends DgcError {
@@ -66,16 +67,17 @@ export class DgcIssuedInFutureError extends DgcError {
 export class ExpiredDgcError extends DgcError {
 	name = 'Signature expirée';
 }
-export class UnknownKidError extends DgcError {
-	name = 'Signataire non reconnu';
+export class UnknownKidError extends Error {
+	kid: string;
+	constructor(kid: string) {
+		super(`Ce certificat n'a pas été signé par une entité reconnue. kid: ${kid}'`);
+		this.kid = kid;
+	}
 }
-export class InvalidCertificateError extends DgcError {
-	name = 'Certificat de signature invalide';
-}
-
-export interface DGC extends UnsafeDGC {
-	certificate: DSC;
-	code: string;
+export class InvalidCertificateError extends Error {
+	constructor(certificate: DSC) {
+		super(`Certificat de signature invalide ou périmé: ${JSON.stringify(certificate)}`);
+	}
 }
 
 const COSE_HEADERS = Object.freeze({
@@ -112,28 +114,25 @@ async function extractCoseFromQRCode(qrCode: string): Promise<Uint8Array> {
 }
 
 /**
- * Parse the COSE data without any signature check.
+ * Parse the COSE data
  */
-async function unsafeDGCFromCoseData(rawCoseData: Uint8Array): Promise<UnsafeDGC> {
-	// COSE is just some CBOR-serialized data.
-	const coseData = await cbor.decodeFirst(rawCoseData);
-	const coseValue = coseData?.value;
-	if (!coseValue || !Array.isArray(coseValue) || coseValue.length !== 4) {
-		throw Error('Unexpected COSE data. DGC is probably invalid.');
-	}
-	const [phdrsData, _uhdrs, cosePayload, _signers] = coseValue;
+async function parseDGCFromCoseData(rawCoseData: Uint8Array): Promise<RawDGC> {
+	let kid = '';
+	let certificate = (undefined as unknown) as DSC; // defined in verifierFn
 
-	// Extract the KID and the payload
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const phdrs: Map<number, any> = await cbor.decodeFirst(phdrsData);
-	const rawKid = phdrs.get(COSE_HEADERS.KID);
-	if (!rawKid) {
-		throw Error('Cannot find a KID in COSE Data. DGC is probably invalid.');
+	/**
+	 * Get a Verifier given a kid
+	 */
+	async function verifierFn(kid_bytes: Uint8Array): Promise<Verifier> {
+		kid = encodeb64(kid_bytes);
+		certificate = await findDGCPublicKey(kid);
+		const key = await getCertificatePublicKey(certificate);
+		return { key };
 	}
-	const kid = Buffer.from(rawKid).toString('base64');
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const cborData: Map<number, any> = await cbor.decodeFirst(cosePayload);
 
+	const rawData: Uint8Array = await verify(rawCoseData, verifierFn);
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const cborData: Map<number, any> = await cbor.decodeFirst(rawData);
 	// Validate the payload against the JSON schema.
 	const hcert = cborData.get(CWT_CLAIMS.HCERT)?.get(1) || {};
 	const ajv = new Ajv();
@@ -148,38 +147,30 @@ async function unsafeDGCFromCoseData(rawCoseData: Uint8Array): Promise<UnsafeDGC
 		throw Error(`DGC validation failed:\n${validationErrors}.`);
 	}
 
-	return {
-		hcert,
-		kid,
-		issuer: cborData.get(CWT_CLAIMS.ISSUER) || null,
-		issuedAt: cborData.get(CWT_CLAIMS.ISSUED_AT) || null,
-		expiresAt: cborData.get(CWT_CLAIMS.EXPIRATION) || null
-	};
-}
+	const issuer = cborData.get(CWT_CLAIMS.ISSUER);
+	const issuedAt = cborData.get(CWT_CLAIMS.ISSUED_AT);
+	const expiresAt = cborData.get(CWT_CLAIMS.EXPIRATION);
 
-/**
- * Verifies the CWT claims of the DGC.
- */
-async function verifyDGCClaims(dgc: UnsafeDGC): Promise<void> {
 	const now = Math.floor(Date.now() / 1000);
+	if (issuedAt && now < issuedAt) throw new DgcIssuedInFutureError(hcert);
+	if (expiresAt && expiresAt < now) throw new ExpiredDgcError(hcert);
 
-	if (dgc.issuedAt !== null && now < dgc.issuedAt) throw new DgcIssuedInFutureError(dgc);
-
-	if (dgc.expiresAt !== null && dgc.expiresAt < now) throw new ExpiredDgcError(dgc);
+	return { hcert, kid, issuer, issuedAt, expiresAt, certificate };
 }
 
 /**
  * Find the DSC that matches this DSC KID.
  */
-function findDGCPublicKey(dgc: UnsafeDGC): DSC {
+async function findDGCPublicKey(kid: string): Promise<DSC> {
+	const DCCCerts = (await DCCCertsPromise).default;
 	// Find the KID in known DSCs
-	if (!(dgc.kid in DCCCerts)) throw new UnknownKidError(dgc);
-	const certificate: DSC = DCCCerts[dgc.kid as keyof typeof DCCCerts];
+	if (!(kid in DCCCerts)) throw new UnknownKidError(kid);
+	const certificate: DSC = DCCCerts[kid as keyof typeof DCCCerts];
 	const notAfter = new Date(certificate.notAfter);
 	const notBefore = new Date(certificate.notBefore);
 	// Verify that the certificate is still valid.
 	const now = new Date();
-	if (now > notAfter || now < notBefore) throw new InvalidCertificateError(dgc);
+	if (now > notAfter || now < notBefore) throw new InvalidCertificateError(certificate);
 	return certificate;
 }
 
@@ -188,23 +179,10 @@ async function getCertificatePublicKey({
 	publicKeyPem
 }: DSC): Promise<CryptoKey> {
 	const der = decodeb64(publicKeyPem);
-	const public_key = await crypto.subtle.importKey('spki', der, publicKeyAlgorithm, true, [
+	const public_key = await webcrypto.subtle.importKey('spki', der, publicKeyAlgorithm, true, [
 		'verify'
 	]);
 	return public_key;
-}
-/**
- * Verify that the DGC is authentic:
- *   - Check that the certificate is still valid
- *   - Check the COSE signature
- *   - Check the CWT claims
- */
-async function verifyDGC(dgc: UnsafeDGC, rawCoseData: Uint8Array, code: string): Promise<DGC> {
-	await verifyDGCClaims(dgc);
-	const certificate = findDGCPublicKey(dgc);
-	const key = await getCertificatePublicKey(certificate);
-	await verify(rawCoseData, { key });
-	return { ...dgc, certificate, code };
 }
 
 function getCertificateInfo(cert: DGC): CommonCertificateInfo {
@@ -248,14 +226,8 @@ function getCertificateInfo(cert: DGC): CommonCertificateInfo {
 	throw new Error('Unsupported or empty certificate: ' + JSON.stringify(cert));
 }
 
-export async function parse(doc: string): Promise<CommonCertificateInfo> {
-	const rawCoseData = await extractCoseFromQRCode(doc);
-
-	// We need to parse COSE data without verifying signature first:
-	//   - to get the KID that was used
-	//   - to allow inspection of the data on invalid signature as
-	// 	   cosette doesn't seem to permit that yet.
-	const unsafe_dgc = await unsafeDGCFromCoseData(rawCoseData);
-	const dgc = await verifyDGC(unsafe_dgc, rawCoseData, doc);
-	return getCertificateInfo(dgc);
+export async function parse(code: string): Promise<CommonCertificateInfo> {
+	const rawCoseData = await extractCoseFromQRCode(code);
+	const dgc = await parseDGCFromCoseData(rawCoseData);
+	return getCertificateInfo({ ...dgc, code });
 }
