@@ -174,12 +174,12 @@ function extract_data<F extends FIELDS_TYPES>(
 	fields: F,
 	o: Record<string, string>
 ): OBJECT_WITH_FIELDS<F> & HeaderData {
-	const document_data: OBJECT_WITH_FIELDS<F> = Object.fromEntries(
+	const document_data = Object.fromEntries(
 		fields.map((f: Field<PossibleFieldType>) => {
 			if (!(f.name in o)) throw new Error(`Missing data for field ${f.name}`);
 			return [f.name, f.type.parse(o[f.name])];
 		})
-	);
+	) as OBJECT_WITH_FIELDS<F>;
 	const header: HeaderData = {
 		code,
 		creation_date: parse_2ddoc_date(o.creation_date),
