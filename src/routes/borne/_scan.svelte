@@ -232,8 +232,9 @@
 		}
 	}
 	.videoinput {
-		max-height: 40vh;
+		max-height: 45vh;
 		display: flex;
+		justify-content: center;
 	}
 	h1 {
 		font-size: 2em;

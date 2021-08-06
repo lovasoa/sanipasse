@@ -28,7 +28,7 @@
 <style>
 	.videoinput {
 		display: flex;
-		flex-direction: row;
+		justify-content: center;
 		max-height: 0;
 		transition: 800ms;
 	}
