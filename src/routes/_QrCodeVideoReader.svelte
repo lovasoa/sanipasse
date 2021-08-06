@@ -78,10 +78,10 @@
 	onMount(loadCamera);
 </script>
 
-<div class="video-container">
+<div class="video-container" class:started>
 	<!-- svelte-ignore a11y-media-has-caption -->
-	<video style="display:{started ? 'block' : 'none'}" bind:this={videoElement} class:started />
-	{#if allowSwap && started}
+	<video style="display:{started ? 'block' : 'none'}" bind:this={videoElement} />
+	{#if allowSwap}
 		<button
 			on:click|preventDefault={() => {
 				facingMode = facingMode === 'environment' ? 'user' : 'environment';
@@ -104,6 +104,7 @@
 	.video-container {
 		position: relative;
 	}
+
 	.video-container button {
 		position: absolute;
 		bottom: 10px;
@@ -114,7 +115,18 @@
 		border: none;
 		padding: 0;
 		margin: 0;
+		opacity: 0;
+		transition: 500ms;
+		transition-delay: 800ms;
+	}
+
+	.video-container.started button {
 		opacity: 0.5;
+	}
+
+	.video-container.started button:hover {
+		opacity: 1;
+		transition-delay: 0s;
 	}
 
 	video {
