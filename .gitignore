@@ -5,3 +5,4 @@ node_modules
 /functions
 /sanipasse.db
 .env
+.vscode/settings.json
