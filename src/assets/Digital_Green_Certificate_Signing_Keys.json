@@ -1697,6 +1697,57 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcI1v9r69Swup7ghwGhCA5xoG8SopLiD2DnfkhTydslZQBHc+TuieZ11aHYkD91gmngRXRsGU8Tow/LEoKPkyuQ=="
 	},
+	"0JzyumjttZU=": {
+		"serialNumber": "1311a61314d3e1e7fcac39a8535826d719ec077b",
+		"subject": "C=NL, O=Country of Curacao, OU=Ministry of Health Environment and Nature, 2.5.4.5=1, CN=Health DSC for recovery",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-03T09:13:10.000Z",
+		"notAfter": "2032-07-31T09:13:10.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "8a2022932477ebbb64b4bfc5c04afd49ef33d4af",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAENlKRwpA1S14Zfx6LZuAWm9ExHy86o7O9ijCq4AmZ1dFu2d2wowdylJzAvbbVsR1RoxfNJPzy5dwu9Nsm0PvsEg=="
+	},
+	"T8kbYovQlYU=": {
+		"serialNumber": "47a558b5fd28bd604297b1474f7e48573550d442",
+		"subject": "C=NL, O=Country of Curacao, OU=Ministry of Health Environment and Nature, 2.5.4.5=1, CN=Health DSC for test",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-03T09:14:19.000Z",
+		"notAfter": "2032-07-31T09:14:19.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "8e51d16d098c637a7c40f34802b5c6cc8442148b",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEPVZAyUlqrJ3XW8kCQu401SKWJ1GjF+LBjT16DUZO0RaRdAPsKx8FUBwqRBtn8dPzIP+EWDX7iUppuG0TNkt3Ug=="
+	},
+	"H6b6bQ8qij4=": {
+		"serialNumber": "36861ed6a7d05942a37a740cda1664ef91a3ebb9",
+		"subject": "C=NL, O=Country of Curacao, OU=Ministry of Health Environment and Nature, 2.5.4.5=1, CN=Health DSC for vaccinations",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-03T09:15:10.000Z",
+		"notAfter": "2032-07-31T09:15:10.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "2e58fa542970750edc6809e72e20f3022ee5d8e4",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEawHNq4c7wLusLEYNhn7CBSqk6bdY7Phqjt1+Q+CVRHqBFfSRfWG+9dgoEMBdFHY12g4qsO3nnT2P4qhADwIvng=="
+	},
 	"pSEfhlMubh4=": {
 		"serialNumber": "48ae1b99eef389abbf25990cf3420e2ccf226aeb",
 		"subject": "C=NL, O=Kingdom of the Netherlands, OU=Ministry of Health Welfare and Sport, 2.5.4.5=1, CN=Health DSC for recovery",
