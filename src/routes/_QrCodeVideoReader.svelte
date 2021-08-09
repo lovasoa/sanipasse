@@ -97,6 +97,16 @@
 	<div class="alert alert-danger">
 		<h4>Impossible d'accéder à la caméra</h4>
 		<code>{error}</code>
+
+		<p class="mt-3 reportbug">
+			Votre caméra fonctionne normalement sur d'autres sites et applications, vous avez bien
+			autorisé sanipasse à y accéder, et vous pensez que c'est un bug dans sanipasse ? Vous pouvez <a
+				href="https://github.com/lovasoa/sanipasse/issues/new?title={encodeURIComponent(
+					error
+				)}&body=Merci de bien vouloir décrire ici votre appareil, votre navigateur, et les circonstances d'apparition du bug."
+				>ouvrir un rapport de bug</a
+			>.
+		</p>
 	</div>
 {/await}
 
@@ -136,5 +146,8 @@
 	}
 	.alert {
 		height: 100%;
+	}
+	.reportbug {
+		font-size: 0.8em;
 	}
 </style>
