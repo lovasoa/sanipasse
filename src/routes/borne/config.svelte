@@ -27,14 +27,24 @@
 
 	let video_preview: HTMLVideoElement | undefined = undefined;
 	let has_video_preview = false;
+	let video_preview_error: Error | null = null;
 	async function setPreview() {
 		if (!video_preview || !video_scan_num) return;
 		has_video_preview = false;
-		video_preview.srcObject = await navigator.mediaDevices.getUserMedia({
-			audio: false,
-			video: { facingMode: config.video_facing_mode }
-		});
-		has_video_preview = true;
+		if (video_preview.srcObject instanceof MediaStream) {
+			video_preview.srcObject.getTracks().forEach((t) => t.stop());
+		}
+		await new Promise((r) => setTimeout(r, 200));
+		try {
+			video_preview_error = null;
+			video_preview.srcObject = await navigator.mediaDevices.getUserMedia({
+				audio: false,
+				video: { facingMode: config.video_facing_mode }
+			});
+			has_video_preview = true;
+		} catch (err) {
+			video_preview_error = err;
+		}
 	}
 </script>
 
@@ -207,6 +217,8 @@
 				</div>
 				<div class="col-6">
 					<p>Aperçu de la vidéo:</p>
+					{#if video_preview_error}
+						<p><small>{video_preview_error}</small></p>{/if}
 					{#if !has_video_preview}
 						<button class="btn btn-secondary" on:click|preventDefault={setPreview}>Afficher</button>
 					{/if}
