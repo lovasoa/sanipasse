@@ -1,6 +1,5 @@
 <script context="module" type="ts">
 	import type { LoadOutput } from '@sveltejs/kit';
-	import { stringify } from 'ajv';
 
 	class UnknownErrorType extends Error {
 		name = 'Sanipasse unknown error';
