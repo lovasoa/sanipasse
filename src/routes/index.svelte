@@ -75,8 +75,8 @@ et d'organiser des évènements en toute sécurité."
 			<a href="events" class="btn btn-primary">📅 Créer un évènement</a>
 		</Row>
 		<p>
-			<b>Sanipasse borne</b> permet de mettre en place une borne autonome de contrôle des passes
-			sanitaires, munie d'un scanner de QR code physique ou d’une webcam.
+			<b>Sanipasse borne</b> permet de mettre en place une borne autonome de contrôle des passes sanitaires,
+			munie d'un scanner de QR code physique ou d’une webcam.
 		</p>
 		<Row>
 			<a href="/borne/config" class="btn btn-primary">🤖 Configurer Sanipasse borne</a>
