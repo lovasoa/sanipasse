@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 	import b64 from 'base64-js';
 	import { load_config, save_config, DEFAULT_CONFIG } from './_config';
-	import  ExternalRequestsConfig from './_external_request_config.svelte';
+	import ExternalRequestsConfig from './_external_request_config.svelte';
 
 	let config = DEFAULT_CONFIG;
 	let video_scan_num = 0;
@@ -233,7 +233,7 @@
 	</fieldset>
 	<details>
 		<summary>Requêtes HTTP externe</summary>
-		<ExternalRequestsConfig bind:external_requests ={config.external_requests}/>
+		<ExternalRequestsConfig bind:external_requests={config.external_requests} />
 	</details>
 
 	<input
