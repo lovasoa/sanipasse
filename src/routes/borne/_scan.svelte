@@ -2,7 +2,7 @@
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import { findCertificateError, parse_any } from '$lib/detect_certificate';
 	import { assets } from '$app/paths';
-	import type { ConfigProperties } from './_config';
+	import type { ConfigProperties, HTTPRequest } from './_config';
 	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
 
 	export let config: ConfigProperties;
@@ -50,10 +50,25 @@
 		return cert;
 	}
 
+	async function makeRequest(r: HTTPRequest) {
+		return fetch(r.url, { method: r.method, body: r.body || undefined });
+	}
+
+	async function onValid() {
+		if (config.external_requests && config.external_requests.accepted.url)
+			return makeRequest(config.external_requests.accepted);
+	}
+
+	async function onInvalid() {
+		if (config.external_requests && config.external_requests.refused.url)
+			return makeRequest(config.external_requests.refused);
+	}
+
 	function launchParsing(code_input: string) {
 		if (codeFoundPromise) return;
 		console.log('Detected code before reset: ', code_input);
 		codeFoundPromise = validateCertificateCode(code_input);
+		codeFoundPromise.then(onValid, onInvalid);
 		timeout = undefined;
 		code = '';
 		reset_timeout = setTimeout(() => {

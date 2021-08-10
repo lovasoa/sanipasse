@@ -2,6 +2,8 @@
 	import { goto } from '$app/navigation';
 	import b64 from 'base64-js';
 	import { load_config, save_config, DEFAULT_CONFIG } from './_config';
+	import  ExternalRequestsConfig from './_external_request_config.svelte';
+
 	let config = DEFAULT_CONFIG;
 	let video_scan_num = 0;
 
@@ -28,6 +30,7 @@
 	let video_preview: HTMLVideoElement | undefined = undefined;
 	let has_video_preview = false;
 	let video_preview_error: Error | null = null;
+
 	async function setPreview() {
 		if (!video_preview || !video_scan_num) return;
 		has_video_preview = false;
@@ -228,6 +231,11 @@
 			{/if}
 		</div>
 	</fieldset>
+	<details>
+		<summary>Requêtes HTTP externe</summary>
+		<ExternalRequestsConfig bind:external_requests ={config.external_requests}/>
+	</details>
+
 	<input
 		type="submit"
 		class="btn btn-primary col-md-6 offset-md-6 mt-6"

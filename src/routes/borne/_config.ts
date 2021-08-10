@@ -1,5 +1,16 @@
 const localforage = import('localforage'); // Can fail on node
 
+export interface HTTPRequest {
+	method: string;
+	url: string;
+	body: string;
+}
+
+export interface ExternalRequests {
+	accepted: HTTPRequest;
+	refused: HTTPRequest;
+}
+
 export interface ConfigProperties {
 	decode_after_s: number;
 	reset_after_s: number;
@@ -14,6 +25,7 @@ export interface ConfigProperties {
 	font?: string;
 	font_size?: number;
 	video_facing_mode?: string;
+	external_requests?: ExternalRequests;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
