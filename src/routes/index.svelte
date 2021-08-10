@@ -43,7 +43,7 @@ et d'organiser des évènements en toute sécurité."
 		<p>
 			Votre passe sanitaire est <a href="apropos#donnees">strictement privé</a>. Il ne sera
 			<b>pas conservé</b>
-			sur notre serveur, <b>ni visible</b> par l'organisateur de l'événement.
+			sur notre serveur, <b>ni visible</b> par l'organisateur de l’événement.
 		</p>
 	{:else}
 		<p>
@@ -75,9 +75,8 @@ et d'organiser des évènements en toute sécurité."
 			<a href="events" class="btn btn-primary">📅 Créer un évènement</a>
 		</Row>
 		<p>
-			<b>Sanipasse borne</b> permet de mettre en place une borne autonome de vérification des passes
-			sanitaires, munie d'un scanner de QR code physique.
-			<small><a href="https://www.smart-diffusion.com/">plus d'informations</a></small>
+			<b>Sanipasse borne</b> permet de mettre en place une borne autonome de contrôle des passes
+			sanitaires, munie d'un scanner de QR code physique ou d’une webcam.
 		</p>
 		<Row>
 			<a href="/borne/config" class="btn btn-primary">🤖 Configurer Sanipasse borne</a>

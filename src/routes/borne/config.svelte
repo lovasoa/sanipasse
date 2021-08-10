@@ -51,16 +51,27 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Borne de contrôle du passe sanitaire Sanipasse</title>
+	<meta
+		name="description"
+		content="Sanipasse est un logiciel libre et gratuit qui fournit une interface de scan automatisé des passes sanitaires."
+	/>
+</svelte:head>
+
 {#await config_promise}
 	Chargement de la configuration...
 {/await}
 
-<h2>Configuration de l'interface de validation des passes</h2>
+<h1>Configuration de l'interface de validation des passes <i>Sanipasse borne</i></h1>
 <p>
-	Cette page vous permet de configurer l'interface de scan des passes sanitaires. Une fois sur
-	l'interface, il vous faudra un lecteur physique de QR code pour lire les passes sanitaires. Pour
-	commander ou louer une borne, contacter <a href="https://smart-diffusion.com/">Smart Diffusion</a
-	>.
+	<i>Sanipasse borne</i> est un logiciel libre et gratuit à installer sur une borne de contrôle automatique
+	des pass sanitaires.
+</p>
+<p>
+	Cette page vous permet de configurer l'interface de scan et de contrôle des passes. Une fois sur
+	la page de scan, il vous faudra soit un lecteur physique de QR code, soit une webcam pour lire les
+	passes sanitaires.
 </p>
 <form
 	class="row g-3"
@@ -76,20 +87,23 @@
 		<legend>Durée d'attente...</legend>
 
 		<div class="row">
-			<div class="form-label col-xl-4">
-				<label for="wait">...avant la validation du code saisi</label>
-				<div class="input-group">
-					<input
-						type="number"
-						step="0.01"
-						class="form-control"
-						placeholder="1"
-						id="wait"
-						bind:value={config.decode_after_s}
-					/>
-					<div class="input-group-text">secondes</div>
+			{#if !video_scan_num}
+				<div class="form-label col-xl-4">
+					<label for="wait">...avant la validation du code saisi</label>
+					<div class="input-group">
+						<input
+							type="number"
+							step="0.01"
+							class="form-control"
+							placeholder="1"
+							id="wait"
+							title="Temps de lecture du code par le lecteur de QR code physique"
+							bind:value={config.decode_after_s}
+						/>
+						<div class="input-group-text">secondes</div>
+					</div>
 				</div>
-			</div>
+			{/if}
 			<div class="form-label col-xl-4">
 				<label for="back">...avant le retour à l'interface de scan</label>
 				<div class="input-group">
@@ -99,6 +113,7 @@
 						class="form-control"
 						placeholder="4"
 						id="back"
+						title="Temps d'affichage du message d'acceptation ou de refus du passe"
 						bind:value={config.reset_after_s}
 					/>
 					<div class="input-group-text">secondes</div>
@@ -112,6 +127,7 @@
 						class="form-control"
 						placeholder="pas de revalidation avant:"
 						id="norevalidation"
+						title="Une fois qu'un pass a été validé, il ne peut pas être réutilisé pendant cette durée, pour éviter que plusieurs personnes ne scannent le même passe."
 						bind:value={config.prevent_revalidation_before_minutes}
 					/>
 					<div class="input-group-text">minutes</div>
@@ -125,7 +141,7 @@
 		<div class="row">
 			<div class="form-label col-12 mb-0">
 				<div class="input-group">
-					<label class="input-group-text" for="bgimage">Logos supérieurs </label>
+					<label class="input-group-text" for="bgimage">Logos supérieurs</label>
 					<input
 						type="file"
 						class="form-control"
