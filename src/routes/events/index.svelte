@@ -21,7 +21,7 @@
 	}
 
 	function inputDate(e: { currentTarget: HTMLInputElement }): Date {
-		return e.currentTarget.valueAsDate || new Date;
+		return e.currentTarget.valueAsDate || new Date();
 	}
 
 	function changeTime(e: { currentTarget: HTMLInputElement }) {
