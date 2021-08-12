@@ -18,6 +18,7 @@ export interface ConfigProperties {
 	description: string;
 	logo_urls: string[];
 	bottom_infos: string;
+	anonymize: boolean;
 	debug: boolean;
 	prevent_revalidation_before_minutes?: number;
 	/// If false, get the QR code from the keyboard
@@ -39,6 +40,7 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 		'votre test ou de votre vaccination.',
 	logo_urls: [],
 	bottom_infos: 'logiciel sanipasse.fr fourni par Ophir Lojkine sous licence AGPLv3.',
+	anonymize: false,
 	prevent_revalidation_before_minutes: 0,
 	video_scan: true
 };

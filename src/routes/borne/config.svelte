@@ -187,7 +187,7 @@
 					placeholder="Affiché en petits caractères en sous l'interface de scan"
 				/>
 			</label>
-			<label class="col-6 mb-3">
+			<label class="col-4 mb-3">
 				Police de caractères du texte
 				<input
 					type="text"
@@ -196,9 +196,16 @@
 					placeholder="Arial, Helvetica, Garamond, ..."
 				/>
 			</label>
-			<label class="col-6 mb-3">
+			<label class="col-4 mb-3">
 				Taille du texte
 				<input type="text" class="form-control" bind:value={config.font_size} placeholder="12" />
+			</label>
+			<label class="col-4 mb-3">
+				Cacher l'identité de la personne
+				<select bind:value={config.anonymize} class="form-select">
+					<option value="0" selected>Non</option>
+					<option value="1">Oui</option>
+				</select>
 			</label>
 			<label class="col-4 mb-3">
 				<input type="checkbox" bind:checked={config.debug} />
