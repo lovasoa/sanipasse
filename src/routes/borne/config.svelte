@@ -201,8 +201,8 @@
 				<input type="text" class="form-control" bind:value={config.font_size} placeholder="12" />
 			</label>
 			<label class="col-4 mb-3">
-				<input type="checkbox" bind:checked={config.debug} />
-				Affichage des informations de débogage
+				<input type="checkbox" bind:checked={config.anonymize} />
+				Cacher l'identité de la personne
 			</label>
 			<label class="col-4 mb-3">
 				<input type="radio" bind:group={video_scan_num} value={0} />
@@ -245,6 +245,10 @@
 					<video height={has_video_preview ? 100 : 0} autoplay={true} bind:this={video_preview} />
 				</div>
 			{/if}
+			<label class="col-12">
+				<input type="checkbox" bind:checked={config.debug} />
+				Affichage des informations de débogage
+			</label>
 		</div>
 	</fieldset>
 	<details>

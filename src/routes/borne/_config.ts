@@ -26,6 +26,7 @@ export interface ConfigProperties {
 	font_size?: number;
 	video_facing_mode?: string;
 	external_requests?: ExternalRequests;
+	anonymize?: boolean;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
@@ -39,6 +40,7 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 		'votre test ou de votre vaccination.',
 	logo_urls: [],
 	bottom_infos: 'logiciel sanipasse.fr fourni par Ophir Lojkine sous licence AGPLv3.',
+	anonymize: false,
 	prevent_revalidation_before_minutes: 0,
 	video_scan: true
 };
