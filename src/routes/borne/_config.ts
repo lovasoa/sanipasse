@@ -18,7 +18,6 @@ export interface ConfigProperties {
 	description: string;
 	logo_urls: string[];
 	bottom_infos: string;
-	anonymize: boolean;
 	debug: boolean;
 	prevent_revalidation_before_minutes?: number;
 	/// If false, get the QR code from the keyboard
@@ -27,6 +26,7 @@ export interface ConfigProperties {
 	font_size?: number;
 	video_facing_mode?: string;
 	external_requests?: ExternalRequests;
+	anonymize?: boolean;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
