@@ -1799,6 +1799,57 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/DBnhBhTf8TkfsTn4tLEb3mQLCsONkZbY4I5i0zh0WhsDupDshGnu4TE4AgH6Y/uBnsJ+D6QkVAikza/rtw89w=="
 	},
+	"4Ss2raOqhTw=": {
+		"serialNumber": "45961aa092a5fd6cbaf8c48903eeca0407cb4291",
+		"subject": "C=NL, O=Sint Maarten, OU=Ministry of Public Health Social Development and Labor, 2.5.4.5=1, CN=Health DSC for recovery",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-02T18:08:31.000Z",
+		"notAfter": "2032-07-30T18:08:31.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "61c77a2edbcbdc5d44087400207aafecfea5408e",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEQb+DcAtDpjI4ftm5ICNC5KGz10zJvY682GDCREwLupvC17QzWFvc6S0jbk2NJt2VY5V4svj2FfLGkSWbUqUFnQ=="
+	},
+	"ypEjzbYNqEw=": {
+		"serialNumber": "01cd01302b211d929ce3ff892f630e5c1bf5d1de",
+		"subject": "C=NL, O=Sint Maarten, OU=Ministry of Public Health Social Development and Labor, 2.5.4.5=1, CN=Health DSC for test",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-02T18:09:38.000Z",
+		"notAfter": "2032-07-30T18:09:38.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "2bd7bb4beacaa237b4435ebc7a2853e21e028101",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnRYo0qQ5BM+B3lWzaaqBhgTqQ99wnzj078WYakRSXv7LyJbz21EGEQkNpe3UOlENX5Q7RdzkrrXFbs7pHfNDpw=="
+	},
+	"JsReuAsmza8=": {
+		"serialNumber": "792d9ec52d9054680c6a6c021f5acecbc5c58447",
+		"subject": "C=NL, O=Sint Maarten, OU=Ministry of Public Health Social Development and Labor, 2.5.4.5=1, CN=Health DSC for vaccinations",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-02T18:10:25.000Z",
+		"notAfter": "2032-07-30T18:10:25.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "59666675082cd84bdc11e1301227eef717c49cc4",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAERw+zOjyFNs4ntgwxcvouetTqlBIztiTtJhOi8DesKXv5uX/m1pVAbYium/fhyu0IaBeh3DVOLfLJtPaUEx8eiw=="
+	},
 	"cdm9Ymfwn2I=": {
 		"serialNumber": "59000000056eef20a7c3fbf86a000000000005",
 		"subject": "C=NO, O=Norwegian Institute of Public Health, CN=DSC AN EU 4",
