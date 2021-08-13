@@ -10,6 +10,7 @@
 	export let facingMode: string | undefined = undefined;
 	export let started = false;
 	export let allowSwap = false;
+	export let videoError: Error | null = null;
 
 	let videoElement: HTMLVideoElement | undefined = undefined;
 	let stop = () => {};
@@ -66,12 +67,12 @@
 	function loadCamera() {
 		started = false;
 		stop();
-		decodePromise = navigator.mediaDevices
-			.getUserMedia({
-				audio: false,
-				video: facingMode ? { facingMode } : true
-			})
-			.then(start);
+		const videoPromise = navigator.mediaDevices.getUserMedia({
+			audio: false,
+			video: facingMode ? { facingMode } : true
+		});
+		decodePromise = videoPromise.then(start);
+		videoPromise.catch((e) => (videoError = e));
 		return onUnMount;
 	}
 
