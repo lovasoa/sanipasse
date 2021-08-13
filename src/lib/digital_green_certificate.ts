@@ -63,9 +63,26 @@ export class DgcError extends Error {
 }
 export class DgcIssuedInFutureError extends DgcError {
 	name = 'Date de signature dans le futur';
+	issuedAt: Date;
+	constructor(hcert: HCert, issuedAt: number) {
+		super(hcert);
+		this.issuedAt = new Date(issuedAt * 1000);
+		this.message =
+			`Ce certificat contient une date de signature fixée au ${this.issuedAt.toLocaleDateString()} ` +
+			`mais la date actuelle est ${new Date().toLocaleDateString()}`;
+	}
 }
 export class ExpiredDgcError extends DgcError {
 	name = 'Signature expirée';
+	expiresAt: Date;
+	constructor(hcert: HCert, expiresAt: number) {
+		super(hcert);
+		this.expiresAt = new Date(expiresAt * 1000);
+		this.message =
+			`Ce certificat a une signature valide, mais contient une date d'expiration fixée au ${this.expiresAt.toLocaleDateString()}` +
+			` alors que nous sommes actuellement le ${new Date().toLocaleDateString()}. ` +
+			`Informations brutes: ${JSON.stringify(hcert, null, '\t')}`;
+	}
 }
 export class UnknownKidError extends Error {
 	kid: string;
@@ -79,10 +96,6 @@ export class InvalidCertificateError extends Error {
 		super(`Certificat de signature invalide ou périmé: ${JSON.stringify(certificate)}`);
 	}
 }
-
-const COSE_HEADERS = Object.freeze({
-	KID: 4
-});
 
 // As per https://ec.europa.eu/health/sites/default/files/ehealth/docs/digital-green-certificates_v3_en.pdf
 // Section 2.6.3
@@ -152,8 +165,8 @@ async function parseDGCFromCoseData(rawCoseData: Uint8Array): Promise<RawDGC> {
 	const expiresAt = cborData.get(CWT_CLAIMS.EXPIRATION);
 
 	const now = Math.floor(Date.now() / 1000);
-	if (issuedAt && now < issuedAt) throw new DgcIssuedInFutureError(hcert);
-	if (expiresAt && expiresAt < now) throw new ExpiredDgcError(hcert);
+	if (issuedAt && now < issuedAt) throw new DgcIssuedInFutureError(hcert, issuedAt);
+	if (expiresAt && expiresAt < now) throw new ExpiredDgcError(hcert, expiresAt);
 
 	return { hcert, kid, issuer, issuedAt, expiresAt, certificate };
 }
