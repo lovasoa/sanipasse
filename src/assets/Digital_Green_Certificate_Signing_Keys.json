@@ -1364,6 +1364,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8SjDdFFGxTunJ0RQyxdGDbBKVUjHz9gKydhpKuTZAvYZMzGVVV7NYhJGQqOp4Ox6wU3y+zY666nfAeaAPcINRw=="
 	},
+	"1J9pb87ndV0=": {
+		"serialNumber": "4541037b9551542fb116ebf36d00f123e35c1b71",
+		"subject": "C=GB, ST=NI, L=Belfast, O=Department of Health, OU=DHCNI, CN=DSC_DGC_GB_NI_01",
+		"issuer": "C=GB, ST=NI, L=Belfast, O=Department of Health, OU=DHCNI, CN=CSCA_DGC_GB_NI_01",
+		"notBefore": "2021-07-19T15:22:18.000Z",
+		"notAfter": "2023-07-19T15:22:18.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "4f389794b184b83e61ac485666d3f1f091e986ca",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ+fdcTa4UWA/6PT5V4a0+0j1/s++4JQEsW/HvGnxxP7mGfuQDfn/FRdUMGQtTkoCGaky1gpYVZXkkoYu9ZjlUw=="
+	},
 	"vvYa1vaWkGg=": {
 		"serialNumber": "2a1941ee3ff39d46c76ea1107c912bb9df00c8f3",
 		"subject": "C=GR, CN=grnet.gr",
