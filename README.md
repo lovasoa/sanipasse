@@ -8,15 +8,15 @@ Cette application sait lire les codes 2D-DOC français ainsi que les "digital gr
 
 <table>
     <tr>
-    <td><img src="./docs/screenshots/main.jpg" width="250" />
-    <td><img src="./docs/screenshots/event.jpg" width="250" />
-    <td><img src="./docs/screenshots/test.jpg" width="250" />
+    <td><img src="https://raw.githubusercontent.com/lovasoa/sanipasse/master/docs/screenshots/main.jpg" width="250" />
+    <td><img src="https://raw.githubusercontent.com/lovasoa/sanipasse/master/docs/screenshots/event.jpg" width="250" />
+    <td><img src="https://raw.githubusercontent.com/lovasoa/sanipasse/master/docs/screenshots/test.jpg" width="250" />
 </table>
 
 ## Héberger son instance Sanipasse
 
 La manière recommandée d'auto-héberger une instance de sanipasse est d'utiliser l'image docker officielle
-[lovasoa/sanipasse](https://hub.docker.com/repository/docker/lovasoa/sanipasse).
+[lovasoa/sanipasse](https://hub.docker.com/r/lovasoa/sanipasse).
 
 L'image écoute en HTTP sur le port 3000 et stocke ses données persistentes dans le répertoire `/data/`.
 
