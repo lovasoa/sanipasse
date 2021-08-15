@@ -60,6 +60,7 @@
 					placeholder="Contents of the request that will be sent to the server"
 					id="req{text}"
 					style="height: 100px"
+					bind:value={request.body}
 				/>
 				<label for="req{text}">Request body</label>
 			</div>
