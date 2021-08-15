@@ -273,7 +273,8 @@
 </details>
 
 <style>
-	tbody {
-		overflow-wrap: anywhere;
+	td.text-end {
+		overflow-wrap: break-word;
+		word-break: break-all;
 	}
 </style>
