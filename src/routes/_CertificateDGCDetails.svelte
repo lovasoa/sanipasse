@@ -1,5 +1,5 @@
 <script type="ts">
-	import { Table, Card, CardHeader, CardBody, CardTitle } from 'sveltestrap';
+	import { Table, Card, CardHeader, CardTitle } from 'sveltestrap';
 	import type { DGC } from '$lib/digital_green_certificate';
 	import crypto from 'isomorphic-webcrypto';
 	export let certificate: DGC;
@@ -238,13 +238,13 @@
 		<CardHeader>
 			<CardTitle>{card.title}</CardTitle>
 		</CardHeader>
-		<CardBody>
+		<div class="card-body px-1">
 			<Table class="table-sm">
 				<tbody>
 					{#each card.lines as line}
 						<tr>
 							<th scope="row" class="text-start">{line.name}</th>
-							<td class="text-end">
+							<td class="text-end text-break">
 								{#if line.link}
 									<a href={line.link}>{line.value}</a>
 								{:else}
@@ -263,7 +263,7 @@
 					{/each}
 				</tbody>
 			</Table>
-		</CardBody>
+		</div>
 	</Card>
 {/each}
 
@@ -271,10 +271,3 @@
 	<summary>Données brutes</summary>
 	<code><pre>{JSON.stringify(certificate, null, '  ')}</pre></code>
 </details>
-
-<style>
-	td.text-end {
-		overflow-wrap: break-word;
-		word-break: break-all;
-	}
-</style>

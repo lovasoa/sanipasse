@@ -40,7 +40,7 @@
 		{#if error}
 			<p class="error">⚠️ <strong>{error}</strong></p>
 		{/if}
-		<details>
+		<details class="px-0 px-sm-2 px-md-4 px-lg-5 ">
 			{#if source.format === '2ddoc'}
 				<Certificate2ddocDetails certificate={source.cert} />
 			{:else}
