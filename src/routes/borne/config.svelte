@@ -84,12 +84,12 @@
 	}}
 >
 	<fieldset class="col-md-12">
-		<legend>Durée d'attente...</legend>
+		<legend>Durée d'attente…</legend>
 
 		<div class="row">
 			{#if !video_scan_num}
 				<div class="form-label col-xl-4">
-					<label for="wait">...avant la validation du code saisi</label>
+					<label for="wait">…avant la validation du code saisi</label>
 					<div class="input-group">
 						<input
 							type="number"
@@ -104,8 +104,11 @@
 					</div>
 				</div>
 			{/if}
-			<div class="form-label col-xl-4">
-				<label for="back">...avant le retour à l'interface de scan</label>
+			<div
+				class="form-label col-xl-4"
+				title="Temps d'affichage du message d'acceptation ou de refus du passe"
+			>
+				<label for="back">…avant le retour à l'interface de scan</label>
 				<div class="input-group">
 					<input
 						type="number"
@@ -113,21 +116,22 @@
 						class="form-control"
 						placeholder="4"
 						id="back"
-						title="Temps d'affichage du message d'acceptation ou de refus du passe"
 						bind:value={config.reset_after_s}
 					/>
 					<div class="input-group-text">secondes</div>
 				</div>
 			</div>
-			<div class="form-label col-xl-4">
-				<label for="norevalidation">...avant de pouvoir réutiliser un même passe</label>
+			<div
+				class="form-label col-xl-4"
+				title="Une fois qu'un passe a été validé, il ne peut pas être réutilisé pendant cette durée, pour éviter que plusieurs personnes ne scannent le même passe."
+			>
+				<label for="norevalidation">...avant réutilisation du même passe</label>
 				<div class="input-group">
 					<input
 						type="number"
 						class="form-control"
 						placeholder="pas de revalidation avant:"
 						id="norevalidation"
-						title="Une fois qu'un pass a été validé, il ne peut pas être réutilisé pendant cette durée, pour éviter que plusieurs personnes ne scannent le même passe."
 						bind:value={config.prevent_revalidation_before_minutes}
 					/>
 					<div class="input-group-text">minutes</div>
@@ -200,7 +204,10 @@
 				Taille du texte
 				<input type="text" class="form-control" bind:value={config.font_size} placeholder="12" />
 			</label>
-			<label class="col-4 mb-3">
+			<label
+				class="col-4 mb-3"
+				title="Si cette option est activée, le message de validation ne contiendra pas le nom de la personne dont le passe a été validé"
+			>
 				<input type="checkbox" bind:checked={config.anonymize} />
 				Cacher l'identité de la personne
 			</label>
