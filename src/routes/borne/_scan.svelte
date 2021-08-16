@@ -15,6 +15,8 @@
 	let reset_timeout: NodeJS.Timeout | undefined = undefined;
 
 	let last_event: KeyboardEvent | null = null;
+
+	// Passes that have been validated recently and cannot be revalidated
 	let validated_passes: Map<string, number> = new Map();
 
 	const prevent_revalidation_before_ms = (prevent_revalidation_before_minutes || 0) * 60 * 1000;
@@ -38,18 +40,18 @@
 		const cert = await parse_any(code);
 		const error = findCertificateError(cert);
 		if (error) throw new Error(error);
-		if (prevent_revalidation_before_ms === 0) {
-			return cert;
-		}
+
 		const last_validated = validated_passes.get(code);
-		if (last_validated && last_validated > Date.now() - prevent_revalidation_before_ms) {
-			const duration_minutes = ((Date.now() - last_validated) / 60 / 1000) | 0;
+		const now = Date.now();
+		if (last_validated && now - last_validated < prevent_revalidation_before_ms) {
+			const duration_minutes = ((now - last_validated) / 60 / 1000) | 0;
 			throw new Error(
 				`Passe déjà scanné par quelqu'un d'autre il y a ` +
 					(duration_minutes ? duration_minutes + ' minutes.' : "moins d'une minute.")
 			);
 		}
-		validated_passes.set(code, Date.now());
+		validated_passes.set(code, now);
+		setTimeout(() => validated_passes.delete(code), prevent_revalidation_before_ms);
 		return cert;
 	}
 
