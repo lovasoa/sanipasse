@@ -38,6 +38,9 @@
 		const cert = await parse_any(code);
 		const error = findCertificateError(cert);
 		if (error) throw new Error(error);
+		if (prevent_revalidation_before_ms === 0) {
+			return cert;
+		}
 		const last_validated = validated_passes.get(code);
 		if (last_validated && last_validated > Date.now() - prevent_revalidation_before_ms) {
 			const duration_minutes = ((Date.now() - last_validated) / 60 / 1000) | 0;
