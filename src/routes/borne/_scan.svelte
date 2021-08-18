@@ -23,7 +23,8 @@
 
 	function onKeyPress(event: KeyboardEvent) {
 		last_event = event;
-		if (event.key.length > 1) return;
+		// Handle event if we are in scanning mode and a single keycode was sent by the scanner
+		if (event.key.length > 1 || codeFoundPromise) return;
 		code += event.key;
 		if (timeout !== undefined) clearTimeout(timeout);
 		if (reset_timeout !== undefined) clearTimeout(reset_timeout);
