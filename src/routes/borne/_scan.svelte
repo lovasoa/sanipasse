@@ -57,7 +57,8 @@
 	}
 
 	async function makeRequest(r: HTTPRequest) {
-		return fetch(r.url, { method: r.method, body: r.body || undefined });
+		const body = r.method === 'GET' ? undefined : r.body;
+		return fetch(r.url, { method: r.method, body });
 	}
 
 	async function onValid() {
