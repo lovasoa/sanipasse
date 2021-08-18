@@ -16,6 +16,8 @@
 
 	let last_event: KeyboardEvent | null = null;
 
+	let externalRequest: Promise<Response> | null = null;
+
 	// Passes that have been validated recently and cannot be revalidated
 	let validated_passes: Map<string, number> = new Map();
 
@@ -58,7 +60,8 @@
 
 	async function makeRequest(r: HTTPRequest) {
 		const body = r.method === 'GET' ? undefined : r.body;
-		return fetch(r.url, { method: r.method, body });
+		externalRequest = fetch(r.url, { method: r.method, body });
+		return externalRequest;
 	}
 
 	async function onValid() {
@@ -172,6 +175,22 @@
 			<p>Code length: {code.length}</p>
 			<p>Last key pressed: {JSON.stringify(last_event?.key, null, ' ')}</p>
 		</div>
+		{#if externalRequest}
+			<div>
+				{#await externalRequest}
+					Requête externe en cours...
+				{:then r}
+					status: {r.status}
+					{r.statusText}
+					{#await r.text() then text}
+						body: {text}
+					{/await}
+				{:catch err}
+					Erreur dans la requête externe:
+					<pre>{err}</pre>
+				{/await}
+			</div>
+		{/if}
 	{/if}
 
 	<p class="fixed-bottom text-muted fw-lighter fst-italic" style="font-size: .8em">
