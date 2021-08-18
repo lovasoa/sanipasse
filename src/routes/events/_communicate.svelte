@@ -34,3 +34,9 @@
 		actuelle à vos invités. La page actuelle est réservée aux administrateurs de l'évènement.
 	</small>
 </p>
+<h5>Voir les réponses des invités</h5>
+<p>
+	Les réponses des invités sont affichées <strong>uniquement sur cette page</strong>, dont l'adresse
+	est confidentielle et réservée aux administrateurs de l'évènement. Il est conseillé d'ajouter
+	cette page aux marque-pages de votre navigateur pour pouvoir y revenir facilement.
+</p>
