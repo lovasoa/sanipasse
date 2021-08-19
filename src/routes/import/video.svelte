@@ -1,10 +1,16 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import CodeFound from '../_CodeFound.svelte';
 	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
 
 	let codeFound: string | undefined = undefined;
 	let started = false;
 	let videoError: Error | null = null;
+
+	let domain = '';
+	onMount(async () => {
+		domain = window.location.host;
+	});
 </script>
 
 <svelte:head>
@@ -26,7 +32,7 @@
 		Sanipasse demande la permission d'accéder à votre webcam pour lire le QR code.
 	</p>
 	<p class="text-center">
-		Votre navigateur va vous demander si vous souhaitez autoriser <i>sanipasse.fr</i> à utiliser votre
+		Votre navigateur va vous demander si vous souhaitez autoriser <i>{domain}</i> à utiliser votre
 		webcam.
 	</p>
 	<p class="text-center">
