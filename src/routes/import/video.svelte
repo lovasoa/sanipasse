@@ -8,7 +8,7 @@
 	let videoError: Error | null = null;
 
 	let domain = '';
-	onMount(async () => {
+	onMount(() => {
 		domain = window.location.host;
 	});
 </script>
