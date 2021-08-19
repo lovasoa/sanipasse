@@ -97,6 +97,9 @@
 </script>
 
 <svelte:window on:keypress={onKeyPress} on:paste={onPaste} />
+<svelte:head>
+	<link rel="stylesheet" href="data:text/css,{config.custom_css}" />
+</svelte:head>
 
 <div
 	class="main container"
@@ -110,7 +113,7 @@
 		{:then pass}
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<audio autoplay src="{assets}/valid.mp3" />
-			<div class="alert alert-success" role="alert">
+			<div class="validated_pass alert alert-success" role="alert">
 				<div class="row">
 					<div class="col-md-2"><div class="sign shallpass" /></div>
 					<div class="col-md-10">
@@ -131,7 +134,7 @@
 		{:catch err}
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<audio autoplay src="{assets}/invalid.mp3" />
-			<div class="alert alert-danger" role="alert">
+			<div class="refused_pass alert alert-danger" role="alert">
 				<div class="row">
 					<div class="col-md-2"><div class="sign shallnotpass" /></div>
 					<div class="col-md-10">
@@ -149,14 +152,15 @@
 			</div>
 		{/await}
 	{:else}
-		<div class="row justify-content-center w-100">
-			{#each config.logo_urls as url}
-				<img alt="logo" src={url} class="col" style="object-fit: contain; max-height: 10em;" />
-			{/each}
-		</div>
-
-		<h1>{config.title}</h1>
-		<p>{config.description}</p>
+		<section id="welcome_message">
+			<div class="logos row justify-content-center w-100">
+				{#each config.logo_urls as url}
+					<img alt="logo" src={url} class="logo col" style="object-fit: contain; max-height: 10em;" />
+				{/each}
+			</div>
+			<h1>{config.title}</h1>
+			<p class="description">{config.description}</p>
+		</section>
 	{/if}
 
 	{#if config.video_scan}

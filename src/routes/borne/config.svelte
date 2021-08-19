@@ -172,7 +172,7 @@
 					placeholder="Texte affiché en haut de l'interface de scan"
 				/>
 			</label>
-			<div class="form-floating col-12">
+			<div class="form-floating col-12 text-muted">
 				<textarea
 					bind:value={config.description}
 					class="form-control"
@@ -191,19 +191,7 @@
 					placeholder="Affiché en petits caractères en sous l'interface de scan"
 				/>
 			</label>
-			<label class="col-6 mb-3">
-				Police de caractères du texte
-				<input
-					type="text"
-					class="form-control"
-					bind:value={config.font}
-					placeholder="Arial, Helvetica, Garamond, ..."
-				/>
-			</label>
-			<label class="col-6 mb-3">
-				Taille du texte
-				<input type="text" class="form-control" bind:value={config.font_size} placeholder="12" />
-			</label>
+
 			<label
 				class="col-4 mb-3"
 				title="Si cette option est activée, le message de validation ne contiendra pas le nom de la personne dont le passe a été validé"
@@ -256,6 +244,40 @@
 				<input type="checkbox" bind:checked={config.debug} />
 				Affichage des informations de débogage
 			</label>
+
+			<details class="col-12 mt-2 ">
+				<summary>Personnalisations de style avancées</summary>
+				<div class="row">
+					<label class="col-6 mb-3">
+						Police de caractères du texte
+						<input
+							type="text"
+							class="form-control"
+							bind:value={config.font}
+							placeholder="Arial, Helvetica, Garamond, ..."
+						/>
+					</label>
+					<label class="col-6 mb-3">
+						Taille du texte
+						<input
+							type="text"
+							class="form-control"
+							bind:value={config.font_size}
+							placeholder="12"
+						/>
+					</label>
+					<div class="form-floating col-12  font-monospace text-muted">
+						<textarea
+							bind:value={config.custom_css}
+							class="form-control"
+							placeholder={'body {\n  background-color: aliceblue;\n}'}
+							id="customcss"
+							style="height: 7em"
+						/>
+						<label for="customcss">Code CSS personnalisé</label>
+					</div>
+				</div>
+			</details>
 		</div>
 	</fieldset>
 	<details>

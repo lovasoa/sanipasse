@@ -24,6 +24,7 @@ export interface ConfigProperties {
 	video_scan?: boolean;
 	font?: string;
 	font_size?: number;
+	custom_css?: string;
 	video_facing_mode?: string;
 	external_requests?: ExternalRequests;
 	anonymize?: boolean;
