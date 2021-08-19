@@ -98,7 +98,9 @@
 
 <svelte:window on:keypress={onKeyPress} on:paste={onPaste} />
 <svelte:head>
-	<link rel="stylesheet" href="data:text/css,{config.custom_css}" />
+	{#if config.custom_css}
+		<link rel="stylesheet" href="data:text/css,{encodeURIComponent(config.custom_css)}" />
+	{/if}
 </svelte:head>
 
 <div
@@ -155,7 +157,12 @@
 		<section id="welcome_message">
 			<div class="logos row justify-content-center w-100">
 				{#each config.logo_urls as url}
-					<img alt="logo" src={url} class="logo col" style="object-fit: contain; max-height: 10em;" />
+					<img
+						alt="logo"
+						src={url}
+						class="logo col"
+						style="object-fit: contain; max-height: 10em;"
+					/>
 				{/each}
 			</div>
 			<h1>{config.title}</h1>
