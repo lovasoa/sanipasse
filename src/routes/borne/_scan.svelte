@@ -4,6 +4,7 @@
 	import { assets } from '$app/paths';
 	import type { ConfigProperties, HTTPRequest } from './_config';
 	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
+	import { sha256 } from '$lib/sha256';
 
 	export let config: ConfigProperties;
 	const { decode_after_s, reset_after_s, prevent_revalidation_before_minutes } = config;
@@ -44,7 +45,8 @@
 		const error = findCertificateError(cert);
 		if (error) throw new Error(error);
 
-		const last_validated = validated_passes.get(code);
+		let code_digest = await sha256(code);
+		const last_validated = validated_passes.get(code_digest);
 		const now = Date.now();
 		if (last_validated && now - last_validated < prevent_revalidation_before_ms) {
 			const duration_minutes = ((now - last_validated) / 60 / 1000) | 0;
@@ -53,8 +55,8 @@
 					(duration_minutes ? duration_minutes + ' minutes.' : "moins d'une minute.")
 			);
 		}
-		validated_passes.set(code, now);
-		setTimeout(() => validated_passes.delete(code), prevent_revalidation_before_ms);
+		validated_passes.set(code_digest, now);
+		setTimeout(() => validated_passes.delete(code_digest), prevent_revalidation_before_ms);
 		return cert;
 	}
 
