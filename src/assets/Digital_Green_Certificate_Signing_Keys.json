@@ -2003,6 +2003,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEH2+GOTdCPhSUdDZmaM7hq/hRJkZCd3wPyOwB8lS30s4N81r4XFpv1Yev+1bfB4A173DByhZyIKkdnZc/FfaAXQ=="
 	},
+	"gEIK4Q/lAG0=": {
+		"serialNumber": "00a875f8a85cfe85f0",
+		"subject": "C=TR, ST=ANKARA, L=ÃANKAYA, O=T.C. SAÄLIK BAKANLIÄI, OU=SAÄLIK BÄ°LGÄ° SÄ°STEMLERÄ° GENEL MÃDÃRLÃÄÃ, CN=healthpassgwuat.saglik.gov.tr",
+		"issuer": "C=TR, ST=ANKARA, L=ÃANKAYA, O=T.C. SAÄLIK BAKANLIÄI, OU=SAÄLIK BÄ°LGÄ° SÄ°STEMLERÄ° GENEL MÃDÃRLÃÄÃ, CN=healthpassgwprod.saglik.gov.tr",
+		"notBefore": "2021-08-04T19:02:05.000Z",
+		"notAfter": "2023-08-04T19:02:05.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "200477077913499f729db8217ac5a140d85f5f1d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4gGExz9UXm77v21gaWNSjjtigr9VIyGL9S92FqnF99YqS/ekrLWvW4N6fmHfUST9VJLJVaB9uP3SX1rXlfq7lg=="
+	},
 	"S2V5M1BSTw==": {
 		"serialNumber": "4f0e753c1291e6b8",
 		"subject": "C=UK, O=NHSX, OU=COVID, CN=S2V5M1BSTw==",
@@ -2784,5 +2801,22 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEManlPIcO9J8UBpHCAbku/KkAfiBrGLIre1buTIzhhoncL0YIO+DQ9uPs6UfzPKXzQq791V5I5avhmpQ6j2zFsQ=="
+	},
+	"FhciF/j3plg=": {
+		"serialNumber": "7904c820b5908787040000001600000021000000",
+		"subject": "O=State enterprise \\\"DIIA\\\", CN=\\\"DIIA\\\". Green Certificate DSC 2, 2.5.4.5=22, C=UA, L=Kyiv",
+		"issuer": "O=State enterprise \\\"DIIA\\\", CN=\\\"DIIA\\\". Green Certificate CSCA, 2.5.4.5=UA-43395033-2021, C=UA, L=Kyiv, 2.5.4.97=NTRUA-43395033",
+		"notBefore": "2021-08-17T21:00:00.000Z",
+		"notAfter": "2023-08-17T20:59:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "6564fadb714a0f3c3e23c7a3db814d9e059b4156",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEd22zt56DQx1ao5dd4u6jU3KPELJdcWfl0+FJ6cVhCb8s0SmQleFtS9m5RQqVzbBr/JnUfqVZjvrPFzwpbgdMeQ=="
 	}
 }
