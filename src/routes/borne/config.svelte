@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import b64 from 'base64-js';
-	import { load_config, save_config, DEFAULT_CONFIG } from './_config';
+	import { DEFAULT_CONFIG } from '$lib/borne_config';
+	import { load_config, save_config,  } from './_config';
 	import ExternalRequestsConfig from './_external_request_config.svelte';
 
 	let config = DEFAULT_CONFIG;

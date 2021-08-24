@@ -1,5 +1,6 @@
 <script type="ts">
-	import { DEFAULT_CONFIG, load_config } from './_config';
+	import { DEFAULT_CONFIG } from '$lib/borne_config';
+	import { load_config } from './_config';
 	import Scan from './_scan.svelte';
 </script>
 
