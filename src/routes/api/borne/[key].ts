@@ -25,10 +25,10 @@ export async function put({
 	const rawBody = JSON.stringify(body);
 	if (rawBody.length > 500_000)
 		return { status: 400, body: { error: 'Config too large. The configuration must be <500kb' } };
-	if (!key || key.length < 32) return { status: 400, body: { error: 'key is too short' } };
-	const [_, created] = await (await BorneConfig).upsert({ key, config: rawBody });
+	if (!key || key.length < 12) return { status: 400, body: { error: 'key is too short' } };
+	const [_configObj, created] = await (await BorneConfig).upsert({ key, config: rawBody });
 	return {
-		status: created ? 201 : 200,
-		body: new Uint8Array()
+		status: 201,
+		body: { created }
 	};
 }

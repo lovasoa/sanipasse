@@ -1,6 +1,6 @@
 import SequelizePKG from 'sequelize';
 const { Sequelize, STRING, DATE, BOOLEAN, Model } = SequelizePKG;
-import { generateKey } from '$lib/event';
+import { generateKey } from '$lib/random_key';
 import type { DBEvent, DBPerson } from '$lib/event';
 
 const DATABASE_CONNECTION_STRING =
