@@ -211,10 +211,14 @@ async function getCertificatePublicKey({
 
 function getCertificateInfo(cert: DGC): CommonCertificateInfo {
 	const hcert = cert.hcert;
+	let dob = hcert.dob;
+	if (dob.search(/^(\d\d\.){2}(19|20)\d\d$/) != -1) {
+		dob = dob.split('.').reverse().join('-');
+	}
 	const common = {
 		first_name: hcert.nam.gn || (hcert.nam.gnt || '-').replace(/</g, ' '),
 		last_name: hcert.nam.fn || hcert.nam.fnt.replace(/</g, ' '),
-		date_of_birth: new Date(hcert.dob),
+		date_of_birth: new Date(dob),
 		code: cert.code,
 		source: { format: 'dgc', cert }
 	} as const;
