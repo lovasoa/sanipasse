@@ -48,7 +48,7 @@ Person.init(
 Event.hasMany(Person, { foreignKey: 'eventPublicCode' });
 Person.belongsTo(Event);
 
-interface DBConfig {
+export interface DBConfig {
 	key: string;
 	config: string;
 }
