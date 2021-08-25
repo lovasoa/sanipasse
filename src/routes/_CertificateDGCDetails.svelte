@@ -1,19 +1,9 @@
 <script type="ts">
 	import { Table, Card, CardHeader, CardTitle } from 'sveltestrap';
 	import type { DGC } from '$lib/digital_green_certificate';
-	import crypto from 'isomorphic-webcrypto';
+	import { sha256 } from '$lib/sha256';
 	export let certificate: DGC;
 	const { hcert } = certificate;
-
-	async function sha256(i: string): Promise<string> {
-		const input_bytes = new TextEncoder().encode(i);
-		const digest_bytes = await crypto.subtle.digest('SHA-256', input_bytes);
-		return hex(digest_bytes);
-	}
-
-	function hex(i: ArrayBuffer): string {
-		return [...new Uint8Array(i)].map((n) => n.toString(16).padStart(2, '0')).join('');
-	}
 
 	function showTimestamp(time_seconds: number | string, options: { include_time?: boolean } = {}) {
 		const source = typeof time_seconds === 'number' ? time_seconds * 1000 : time_seconds;
