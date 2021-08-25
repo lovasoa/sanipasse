@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 	import b64 from 'base64-js';
 	import { DEFAULT_CONFIG } from '$lib/borne_config';
-	import { load_config, save_config,  } from './_config';
+	import { load_config, save_config } from './_config';
 	import ExternalRequestsConfig from './_external_request_config.svelte';
 
 	let config = DEFAULT_CONFIG;
@@ -16,16 +16,23 @@
 	let loading = false;
 	$: config.video_scan = !!video_scan_num;
 
-	function fileUrlFromInput(evt: { currentTarget: HTMLInputElement }): Promise<string[]> {
-		const { files } = evt.currentTarget;
+	let logosFileInput: HTMLInputElement | null = null;
+	async function updateLogosUrls() {
+		if (!logosFileInput) throw new Error('missing file element');
+		const { files } = logosFileInput;
 		if (!files || !files.length) throw new Error('No file in input');
-		return Promise.all(
-			Array.from(files).map(async (f) => {
-				const buffer = await f.arrayBuffer();
-				const bytes = new Uint8Array(buffer);
-				return `data:${f.type};base64,${b64.fromByteArray(bytes)}`;
-			})
-		);
+		config.logo_urls = [];
+		for (const f of Array.from(files)) {
+			const buffer = await f.arrayBuffer();
+			const bytes = new Uint8Array(buffer);
+			const url = `data:${f.type};base64,${b64.fromByteArray(bytes)}`;
+			config.logo_urls.push(url);
+			config.logo_urls = config.logo_urls; // refresh
+		}
+	}
+	function resetLogosUrls() {
+		config.logo_urls = [];
+		if (logosFileInput) logosFileInput.value = '';
 	}
 
 	let video_preview: HTMLVideoElement | undefined = undefined;
@@ -150,19 +157,23 @@
 					<input
 						type="file"
 						class="form-control"
-						on:change={async (e) => {
-							config.logo_urls = await fileUrlFromInput(e);
-						}}
+						bind:this={logosFileInput}
+						on:change={updateLogosUrls}
 						accept="image/*"
 						multiple
 						id="bgimage"
 					/>
 				</div>
 			</div>
-			<div class="col-12">
+			<div class="col-12 mb-3">
 				{#each config.logo_urls as url}
 					<img alt="logo" src={url} class="m-1" style="max-height: 3em" />
 				{/each}
+				{#if config.logo_urls.length > 0}
+					<button type="button" class="btn btn-sm btn-outline-danger" on:click={resetLogosUrls}
+						>Supprimer</button
+					>
+				{/if}
 			</div>
 			<label class="col-12 mb-3">
 				Titre de la page
