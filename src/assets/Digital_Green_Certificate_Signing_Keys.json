@@ -1663,6 +1663,28 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcrxlv5/uGbsaXM/QMSpvZV2iNtF0o4QBech6LGpy3OEefbJLf+4iqI19QNWtUXEjlMMytB4+1ESLHdXyki5X2g=="
 	},
+	"qEgQcWPd3xU=": {
+		"serialNumber": "01",
+		"subject": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health, OU=Ministry of Health, CN=zdravstvo.gov.mk",
+		"issuer": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health, CN=zdravstvo.gov.mk, E=contact@zdravstvo.gov.mk",
+		"notBefore": "2021-08-23T12:22:02.000Z",
+		"notAfter": "2022-08-23T12:22:02.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "dbd631b2b552ff7cfd67e239b4fa953628a74e8d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 4096
+		},
+		"publicKeyPem": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA144Qzvk4vkmWoGZUPGRepcNVPCbXy0tLeaxmuDuTbJIfyO0TwxrQllUOF+pni559+knMmUUk7PqfvU8fsbrNXHn4Wh1LzIVZkz/GuiQ44bR3b7k9kcS9vfOx14WiP41zx/vOmQXWaGx+mzC+RD6+w5T8hAdRjol6nUHAvstL0MbIylv+Fhi4s1qpmr1rR5liG/KI3uzaMjJvQC6d3R9Ee+q3ULTJ81+WyVe9sK9hY5Z/KzFrMbnbH2Y1/voIcLc+vjjVCOFJKkXhjz00/wu6NalMMN6MC+G9gZMHp69CJPB45hIBiAKfGEI4dq8lCthqi2orRoXmAyf6LxSBL6wZVu+naTXUJMVoXjFNXIyszm1MRQiagaoqOyctY/bg/RQgVSDrjtEN4MeMArSbehogEZuYL8GRRrnOEbWb86DEwMAYDbbPFEab3hsyZejJ3bxZdylWNj1V8QPyP2uvOLAFGwsvSzw7E34b0RcpEeOoQeKrT8nKPpFOFIQ3gBxyqlw4T+v/iENIxDWoWdvUO2/bkidNXecSn3XlzTT7OW8IbJ0M7D9htz/SPd55XP5sU5gF3wnwuWMIq1auj/LXwbRAh63OiUG+Bo4ssL7AkMcOpkYl25QZQOXzWykI0/ZZ8Hu/968eoYvMxbQD4EARMGDMwdkU5G+nuHniTS52kONbrZUCAwEAAQ=="
+	},
 	"lzGYCpOBQsU=": {
 		"serialNumber": "7fe579a881eb001055ae27216b30da120634c771",
 		"subject": "C=NL, O=Aruba, OU=Ministry of Tourism Public Health and Sports, 2.5.4.5=1, CN=Health DSC for recovery",
