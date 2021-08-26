@@ -7,10 +7,8 @@
 	let started = false;
 	let videoError: Error | null = null;
 
-	let domain = '';
-	onMount(() => {
-		domain = window.location.host;
-	});
+	let domain = 'sanipasse.fr';
+	onMount(() => (domain = window.location.host));
 </script>
 
 <svelte:head>
