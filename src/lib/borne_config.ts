@@ -26,6 +26,10 @@ export interface ConfigProperties {
 	video_facing_mode?: string;
 	external_requests?: ExternalRequests;
 	anonymize?: boolean;
+	// For backwards compatibility, a missing sound is interpreted the default sound,
+	// whereas a sound explicitly set to null is interpreted as no sound.
+	sound_valid?: string | null;
+	sound_invalid?: string | null;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
@@ -43,4 +47,3 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 	prevent_revalidation_before_minutes: 0,
 	video_scan: true
 };
-

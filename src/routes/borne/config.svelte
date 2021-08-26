@@ -8,6 +8,7 @@
 	import { generateKey } from '$lib/random_key';
 	import { get, put } from '$lib/http';
 	import ShowPromiseError from '../_showPromiseError.svelte';
+	import SoundPicker from './_sound_picker.svelte';
 
 	let configKey: string = '';
 	if (typeof window === 'object') configKey = new URLSearchParams(location.search).get('key') || '';
@@ -327,6 +328,29 @@
 						/>
 						<label for="customcss">Code CSS personnalisé</label>
 					</div>
+					<SoundPicker
+						label="Son émis lors de l'acceptation d'un pass"
+						sound_on_undefined="valid.mp3"
+						bind:selected_sound={config.sound_valid}
+						sounds={[
+							{ name: 'auncun', asset: null },
+							{ name: 'ding', asset: undefined },
+							{ name: 'tulut', asset: 'tulut.mp3' },
+							{ name: 'tin-liiin', asset: 'tin-lin.mp3' },
+							{ name: 'plop', asset: 'plop.mp3' },
+						]}
+					/>
+					<SoundPicker
+						label="Son émis lors du refus d'un pass"
+						sound_on_undefined="invalid.mp3"
+						bind:selected_sound={config.sound_invalid}
+						sounds={[
+							{ name: 'auncun', asset: null },
+							{ name: 'bong-bong-bong', asset: undefined },
+							{ name: 'bong', asset: 'bong.mp3' },
+							{ name: 'hein', asset: 'hein.mp3' }
+						]}
+					/>
 				</div>
 			</details>
 		</div>
