@@ -38,11 +38,15 @@
 		if (!logosFileInput) throw new Error('missing file element');
 		const { files } = logosFileInput;
 		if (!files || !files.length) throw new Error('No file in input');
+		const files_buffers = Array.from(files).map((file) => ({
+			file,
+			arrayBuffer: file.arrayBuffer()
+		}));
 		config.logo_urls = [];
-		for (const f of Array.from(files)) {
-			const buffer = await f.arrayBuffer();
+		for (const { file, arrayBuffer } of files_buffers) {
+			const buffer = await arrayBuffer;
 			const bytes = new Uint8Array(buffer);
-			const url = `data:${f.type};base64,${b64.fromByteArray(bytes)}`;
+			const url = `data:${file.type};base64,${b64.fromByteArray(bytes)}`;
 			config.logo_urls.push(url);
 			config.logo_urls = config.logo_urls; // refresh
 		}
