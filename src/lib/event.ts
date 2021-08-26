@@ -19,4 +19,3 @@ export interface DBPerson {
 	validated: boolean;
 	invited?: boolean;
 }
-

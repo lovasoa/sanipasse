@@ -337,7 +337,7 @@
 							{ name: 'ding', asset: undefined },
 							{ name: 'tulut', asset: 'tulut.mp3' },
 							{ name: 'tin-liiin', asset: 'tin-lin.mp3' },
-							{ name: 'plop', asset: 'plop.mp3' },
+							{ name: 'plop', asset: 'plop.mp3' }
 						]}
 					/>
 					<SoundPicker
