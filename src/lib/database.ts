@@ -1,6 +1,6 @@
 import SequelizePKG from 'sequelize';
 const { Sequelize, STRING, DATE, BOOLEAN, Model } = SequelizePKG;
-import { generateKey } from '$lib/event';
+import { generateKey } from '$lib/random_key';
 import type { DBEvent, DBPerson } from '$lib/event';
 
 const DATABASE_CONNECTION_STRING =
@@ -48,8 +48,25 @@ Person.init(
 Event.hasMany(Person, { foreignKey: 'eventPublicCode' });
 Person.belongsTo(Event);
 
+export interface DBConfig {
+	key: string;
+	config: string;
+}
+class BorneConfig extends Model<DBConfig> {}
+BorneConfig.init(
+	{
+		key: { type: STRING, primaryKey: true },
+		config: { type: STRING }
+	},
+	{
+		sequelize,
+		modelName: 'config'
+	}
+);
+
 const sync = sequelize.sync({});
 const SyncedEvent = sync.then(() => Event);
 const SyncedPerson = sync.then(() => Person);
+const SyncedBorneConfig = sync.then(() => BorneConfig);
 
-export { SyncedEvent as Event, SyncedPerson as Person };
+export { SyncedEvent as Event, SyncedPerson as Person, SyncedBorneConfig as BorneConfig };

@@ -2,7 +2,7 @@
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import { findCertificateError, parse_any } from '$lib/detect_certificate';
 	import { assets } from '$app/paths';
-	import type { ConfigProperties, HTTPRequest } from './_config';
+	import type { ConfigProperties, HTTPRequest } from '$lib/borne_config';
 	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
 	import { sha256 } from '$lib/sha256';
 
@@ -115,8 +115,10 @@
 		{#await codeFoundPromise}
 			Décodage du code...
 		{:then pass}
-			<!-- svelte-ignore a11y-media-has-caption -->
-			<audio autoplay src="{assets}/valid.mp3" />
+			{#if config.sound_valid !== null}
+				<!-- svelte-ignore a11y-media-has-caption -->
+				<audio autoplay src="{assets}/{config.sound_valid || 'valid.mp3'}" />
+			{/if}
 			<div class="validated_pass alert alert-success" role="alert">
 				<div class="row">
 					<div class="col-md-2"><div class="sign shallpass" /></div>
@@ -136,8 +138,10 @@
 				</div>
 			</div>
 		{:catch err}
-			<!-- svelte-ignore a11y-media-has-caption -->
-			<audio autoplay src="{assets}/invalid.mp3" />
+			{#if config.sound_invalid !== null}
+				<!-- svelte-ignore a11y-media-has-caption -->
+				<audio autoplay src="{assets}/{config.sound_invalid || 'invalid.mp3'}" />
+			{/if}
 			<div class="refused_pass alert alert-danger" role="alert">
 				<div class="row">
 					<div class="col-md-2"><div class="sign shallnotpass" /></div>

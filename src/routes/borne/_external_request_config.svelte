@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ExternalRequests } from './_config';
+	import type { ExternalRequests } from '$lib/borne_config';
 
 	export let external_requests: ExternalRequests | undefined;
 	let r: ExternalRequests;
