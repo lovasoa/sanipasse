@@ -99,9 +99,9 @@ export class InvalidCertificateError extends Error {
 
 // Flags indicating known certificate mistakes
 export interface DGCMistakes {
-	name_reversed: boolean,
-	latin_not_icao: boolean,
-	dob_not_iso: boolean
+	name_reversed: boolean;
+	latin_not_icao: boolean;
+	dob_not_iso: boolean;
 }
 
 // As per https://ec.europa.eu/health/sites/default/files/ehealth/docs/digital-green-certificates_v3_en.pdf
@@ -267,7 +267,6 @@ export async function parse(code: string): Promise<CommonCertificateInfo> {
 	return getCertificateInfo({ ...dgc, code });
 }
 
-
 /**
  * Function to correct known mistakes in the certificates
  * Currently used for Ukraine and for name substructure only
@@ -280,9 +279,10 @@ export async function parse(code: string): Promise<CommonCertificateInfo> {
 */
 export function certificateMistakes(dcg: RawDGC): DGCMistakes {
 	return {
-		latin_not_icao: ( dcg.hcert.nam.fnt && dcg.hcert.nam.fnt.search(/^[A-Z<]*$/) == -1 ||
-			dcg.hcert.nam.gnt && dcg.hcert.nam.gnt.search(/^[A-Z<]*$/) == -1),
+		latin_not_icao:
+			(dcg.hcert.nam.fnt && dcg.hcert.nam.fnt.search(/^[A-Z<]*$/) == -1) ||
+			(dcg.hcert.nam.gnt && dcg.hcert.nam.gnt.search(/^[A-Z<]*$/) == -1),
 		dob_not_iso: dcg.hcert.dob.search(/^((19|20)\d\d(-\d\d){0,2}){0,1}$/) == -1,
-		name_reversed: dcg.issuer == "UA" && (new Date(dcg.issuedAt * 1000) < new Date(2021, 7, 26))
-	}
+		name_reversed: dcg.issuer == 'UA' && new Date(dcg.issuedAt * 1000) < new Date(2021, 7, 26)
+	};
 }
