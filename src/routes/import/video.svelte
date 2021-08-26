@@ -32,8 +32,7 @@
 		Sanipasse demande la permission d'accéder à votre webcam pour lire le QR code.
 	</p>
 	<p class="text-center">
-		Votre navigateur va vous demander si vous souhaitez autoriser <i>{domain}</i> à utiliser votre
-		webcam.
+		Votre navigateur va vous demander si vous souhaitez autoriser <i>{domain}</i> à utiliser votre webcam.
 	</p>
 	<p class="text-center">
 		Cliquez sur <b>Autoriser</b>.
