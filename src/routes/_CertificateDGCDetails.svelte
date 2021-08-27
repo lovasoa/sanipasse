@@ -1,9 +1,12 @@
 <script type="ts">
 	import { Table, Card, CardHeader, CardTitle } from 'sveltestrap';
 	import type { DGC } from '$lib/digital_green_certificate';
+	import { certificateMistakes } from '$lib/digital_green_certificate';
 	import { sha256 } from '$lib/sha256';
 	export let certificate: DGC;
 	const { hcert } = certificate;
+
+	const mistakes = certificateMistakes(certificate);
 
 	function showTimestamp(time_seconds: number | string, options: { include_time?: boolean } = {}) {
 		const source = typeof time_seconds === 'number' ? time_seconds * 1000 : time_seconds;
@@ -86,6 +89,7 @@
 		name: string;
 		value: Promise<string> | string | number;
 		link?: string;
+		mistakes?: string;
 	}
 	interface Card {
 		title: string;
@@ -97,21 +101,33 @@
 			lines: [
 				...lineIf(hcert.nam.fn, (value) => ({
 					name: 'Nom',
+					mistakes: mistakes.name_reversed ? 'Nom et prénom intervertis' : undefined,
 					value
 				})),
 				...lineIfDifferent(hcert.nam.fnt, hcert.nam.fn, (value) => ({
 					name: 'Translittération latine du nom',
+					mistakes: mistakes.latin_not_icao
+						? 'Les translittérations ne sont pas au format ICAO 9303'
+						: undefined,
 					value
 				})),
 				...lineIf(hcert.nam.gn, (value) => ({
 					name: 'Prénom',
+					mistakes: mistakes.name_reversed ? 'Nom et prénom intervertis' : undefined,
 					value
 				})),
 				...lineIfDifferent(hcert.nam.gnt, hcert.nam.gn, (value) => ({
 					name: 'Translittération latine du prénom',
+					mistakes: mistakes.latin_not_icao
+						? 'Les translittérations ne sont pas au format ICAO 9303'
+						: undefined,
 					value
 				})),
-				{ name: 'Date de naissance', value: hcert.dob }
+				{
+					name: 'Date de naissance',
+					mistakes: mistakes.dob_not_iso ? "La date n'est pas au format ISO 8601" : undefined,
+					value: hcert.dob
+				}
 			]
 		},
 		...(hcert.v || []).map((vaccine) => ({
@@ -241,6 +257,7 @@
 									{#await line.value}
 										chargement...
 									{:then value}
+										{#if line.mistakes}<abbr title={line.mistakes}>⚠️</abbr>{/if}
 										{value}
 									{:catch e}
 										<pre class="bg-warning">{e}</pre>

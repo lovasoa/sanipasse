@@ -97,6 +97,13 @@ export class InvalidCertificateError extends Error {
 	}
 }
 
+// Flags indicating known certificate mistakes
+export interface DGCMistakes {
+	name_reversed: boolean;
+	latin_not_icao: boolean;
+	dob_not_iso: boolean;
+}
+
 // As per https://ec.europa.eu/health/sites/default/files/ehealth/docs/digital-green-certificates_v3_en.pdf
 // Section 2.6.3
 const CWT_CLAIMS = Object.freeze({
@@ -258,4 +265,24 @@ export async function parse(code: string): Promise<CommonCertificateInfo> {
 	const rawCoseData = await extractCoseFromQRCode(code);
 	const dgc = await parseDGCFromCoseData(rawCoseData);
 	return getCertificateInfo({ ...dgc, code });
+}
+
+/**
+ * Function to correct known mistakes in the certificates
+ * Currently used for Ukraine and for name substructure only
+ * Add more exceptions if they appear
+ *
+ * Ukrainian certificates had several mistakes to them:
+	- issued before 2021-08-26 had a mistake with name and surname fields reversed
+	- issued before 2021-08-25 had latin name versions not capitalized
+	- issued before 2021-08-25 had dd.mm.yyyy DOB date format
+*/
+export function certificateMistakes(dcg: RawDGC): DGCMistakes {
+	return {
+		latin_not_icao:
+			(dcg.hcert.nam.fnt && dcg.hcert.nam.fnt.search(/^[A-Z<]*$/) == -1) ||
+			(dcg.hcert.nam.gnt && dcg.hcert.nam.gnt.search(/^[A-Z<]*$/) == -1),
+		dob_not_iso: dcg.hcert.dob.search(/^((19|20)\d\d(-\d\d){0,2}){0,1}$/) == -1,
+		name_reversed: dcg.issuer == 'UA' && new Date(dcg.issuedAt * 1000) < new Date(2021, 7, 26)
+	};
 }
