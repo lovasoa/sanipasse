@@ -101,31 +101,31 @@
 			lines: [
 				...lineIf(hcert.nam.fn, (value) => ({
 					name: 'Nom',
-					mistakes: mistakes.name_reversed ? 'Le nom et le prénom échangés entre eux' : undefined,
+					mistakes: mistakes.name_reversed ? 'Nom et prénom intervertis' : undefined,
 					value
 				})),
 				...lineIfDifferent(hcert.nam.fnt, hcert.nam.fn, (value) => ({
 					name: 'Translittération latine du nom',
 					mistakes: mistakes.latin_not_icao
-						? 'Les translittérations ne sont pas en format ICAO 9303'
+						? 'Les translittérations ne sont pas au format ICAO 9303'
 						: undefined,
 					value
 				})),
 				...lineIf(hcert.nam.gn, (value) => ({
 					name: 'Prénom',
-					mistakes: mistakes.name_reversed ? 'Le nom et le prénom échangés entre eux' : undefined,
+					mistakes: mistakes.name_reversed ? 'Nom et prénom intervertis' : undefined,
 					value
 				})),
 				...lineIfDifferent(hcert.nam.gnt, hcert.nam.gn, (value) => ({
 					name: 'Translittération latine du prénom',
 					mistakes: mistakes.latin_not_icao
-						? 'Les translittérations ne sont pas en format ICAO 9303'
+						? 'Les translittérations ne sont pas au format ICAO 9303'
 						: undefined,
 					value
 				})),
 				{
 					name: 'Date de naissance',
-					mistakes: mistakes.dob_not_iso ? "La date n'est pas en format ISO 8601" : undefined,
+					mistakes: mistakes.dob_not_iso ? "La date n'est pas au format ISO 8601" : undefined,
 					value: hcert.dob
 				}
 			]
@@ -257,7 +257,7 @@
 									{#await line.value}
 										chargement...
 									{:then value}
-										{#if line.mistakes}<abbr title={line.mistakes}>&#9888;</abbr>{/if}
+										{#if line.mistakes}<abbr title={line.mistakes}>⚠️</abbr>{/if}
 										{value}
 									{:catch e}
 										<pre class="bg-warning">{e}</pre>
