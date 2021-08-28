@@ -1,15 +1,14 @@
 import { writable } from 'svelte/store';
+import { get_from_local_store, store_locally } from '$lib/storage';
 
-const localforage = import('localforage'); // Can fail on node
+const WALLET_STORE_KEY = 'wallet';
 
 async function walletSet(value: string[]) {
-	if (typeof window !== 'object') return;
-	await (await localforage).setItem('wallet', value);
+	await store_locally(WALLET_STORE_KEY, value);
 }
 
 async function walletGet(): Promise<string[]> {
-	if (typeof window !== 'object') return []; // Browser-only
-	return (await (await localforage).getItem('wallet')) || [];
+	return (await get_from_local_store<string[]>(WALLET_STORE_KEY)) || [];
 }
 
 function createWalletStore() {
