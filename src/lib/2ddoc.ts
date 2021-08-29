@@ -226,7 +226,12 @@ function getCertificateInfo(cert: Certificate2ddoc): CommonCertificateInfo {
 			vaccination_date: cert.last_dose_date,
 			prophylactic_agent: cert.prophylactic_agent,
 			doses_received: cert.doses_received,
-			doses_expected: cert.doses_expected,
+			// When a person has received just one shot of a vaccine
+			// which normally requires two, but had been infected and recovered from the virus before,
+			// the french 2DDOC still contains a doses_expected of 2 even if the rule is that
+			// a single dose is needed.
+			// We reset doses_expected to 1 in our internal format in this case.
+			doses_expected: cert.cycle_state === 'TE' ? cert.doses_received : cert.doses_expected,
 			first_name: cert.vaccinated_first_name,
 			last_name: cert.vaccinated_last_name,
 			date_of_birth: cert.vaccinated_birth_date,

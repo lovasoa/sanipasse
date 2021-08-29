@@ -7,8 +7,9 @@
 	import { get, put, http_delete } from '$lib/http';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import type { EventWithPeople } from '$lib/event';
+	import type { DBEvent, EventWithPeople } from '$lib/event';
 	import Communicate from './_communicate.svelte';
+	const localforage = import('localforage'); // Can fail on node
 
 	const REFRESH_INTERVAL_SECONDS = 15;
 
@@ -35,8 +36,22 @@
 		}
 	}
 
+	/**
+	 * Add the event to local storage
+	 */
+	async function persistEvent() {
+		const [storage, _data_ready] = await Promise.all([localforage, currentPromise]);
+		let events: DBEvent[] = (await storage.getItem('events')) || [];
+		events = events.filter((e) => e.private_code !== eventId);
+		if (!event) throw new Error('currentPromise loaded but event is null');
+		const { private_code, name, date } = event;
+		events.push({ private_code, name, date });
+		await storage.setItem('events', events);
+	}
+
 	onMount(() => {
 		resetInterval();
+		persistEvent();
 		document.addEventListener('visibilitychange', resetInterval);
 		return () => {
 			if (interval) clearInterval(interval);

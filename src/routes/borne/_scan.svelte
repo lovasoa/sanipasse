@@ -2,8 +2,9 @@
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import { findCertificateError, parse_any } from '$lib/detect_certificate';
 	import { assets } from '$app/paths';
-	import type { ConfigProperties } from './_config';
+	import type { ConfigProperties, HTTPRequest } from '$lib/borne_config';
 	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
+	import { sha256 } from '$lib/sha256';
 
 	export let config: ConfigProperties;
 	const { decode_after_s, reset_after_s, prevent_revalidation_before_minutes } = config;
@@ -15,13 +16,18 @@
 	let reset_timeout: NodeJS.Timeout | undefined = undefined;
 
 	let last_event: KeyboardEvent | null = null;
+
+	let externalRequest: Promise<Response> | null = null;
+
+	// Passes that have been validated recently and cannot be revalidated
 	let validated_passes: Map<string, number> = new Map();
 
 	const prevent_revalidation_before_ms = (prevent_revalidation_before_minutes || 0) * 60 * 1000;
 
 	function onKeyPress(event: KeyboardEvent) {
 		last_event = event;
-		if (event.key.length > 1) return;
+		// Handle event if we are in scanning mode and a single keycode was sent by the scanner
+		if (event.key.length > 1 || codeFoundPromise) return;
 		code += event.key;
 		if (timeout !== undefined) clearTimeout(timeout);
 		if (reset_timeout !== undefined) clearTimeout(reset_timeout);
@@ -38,22 +44,43 @@
 		const cert = await parse_any(code);
 		const error = findCertificateError(cert);
 		if (error) throw new Error(error);
-		const last_validated = validated_passes.get(code);
-		if (last_validated && last_validated > Date.now() - prevent_revalidation_before_ms) {
-			const duration_minutes = ((Date.now() - last_validated) / 60 / 1000) | 0;
+
+		let code_digest = await sha256(code);
+		const last_validated = validated_passes.get(code_digest);
+		const now = Date.now();
+		if (last_validated && now - last_validated < prevent_revalidation_before_ms) {
+			const duration_minutes = ((now - last_validated) / 60 / 1000) | 0;
 			throw new Error(
 				`Passe déjà scanné par quelqu'un d'autre il y a ` +
 					(duration_minutes ? duration_minutes + ' minutes.' : "moins d'une minute.")
 			);
 		}
-		validated_passes.set(code, Date.now());
+		validated_passes.set(code_digest, now);
+		setTimeout(() => validated_passes.delete(code_digest), prevent_revalidation_before_ms);
 		return cert;
+	}
+
+	async function makeRequest(r: HTTPRequest) {
+		const body = r.method === 'GET' ? undefined : r.body;
+		externalRequest = fetch(r.url, { method: r.method, body });
+		return externalRequest;
+	}
+
+	async function onValid() {
+		if (config.external_requests && config.external_requests.accepted.url)
+			return makeRequest(config.external_requests.accepted);
+	}
+
+	async function onInvalid() {
+		if (config.external_requests && config.external_requests.refused.url)
+			return makeRequest(config.external_requests.refused);
 	}
 
 	function launchParsing(code_input: string) {
 		if (codeFoundPromise) return;
 		console.log('Detected code before reset: ', code_input);
 		codeFoundPromise = validateCertificateCode(code_input);
+		codeFoundPromise.then(onValid, onInvalid);
 		timeout = undefined;
 		code = '';
 		reset_timeout = setTimeout(() => {
@@ -72,6 +99,11 @@
 </script>
 
 <svelte:window on:keypress={onKeyPress} on:paste={onPaste} />
+<svelte:head>
+	{#if config.custom_css}
+		<link rel="stylesheet" href="data:text/css,{encodeURIComponent(config.custom_css)}" />
+	{/if}
+</svelte:head>
 
 <div
 	class="main container"
@@ -83,13 +115,17 @@
 		{#await codeFoundPromise}
 			Décodage du code...
 		{:then pass}
-			<!-- svelte-ignore a11y-media-has-caption -->
-			<audio autoplay src="{assets}/valid.mp3" />
-			<div class="alert alert-success" role="alert">
+			{#if config.sound_valid !== null}
+				<!-- svelte-ignore a11y-media-has-caption -->
+				<audio autoplay src="{assets}/{config.sound_valid || 'valid.mp3'}" />
+			{/if}
+			<div class="validated_pass alert alert-success" role="alert">
 				<div class="row">
 					<div class="col-md-2"><div class="sign shallpass" /></div>
 					<div class="col-md-10">
-						<h3>Bienvenue, {showName(pass)}</h3>
+						<h3>
+							Bienvenue, {#if !config.anonymize}{showName(pass)}{/if}
+						</h3>
 						<p>Votre passe est validé.</p>
 						<div class="progress">
 							<div
@@ -102,9 +138,11 @@
 				</div>
 			</div>
 		{:catch err}
-			<!-- svelte-ignore a11y-media-has-caption -->
-			<audio autoplay src="{assets}/invalid.mp3" />
-			<div class="alert alert-danger" role="alert">
+			{#if config.sound_invalid !== null}
+				<!-- svelte-ignore a11y-media-has-caption -->
+				<audio autoplay src="{assets}/{config.sound_invalid || 'invalid.mp3'}" />
+			{/if}
+			<div class="refused_pass alert alert-danger" role="alert">
 				<div class="row">
 					<div class="col-md-2"><div class="sign shallnotpass" /></div>
 					<div class="col-md-10">
@@ -122,14 +160,20 @@
 			</div>
 		{/await}
 	{:else}
-		<div class="row justify-content-center w-100">
-			{#each config.logo_urls as url}
-				<img alt="logo" src={url} class="col" style="object-fit: contain; max-height: 10em;" />
-			{/each}
-		</div>
-
-		<h1>{config.title}</h1>
-		<p>{config.description}</p>
+		<section id="welcome_message">
+			<div class="logos row justify-content-center w-100">
+				{#each config.logo_urls as url}
+					<img
+						alt="logo"
+						src={url}
+						class="logo col"
+						style="object-fit: contain; max-height: 10em;"
+					/>
+				{/each}
+			</div>
+			<h1>{config.title}</h1>
+			<p class="description">{config.description}</p>
+		</section>
 	{/if}
 
 	{#if config.video_scan}
@@ -148,6 +192,22 @@
 			<p>Code length: {code.length}</p>
 			<p>Last key pressed: {JSON.stringify(last_event?.key, null, ' ')}</p>
 		</div>
+		{#if externalRequest}
+			<div>
+				{#await externalRequest}
+					Requête externe en cours...
+				{:then r}
+					status: {r.status}
+					{r.statusText}
+					{#await r.text() then text}
+						body: {text}
+					{/await}
+				{:catch err}
+					Erreur dans la requête externe:
+					<pre>{err}</pre>
+				{/await}
+			</div>
+		{/if}
 	{/if}
 
 	<p class="fixed-bottom text-muted fw-lighter fst-italic" style="font-size: .8em">

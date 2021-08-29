@@ -1,19 +1,12 @@
 <script type="ts">
-	import { Table, Card, CardHeader, CardBody, CardTitle } from 'sveltestrap';
+	import { Table, Card, CardHeader, CardTitle } from 'sveltestrap';
 	import type { DGC } from '$lib/digital_green_certificate';
-	import crypto from 'isomorphic-webcrypto';
+	import { certificateMistakes } from '$lib/digital_green_certificate';
+	import { sha256 } from '$lib/sha256';
 	export let certificate: DGC;
 	const { hcert } = certificate;
 
-	async function sha256(i: string): Promise<string> {
-		const input_bytes = new TextEncoder().encode(i);
-		const digest_bytes = await crypto.subtle.digest('SHA-256', input_bytes);
-		return hex(digest_bytes);
-	}
-
-	function hex(i: ArrayBuffer): string {
-		return [...new Uint8Array(i)].map((n) => n.toString(16).padStart(2, '0')).join('');
-	}
+	const mistakes = certificateMistakes(certificate);
 
 	function showTimestamp(time_seconds: number | string, options: { include_time?: boolean } = {}) {
 		const source = typeof time_seconds === 'number' ? time_seconds * 1000 : time_seconds;
@@ -96,6 +89,7 @@
 		name: string;
 		value: Promise<string> | string | number;
 		link?: string;
+		mistakes?: string;
 	}
 	interface Card {
 		title: string;
@@ -107,21 +101,33 @@
 			lines: [
 				...lineIf(hcert.nam.fn, (value) => ({
 					name: 'Nom',
+					mistakes: mistakes.name_reversed ? 'Nom et prénom intervertis' : undefined,
 					value
 				})),
 				...lineIfDifferent(hcert.nam.fnt, hcert.nam.fn, (value) => ({
 					name: 'Translittération latine du nom',
+					mistakes: mistakes.latin_not_icao
+						? 'Les translittérations ne sont pas au format ICAO 9303'
+						: undefined,
 					value
 				})),
 				...lineIf(hcert.nam.gn, (value) => ({
 					name: 'Prénom',
+					mistakes: mistakes.name_reversed ? 'Nom et prénom intervertis' : undefined,
 					value
 				})),
 				...lineIfDifferent(hcert.nam.gnt, hcert.nam.gn, (value) => ({
 					name: 'Translittération latine du prénom',
+					mistakes: mistakes.latin_not_icao
+						? 'Les translittérations ne sont pas au format ICAO 9303'
+						: undefined,
 					value
 				})),
-				{ name: 'Date de naissance', value: hcert.dob }
+				{
+					name: 'Date de naissance',
+					mistakes: mistakes.dob_not_iso ? "La date n'est pas au format ISO 8601" : undefined,
+					value: hcert.dob
+				}
 			]
 		},
 		...(hcert.v || []).map((vaccine) => ({
@@ -238,19 +244,20 @@
 		<CardHeader>
 			<CardTitle>{card.title}</CardTitle>
 		</CardHeader>
-		<CardBody>
+		<div class="card-body px-1">
 			<Table class="table-sm">
 				<tbody>
 					{#each card.lines as line}
 						<tr>
 							<th scope="row" class="text-start">{line.name}</th>
-							<td class="text-end">
+							<td class="text-end text-break">
 								{#if line.link}
 									<a href={line.link}>{line.value}</a>
 								{:else}
 									{#await line.value}
 										chargement...
 									{:then value}
+										{#if line.mistakes}<abbr title={line.mistakes}>⚠️</abbr>{/if}
 										{value}
 									{:catch e}
 										<pre class="bg-warning">{e}</pre>
@@ -263,7 +270,7 @@
 					{/each}
 				</tbody>
 			</Table>
-		</CardBody>
+		</div>
 	</Card>
 {/each}
 
@@ -271,9 +278,3 @@
 	<summary>Données brutes</summary>
 	<code><pre>{JSON.stringify(certificate, null, '  ')}</pre></code>
 </details>
-
-<style>
-	tbody {
-		overflow-wrap: anywhere;
-	}
-</style>

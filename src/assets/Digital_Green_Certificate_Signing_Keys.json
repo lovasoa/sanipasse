@@ -1364,6 +1364,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8SjDdFFGxTunJ0RQyxdGDbBKVUjHz9gKydhpKuTZAvYZMzGVVV7NYhJGQqOp4Ox6wU3y+zY666nfAeaAPcINRw=="
 	},
+	"1J9pb87ndV0=": {
+		"serialNumber": "4541037b9551542fb116ebf36d00f123e35c1b71",
+		"subject": "C=GB, ST=NI, L=Belfast, O=Department of Health, OU=DHCNI, CN=DSC_DGC_GB_NI_01",
+		"issuer": "C=GB, ST=NI, L=Belfast, O=Department of Health, OU=DHCNI, CN=CSCA_DGC_GB_NI_01",
+		"notBefore": "2021-07-19T15:22:18.000Z",
+		"notAfter": "2023-07-19T15:22:18.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "4f389794b184b83e61ac485666d3f1f091e986ca",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ+fdcTa4UWA/6PT5V4a0+0j1/s++4JQEsW/HvGnxxP7mGfuQDfn/FRdUMGQtTkoCGaky1gpYVZXkkoYu9ZjlUw=="
+	},
 	"vvYa1vaWkGg=": {
 		"serialNumber": "2a1941ee3ff39d46c76ea1107c912bb9df00c8f3",
 		"subject": "C=GR, CN=grnet.gr",
@@ -1646,6 +1663,28 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcrxlv5/uGbsaXM/QMSpvZV2iNtF0o4QBech6LGpy3OEefbJLf+4iqI19QNWtUXEjlMMytB4+1ESLHdXyki5X2g=="
 	},
+	"qEgQcWPd3xU=": {
+		"serialNumber": "01",
+		"subject": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health, OU=Ministry of Health, CN=zdravstvo.gov.mk",
+		"issuer": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health, CN=zdravstvo.gov.mk, E=contact@zdravstvo.gov.mk",
+		"notBefore": "2021-08-23T12:22:02.000Z",
+		"notAfter": "2022-08-23T12:22:02.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "dbd631b2b552ff7cfd67e239b4fa953628a74e8d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 4096
+		},
+		"publicKeyPem": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA144Qzvk4vkmWoGZUPGRepcNVPCbXy0tLeaxmuDuTbJIfyO0TwxrQllUOF+pni559+knMmUUk7PqfvU8fsbrNXHn4Wh1LzIVZkz/GuiQ44bR3b7k9kcS9vfOx14WiP41zx/vOmQXWaGx+mzC+RD6+w5T8hAdRjol6nUHAvstL0MbIylv+Fhi4s1qpmr1rR5liG/KI3uzaMjJvQC6d3R9Ee+q3ULTJ81+WyVe9sK9hY5Z/KzFrMbnbH2Y1/voIcLc+vjjVCOFJKkXhjz00/wu6NalMMN6MC+G9gZMHp69CJPB45hIBiAKfGEI4dq8lCthqi2orRoXmAyf6LxSBL6wZVu+naTXUJMVoXjFNXIyszm1MRQiagaoqOyctY/bg/RQgVSDrjtEN4MeMArSbehogEZuYL8GRRrnOEbWb86DEwMAYDbbPFEab3hsyZejJ3bxZdylWNj1V8QPyP2uvOLAFGwsvSzw7E34b0RcpEeOoQeKrT8nKPpFOFIQ3gBxyqlw4T+v/iENIxDWoWdvUO2/bkidNXecSn3XlzTT7OW8IbJ0M7D9htz/SPd55XP5sU5gF3wnwuWMIq1auj/LXwbRAh63OiUG+Bo4ssL7AkMcOpkYl25QZQOXzWykI0/ZZ8Hu/968eoYvMxbQD4EARMGDMwdkU5G+nuHniTS52kONbrZUCAwEAAQ=="
+	},
 	"lzGYCpOBQsU=": {
 		"serialNumber": "7fe579a881eb001055ae27216b30da120634c771",
 		"subject": "C=NL, O=Aruba, OU=Ministry of Tourism Public Health and Sports, 2.5.4.5=1, CN=Health DSC for recovery",
@@ -1697,6 +1736,57 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcI1v9r69Swup7ghwGhCA5xoG8SopLiD2DnfkhTydslZQBHc+TuieZ11aHYkD91gmngRXRsGU8Tow/LEoKPkyuQ=="
 	},
+	"0JzyumjttZU=": {
+		"serialNumber": "1311a61314d3e1e7fcac39a8535826d719ec077b",
+		"subject": "C=NL, O=Country of Curacao, OU=Ministry of Health Environment and Nature, 2.5.4.5=1, CN=Health DSC for recovery",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-03T09:13:10.000Z",
+		"notAfter": "2032-07-31T09:13:10.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "8a2022932477ebbb64b4bfc5c04afd49ef33d4af",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAENlKRwpA1S14Zfx6LZuAWm9ExHy86o7O9ijCq4AmZ1dFu2d2wowdylJzAvbbVsR1RoxfNJPzy5dwu9Nsm0PvsEg=="
+	},
+	"T8kbYovQlYU=": {
+		"serialNumber": "47a558b5fd28bd604297b1474f7e48573550d442",
+		"subject": "C=NL, O=Country of Curacao, OU=Ministry of Health Environment and Nature, 2.5.4.5=1, CN=Health DSC for test",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-03T09:14:19.000Z",
+		"notAfter": "2032-07-31T09:14:19.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "8e51d16d098c637a7c40f34802b5c6cc8442148b",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEPVZAyUlqrJ3XW8kCQu401SKWJ1GjF+LBjT16DUZO0RaRdAPsKx8FUBwqRBtn8dPzIP+EWDX7iUppuG0TNkt3Ug=="
+	},
+	"H6b6bQ8qij4=": {
+		"serialNumber": "36861ed6a7d05942a37a740cda1664ef91a3ebb9",
+		"subject": "C=NL, O=Country of Curacao, OU=Ministry of Health Environment and Nature, 2.5.4.5=1, CN=Health DSC for vaccinations",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-03T09:15:10.000Z",
+		"notAfter": "2032-07-31T09:15:10.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "2e58fa542970750edc6809e72e20f3022ee5d8e4",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEawHNq4c7wLusLEYNhn7CBSqk6bdY7Phqjt1+Q+CVRHqBFfSRfWG+9dgoEMBdFHY12g4qsO3nnT2P4qhADwIvng=="
+	},
 	"pSEfhlMubh4=": {
 		"serialNumber": "48ae1b99eef389abbf25990cf3420e2ccf226aeb",
 		"subject": "C=NL, O=Kingdom of the Netherlands, OU=Ministry of Health Welfare and Sport, 2.5.4.5=1, CN=Health DSC for recovery",
@@ -1747,6 +1837,57 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/DBnhBhTf8TkfsTn4tLEb3mQLCsONkZbY4I5i0zh0WhsDupDshGnu4TE4AgH6Y/uBnsJ+D6QkVAikza/rtw89w=="
+	},
+	"4Ss2raOqhTw=": {
+		"serialNumber": "45961aa092a5fd6cbaf8c48903eeca0407cb4291",
+		"subject": "C=NL, O=Sint Maarten, OU=Ministry of Public Health Social Development and Labor, 2.5.4.5=1, CN=Health DSC for recovery",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-02T18:08:31.000Z",
+		"notAfter": "2032-07-30T18:08:31.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "61c77a2edbcbdc5d44087400207aafecfea5408e",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEQb+DcAtDpjI4ftm5ICNC5KGz10zJvY682GDCREwLupvC17QzWFvc6S0jbk2NJt2VY5V4svj2FfLGkSWbUqUFnQ=="
+	},
+	"ypEjzbYNqEw=": {
+		"serialNumber": "01cd01302b211d929ce3ff892f630e5c1bf5d1de",
+		"subject": "C=NL, O=Sint Maarten, OU=Ministry of Public Health Social Development and Labor, 2.5.4.5=1, CN=Health DSC for test",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-02T18:09:38.000Z",
+		"notAfter": "2032-07-30T18:09:38.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "2bd7bb4beacaa237b4435ebc7a2853e21e028101",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnRYo0qQ5BM+B3lWzaaqBhgTqQ99wnzj078WYakRSXv7LyJbz21EGEQkNpe3UOlENX5Q7RdzkrrXFbs7pHfNDpw=="
+	},
+	"JsReuAsmza8=": {
+		"serialNumber": "792d9ec52d9054680c6a6c021f5acecbc5c58447",
+		"subject": "C=NL, O=Sint Maarten, OU=Ministry of Public Health Social Development and Labor, 2.5.4.5=1, CN=Health DSC for vaccinations",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2021-08-02T18:10:25.000Z",
+		"notAfter": "2032-07-30T18:10:25.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "59666675082cd84bdc11e1301227eef717c49cc4",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAERw+zOjyFNs4ntgwxcvouetTqlBIztiTtJhOi8DesKXv5uX/m1pVAbYium/fhyu0IaBeh3DVOLfLJtPaUEx8eiw=="
 	},
 	"cdm9Ymfwn2I=": {
 		"serialNumber": "59000000056eef20a7c3fbf86a000000000005",
@@ -1883,6 +2024,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEH2+GOTdCPhSUdDZmaM7hq/hRJkZCd3wPyOwB8lS30s4N81r4XFpv1Yev+1bfB4A173DByhZyIKkdnZc/FfaAXQ=="
+	},
+	"gEIK4Q/lAG0=": {
+		"serialNumber": "00a875f8a85cfe85f0",
+		"subject": "C=TR, ST=ANKARA, L=ÃANKAYA, O=T.C. SAÄLIK BAKANLIÄI, OU=SAÄLIK BÄ°LGÄ° SÄ°STEMLERÄ° GENEL MÃDÃRLÃÄÃ, CN=healthpassgwuat.saglik.gov.tr",
+		"issuer": "C=TR, ST=ANKARA, L=ÃANKAYA, O=T.C. SAÄLIK BAKANLIÄI, OU=SAÄLIK BÄ°LGÄ° SÄ°STEMLERÄ° GENEL MÃDÃRLÃÄÃ, CN=healthpassgwprod.saglik.gov.tr",
+		"notBefore": "2021-08-04T19:02:05.000Z",
+		"notAfter": "2023-08-04T19:02:05.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "200477077913499f729db8217ac5a140d85f5f1d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4gGExz9UXm77v21gaWNSjjtigr9VIyGL9S92FqnF99YqS/ekrLWvW4N6fmHfUST9VJLJVaB9uP3SX1rXlfq7lg=="
 	},
 	"S2V5M1BSTw==": {
 		"serialNumber": "4f0e753c1291e6b8",
@@ -2665,5 +2823,22 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEManlPIcO9J8UBpHCAbku/KkAfiBrGLIre1buTIzhhoncL0YIO+DQ9uPs6UfzPKXzQq791V5I5avhmpQ6j2zFsQ=="
+	},
+	"FhciF/j3plg=": {
+		"serialNumber": "7904c820b5908787040000001600000021000000",
+		"subject": "O=State enterprise \\\"DIIA\\\", CN=\\\"DIIA\\\". Green Certificate DSC 2, 2.5.4.5=22, C=UA, L=Kyiv",
+		"issuer": "O=State enterprise \\\"DIIA\\\", CN=\\\"DIIA\\\". Green Certificate CSCA, 2.5.4.5=UA-43395033-2021, C=UA, L=Kyiv, 2.5.4.97=NTRUA-43395033",
+		"notBefore": "2021-08-17T21:00:00.000Z",
+		"notAfter": "2023-08-17T20:59:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "6564fadb714a0f3c3e23c7a3db814d9e059b4156",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEd22zt56DQx1ao5dd4u6jU3KPELJdcWfl0+FJ6cVhCb8s0SmQleFtS9m5RQqVzbBr/JnUfqVZjvrPFzwpbgdMeQ=="
 	}
 }

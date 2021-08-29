@@ -20,8 +20,13 @@
 		await goto(`events/${private_code}`);
 	}
 
-	function inputDate(e: Event): Date {
-		return (e.target as any)?.valueAsDate;
+	function inputDate(e: { currentTarget: HTMLInputElement }): Date {
+		return e.currentTarget.valueAsDate || new Date();
+	}
+
+	function changeTime(e: { currentTarget: HTMLInputElement }) {
+		const parts = e.currentTarget.value.split(':').map((e) => parseInt(e));
+		date.setHours(parts[0], parts[1], 0, 0);
 	}
 </script>
 
@@ -86,11 +91,7 @@
 					class="form-control"
 					required
 					value={hours}
-					on:change={(e) => {
-						const d = inputDate(e);
-						date.setHours(d.getHours());
-						date.setMinutes(d.getMinutes());
-					}}
+					on:change={changeTime}
 				/></label
 			>
 		</div>
@@ -107,7 +108,7 @@
 			automatiquement.
 		</div>
 	</div>
-    -->
+	-->
 	<div class="row">
 		<button type="submit" class="btn btn-primary mt-3 col-sm-12 col-md-3 offset-md-9"
 			>📅 Créer l'évènement</button

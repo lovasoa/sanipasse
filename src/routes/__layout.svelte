@@ -41,7 +41,7 @@
 	</Navbar>
 {/if}
 
-<main>
+<main class="w-100 px-2 px-sm-5">
 	<Container>
 		<slot />
 	</Container>
@@ -59,7 +59,6 @@
 		flex-direction: column;
 		margin: 20px;
 		flex-flow: wrap;
-		width: 90%;
 		max-width: 1024px;
 		margin: auto;
 		margin-top: 10px;
