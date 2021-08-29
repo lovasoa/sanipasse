@@ -64,9 +64,28 @@ BorneConfig.init(
 	}
 );
 
+class ApiKeys extends Model<{ api_key: string; used_at: Date }> {}
+ApiKeys.init(
+	{
+		api_key: { type: STRING, primaryKey: true },
+		used_at: { type: DATE, primaryKey: true, allowNull: true }
+	},
+	{
+		sequelize,
+		updatedAt: false,
+		createdAt: false
+	}
+);
+
 const sync = sequelize.sync({});
 const SyncedEvent = sync.then(() => Event);
 const SyncedPerson = sync.then(() => Person);
 const SyncedBorneConfig = sync.then(() => BorneConfig);
+const SyncedApiKeys = sync.then(() => ApiKeys);
 
-export { SyncedEvent as Event, SyncedPerson as Person, SyncedBorneConfig as BorneConfig };
+export {
+	SyncedEvent as Event,
+	SyncedPerson as Person,
+	SyncedBorneConfig as BorneConfig,
+	SyncedApiKeys as ApiKeys
+};
