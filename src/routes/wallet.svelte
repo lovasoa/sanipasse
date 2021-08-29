@@ -22,20 +22,6 @@
 	</p>
 {/if}
 
-{#each $wallet as cert}
-	{#await parse_any(cert)}
-		<Alert color="secondary" fade={false}>Décodage du certificat...</Alert>
-	{:then info}
-		<div
-			class:clickCert={!!$invitedTo.eventId}
-			on:click={(_) => {
-				if ($invitedTo.eventId) codeFound = cert;
-			}}
-		>
-			<Certificate {info} with_fullscreen={!$invitedTo.eventId} />
-		</div>
-	{/await}
-{/each}
 {#if $wallet.length > 0}
 	{#await is_volatile then can_loose_data}
 		{#if can_loose_data}
@@ -68,6 +54,21 @@
 		pourrez l'ajouter à votre carnet pour y avoir accès ici.
 	</p>
 {/if}
+
+{#each $wallet as cert}
+	{#await parse_any(cert)}
+		<Alert color="secondary" fade={false}>Décodage du certificat...</Alert>
+	{:then info}
+		<div
+			class:clickCert={!!$invitedTo.eventId}
+			on:click={(_) => {
+				if ($invitedTo.eventId) codeFound = cert;
+			}}
+		>
+			<Certificate {info} with_fullscreen={!$invitedTo.eventId} />
+		</div>
+	{/await}
+{/each}
 
 <CodeFound bind:codeFound />
 
