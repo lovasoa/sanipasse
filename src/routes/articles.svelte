@@ -1,6 +1,15 @@
 <script lang="ts">
 	const articles = [
 		{
+			title: "L'API de vérification des passes sanitaires Sanipasse",
+			emoji: '🌐',
+			date: new Date('2021-08-30'),
+			link: '/api-pass-sanitaire',
+			description:
+				'Sanipasse propose désormais une API de vérification des passes sanitaires qui permet' +
+				"de décoder et contrôler la validité d'un passe sanitaire avec une simple requête HTTP."
+		},
+		{
 			title: 'Le problème avec les passes sanitaires',
 			emoji: '🕵️',
 			date: new Date('2021-05-23'),
