@@ -9,6 +9,7 @@
 	import { get, put } from '$lib/http';
 	import ShowPromiseError from '../_showPromiseError.svelte';
 	import SoundPicker from './_sound_picker.svelte';
+	import TicketConfig from './_configTicket.svelte';
 
 	let configKey: string = '';
 	if (typeof window === 'object') configKey = new URLSearchParams(location.search).get('key') || '';
@@ -359,6 +360,14 @@
 			</details>
 		</div>
 	</fieldset>
+
+	<details>
+		<summary>Impression de tickets</summary>
+			<TicketConfig
+				bind:config={config.ticketConfig}
+			/>
+	</details>
+
 	<details>
 		<summary>Requêtes HTTP externe</summary>
 		<ExternalRequestsConfig bind:external_requests={config.external_requests} />

@@ -30,6 +30,8 @@ export interface ConfigProperties {
 	// whereas a sound explicitly set to null is interpreted as no sound.
 	sound_valid?: string | null;
 	sound_invalid?: string | null;
+	// printing ticket
+	ticketConfig: TicketConfig;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
@@ -45,5 +47,6 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 	bottom_infos: 'logiciel sanipasse.fr fourni par Ophir Lojkine sous licence AGPLv3.',
 	anonymize: false,
 	prevent_revalidation_before_minutes: 0,
-	video_scan: true
+	video_scan: true,
+	ticketConfig: {print:false}
 };

@@ -5,6 +5,7 @@
 	import type { ConfigProperties, HTTPRequest } from '$lib/borne_config';
 	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
 	import { sha256 } from '$lib/sha256';
+	import { printTicket } from '$lib/ticket';
 
 	export let config: ConfigProperties;
 	const { decode_after_s, reset_after_s, prevent_revalidation_before_minutes } = config;
@@ -66,7 +67,15 @@
 		return externalRequest;
 	}
 
-	async function onValid() {
+	async function onValid(decodedPass) {
+		if(config.ticketConfig.print){
+			console.log("Printing ticket");
+			printTicket(
+				showName(decodedPass),
+				decodedPass.date_of_birth.toLocaleDateString('fr'),
+				config.ticketConfig
+			);
+		}
 		if (config.external_requests && config.external_requests.accepted.url)
 			return makeRequest(config.external_requests.accepted);
 	}
