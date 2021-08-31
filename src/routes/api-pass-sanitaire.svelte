@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { stringify } from 'ajv';
-
 	const code_example = {
 		token: 'XXXX',
 		code: 'HC1:...'
