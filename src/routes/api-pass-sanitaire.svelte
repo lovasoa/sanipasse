@@ -1,6 +1,6 @@
 <script lang="ts">
 	const code_example = {
-		token: 'XXXX',
+		key: 'XXXX',
 		code: 'HC1:...'
 	};
 </script>
