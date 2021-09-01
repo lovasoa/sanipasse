@@ -6,9 +6,10 @@
 	let linkCopied = false;
 	let linkInput: HTMLInputElement | null = null;
 
-	function copyLink() {
-		if (linkInput) linkInput.select();
-		document.execCommand('copy');
+	async function copyLink() {
+		if (!linkInput) throw new Error("link <input> element not mounted");
+		linkInput.select();
+		await navigator.clipboard.writeText(linkInput.value);
 		linkCopied = true;
 	}
 </script>
