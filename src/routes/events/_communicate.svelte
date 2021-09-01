@@ -7,7 +7,7 @@
 	let linkInput: HTMLInputElement | null = null;
 
 	async function copyLink() {
-		if (!linkInput) throw new Error("link <input> element not mounted");
+		if (!linkInput) throw new Error('link <input> element not mounted');
 		linkInput.select();
 		await navigator.clipboard.writeText(linkInput.value);
 		linkCopied = true;
