@@ -75,7 +75,7 @@
 			});
 			has_video_preview = true;
 		} catch (err) {
-			video_preview_error = err;
+			video_preview_error = err instanceof Error ? err : new Error(`${err}`);
 		}
 	}
 

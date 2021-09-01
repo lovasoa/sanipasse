@@ -87,12 +87,13 @@
 			codeFound = result.getText();
 		} catch (e) {
 			console.log(e);
-			if (e instanceof NotFoundException)
+			const err = e instanceof Error ? e : new Error(`${e}`);
+			if (err instanceof NotFoundException)
 				error =
 					'Aucun code QR ou 2D-DOC détecté dans le document. ' +
 					'Essayez de recadrer le document pour que le code apparaisse clairement et dans une taille raisonnable.' +
 					'Vous pouvez par exemple prendre une capture d’écran qui contient uniquement le QR code';
-			else error = `${e?.message || e}`;
+			else error = err.message;
 			codeFound = undefined;
 		} finally {
 			processing = false;
