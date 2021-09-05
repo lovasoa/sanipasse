@@ -30,8 +30,12 @@
 	}
 
 	function parseX509Attributes(line: string): { C?: string; O?: string; CN?: string; OU?: string } {
-		const attrs = line.split(',');
-		return Object.fromEntries(attrs.map((line) => line.trim().split('=')));
+		function extractAttribute(attribute: string) {
+			const regex = new RegExp(`${attribute}=((?:[^,]|\\\\,)+)`);
+			const match = regex.exec(line);
+			return match ? match[1] : undefined;
+		}
+		return Object.fromEntries(['C', 'O', 'CN', 'OU'].map((attr) => [attr, extractAttribute(attr)]));
 	}
 
 	const manufacturers: { [code: string]: string } = {
