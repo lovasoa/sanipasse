@@ -29,6 +29,38 @@
 	refusé. Cela permet de s'interfacer avec d'autres services ou du matériel comme une porte
 	automatique, une ampoule, une imprimante...
 </p>
+<p>
+	Si vous voulez contrôler du matériel depuis une système embarqué sous linux (tel qu'un Raspberry
+	Pi), vous pouvez utiliser le logiciel
+	<a href="https://github.com/lovasoa/http-gpio">http-gpio</a>, développé par le même auteur que
+	sanipasse. Voir la <a href="https://youtu.be/cHzeFuuIRIU">vidéo de démonstration</a>.
+</p>
+<p>
+	Vous pouvez aussi envoyer une requête vers n'importe quel serveur HTTP, local ou sur internet,
+	mais il est important de faire attention aux éléments suivants:
+</p>
+<ul>
+	<li>
+		en tant qu'application web, sanipasse est soumis aux <a
+			href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">règles CORS</a
+		>,
+	</li>
+	<li>
+		si sanipasse est servi depuis un serveur sécurisé par https, et que votre service externe n'est
+		pas sécurisé, vous devrez ajouter une
+		<a
+			href="https://www.chromium.org/Home/chromium-security/deprecating-powerful-features-on-insecure-origins"
+		>
+			exception de sécurité à votre navigateur</a
+		>.
+	</li>
+</ul>
+<p>
+	Si vous avez besoin de conseil sur l'interfaçage de votre service ou de votre solution matérielle
+	avec sanipasse borne, vous pouvez me contacter sur <a
+		href="mailto:contact@ophir.dev?subject=conseil interface sanipasse borne">contact@ophir.dev</a
+	>.
+</p>
 
 <fieldset class="row">
 	{#each requests as { request, text }}
