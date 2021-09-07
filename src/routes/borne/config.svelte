@@ -136,62 +136,6 @@
 	}}
 >
 	<fieldset class="col-md-12">
-		<legend>Durée d'attente…</legend>
-
-		<div class="row">
-			{#if !video_scan_num}
-				<div class="form-label col-xl-4">
-					<label for="wait">…avant la validation du code saisi</label>
-					<div class="input-group">
-						<input
-							type="number"
-							step="0.01"
-							class="form-control"
-							placeholder="1"
-							id="wait"
-							title="Temps de lecture du code par le lecteur de QR code physique"
-							bind:value={config.decode_after_s}
-						/>
-						<div class="input-group-text">secondes</div>
-					</div>
-				</div>
-			{/if}
-			<div
-				class="form-label col-xl-4"
-				title="Temps d'affichage du message d'acceptation ou de refus du passe"
-			>
-				<label for="back">…avant le retour à l'interface de scan</label>
-				<div class="input-group">
-					<input
-						type="number"
-						step="0.1"
-						class="form-control"
-						placeholder="4"
-						id="back"
-						bind:value={config.reset_after_s}
-					/>
-					<div class="input-group-text">secondes</div>
-				</div>
-			</div>
-			<div
-				class="form-label col-xl-4"
-				title="Une fois qu'un passe a été validé, il ne peut pas être réutilisé pendant cette durée, pour éviter que plusieurs personnes ne scannent le même passe."
-			>
-				<label for="norevalidation">...avant réutilisation du même passe</label>
-				<div class="input-group">
-					<input
-						type="number"
-						class="form-control"
-						placeholder="pas de revalidation avant:"
-						id="norevalidation"
-						bind:value={config.prevent_revalidation_before_minutes}
-					/>
-					<div class="input-group-text">minutes</div>
-				</div>
-			</div>
-		</div>
-	</fieldset>
-	<fieldset class="col-md-12">
 		<legend>Affichage</legend>
 
 		<div class="row">
@@ -359,6 +303,63 @@
 			</details>
 		</div>
 	</fieldset>
+	<fieldset class="col-md-12">
+		<legend>Durée d'attente…</legend>
+
+		<div class="row">
+			{#if !video_scan_num}
+				<div class="form-label col-xl-4">
+					<label for="wait">…avant la validation du code saisi</label>
+					<div class="input-group">
+						<input
+							type="number"
+							step="0.01"
+							class="form-control"
+							placeholder="1"
+							id="wait"
+							title="Temps de lecture du code par le lecteur de QR code physique"
+							bind:value={config.decode_after_s}
+						/>
+						<div class="input-group-text">secondes</div>
+					</div>
+				</div>
+			{/if}
+			<div
+				class="form-label col-xl-4"
+				title="Temps d'affichage du message d'acceptation ou de refus du passe"
+			>
+				<label for="back">…avant le retour à l'interface de scan</label>
+				<div class="input-group">
+					<input
+						type="number"
+						step="0.1"
+						class="form-control"
+						placeholder="4"
+						id="back"
+						bind:value={config.reset_after_s}
+					/>
+					<div class="input-group-text">secondes</div>
+				</div>
+			</div>
+			<div
+				class="form-label col-xl-4"
+				title="Une fois qu'un passe a été validé, il ne peut pas être réutilisé pendant cette durée, pour éviter que plusieurs personnes ne scannent le même passe."
+			>
+				<label for="norevalidation">...avant réutilisation du même passe</label>
+				<div class="input-group">
+					<input
+						type="number"
+						class="form-control"
+						placeholder="pas de revalidation avant:"
+						id="norevalidation"
+						bind:value={config.prevent_revalidation_before_minutes}
+					/>
+					<div class="input-group-text">minutes</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	
 	<details>
 		<summary>Requêtes HTTP externe</summary>
 		<ExternalRequestsConfig bind:external_requests={config.external_requests} />
