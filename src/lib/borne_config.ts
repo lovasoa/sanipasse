@@ -30,6 +30,8 @@ export interface ConfigProperties {
 	// whereas a sound explicitly set to null is interpreted as no sound.
 	sound_valid?: string | null;
 	sound_invalid?: string | null;
+	// Whether to store statistics about the validated and invalidated scans
+	store_statistics?: boolean;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
