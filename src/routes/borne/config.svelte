@@ -359,9 +359,9 @@
 			</div>
 		</div>
 	</fieldset>
-	
+
 	<details>
-		<summary>Requêtes HTTP externe</summary>
+		<summary>Interfaçage avec des services externes via <i>HTTP</i></summary>
 		<ExternalRequestsConfig bind:external_requests={config.external_requests} />
 	</details>
 
