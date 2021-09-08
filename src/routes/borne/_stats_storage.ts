@@ -19,19 +19,59 @@ async function instance(): Promise<LocalForage> {
 	});
 }
 
-export async function* load_stats(): AsyncGenerator<StatsDataPoint> {
-	const collection = await instance();
-	const keys = await collection.keys();
-	const timestamps = keys.map((key) => parseInt(key));
-	timestamps.sort((a, b) => b - a); // More recent data first
-	for (const timestamp of timestamps) {
-		const elem = await collection.getItem<StoredData>(timestamp.toString());
-		if (elem) {
-			const [valid, invalid] = elem;
-			const date = new Date(timestamp);
-			yield { date, valid, invalid };
+const END_OF_TIME = new Date(2100, 1, 1).getTime();
+
+/**
+ * Create keys so that more recent items come first.
+ */
+function timestamp_to_key(timestamp: number): string {
+	const dt = END_OF_TIME - timestamp;
+	return dt.toString(36).padStart(8, '0');
+}
+function key_to_timestamp(key: string): number {
+	return END_OF_TIME - parseInt(key, 36);
+}
+
+async function* callback_to_iterator<T>(
+	fetch_items: (addItem: (item: T) => void, stop: () => void) => void
+): AsyncGenerator<T> {
+	let resolve: (item: T) => void = () => void 0;
+	let error: () => void = () => void 0;
+	let nextItem: Promise<T> = new Promise(() => {});
+	function makeNewPromise() {
+		nextItem = new Promise<T>((r, e) => {
+			resolve = r;
+			error = e;
+		});
+	}
+	fetch_items(
+		function addItem(item) {
+			resolve(item);
+			makeNewPromise();
+		},
+		function stop() {
+			error();
+			makeNewPromise();
+		}
+	);
+	makeNewPromise();
+	while (true) {
+		try {
+			yield await nextItem;
+		} catch (_) {
+			return;
 		}
 	}
+}
+
+export async function* load_stats(): AsyncGenerator<StatsDataPoint> {
+	const collection = await instance();
+	yield* callback_to_iterator((addItem, stop) => {
+		collection.iterate(([valid, invalid]: StoredData, key) => {
+			const date = new Date(key_to_timestamp(key));
+			addItem({ date, valid, invalid });
+		}, stop);
+	});
 }
 
 export function time_bucket(date: Date = new Date()): number {
@@ -42,7 +82,7 @@ export function time_bucket(date: Date = new Date()): number {
 export async function store_statistics_datapoint(is_valid: boolean, date?: Date) {
 	const collection = await instance();
 	const time = time_bucket(date);
-	const key = time.toString();
+	const key = timestamp_to_key(time);
 	const elem = await collection.getItem<StoredData>(key);
 	let stats = elem || [0, 0];
 	stats[is_valid ? 0 : 1]++;
