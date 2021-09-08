@@ -1,6 +1,6 @@
 const localforage = import('localforage'); // Can fail on node
 
-const STATS_GRANULARITY_MILLIS = 3600 * 1000;
+export const STATS_GRANULARITY_MILLIS = 3600 * 1000;
 
 /// Data is stored in local storage with the timestamp as a key,
 // and an array of [valid, invalid] as value.
@@ -34,11 +34,16 @@ export async function* load_stats(): AsyncGenerator<StatsDataPoint> {
 	}
 }
 
+export function current_time_bucket(): number {
+	const now = Date.now();
+	const div = Math.floor(now / STATS_GRANULARITY_MILLIS);
+	return div * STATS_GRANULARITY_MILLIS;
+}
+
 export async function store_statistics_datapoint(is_valid: boolean) {
 	const collection = await instance();
-	const current_time_bucket =
-		((Date.now() / STATS_GRANULARITY_MILLIS) | 0) * STATS_GRANULARITY_MILLIS;
-	const key = current_time_bucket.toString();
+	const time = current_time_bucket();
+	const key = time.toString();
 	const elem = await collection.getItem<StoredData>(key);
 	let stats = elem || [0, 0];
 	stats[is_valid ? 0 : 1]++;
