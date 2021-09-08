@@ -17,8 +17,11 @@
 	async function display_stats() {
 		datapoints = [];
 		for await (const point of load_stats()) {
-			datapoints = [...datapoints, point];
+			datapoints.push(point);
+			// Avoid refreshing the UI at each new point
+			if (datapoints.length % 256 === 0) datapoints = datapoints;
 		}
+		datapoints = datapoints;
 	}
 
 	onMount(display_stats);
@@ -29,9 +32,9 @@
 	}
 
 	async function load_random() {
-		for (let i = 0; i < 100; i++) {
-			const d0 = Date.now() - STATS_GRANULARITY_MILLIS * 100;
-			const d = new Date(d0 + Math.random() * STATS_GRANULARITY_MILLIS * 100);
+		for (let i = 0; i < 200; i++) {
+			const d0 = Date.now() - STATS_GRANULARITY_MILLIS * 1000;
+			const d = new Date(d0 + Math.random() * STATS_GRANULARITY_MILLIS * 1000);
 			store_statistics_datapoint(Math.random() > 0.2, d);
 		}
 		await display_stats();
