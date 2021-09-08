@@ -1,7 +1,7 @@
 <script type="ts">
 	import { DEFAULT_CONFIG } from '$lib/borne_config';
 	import type { ConfigProperties } from '$lib/borne_config';
-	import { load_config as load_config_from_storage } from './_config';
+	import { load_config as load_config_from_storage, save_config } from './_config';
 	import Scan from './_scan.svelte';
 	import { get } from '$lib/http';
 	import { onMount } from 'svelte';
@@ -9,7 +9,14 @@
 	let configKey: string = '';
 	if (typeof window === 'object') configKey = new URLSearchParams(location.search).get('key') || '';
 
-	let config_promise = load_config();
+	// If the initial config is not found, use the locally stored config
+	let config_promise = load_config().catch((e) => {
+		console.log('Remote config fetching failed, loading local config', e);
+		return load_config_from_storage();
+	});
+
+	// Always save the config to local storage when it is loaded
+	config_promise.then(save_config);
 
 	async function load_config_from_key(): Promise<ConfigProperties> {
 		return get(`/api/borne/${configKey}`);
@@ -26,6 +33,8 @@
 		// Prevent re-mounting components if config hasn't changed
 		if (JSON.stringify(config) !== JSON.stringify(previous_config)) {
 			console.log('config changed! New config:', config);
+			// Persist all config to local storage
+			save_config(config);
 			config_promise = Promise.resolve(config);
 		}
 	}
