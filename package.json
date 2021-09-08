@@ -38,6 +38,7 @@
 		"@zxing/browser": "^0.0.9",
 		"@zxing/library": "^0.18.5",
 		"ajv": "^8.6.0",
+		"apexcharts": "^3.28.1",
 		"base45-ts": "^1.0.3",
 		"base64-js": "^1.5.1",
 		"bignumber.js": "^9.0.1",

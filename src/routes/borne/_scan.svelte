@@ -5,6 +5,7 @@
 	import type { ConfigProperties, HTTPRequest } from '$lib/borne_config';
 	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
 	import { sha256 } from '$lib/sha256';
+	import { store_statistics_datapoint } from './_stats_storage';
 
 	export let config: ConfigProperties;
 	const { decode_after_s, reset_after_s, prevent_revalidation_before_minutes } = config;
@@ -68,12 +69,14 @@
 
 	async function onValid() {
 		if (config.external_requests && config.external_requests.accepted.url)
-			return makeRequest(config.external_requests.accepted);
+			makeRequest(config.external_requests.accepted);
+		if (config.store_statistics) store_statistics_datapoint(true);
 	}
 
 	async function onInvalid() {
 		if (config.external_requests && config.external_requests.refused.url)
-			return makeRequest(config.external_requests.refused);
+			makeRequest(config.external_requests.refused);
+		if (config.store_statistics) store_statistics_datapoint(false);
 	}
 
 	function launchParsing(code_input: string) {

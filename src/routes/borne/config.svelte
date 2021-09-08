@@ -365,6 +365,21 @@
 		<ExternalRequestsConfig bind:external_requests={config.external_requests} />
 	</details>
 
+	<details>
+		<summary>Statistiques</summary>
+		<p>
+			Sanipasse borne a la capacité de stocker localement des statistiques anonymes sur le nombre de
+			passes validés ou refusés au cours du temps. Ces statistiques ne contiennent aucune
+			information personnelle, fonctionnent hors ligne, et ne sont pas envoyées au serveur de
+			sanipasse. Lorsque la fonctionnalité de statistiques est activée, un bouton d'affichage des
+			statistiques est affiché sur l'interface de scan.
+		</p>
+		<label>
+			<input type="checkbox" bind:checked={config.store_statistics} />
+			Enregistrer les statistiques d'utilisation
+		</label>
+	</details>
+
 	<ShowPromiseError promise={uploadConfigPromise} />
 
 	<button
