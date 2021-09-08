@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { current_time_bucket, STATS_GRANULARITY_MILLIS } from './_stats_storage';
+	import { time_bucket, STATS_GRANULARITY_MILLIS } from './_stats_storage';
 	import type { StatsDataPoint } from './_stats_storage';
 	import type ApexCharts from 'apexcharts';
 
@@ -17,7 +17,7 @@
 	const MIN_DURATION_MILLIS = STATS_GRANULARITY_MILLIS * 24;
 
 	function compute_datapoints_with_zeroes(datapoints: StatsDataPoint[]): StatsDataPoint[] {
-		const end_timestamp = datapoints[0]?.date?.getTime() || current_time_bucket();
+		const end_timestamp = datapoints[0]?.date?.getTime() || time_bucket();
 		const start_or_null = datapoints[datapoints.length - 1]?.date?.getTime();
 		let start_timestamp = end_timestamp - MIN_DURATION_MILLIS;
 		if (start_or_null < start_timestamp) start_timestamp = start_or_null;
@@ -29,8 +29,7 @@
 		}));
 		for (const dp of datapoints) {
 			const idx = ((dp.date.getTime() - start_timestamp) / STATS_GRANULARITY_MILLIS) | 0;
-			if (idx < 0 || idx > datapoints_with_zeroes.length)
-				console.log(idx, dp, start_timestamp, end_timestamp);
+			if (idx < 0 || idx > datapoints_with_zeroes.length) continue;
 			datapoints_with_zeroes[idx] = dp;
 		}
 		return datapoints_with_zeroes;

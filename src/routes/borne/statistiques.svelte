@@ -1,5 +1,10 @@
 <script lang="ts">
-	import { load_stats } from './_stats_storage';
+	import {
+		load_stats,
+		reset_stats,
+		STATS_GRANULARITY_MILLIS,
+		store_statistics_datapoint
+	} from './_stats_storage';
 	import type { StatsDataPoint } from './_stats_storage';
 	import { onMount } from 'svelte';
 
@@ -9,11 +14,28 @@
 	let datapoints: StatsDataPoint[] = [];
 	const config = load_config();
 
-	onMount(async () => {
+	async function display_stats() {
+		datapoints = [];
 		for await (const point of load_stats()) {
 			datapoints = [...datapoints, point];
 		}
-	});
+	}
+
+	onMount(display_stats);
+
+	async function reset() {
+		await reset_stats();
+		await display_stats();
+	}
+
+	async function load_random() {
+		for (let i = 0; i < 100; i++) {
+			const d0 = Date.now() - STATS_GRANULARITY_MILLIS * 100;
+			const d = new Date(d0 + Math.random() * STATS_GRANULARITY_MILLIS * 100);
+			store_statistics_datapoint(Math.random() > 0.2, d);
+		}
+		await display_stats();
+	}
 </script>
 
 {#await config then config}
@@ -23,6 +45,14 @@
 			<p>
 				L'enregistrement des statistiques est désactivé dans la configuration locale de cet
 				appareil. Vous pouvez l'activer depuis <a href="config">la page de configuration</a>.
+			</p>
+		</div>
+	{/if}
+	{#if config.debug}
+		<div class="alert alert-info">
+			<h3>Mode de débogage activé</h3>
+			<p>
+				<button class="btn btn-info" on:click={load_random}>Ajouter des données aléatoires</button>
 			</p>
 		</div>
 	{/if}
@@ -70,3 +100,5 @@
 		{/each}
 	</tbody>
 </table>
+
+<button class="btn btn-danger" on:click={reset}>Réinitialiser les statistiques</button>
