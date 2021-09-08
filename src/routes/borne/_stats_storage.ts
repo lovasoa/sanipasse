@@ -34,15 +34,14 @@ export async function* load_stats(): AsyncGenerator<StatsDataPoint> {
 	}
 }
 
-export function current_time_bucket(): number {
-	const now = Date.now();
-	const div = Math.floor(now / STATS_GRANULARITY_MILLIS);
+export function time_bucket(date: Date = new Date()): number {
+	const div = Math.floor(date.getTime() / STATS_GRANULARITY_MILLIS);
 	return div * STATS_GRANULARITY_MILLIS;
 }
 
-export async function store_statistics_datapoint(is_valid: boolean) {
+export async function store_statistics_datapoint(is_valid: boolean, date?: Date) {
 	const collection = await instance();
-	const time = current_time_bucket();
+	const time = time_bucket(date);
 	const key = time.toString();
 	const elem = await collection.getItem<StoredData>(key);
 	let stats = elem || [0, 0];
