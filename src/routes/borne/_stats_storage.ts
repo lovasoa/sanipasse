@@ -49,3 +49,8 @@ export async function store_statistics_datapoint(is_valid: boolean) {
 	stats[is_valid ? 0 : 1]++;
 	await collection.setItem(key, stats);
 }
+
+export async function reset_stats() {
+	const collection = await instance();
+	await collection.dropInstance();
+}
