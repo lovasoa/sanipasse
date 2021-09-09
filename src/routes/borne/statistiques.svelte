@@ -54,7 +54,7 @@
 		for await (const point of load_stats()) {
 			datapoints.push(point);
 			// Avoid refreshing the UI at each new point
-			if (Date.now() - last_update > 250) {
+			if (Date.now() - last_update > 300) {
 				datapoints = datapoints;
 				last_update = Date.now();
 			}
@@ -79,10 +79,19 @@
 	}
 </script>
 
+{#if with_interactions}
+	<h1 class="fs-3">Statistiques d'utilisation</h1>
+	<p>
+		Cette page présente les statistiques du nombre de passes scannés avec sanipasse borne sur cet
+		appareil. Ces informations sont stockées localement et ne sont pas accessibles depuis
+		l'extérieur, même depuis le serveur de sanipasse.
+	</p>
+{/if}
+
 {#await config then config}
 	{#if !config.store_statistics}
 		<div class="alert alert-danger">
-			<h3>Les statistiques sont désactivées</h3>
+			<h4>Les statistiques sont désactivées</h4>
 			<p>
 				L'enregistrement des statistiques est désactivé dans la configuration locale de cet
 				appareil. Vous pouvez l'activer depuis <a href="config">la page de configuration</a>.
@@ -91,7 +100,7 @@
 	{/if}
 	{#if config.debug}
 		<div class="alert alert-info">
-			<h3>Mode de débogage activé</h3>
+			<h4>Mode de débogage activé</h4>
 			<p>
 				<button class="btn btn-info" on:click={load_random}>Ajouter des données aléatoires</button>
 			</p>
@@ -99,11 +108,11 @@
 	{/if}
 {/await}
 
-<StatsChart {datapoints} show_toolbar={!with_interactions} />
+<StatsChart {datapoints} show_toolbar={with_interactions} />
 <table class="table">
 	<colgroup>
-		<col span="1" style="width: 40%;" />
-		<col span="1" style="width: 30%;" />
+		<col span="1" style="width: 45%;" />
+		<col span="1" style="width: 25%;" />
 		<col span="1" style="width: 15%;" />
 		<col span="1" style="width: 15%;" />
 	</colgroup>
@@ -119,8 +128,11 @@
 		{#each show_datapoints as { timestamp, show_date, show_time, valid, invalid } (timestamp)}
 			<tr>
 				{#if show_date}
-					<th scope="row" class="sticky-top bg-white" rowspan={show_date.rowspan}
-						>{show_date.name}</th
+					<th
+						scope="row"
+						class="sticky-top bg-white"
+						class:z-index-1={with_interactions}
+						rowspan={show_date.rowspan}>{show_date.name}</th
 					>
 				{/if}
 				<th scope="row">{show_time}</th>
@@ -136,11 +148,13 @@
 </table>
 
 {#if with_interactions}
-	<button class="btn btn-danger my-4" on:click={reset}>Réinitialiser les statistiques</button>
+	<button class="btn btn-outline-danger my-4" on:click={reset}
+		>🗑️ Réinitialiser les statistiques</button
+	>
 {/if}
 
 <style>
-	th {
+	th.z-index-1 {
 		z-index: -1;
 	}
 </style>
