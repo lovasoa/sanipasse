@@ -11,15 +11,51 @@
 	import { load_config } from './_config';
 	import StatsChart from './_stats_chart.svelte';
 
+	interface ShowPoint {
+		timestamp: number;
+		show_date?: { name: string; rowspan: number };
+		show_time: string;
+		valid: number;
+		invalid: number;
+	}
+
 	let datapoints: StatsDataPoint[] = [];
+	$: show_datapoints = compute_show_datapoints(datapoints);
 	const config = load_config();
+
+	function compute_show_datapoints(datapoints: StatsDataPoint[]): ShowPoint[] {
+		let current_date = { name: '', rowspan: 0 };
+		return datapoints.map(({ date, valid, invalid }) => {
+			const timestamp = date.getTime();
+			const name = date.toLocaleDateString('fr-FR', {
+				weekday: 'long',
+				month: 'long',
+				day: 'numeric'
+			});
+			let show_date = undefined;
+			if (name === current_date.name) {
+				current_date.rowspan++;
+			} else {
+				show_date = current_date = { name, rowspan: 1 };
+			}
+			const show_time = date.toLocaleTimeString('fr-FR', {
+				hour: 'numeric',
+				minute: 'numeric'
+			});
+			return { timestamp, show_time, valid, invalid, show_date };
+		});
+	}
 
 	async function display_stats() {
 		datapoints = [];
+		let last_update = 0;
 		for await (const point of load_stats()) {
 			datapoints.push(point);
 			// Avoid refreshing the UI at each new point
-			if (datapoints.length % 256 === 0) datapoints = datapoints;
+			if (Date.now() - last_update > 250) {
+				datapoints = datapoints;
+				last_update = Date.now();
+			}
 		}
 		datapoints = datapoints;
 	}
@@ -78,21 +114,14 @@
 		</tr>
 	</thead>
 	<tbody>
-		{#each datapoints as { date, valid, invalid } (date)}
+		{#each show_datapoints as { timestamp, show_date, show_time, valid, invalid } (timestamp)}
 			<tr>
-				<th scope="row"
-					>{date.toLocaleString('fr-FR', {
-						weekday: 'long',
-						month: 'long',
-						day: 'numeric'
-					})}</th
-				>
-				<th scope="row"
-					>{date.toLocaleString('fr-FR', {
-						hour: 'numeric',
-						minute: 'numeric'
-					})}</th
-				>
+				{#if show_date}
+					<th scope="row" class="sticky-top bg-white" rowspan={show_date.rowspan}
+						>{show_date.name}</th
+					>
+				{/if}
+				<th scope="row">{show_time}</th>
 				<td class="text-center {valid > 0 ? 'text-success' : 'text-muted'}">{valid}</td>
 				<td class="text-center  {invalid > 0 ? 'text-danger' : 'text-muted'}">{invalid}</td>
 			</tr>
@@ -104,4 +133,10 @@
 	</tbody>
 </table>
 
-<button class="btn btn-danger" on:click={reset}>Réinitialiser les statistiques</button>
+<button class="btn btn-danger my-4" on:click={reset}>Réinitialiser les statistiques</button>
+
+<style>
+	th {
+		z-index: -1;
+	}
+</style>
