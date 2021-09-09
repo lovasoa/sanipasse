@@ -8,8 +8,10 @@
 	import type { StatsDataPoint } from './_stats_storage';
 	import { onMount } from 'svelte';
 
-	import { load_config } from './_config';
+	import { load_config } from './_config_storage';
 	import StatsChart from './_stats_chart.svelte';
+
+	export let with_interactions = true;
 
 	interface ShowPoint {
 		timestamp: number;
@@ -97,7 +99,7 @@
 	{/if}
 {/await}
 
-<StatsChart {datapoints} />
+<StatsChart {datapoints} show_toolbar={!with_interactions} />
 <table class="table">
 	<colgroup>
 		<col span="1" style="width: 40%;" />
@@ -133,7 +135,9 @@
 	</tbody>
 </table>
 
-<button class="btn btn-danger my-4" on:click={reset}>Réinitialiser les statistiques</button>
+{#if with_interactions}
+	<button class="btn btn-danger my-4" on:click={reset}>Réinitialiser les statistiques</button>
+{/if}
 
 <style>
 	th {

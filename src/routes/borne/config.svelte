@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import b64 from 'base64-js';
-	import { DEFAULT_CONFIG } from '$lib/borne_config';
-	import type { ConfigProperties } from '$lib/borne_config';
-	import { load_config as load_config_local_storage, save_config } from './_config';
+	import { DEFAULT_CONFIG } from './_config';
+	import type { ConfigProperties } from './_config';
+	import { load_config as load_config_local_storage, save_config } from './_config_storage';
 	import ExternalRequestsConfig from './_external_request_config.svelte';
 	import { generateKey } from '$lib/random_key';
 	import { get, put } from '$lib/http';
