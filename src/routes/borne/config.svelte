@@ -239,7 +239,11 @@
 				<label for="desc">Instructions</label>
 			</div>
 			<label class="col-12 mb-3">
-				Informations contractuelles en bas de la page
+				Informations contractuelles en bas de la page<br />
+				<small class="text-muted"
+					>(La <a href="/LICENSE">licence</a> de sanipasse vous demande d'informer vos utilisateurs de
+					l'utilisation du logiciel, ainsi que de sa licence)
+				</small>
 				<input
 					type="text"
 					class="form-control"
