@@ -5,27 +5,34 @@
 
 <p>Bonjour ! 👋</p>
 <p>
-	Moi c'est <a href="https://ophir.dev">Ophir</a>, et je suis fier de vous présenter l'application
-	de vérification de passes sanitaires <a href="https://sanipasse.fr">sanipasse</a>.
+	Moi c'est <a href="https://ophir.dev">Ophir</a>, et je suis l'auteur de
+	<a href="https://sanipasse.fr">sanipasse</a>, l'application libre de vérification de passes
+	sanitaires.
 </p>
 <p>
-	Vous trouverez sur cette page des explications sur comment lire des certificats de test et de
-	vaccination, organiser des événements zéro-COVID, la description du fonctionnement interne de
-	l'application, des informations sur sa sécurité et la gestion des données personnelles, ainsi que
-	les mentions légales.
+	Vous trouverez sur cette page des explications sur comment lire et contrôler des certificats de
+	test et de vaccination, organiser des événements zéro-COVID, la description du fonctionnement
+	interne de l'application, des informations sur sa sécurité et la gestion des données personnelles,
+	ainsi que les mentions légales.
 </p>
 
 <h2 id="tuto">🤔 Comment utiliser Sanipasse</h2>
 
-<p>Sanipasse est un logiciel libre qui a deux fonctions principales:</p>
+<p>Sanipasse est un logiciel libre qui a trois fonctions principales:</p>
 <ul>
 	<li>
-		la création de <i>listes d'invités</i> qui peuvent confirmer eux-mêmes leur présence en scannant
-		leur passe sanitaire,
+		la <a href="/events">création de <b>listes d'invités</b></a> qui peuvent confirmer eux-mêmes leur
+		présence en scannant leur passe sanitaire,
 	</li>
 	<li>
-		et la <i>lecture de vos propres certificats</i>, pour vérifier les informations qu'ils
-		contiennent.
+		la <a href="/import/video"><b>lecture</b> de vos propres certificats</a>, pour vérifier les
+		informations qu'ils contiennent,
+	</li>
+	<li>
+		la mise en place de
+		<a href="/borne/config"><b>bornes autonomes</b> de contrôle des passes sanitaires</a>
+		destinées aux professionnels, sous forme d'une alternative à TousAntiCovid-Vérif plus efficace, plus
+		configurable, et plus respectueuse de la vie privée.
 	</li>
 </ul>
 
@@ -152,9 +159,23 @@ CEO: Martin Hetzner, Stephan Konvickova, Günther Müller
 
 <h2>📝 Code source</h2>
 <p>
-	Cette application est un logiciel libre, sous license <a href="/LICENSE">AGPL</a>. Vous pouvez
+	Cette application est un logiciel libre, sous licence <a href="/licence">AGPLv3</a>. Vous pouvez
 	lire et télécharger son
-	<a href="https://github.com/lovasoa/sanipasse">code source sur Github</a>.
+	<a href="https://github.com/lovasoa/sanipasse">code source sur Github</a>. La licence AGPLv3 vous
+	permet de d'utiliser le logiciel et de le modifier librement quels que soient vos besoins, mais
+	vous demande notamment&nbsp;:
+</p>
+<ul>
+	<li>d'informer vos utilisateurs que vous utilisez le logiciel, et de sa licence,</li>
+	<li>
+		si vous créez une solution plus large qui utilise le logiciel, de publier à votre tour tout
+		votre code sous une licence libre compatible.
+	</li>
+</ul>
+
+<p>
+	Pour plus d'informations sur la licence, ou pour demander une exception pour vos besoins, vous
+	pouvez <a href="mailto:contact@ophir.dev?subject=licence sanipasse">me contacter</a>.
 </p>
 
 <h3>Auto-hébergement</h3>
