@@ -2,7 +2,7 @@
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import { findCertificateError, parse_any } from '$lib/detect_certificate';
 	import { assets } from '$app/paths';
-	import type { ConfigProperties, HTTPRequest } from '$lib/borne_config';
+	import type { ConfigProperties, HTTPRequest } from './_config';
 	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
 	import { sha256 } from '$lib/sha256';
 	import { store_statistics_datapoint } from './_stats_storage';
