@@ -6,6 +6,7 @@
 	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
 	import { sha256 } from '$lib/sha256';
 	import { store_statistics_datapoint } from './_stats_storage';
+	import ScanStatsModal from './_scan_stats_modal.svelte';
 
 	export let config: ConfigProperties;
 	const { decode_after_s, reset_after_s, prevent_revalidation_before_minutes } = config;
@@ -217,6 +218,10 @@
 		{config.bottom_infos}
 	</p>
 </div>
+
+{#if config.show_statistics_on_scan}
+	<ScanStatsModal />
+{/if}
 
 <style>
 	.progress-bar {
