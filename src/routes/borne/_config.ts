@@ -32,6 +32,8 @@ export interface ConfigProperties {
 	sound_invalid?: string | null;
 	// Whether to store statistics about the validated and invalidated scans
 	store_statistics?: boolean;
+	// Whether to show the statistics on the scan page
+	show_statistics_on_scan?: boolean;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
