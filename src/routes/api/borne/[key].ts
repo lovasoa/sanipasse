@@ -7,7 +7,9 @@ export async function get({
 }: {
 	params: { key: string };
 }): Promise<EndpointOutput> {
-	const found = await (await BorneConfig).findOne({
+	const found = await (
+		await BorneConfig
+	).findOne({
 		where: { key }
 	});
 	if (!found) return { status: 404, body: { error: `config "${key}" does not exist` } };

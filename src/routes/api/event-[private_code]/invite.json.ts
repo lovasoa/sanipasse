@@ -49,7 +49,9 @@ export async function del({
 }): Promise<EndpointOutput> {
 	const key = getKey(parseKey(body.key));
 	type Await<T> = T extends Promise<infer U> ? U : T;
-	const found = (await (await Event).findOne({
+	const found = (await (
+		await Event
+	).findOne({
 		where: { private_code },
 		include: { model: await Person, where: { key } }
 	})) as { people: Await<typeof Person>[] } | null;

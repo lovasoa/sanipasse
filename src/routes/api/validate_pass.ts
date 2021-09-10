@@ -37,9 +37,8 @@ export const post: Endpoint = async ({ body: { code, key } }) => {
 
 	let validated = false;
 	let error: string | undefined;
-	let person:
-		| { first_name: string; last_name: string; date_of_birth: Date }
-		| undefined = undefined;
+	let person: { first_name: string; last_name: string; date_of_birth: Date } | undefined =
+		undefined;
 	try {
 		const parsed = await parse_any(code); // Will resolve as an error if the signature is invalid
 		person = {

@@ -138,7 +138,7 @@ async function extractCoseFromQRCode(qrCode: string): Promise<Uint8Array> {
  */
 async function parseDGCFromCoseData(rawCoseData: Uint8Array): Promise<RawDGC> {
 	let kid = '';
-	let certificate = (undefined as unknown) as DSC; // defined in verifierFn
+	let certificate = undefined as unknown as DSC; // defined in verifierFn
 
 	/**
 	 * Get a Verifier given a kid
