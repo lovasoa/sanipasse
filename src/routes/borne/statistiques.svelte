@@ -86,6 +86,10 @@
 		appareil. Ces informations sont stockées localement et ne sont pas accessibles depuis
 		l'extérieur, même depuis le serveur de sanipasse.
 	</p>
+
+	<button class="btn btn-outline-danger my-4" on:click={reset}
+		>🗑️ Réinitialiser les statistiques</button
+	>
 {/if}
 
 {#await config then config}
@@ -146,12 +150,6 @@
 		{/each}
 	</tbody>
 </table>
-
-{#if with_interactions}
-	<button class="btn btn-outline-danger my-4" on:click={reset}
-		>🗑️ Réinitialiser les statistiques</button
-	>
-{/if}
 
 <style>
 	th.z-index-1 {
