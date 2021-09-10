@@ -54,7 +54,9 @@
 			height: 150,
 			type: 'area',
 			toolbar: {
-				show: show_toolbar,
+				tools: {
+					download: show_toolbar
+				},
 				export: {
 					csv: {
 						dateFormatter: (d) => (d ? new Date(d).toISOString() : ''),
