@@ -1,4 +1,6 @@
 import type { Handle } from '@sveltejs/kit';
+import { performance } from 'perf_hooks';
+
 export const handle: Handle = async ({ request, resolve }) => {
 	const id = (Math.random() * 100) | 0;
 	const start = performance.now();
