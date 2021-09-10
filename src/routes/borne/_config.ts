@@ -49,5 +49,6 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 	bottom_infos: 'logiciel sanipasse.fr fourni par Ophir Lojkine sous licence AGPLv3.',
 	anonymize: false,
 	prevent_revalidation_before_minutes: 0,
-	video_scan: true
+	video_scan: true,
+	store_statistics: true
 };

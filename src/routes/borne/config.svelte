@@ -377,7 +377,10 @@
 			information personnelle, fonctionnent hors ligne, et ne sont pas envoyées au serveur de
 			sanipasse.
 		</p>
-
+		<p>
+			Si vous êtes un commerçant soumis au contrôle obligatoire du passe sanitaire, lors d'un
+			contrôle, la police peut vous demander de fournir ces statistiques.
+		</p>
 		<label>
 			<input type="checkbox" bind:checked={config.store_statistics} />
 			Enregistrer les statistiques d'utilisation
