@@ -7,9 +7,7 @@ export async function get({
 }: {
 	params: { private_code: string };
 }): Promise<EndpointOutput> {
-	const found = await (
-		await Event
-	).findOne({
+	const found = await (await Event).findOne({
 		where: { private_code },
 		include: { model: await Person, attributes: ['key', 'validated', 'invited'] }
 	});

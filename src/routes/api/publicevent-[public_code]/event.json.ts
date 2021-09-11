@@ -7,9 +7,7 @@ export async function get({
 }: {
 	params: { public_code: string };
 }): Promise<EndpointOutput> {
-	const found = await (
-		await Event
-	).findOne({
+	const found = await (await Event).findOne({
 		where: { public_code },
 		attributes: ['name', 'date']
 	});
