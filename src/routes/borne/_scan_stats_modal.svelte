@@ -5,7 +5,7 @@
 	const toggle = () => (open = !open);
 </script>
 
-<button class="btn btn-outline-secondary" title="statistiques d'utilisation" on:click={toggle}
+<button class="fixed-bottom btn btn-outline-secondary" title="statistiques d'utilisation" on:click={toggle}
 	><Icon name="bar-chart-line" /></button
 >
 
@@ -24,8 +24,8 @@
 		border-radius: 100%;
 		width: 3em;
 		height: 3em;
-		position: absolute;
-		bottom: 1.2em;
-		right: 1.2em;
+		margin: 1.2em;
+		right: 0;
+		left: auto;
 	}
 </style>
