@@ -5,8 +5,10 @@
 	const toggle = () => (open = !open);
 </script>
 
-<button class="fixed-bottom btn btn-outline-secondary" title="statistiques d'utilisation" on:click={toggle}
-	><Icon name="bar-chart-line" /></button
+<button
+	class="fixed-bottom btn btn-outline-secondary"
+	title="statistiques d'utilisation"
+	on:click={toggle}><Icon name="bar-chart-line" /></button
 >
 
 <Modal isOpen={open} {toggle}>
