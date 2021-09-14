@@ -1,6 +1,6 @@
 {
 	"name": "sanipasse",
-	"version": "1.5.0",
+	"version": "1.5.1",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -22,7 +22,7 @@
 		"cbor": "^7.0.5",
 		"eslint": "^7.22.0",
 		"eslint-config-prettier": "^8.1.0",
-		"eslint-plugin-svelte3": "^3.2.0",
+		"eslint-plugin-svelte3": "^3.2.1",
 		"node-fetch": "^2.6.1",
 		"prettier": "~2.2.1",
 		"prettier-plugin-svelte": "^2.2.0",
