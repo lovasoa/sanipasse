@@ -2603,6 +2603,40 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEli8eKthiom9EydKvhg7LHXj/f88/ZeNUpfEFm6kIAr3K1NCRSv1grJnNiBc9lvggtAjqFHQSGTovtRcGHcVuRA=="
 	},
+	"fNstNUxgGSI=": {
+		"serialNumber": "3447095cc60170774e024318abf3b17a1f0eda1c",
+		"subject": "CN=DSC_DGC_FO_345334_TEST_01, O=SJUKRAHUSVERKID, C=FO",
+		"issuer": "CN=Faroe Islands Health Authority CSCA v1, O=Gjaldstovan, C=FO",
+		"notBefore": "2021-07-08T14:39:57.000Z",
+		"notAfter": "2023-07-08T14:39:57.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "a6e3ad050e3ab5797f8fa3efb4c0a1b5e712e961",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEyOmUr7E52s+yofKQE/TmtLQxLPEpZnZMA/OL647R1ZZG+O3tA7F3CfMXmgZZV4OOjuoaAbgHh01F5MdEg1eQpg=="
+	},
+	"l8W4rhh9nTs=": {
+		"serialNumber": "2545389f96e29ed9371b60fb91386f989f8d1e5c",
+		"subject": "CN=DSC_DGC_FO_345334_VACCINATION_01, O=SJUKRAHUSVERKID, C=FO",
+		"issuer": "CN=Faroe Islands Health Authority CSCA v1, O=Gjaldstovan, C=FO",
+		"notBefore": "2021-07-08T14:45:31.000Z",
+		"notAfter": "2023-07-08T14:45:31.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "27958f55b937fe2c1de17f95352dabf9f0dd8639",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIp1kjKkjq85G7p7edy5EfNsWF0l4XZu5Rz+nL3viEVP/qiZYWwsQ30RXMDwixcFXI2tSzfu82J31dIEGQ3Ceog=="
+	},
 	"ub6Qmv9xtAo=": {
 		"serialNumber": "3d728332f59a570b7b",
 		"subject": "CN=FIRMA CERTIFICADO COVID DIGITAL UE 1, 2.5.4.5=Q2801221I, OU=SELLO ELECTRONICO, OU=DG SISTEMAS DE INFORMACION Y EQUIPAMIENTOS SANITARIOS, 2.5.4.97=VATES-Q2801221I, O=SERVICIO MADRILEÑO DE SALUD, C=ES",
