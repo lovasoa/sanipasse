@@ -1884,6 +1884,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE7U8cYsFNOZawVgxC9FBfvNzL05Xetv6jVxj+aii7IkXcXCIiRsruAdrAHCLCtpDgIFzwLsFNwJs5ZFu+8lr6nw=="
 	},
+	"ZpnsokK1DgM=": {
+		"serialNumber": "35000000049fddfe973542af18000000000004",
+		"subject": "C=MA, O=Kingdom of Morocco, OU=Ministry of Health, CN=DSC-MA",
+		"issuer": "C=MA, OU=Ministry of Health, O=Kingdom of Morocco, CN=CSCA Health MA",
+		"notBefore": "2021-09-16T13:54:20.000Z",
+		"notAfter": "2023-09-16T13:54:20.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "97ad2a6b0f83d152cb8fa8b64c2c901b47783f82",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvILEthEWN9hu06zQ9GCUCthQJ9OAa/0eskYOKbfQZVEf9kNzPEH9qbVrwvr8jhwKL6CKoXAefNLlrBKZ+Mtpzg=="
+	},
 	"Pcl7yBWEQ7c=": {
 		"serialNumber": "009747113986845f5ccc2040c73dfac46af030f9",
 		"subject": "C=MC, O=Principality of Monaco, OU=Ministry of Health and Social Affairs, CN=DSPKI_MC_DGC_1",
