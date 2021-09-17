@@ -2195,6 +2195,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErbWQM5hj5SeR23DzCV0TVKrFhfYsmNVVSbPFxwyw4ZEfersZ3bp2h+rw2BhbLbzVHZIwWfnhaKZ72+JciUksFQ=="
 	},
+	"Ui7DXQikstE=": {
+		"serialNumber": "34b324f7ad6d2ff355f15db7b1608a2685308f89",
+		"subject": "C=PA, ST=Panama, L=Panama, O=AIG, OU=AIG, CN=AIG",
+		"issuer": "C=PA, O=FIRMA ELECTRONICA, CN=AUTORIDAD NACIONAL PARA LA INNOVACION GUBERNAMENTAL",
+		"notBefore": "2021-09-16T11:14:42.000Z",
+		"notAfter": "2023-09-16T11:14:42.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "d0ac34a36e965e1820bd0671730465ca1008c04e",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE6B5cdgxOlktZr67WAjgdIgoJwG5ZSTRBM6yEZb0y3rrlIHQi95rlKO6dFtQxo5rRPZYjvWSbaqVBgvbc0djcxw=="
+	},
 	"hA1+pwEOxCI=": {
 		"serialNumber": "1618382320",
 		"subject": "C=RO, O=Ministerul Sanatatii, CN=BSC",
