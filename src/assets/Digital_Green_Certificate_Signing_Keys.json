@@ -1500,6 +1500,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEB5mLr8niSSWcqZ3EbDPjFseikZTP0rPRJPDW1+hvblECWjmEOsWEiXQ87RUStArNabZ9JMysQccgbb5IJ7bbOw=="
 	},
+	"Qw0ebn8uT4I=": {
+		"serialNumber": "421f4dbc5fcded82f2c0f42eda13031fb762243b",
+		"subject": "C=FR, ST=Some-State, O=Inria",
+		"issuer": "C=FR, ST=Some-State, O=Inria",
+		"notBefore": "2021-09-17T08:47:41.000Z",
+		"notAfter": "2022-09-17T08:47:41.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "8780368011f0930d6a4c81edd4c510b86a467852",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUOXG+vMbzpzkd0rmpI8erYChwTWSPcnAEo93BiH28hAQ+WyuhmClWS6q6FM5t9DM97M+njCQaqriBQ3ktH0eVA=="
+	},
 	"c3ByZGtleTI=": {
 		"serialNumber": "31021e39101b489e",
 		"subject": "C=GB, O=NHSScotland, OU=IT, CN=c3ByZGtleTI=",
