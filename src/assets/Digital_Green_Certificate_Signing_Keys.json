@@ -1024,6 +1024,91 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE65QJlG4NQ1UKM3/5Yf6n9u430S0gtEarOF4e+WrILwUamksO2zJfSgAwXJV2ZzzenNRml1iFffdf4V7yxzgLUw=="
 	},
+	"72XVTQ2A9Jw=": {
+		"serialNumber": "51292b760f078c1856afab4d3232d3b0",
+		"subject": "C=DE, O=Robert Koch-Institut, OU=Elektronischer Impfnachweis, CN=Robert Koch-Institut, L=Berlin, 2.5.4.17=13353, 2.5.4.9=Nordufer 20, 2.5.4.97=DT:DE-3023531445, 2.5.4.5=CSM027614703, ST=Berlin",
+		"issuer": "C=DE, O=D-Trust GmbH, CN=D-TRUST CA 2-2 2019, 2.5.4.97=NTRDE-HRB74346",
+		"notBefore": "2021-09-22T07:12:07.000Z",
+		"notAfter": "2023-09-26T07:12:07.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "e47c9f7775f32a29db09e8052bec295607d8fea2",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErm7fxPeto31KuUPtQl6VxVchANLA6NTLFaFJ5bupx2WsBsICmk32sqx46/ZCHCmiFqGyfYv9IxatTrP233n5zw=="
+	},
+	"hWoyHrtJs+E=": {
+		"serialNumber": "7268b482c23258cec16813653daf7d67",
+		"subject": "C=DE, O=Robert Koch-Institut, OU=Elektronischer Impfnachweis, CN=Robert Koch-Institut, L=Berlin, 2.5.4.17=13353, 2.5.4.9=Nordufer 20, 2.5.4.97=DT:DE-3023531445, 2.5.4.5=CSM027614758, ST=Berlin",
+		"issuer": "C=DE, O=D-Trust GmbH, CN=D-TRUST CA 2-2 2019, 2.5.4.97=NTRDE-HRB74346",
+		"notBefore": "2021-09-22T07:15:22.000Z",
+		"notAfter": "2023-09-26T07:15:22.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "0f0191d60dccd5022852bd91637adca080f23a75",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAExfzglJTFBrKFErvCRkqtHq0U7O7SmxzRntsiUENJFzkpxD0rHs+0H6Qb23WUiaDe368iOrWfNk03uOEjviJurg=="
+	},
+	"7byt9scureM=": {
+		"serialNumber": "43c1fa549aab83504619ecaeb7e775e3",
+		"subject": "C=DE, O=Robert Koch-Institut, OU=Elektronischer Impfnachweis, CN=Robert Koch-Institut, L=Berlin, 2.5.4.17=13353, 2.5.4.9=Nordufer 20, 2.5.4.97=DT:DE-3023531445, 2.5.4.5=CSM027614776, ST=Berlin",
+		"issuer": "C=DE, O=D-Trust GmbH, CN=D-TRUST CA 2-2 2019, 2.5.4.97=NTRDE-HRB74346",
+		"notBefore": "2021-09-22T07:17:42.000Z",
+		"notAfter": "2023-09-26T07:17:42.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "7c8c1738acb39afeb22be8596af9970c2d99b809",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZftKRdrOhX1qx8KzPyrbXB/V8TYi2ZAsEwcr5gkoSkiPWyN+LH0BaRwG6HbqfjpqgdFztwj6PIRisTIQ6LYXKQ=="
+	},
+	"EDSWY8Hnul4=": {
+		"serialNumber": "751fd2b1cf5c86c8c548d981fa213968",
+		"subject": "C=DE, O=Robert Koch-Institut, OU=Elektronischer Impfnachweis, CN=Robert Koch-Institut, L=Berlin, 2.5.4.17=13353, 2.5.4.9=Nordufer 20, 2.5.4.97=DT:DE-3023531445, 2.5.4.5=CSM027614837, ST=Berlin",
+		"issuer": "C=DE, O=D-Trust GmbH, CN=D-TRUST CA 2-2 2019, 2.5.4.97=NTRDE-HRB74346",
+		"notBefore": "2021-09-22T07:19:32.000Z",
+		"notAfter": "2023-09-26T07:19:32.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "952dc25b42299e539fbd4128d154bd393a71c5be",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE6JUSmYQDMdlfXO6t5UIh71Hhib6DZ7VFVaRHqIiSem6blCKAJ9bSQoEJDjl+zrXVBbnTZYJAtFXt+VBqIzq51A=="
+	},
+	"IKMstf8yj/4=": {
+		"serialNumber": "58efc10d30c33e9d60c741651a24347e",
+		"subject": "C=DE, O=Robert Koch-Institut, OU=Elektronischer Impfnachweis, CN=Robert Koch-Institut, L=Berlin, 2.5.4.17=13353, 2.5.4.9=Nordufer 20, 2.5.4.97=DT:DE-3023531445, 2.5.4.5=CSM027614916, ST=Berlin",
+		"issuer": "C=DE, O=D-Trust GmbH, CN=D-TRUST CA 2-2 2019, 2.5.4.97=NTRDE-HRB74346",
+		"notBefore": "2021-09-22T07:21:10.000Z",
+		"notAfter": "2023-09-26T07:21:10.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "c5c7f9703c4cbf4d494b7f0fd208b0a6181230a6",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAESb7iWoF0mDYKwlP2EkoD9oJdt0Ew3tomFYMPK51gX10VgQPMGAUhwigTTGrSJsT865r6sshKSy20xzsrMZ3buQ=="
+	},
 	"NAyCKly+hCg=": {
 		"serialNumber": "01",
 		"subject": "C=DK, O=The Danish Health Data Authority, OU=The Danish Health Data Authority, CN=PROD_DSC_DGC_DK_01, E=kontakt@sundhedsdata.dk",
