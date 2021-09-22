@@ -2,6 +2,7 @@ FROM node:16-alpine
 
 WORKDIR /code
 
+RUN echo update-notifier=false >> ~/.npmrc
 # Create a docker layer with only dependencies
 COPY package.json package-lock.json /code/
 RUN npm ci --no-optional
