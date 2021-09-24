@@ -82,7 +82,7 @@
 				type="url"
 				class="form-control"
 				bind:value={request.url}
-				placeholder="http://my-external-service/valid-pass-endpoint"
+				placeholder="http://my-external-service/passe-{text}"
 			/>
 		</label>
 		{#if request.method !== 'GET'}
