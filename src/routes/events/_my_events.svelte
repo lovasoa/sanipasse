@@ -1,11 +1,13 @@
 <script type="ts">
 	import type { DBEvent } from '$lib/event';
+	import { get_from_local_store } from '$lib/storage';
+
 	async function loadEvents() {
-		const localforage = await import('localforage');
-		return (await localforage.getItem<DBEvent[]>('events')) || [];
+		const stored = await get_from_local_store<DBEvent[]>('events');
+		return stored || [];
 	}
 	let events: Promise<DBEvent[]> | null = null;
-	if (typeof window !== 'undefined') events = loadEvents();
+	events = loadEvents();
 </script>
 
 {#await events then events}

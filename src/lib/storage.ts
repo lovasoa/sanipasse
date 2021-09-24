@@ -32,3 +32,8 @@ export async function get_from_local_store<T>(key: string): Promise<T | undefine
 	const element = await (await localforage).getItem(key);
 	return element as T;
 }
+
+export async function create_storage_instance(name: string): Promise<LocalForage> {
+	const storage = await localforage;
+	return storage.default.createInstance({ name });
+}

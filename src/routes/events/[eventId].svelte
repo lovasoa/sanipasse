@@ -9,7 +9,7 @@
 	import { onMount } from 'svelte';
 	import type { DBEvent, EventWithPeople } from '$lib/event';
 	import Communicate from './_communicate.svelte';
-	const localforage = import('localforage'); // Can fail on node
+	import { get_from_local_store, store_locally } from '$lib/storage';
 
 	const REFRESH_INTERVAL_SECONDS = 15;
 
@@ -40,13 +40,13 @@
 	 * Add the event to local storage
 	 */
 	async function persistEvent() {
-		const [storage, _data_ready] = await Promise.all([localforage, currentPromise]);
-		let events: DBEvent[] = (await storage.getItem('events')) || [];
+		await currentPromise;
+		let events: DBEvent[] = (await get_from_local_store('events')) || [];
 		events = events.filter((e) => e.private_code !== eventId);
 		if (!event) throw new Error('currentPromise loaded but event is null');
 		const { private_code, name, date } = event;
 		events.push({ private_code, name, date });
-		await storage.setItem('events', events);
+		await store_locally('events', events);
 	}
 
 	onMount(() => {

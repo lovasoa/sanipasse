@@ -1,4 +1,4 @@
-const localforage = import('localforage'); // Can fail on node
+import { create_storage_instance } from '$lib/storage';
 
 export const STATS_GRANULARITY_MILLIS = 3600 * 1000;
 
@@ -13,10 +13,7 @@ export interface StatsDataPoint {
 }
 
 async function instance(): Promise<LocalForage> {
-	const storage = await localforage;
-	return await storage.default.createInstance({
-		name: 'sanipasse_borne_stats'
-	});
+	return await create_storage_instance('sanipasse_borne_stats');
 }
 
 const END_OF_TIME = new Date(2100, 1, 1).getTime();
