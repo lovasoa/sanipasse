@@ -8,7 +8,7 @@ RUN case "$(arch)" in (*x86*) break;; *) apk add --update python2 make g++ musl-
 RUN echo update-notifier=false >> ~/.npmrc
 # Create a docker layer with only dependencies
 COPY package.json package-lock.json /code/
-RUN npm ci --no-optional --build-from-source
+RUN npm ci --no-optional
 COPY . /code
 
 # Build the code
