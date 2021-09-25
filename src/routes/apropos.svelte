@@ -131,25 +131,17 @@ Ophir LOJKINE
 84 rue de Charenton, 75012 Paris
 contact@ophir.dev
 </pre>
-<h4>🇪🇺 Hébergeur</h4>
+<h4>🇪🇺🇫🇷 Hébergeur</h4>
 <p>
-	Site hébergé par
-	<a href="https://www.hetzner.com/rechtliches/impressum">Hetzner</a>
-	(<a href="mailto:info@hetzner.com">info@hetzner.com</a>).
+	Ce site est hébergé dans un datacenter situé à Nevers, qui est en cours de certification
+	<a href="https://fr.wikipedia.org/wiki/ISO/CEI_27001">ISO 27001</a>
+	et
+	<a href="https://esante.gouv.fr/labels-certifications/hebergement-des-donnees-de-sante">HDS</a>.
 </p>
-<pre>
-Hetzner Online GmbH
-Industriestr. 25
-91710 Gunzenhausen
-Germany
-
-Tel.: +49 (0)9831 505-0*
-Fax: +49 (0)9831 505-3
-
-Ansbach Registration Office, HRB 6089
-VAT Reg. No. DE 812871812
-CEO: Martin Hetzner, Stephan Konvickova, Günther Müller
-</pre>
+<p>
+	Responsable de la protection des données et référent RGPD du datacenter:
+	<a href="mailto:c.brida@vsprod.net">Christophe Brida</a>.
+</p>
 
 <h3 id="cookies">🍪 Cookies</h3>
 <p>
