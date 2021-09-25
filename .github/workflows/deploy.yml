@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy
-        uses:  dokku/github-action@db5e3b84461e5e73c56d8b0f6a67aab0df25256c
+        uses: dokku/github-action@db5e3b84461e5e73c56d8b0f6a67aab0df25256c
         with:
           git_remote_url: ssh://dokku@beta.sanipasse.fr/sanipasse
           ssh_private_key: ${{ secrets.DEPLOY_KEY }}
