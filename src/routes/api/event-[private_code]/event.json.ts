@@ -13,8 +13,5 @@ export async function get({
 	});
 	if (!found) return { status: 404, body: { error: `event ${private_code} does not exist` } };
 	const body = found.toJSON() as JSONValue;
-	return {
-		headers: { 'Cache-Control': 'max-age=10' },
-		body
-	};
+	return { body };
 }
