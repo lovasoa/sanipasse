@@ -18,4 +18,3 @@ jobs:
         with:
           git_remote_url: ssh://dokku@beta.sanipasse.fr/sanipasse
           ssh_private_key: ${{ secrets.DEPLOY_KEY }}
-          git_push_flags: '--force'
