@@ -2,6 +2,10 @@ FROM node:16-alpine
 
 WORKDIR /code
 
+
+# Need to install python for node-gyp on platforms without prebuilt binaries
+RUN case "$(arch)" in (*x86*) break;; *) apk add --update python3; esac
+
 RUN echo update-notifier=false >> ~/.npmrc
 # Create a docker layer with only dependencies
 COPY package.json package-lock.json /code/
