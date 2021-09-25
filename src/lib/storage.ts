@@ -1,4 +1,8 @@
-const localforage = import('localforage'); // Can fail on node
+const localforage = import('localforage').then(async (localforage) => {
+	// workaround for https://github.com/localForage/localForage/issues/1038
+	if (typeof window === 'object') await localforage.default.ready();
+	return localforage.default;
+});
 
 async function ensure_persisted() {
 	if (typeof navigator !== 'object' || !navigator.storage || !navigator.storage.persist)
@@ -23,17 +27,19 @@ export async function storage_usage_ratio(): Promise<number | undefined> {
 export async function store_locally(key: string, value: any): Promise<boolean> {
 	if (typeof window !== 'object') return false;
 	const persisted = await ensure_persisted();
-	await (await localforage).setItem(key, value);
+	const storage = await localforage;
+	await storage.setItem(key, value);
 	return persisted;
 }
 
 export async function get_from_local_store<T>(key: string): Promise<T | undefined> {
 	if (typeof window !== 'object') return undefined; // Browser-only
-	const element = await (await localforage).getItem(key);
+	const storage = await localforage;
+	const element = await storage.getItem(key);
 	return element as T;
 }
 
 export async function create_storage_instance(name: string): Promise<LocalForage> {
 	const storage = await localforage;
-	return storage.default.createInstance({ name });
+	return storage.createInstance({ name });
 }
