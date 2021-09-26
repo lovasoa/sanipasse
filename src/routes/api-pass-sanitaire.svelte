@@ -64,16 +64,28 @@
 <p>Pour tester l'API en ligne de commande, on peut utiliser curl:</p>
 <p>
 	<code
-		>curl https://sanipasse.fr/api/validate_pass --header 'Content-Type: application/json' --data '{JSON.stringify(
+		>curl https://sanipasse.fr/api/validate_pass -H 'Content-Type: application/json' --data '{JSON.stringify(
 			code_example
 		)}' -v
 	</code>
 </p>
 
+<p>
+	ou python, avec la bibliothèque <a href="https://docs.python-requests.org/en/latest/">requests</a>:
+</p>
+<pre><code>
+import requests
+
+validation = requests.post(
+	'https://sanipasse.fr/api/validate_pass',
+	json={JSON.stringify(code_example)}
+).json()
+</code></pre>
+
 <h5>Interpréter le résultat</h5>
 <p>
 	Si la vérification fonctionne, quel qu'en soit le résultat (code valide ou non), l'API retournera
-	un code HTTP 200
+	un code HTTP 200.
 </p>
 <h6>Pour un code <strong>valide</strong></h6>
 <p>
@@ -103,3 +115,13 @@
 <p>
 	L'object <i>person</i> peut ne pas être présent si le passe présenté n'a pas un format correct.
 </p>
+
+<style>
+	pre {
+		color: #d63384;
+		background-color: #f8f8f8;
+		border-radius: 5px;
+		padding: 1rem;
+		border-left: 3px solid grey;
+	}
+</style>
