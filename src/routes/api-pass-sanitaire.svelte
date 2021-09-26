@@ -37,14 +37,24 @@
 	pouvez utiliser pour cela n'importe laquelle des bibliothèques de lecture existante, comme par
 	exemple la bibliothèque libre <a
 		href="https://github.com/zxing/zxing#project-in-maintenance-mode-only">ZXing</a
-	>
+	>.
 </p>
 <p>
 	Lorsque vous décodez un passe sanitaire européen, vous obtenez une suite de lettres et de chiffres
 	qui commence par <code>HC1:</code>. C'est cette chaîne de caractères que vous devrez fournir à
 	sanipasse.
 </p>
-
+<p>
+	<strong>Attention</strong>: Avant d'utiliser l'API, assurez-vous d'avoir correctement décodé le QR
+	code ou le <a href="https://en.wikipedia.org/wiki/Data_Matrix">DataMatrix</a>. Les codes
+	datamatrix contiennent notemment des
+	<a
+		href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange#Caract%C3%A8res_de_contr%C3%B4le"
+		>caractères de contrôle</a
+	>, invisibles, que certains lecteurs physiques ne lisent pas correctement. Pour vous assurer que
+	vous avez bien décodé un code, vous pouvez le réencoder en QR code ou en datamatrix, et vérifier
+	que l'image résultante peut bien être scannée dans sanipasse ou dans TousAntiCovid-Verif.
+</p>
 <h5 class="mt-3">Obtenir une clef d'API</h5>
 <p>
 	L'API demande de s'authentifier pour vérifier les passes sanitaires. Pour vous authentifier, il
