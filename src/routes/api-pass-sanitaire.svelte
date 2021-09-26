@@ -71,7 +71,8 @@
 </p>
 
 <p>
-	ou python, avec la bibliothèque <a href="https://docs.python-requests.org/en/latest/">requests</a>:
+	ou python, avec la bibliothèque <a href="https://docs.python-requests.org/en/latest/">requests</a
+	>:
 </p>
 <pre><code>
 import requests
