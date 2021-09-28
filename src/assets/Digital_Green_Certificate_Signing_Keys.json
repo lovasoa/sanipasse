@@ -1,4 +1,21 @@
 {
+	"mqWkXpNR0Rk=": {
+		"serialNumber": "3e51f824444f3e3dc6a14aef1290601c284998e7",
+		"subject": "C=AD, ST=Andorra, L=Escaldes-Engordany, O=SAAS, OU=SSII, CN=dsc",
+		"issuer": "2.5.4.97=NRTAD-U129638U, O=SAAS, CN=DGCG, C=AD",
+		"notBefore": "2021-09-05T11:57:22.000Z",
+		"notAfter": "2023-09-05T11:57:22.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "34577628bb01486fdb7170ab01d6b37687d6e942",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGvHqf7SYtlvevOyA/no+i1/WcmS0bOYP1bgP+pJTjTkBOpQi+f7Ie6415WFl9aoqzMmKRJmE6Ur4H+b9Vba7FA=="
+	},
 	"hHffSLS1AIU=": {
 		"serialNumber": "43ff62f3d371e5ccbacbce",
 		"subject": "C=AL, O=Ministria e Shendetesise dhe Mbrojtjes Sociale, OU=Production, CN=Ministria e Shendetesise dhe Mbrojtjes Sociale",
