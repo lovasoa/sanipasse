@@ -1,6 +1,6 @@
 {
 	"name": "sanipasse",
-	"version": "1.5.4",
+	"version": "1.5.5",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
