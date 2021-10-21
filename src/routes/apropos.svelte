@@ -86,17 +86,22 @@
 	Sanipasse restreint son utilisation des données personnelles au <b>strict minimum</b>.
 </p>
 <p>
-	Lorsque vous chargez un passe sanitaire <b>depuis la page d'accueil</b>, il reste sur votre
-	ordinateur, et n'est pas envoyé au serveur de sanipasse.
+	Lorsque vous chargez un passe sanitaire <b>depuis la page d'accueil</b>, ou depuis
+	<a href="/borne/config">sanipasse borne</a>, il reste sur votre appareil, et n'est pas envoyé au
+	serveur de sanipasse. Il est vérifié localement à partir des informations contenues dans le passe
+	lui-même et des règles officielles de validité des preuves d'immunité en vigueur en France. Sa
+	signature numérique est vérifiée à partir de la même liste de clefs publiques que celle utilisée
+	dans l'application TousAntiCovid-Vérif.
 </p>
 <p>
 	Lorsque vous chargez un passe sanitaire <b>en réponse à une invitation à un évènement</b>, et que
 	vous choisissez explicitement de l'envoyer, il est envoyé au serveur
-	<i>uniquement pour vérifier sa validité</i>. Une fois la validité vérifiée (en quelques
-	millisecondes), il est <i>immédiatement supprimé</i>. Nous ne gardons ensuite aucune trace des
-	informations sensibles, et conservons uniquement une donnée binaire: si oui ou non l'invitation
-	qui vous a été envoyée a été validée. Seule cette validation est visible par l'organisateur de
-	l'évènement. Aucun humain n'a ainsi accès aux informations contenues dans votre passe sanitaire.
+	<i>uniquement pour vérifier sa validité</i>. Il n'est jamais stocké de manière persistante sur le
+	serveur, et une fois la validité vérifiée (en quelques millisecondes), il est
+	<i>immédiatement supprimé</i> de la mémoire. Nous ne gardons ensuite aucune trace des informations
+	sensibles, et conservons uniquement une donnée binaire: si oui ou non l'invitation qui vous a été envoyée
+	a été validée. Seule cette validation est visible par l'organisateur de l'évènement. Aucun humain n'a
+	ainsi accès aux informations contenues dans votre passe sanitaire.
 </p>
 <p>
 	Pour toute demande concernant la gestion de la vie privée dans sanipasse (information, demande de
