@@ -74,6 +74,12 @@
 </ol>
 <h3 id="securite">🔑 Sécurité</h3>
 <p>
+	La connexion à sanipasse ne peut se faire qu'en https. Les données échangées entre votre
+	ordinateur et sanipasse ne peuvent pas être interceptées ni modifiées par un tiers. La connexion
+	se fait directement au serveur de sanipasse en France, il n'y a pas d'intermédiaire (de type CDN)
+	entre vous et le serveur habilité qui héberge l'application.
+</p>
+<p>
 	Les certificats de test ou de vaccination contiennent une
 	<a href="https://fr.wikipedia.org/wiki/Signature_num%C3%A9rique">signature numérique</a>, ce qui
 	empêche de les contrefaire. Si quelqu'un essaie de modifier un certificat existant ou d'en créer
