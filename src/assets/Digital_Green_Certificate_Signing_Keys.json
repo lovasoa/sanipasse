@@ -2471,14 +2471,14 @@
 		},
 		"publicKeyPem": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA144Qzvk4vkmWoGZUPGRepcNVPCbXy0tLeaxmuDuTbJIfyO0TwxrQllUOF+pni559+knMmUUk7PqfvU8fsbrNXHn4Wh1LzIVZkz/GuiQ44bR3b7k9kcS9vfOx14WiP41zx/vOmQXWaGx+mzC+RD6+w5T8hAdRjol6nUHAvstL0MbIylv+Fhi4s1qpmr1rR5liG/KI3uzaMjJvQC6d3R9Ee+q3ULTJ81+WyVe9sK9hY5Z/KzFrMbnbH2Y1/voIcLc+vjjVCOFJKkXhjz00/wu6NalMMN6MC+G9gZMHp69CJPB45hIBiAKfGEI4dq8lCthqi2orRoXmAyf6LxSBL6wZVu+naTXUJMVoXjFNXIyszm1MRQiagaoqOyctY/bg/RQgVSDrjtEN4MeMArSbehogEZuYL8GRRrnOEbWb86DEwMAYDbbPFEab3hsyZejJ3bxZdylWNj1V8QPyP2uvOLAFGwsvSzw7E34b0RcpEeOoQeKrT8nKPpFOFIQ3gBxyqlw4T+v/iENIxDWoWdvUO2/bkidNXecSn3XlzTT7OW8IbJ0M7D9htz/SPd55XP5sU5gF3wnwuWMIq1auj/LXwbRAh63OiUG+Bo4ssL7AkMcOpkYl25QZQOXzWykI0/ZZ8Hu/968eoYvMxbQD4EARMGDMwdkU5G+nuHniTS52kONbrZUCAwEAAQ=="
 	},
-	"KjE8h58xh7A=": {
+	"KBPNEuXUvrY=": {
 		"serialNumber": "01",
-		"subject": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health, OU=Ministry of Health, CN=zdravstvo.gov.mk",
+		"subject": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health\\, North Macedonia, OU=E-Health\\, North Macedonia, CN=zdravstvo.gov.mk, E=contact@zdravstvo.gov.mk",
 		"issuer": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health, CN=zdravstvo.gov.mk, E=contact@zdravstvo.gov.mk",
-		"notBefore": "2021-09-15T13:20:53.000Z",
-		"notAfter": "2022-09-15T13:20:53.000Z",
+		"notBefore": "2021-10-28T08:24:29.000Z",
+		"notAfter": "2022-10-28T08:24:29.000Z",
 		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
-		"fingerprint": "74b6427e733caff7a2a78355426de735915ff701",
+		"fingerprint": "43a72bbe36596fd18c0be85f5e28df22daf8a7ff",
 		"publicKeyAlgorithm": {
 			"hash": {
 				"name": "SHA-256"
@@ -2491,7 +2491,7 @@
 			},
 			"modulusLength": 4096
 		},
-		"publicKeyPem": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAy4Z5U8Qb5fGFqBdFLyUhGP4ZlweYKLIA0BUXsuNB1h4EkNmF9tfcGsaDDBwmH5feGWlxaiPmHgpm8ewKbtrNusMz9t2YuZz78f9Pdk6Cjhh7A1O7abtmonpEGNbUnmQr1xmp2y33RM+p+kG2YzwWhlVStm4OjJNmnuLplbCfLi8MZaqUxRvV8irjTLubqUCsgH1yOOLNnB00OVTog7oqDGGD5Lesj/7H7T7pqDH+DNvj1BnFVMDm1DbYGOd0NXZH7gr+Twi3a5Ogtrm6XYG65RuDO2IetJJzmME/FyMBgYntmu97eCDoKy1rdpA8GUMWOk9Mic2MD9d2DLlOjtbPUV63KkeuClZYLUN77tl06qUJRD6vSNLCnzxSQzhq/qmr8Bq5t0XCywl1ViaCFknPtZBTxszi/GbrzjQQUEwWl7rJKZQQTLifAifc7atDZHRhSzBTJ2IcxEppTllMEss2Wyk5OzhjILauTGk640q5nbr0mix7yDKW5Us5tzMvgQcd4Cp3E1USGBjKoLs+yT9C3skVA5Tjt6k4tc1B1sR+EftWaX3gEtl6XM2S9JZl1YNYyOjXNW5PRy+FmpWuEVBTBN8czKnqvi67dCZmgLIkv1ABw00XlWPoH6kAnKFCV9zShC6o9Ef7UX2hHchOLdjZxIJCY4nTu3OfC4rqey3EPGECAwEAAQ=="
+		"publicKeyPem": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA65H+Vak/9kWmQXGYEZEuA2hSykjqYu72g//uaBs/Ac0JYV9Zhqwjb6iPf1tATe87vzg7sD5gGOqtabbOYMcVW50e3X5Ix4XxKMMoAvtkyDI/TbMK4HqiEY5FVf/JhPZEp4+nSVjwhozn0p7pKSk+WKYEjIG/zpceLyikArxxSt5SwYdVMmau+6kdHT4Q0m3btE5ORl+B0exu+KS3xb6WRsiU5E8kXyQFBS3zK6DxFqDDVyWhWVt4NfoJt76ZE3zuXPutyPs3AVscJDWB5mkn/yM8Fg20WAsZ0O9p3uyyK+MSwFdRmUzK7Gr6dnQhce4oh0HTAFsodFwnDsPCfJxcskoIYZW2xWX1W03jpngQWXgA1eJ44/4Ve0u09w5DpwNrgT3SoznZhZ3DPfH38NV3fxhm8KuVmNtmKms2ctExY8RftHXMFAQC4jDgutnaJz1zyC95QVkp06drreGLzX4XvPYZZdZhh4UYqT/IYXaX2yt09Tu+ueVm1MRlWeuEzlYYApbMceBseE7MuWdCVPwcx/QMjp7b4BSnRH+w4XIqs/wS8nXkMyBEdCMbCH3PFKNQOmbmA3Lq6X2eFWhgRud3FGyPacS5ADeV/s/aei+UJY/i9tY/NeXCYLtox4PXucUU4gbU9wV7rvLTNvwWIr5gga/gu18hrHe6Dag7p9wsU3ECAwEAAQ=="
 	},
 	"lzGYCpOBQsU=": {
 		"serialNumber": "7fe579a881eb001055ae27216b30da120634c771",
