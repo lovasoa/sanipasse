@@ -33,6 +33,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAENFtonAma5ngnltfk78rprtlz8Cue6/t2XzvM/OR3wOn/1nD4QDWTP0KjGsFtiJ80Aed5gQ0JbMXUL8M2mQyQPw=="
 	},
+	"W0NjksmJMm0=": {
+		"serialNumber": "7ef228a98af8a32fc258f1473c5a158138003cb5",
+		"subject": "C=AM, ST=Some-State, L=Yerevan, O=Armed, CN=DSC_DGC_AM_O1",
+		"issuer": "C=AM, L=Yerevan, O=Armed, OU=DGCOperations, CN=CSCA_DGC_AM_01",
+		"notBefore": "2021-10-07T06:54:29.000Z",
+		"notAfter": "2023-10-07T06:54:29.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "e4f4126fe3f7862a8651e0fe2b7178a758f63f97",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGsoQ+d21h6C2haw4Ty4q/38Ux+t51x9qe6EhVH30tsO5cxpvULTb+FFQbkcHcu0V9WbqIyIMaANSYH4ntN1H4A=="
+	},
 	"Is2JtrOJhik=": {
 		"serialNumber": "0179ccf8be3b7e605c7b",
 		"subject": "C=AT, O=BMSGPK, 2.5.4.5=001001, CN=AT DGC DSC 1",
