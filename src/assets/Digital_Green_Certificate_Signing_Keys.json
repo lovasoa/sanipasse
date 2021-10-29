@@ -1980,6 +1980,91 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUOXG+vMbzpzkd0rmpI8erYChwTWSPcnAEo93BiH28hAQ+WyuhmClWS6q6FM5t9DM97M+njCQaqriBQ3ktH0eVA=="
 	},
+	"osFRFyFIWdU=": {
+		"serialNumber": "615085d2",
+		"subject": "C=GB, O=NHS Digital, ST=England & Wales, CN=DSC_DCC_GB_ENG_02",
+		"issuer": "C=GB, O=NHS Digital, CN=England DCC CSCA",
+		"notBefore": "2021-09-29T13:47:12.000Z",
+		"notAfter": "2023-09-29T14:17:12.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "fa9e99887bcee35cfe9fb3016cde8439b4e1d0fa",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE17Mn/OPO2RQfYEZM62rPQcvhfRd6ZTWo1MZnPvSBMCzjuY0ZdmtsXwDHH7wDOVcTs1NSylkb+/EmC1t/7XV0Ow=="
+	},
+	"jeetFC69E6o=": {
+		"serialNumber": "615085d4",
+		"subject": "C=GB, O=NHS Digital, ST=Gibraltar, CN=DSC_DCC_GB_GI_02",
+		"issuer": "C=GB, O=NHS Digital, CN=England DCC CSCA",
+		"notBefore": "2021-09-29T13:49:05.000Z",
+		"notAfter": "2023-09-29T14:19:05.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "aa3f57102b45d6b3a874060b071107dac9b45a4d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUQjAzEd62FL4s5OTPEOo7v0k//MUI3L99/10QFBMHH42q30Q8IrtpqgPGjgesWZFWWsoqGdXa1vHEsFGNtZNvw=="
+	},
+	"I0+qkOLr2e0=": {
+		"serialNumber": "615085d3",
+		"subject": "C=GB, O=NHS Digital, ST=Guernsey, CN=DSC_DCC_GB_GG_02",
+		"issuer": "C=GB, O=NHS Digital, CN=England DCC CSCA",
+		"notBefore": "2021-09-29T13:47:57.000Z",
+		"notAfter": "2023-09-29T14:17:57.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "85b2d7c9fa37def534cfaeef74d3f845d67aea4f",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsrcO+nNM8OkcO7IhbRh4D4D++Tgr3PyGt9q6vXkSwIY6vctXRXke4WdrRtWbYzB8xGREifNxSgd6Fdik+bg44g=="
+	},
+	"lYkujLws7SE=": {
+		"serialNumber": "615085d5",
+		"subject": "C=GB, O=NHS Digital, ST=Isle Of Man, CN=DSC_DCC_GB_IM_02",
+		"issuer": "C=GB, O=NHS Digital, CN=England DCC CSCA",
+		"notBefore": "2021-09-29T13:49:58.000Z",
+		"notAfter": "2023-09-29T14:19:58.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "7139d9b4d231d3b28f33c1a6142a31215b62e12a",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEKrPl/bqJRA4on2AtNgXUOhCwjkr8kUkeol8ZMH8d6+ILPJCgc3y4d2AnGcNMIxwk/JWVjD2V0lkxSB2Hh7shtA=="
+	},
+	"1PtilTAMiyk=": {
+		"serialNumber": "615085d6",
+		"subject": "C=GB, O=NHS Digital, ST=Jersey, CN=DSC_DCC_GB_JE_02",
+		"issuer": "C=GB, O=NHS Digital, CN=England DCC CSCA",
+		"notBefore": "2021-09-29T13:50:52.000Z",
+		"notAfter": "2023-09-29T14:20:52.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "4d020f5da04dac95d1afe4c819e25676797db4c3",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEORjyQk/KOoCEJWGfLLyqyEcOqRRreyVdSH+ELi4GqqS17W4aYeOl2cvm/5unZwgCQUzB09uxYESXGmBJ3xgsEg=="
+	},
 	"26YSc5g0nG8=": {
 		"serialNumber": "61519f7f",
 		"subject": "C=GB, O=NHS Scotland, ST=Scotland, CN=DSC_PRD_GB_NSS_01",
@@ -2448,28 +2533,6 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcrxlv5/uGbsaXM/QMSpvZV2iNtF0o4QBech6LGpy3OEefbJLf+4iqI19QNWtUXEjlMMytB4+1ESLHdXyki5X2g=="
-	},
-	"qEgQcWPd3xU=": {
-		"serialNumber": "01",
-		"subject": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health, OU=Ministry of Health, CN=zdravstvo.gov.mk",
-		"issuer": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health, CN=zdravstvo.gov.mk, E=contact@zdravstvo.gov.mk",
-		"notBefore": "2021-08-23T12:22:02.000Z",
-		"notAfter": "2022-08-23T12:22:02.000Z",
-		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
-		"fingerprint": "dbd631b2b552ff7cfd67e239b4fa953628a74e8d",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "RSASSA-PKCS1-v1_5",
-			"publicExponent": {
-				"0": 1,
-				"1": 0,
-				"2": 1
-			},
-			"modulusLength": 4096
-		},
-		"publicKeyPem": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA144Qzvk4vkmWoGZUPGRepcNVPCbXy0tLeaxmuDuTbJIfyO0TwxrQllUOF+pni559+knMmUUk7PqfvU8fsbrNXHn4Wh1LzIVZkz/GuiQ44bR3b7k9kcS9vfOx14WiP41zx/vOmQXWaGx+mzC+RD6+w5T8hAdRjol6nUHAvstL0MbIylv+Fhi4s1qpmr1rR5liG/KI3uzaMjJvQC6d3R9Ee+q3ULTJ81+WyVe9sK9hY5Z/KzFrMbnbH2Y1/voIcLc+vjjVCOFJKkXhjz00/wu6NalMMN6MC+G9gZMHp69CJPB45hIBiAKfGEI4dq8lCthqi2orRoXmAyf6LxSBL6wZVu+naTXUJMVoXjFNXIyszm1MRQiagaoqOyctY/bg/RQgVSDrjtEN4MeMArSbehogEZuYL8GRRrnOEbWb86DEwMAYDbbPFEab3hsyZejJ3bxZdylWNj1V8QPyP2uvOLAFGwsvSzw7E34b0RcpEeOoQeKrT8nKPpFOFIQ3gBxyqlw4T+v/iENIxDWoWdvUO2/bkidNXecSn3XlzTT7OW8IbJ0M7D9htz/SPd55XP5sU5gF3wnwuWMIq1auj/LXwbRAh63OiUG+Bo4ssL7AkMcOpkYl25QZQOXzWykI0/ZZ8Hu/968eoYvMxbQD4EARMGDMwdkU5G+nuHniTS52kONbrZUCAwEAAQ=="
 	},
 	"KBPNEuXUvrY=": {
 		"serialNumber": "01",
