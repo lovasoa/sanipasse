@@ -11,7 +11,15 @@ import { build, files, timestamp } from '$service-worker';
 
 const revision = new Date(timestamp).toISOString();
 
-const main_routes = ['/', '/import/video', '/import/file', '/fullscreen', '/apropos'];
+const main_routes = [
+	'/',
+	'/import/video',
+	'/import/file',
+	'/fullscreen',
+	'/apropos',
+	'/borne',
+	'/borne/config'
+];
 precache(main_routes.map((url) => ({ url, revision })));
 
 // Cache page navigations (html) with a Network First strategy
@@ -26,10 +34,10 @@ registerRoute(
 		plugins: [
 			// Ensure that only requests that result in a 200 status are cached
 			new CacheableResponsePlugin({ statuses: [200] }),
-			// Don't cache more than 10 items, and expire them after 7 days
+			// Don't cache more than 50 items, and expire them after 2 months
 			new ExpirationPlugin({
-				maxEntries: 10,
-				maxAgeSeconds: 60 * 60 * 24 * 7 // 7 Days
+				maxEntries: 50,
+				maxAgeSeconds: 60 * 60 * 24 * 31 * 2 // 2 months
 			})
 		]
 	})
