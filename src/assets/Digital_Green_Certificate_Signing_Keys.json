@@ -16,23 +16,6 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGvHqf7SYtlvevOyA/no+i1/WcmS0bOYP1bgP+pJTjTkBOpQi+f7Ie6415WFl9aoqzMmKRJmE6Ur4H+b9Vba7FA=="
 	},
-	"hHffSLS1AIU=": {
-		"serialNumber": "43ff62f3d371e5ccbacbce",
-		"subject": "C=AL, O=Ministria e Shendetesise dhe Mbrojtjes Sociale, OU=Production, CN=Ministria e Shendetesise dhe Mbrojtjes Sociale",
-		"issuer": "C=AL, O=NAIS, CN=NAIS Class 3 Certification Authority",
-		"notBefore": "2021-09-09T12:54:27.000Z",
-		"notAfter": "2022-09-09T12:54:27.000Z",
-		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
-		"fingerprint": "ccfa29b7d745dc990aa2ffbeb94147aa3a0bd155",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAENFtonAma5ngnltfk78rprtlz8Cue6/t2XzvM/OR3wOn/1nD4QDWTP0KjGsFtiJ80Aed5gQ0JbMXUL8M2mQyQPw=="
-	},
 	"W0NjksmJMm0=": {
 		"serialNumber": "7ef228a98af8a32fc258f1473c5a158138003cb5",
 		"subject": "C=AM, ST=Some-State, L=Yerevan, O=Armed, CN=DSC_DGC_AM_O1",
