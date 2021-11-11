@@ -272,6 +272,28 @@
 		},
 		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAphhhJq5dIl4yUEbliJyckuldKiylWZZfTRQNx/k0xUFU60n9tUR4Ky1AibJHIiN/nIhSZTgwSSuALWinuEriI1ROb++TsQODtC3dDFFbNIwq1sVuT1TI7o6nnGTRHxwJckNP5++obdKSZtUfT6LOClxFsNoYl2EAzwb8YdcOiWNEB8gj7aY+vPL9BmECb9IRxPwhOxzPYkgLUkvqzt2UzV6CFKM5t4LxM4pTICy9vlIViZTcx6FDJ78AuT2C5AbW+ILYmc6/V189uga2/PTyEJyABw3gRg2BItkwy1flAjQcNIhKzshorcwGPD9EtuqpWF26DyU/HIQUabptMC6PCwIDAQAB"
 	},
+	"CGFUps8kh3M=": {
+		"serialNumber": "48ee3a205e098dd5d0858d19a5147e00",
+		"subject": "C=CH, ST=Bern, L=Köniz, 2.5.4.15=Government Entity, 2.5.4.97=NTRCH-CHE-467.023.568, O=Bundesamt für Gesundheit (BAG), OU=GE-0220-BAG, OU=Taskforce BAG Covid-19, CN=CC_CH_1200005_0511",
+		"issuer": "C=CH, 2.5.4.97=VATCH-CHE-221.032.573, O=Bundesamt fuer Informatik und Telekommunikation (BIT), OU=Swiss Government PKI, CN=Swiss Government Regulated CA 02",
+		"notBefore": "2021-11-09T12:57:50.000Z",
+		"notAfter": "2024-11-09T12:57:50.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "4ed78a31ede71531157ad80219c83261808bea49",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 2048
+		},
+		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqssyXfYarvjSj+v2XSgQb6nPrpx+0p5CV98Hr4rSpcFJo8DOUf4BzWD4vpAY+kvrGrxnvBlZv+fBrnJcA46uPGpE0GILlqHFxBmm8CVbAS/UFrHf9DqG0AiMD9zLBsLCW9M+6zlIQkX5CsbWbjCunJoySDBQyMmvo74EFoTpJMW05yYZA9WRSGGf6qNCPxRkXPIaO43FMLWVlTTCAnHtXzHpakG5qZDULLEWZhOs78KT9oHCcTBakPb38pgUTBNwTFMPuSm57jtiqm8oPbx1hxxQGb6XxMuIa/eKWIh8z1/oLORaiixxU6YNHNPFbl5oAOX6CjN6i+krI2zbpisynQIDAQAB"
+	},
 	"l+UqotarLJc=": {
 		"serialNumber": "4fc761f717d8f7c38670a111dace61b9",
 		"subject": "C=CH, ST=Bern, L=Köniz, 2.5.4.15=Government Entity, 2.5.4.97=NTRCH-CHE-467.023.568, O=Bundesamt für Gesundheit (BAG), OU=GE-0220-BAG, OU=Taskforce BAG Covid-19, CN=CC_EU1201507_21_09",
@@ -2217,23 +2239,6 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE17Mn/OPO2RQfYEZM62rPQcvhfRd6ZTWo1MZnPvSBMCzjuY0ZdmtsXwDHH7wDOVcTs1NSylkb+/EmC1t/7XV0Ow=="
-	},
-	"jeetFC69E6o=": {
-		"serialNumber": "615085d4",
-		"subject": "C=GB, O=NHS Digital, ST=Gibraltar, CN=DSC_DCC_GB_GI_02",
-		"issuer": "C=GB, O=NHS Digital, CN=England DCC CSCA",
-		"notBefore": "2021-09-29T13:49:05.000Z",
-		"notAfter": "2023-09-29T14:19:05.000Z",
-		"signatureAlgorithm": "ECDSA",
-		"fingerprint": "aa3f57102b45d6b3a874060b071107dac9b45a4d",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUQjAzEd62FL4s5OTPEOo7v0k//MUI3L99/10QFBMHH42q30Q8IrtpqgPGjgesWZFWWsoqGdXa1vHEsFGNtZNvw=="
 	},
 	"I0+qkOLr2e0=": {
 		"serialNumber": "615085d3",
