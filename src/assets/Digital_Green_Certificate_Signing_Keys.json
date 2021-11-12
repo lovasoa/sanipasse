@@ -2709,6 +2709,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE7U8cYsFNOZawVgxC9FBfvNzL05Xetv6jVxj+aii7IkXcXCIiRsruAdrAHCLCtpDgIFzwLsFNwJs5ZFu+8lr6nw=="
 	},
+	"J8p9pf+5/9M=": {
+		"serialNumber": "3207d527d2885a076183a8459953d6cc",
+		"subject": "C=LV, O=NTRLV-90009649337, CN=lv_dsc_003",
+		"issuer": "C=LV, O=VAS Latvijas Valsts radio un televīzijas centrs, 2.5.4.97=NTRLV-40003011203, CN=Digital Green Certificate CSCA",
+		"notBefore": "2021-11-04T09:30:45.000Z",
+		"notAfter": "2023-11-04T09:30:45.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "c311543bc7be28dcd8341314ab508b85b07cecf3",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE6aTLMp6+apBgDNYyDeBS+BranY97xhfHhRYV+/D6WsCBJ93WCnduv7YsSFj4NGf/xoJynxeckYR3+JhYBvdOyA=="
+	},
 	"ZpnsokK1DgM=": {
 		"serialNumber": "35000000049fddfe973542af18000000000004",
 		"subject": "C=MA, O=Kingdom of Morocco, OU=Ministry of Health, CN=DSC-MA",
