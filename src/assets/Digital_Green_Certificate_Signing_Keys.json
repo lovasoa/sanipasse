@@ -2427,6 +2427,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEt5hwD0cJUB5TeQIAaE7nLjeef0vV5mamR30kjErGOcReGe37dDrmFAeOqILajQTiBXzcnPaMxWUd9SK9ZRexzQ=="
 	},
+	"IoybU6axZJE=": {
+		"serialNumber": "70fb3cd1491e1ff5",
+		"subject": "C=HR, O=AKD d.o.o., CN=Croatia DGC DS 002",
+		"issuer": "C=HR, O=AKD d.o.o., CN=Croatia DGC CSCA",
+		"notBefore": "2021-11-09T20:13:35.000Z",
+		"notAfter": "2023-11-09T20:13:34.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "7aa03e068a10cdcbaf80f863e69ca883e388e058",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsHGctEPFotenAxVqYr/5Ztl46BU9hWNYAYdGWihiGzRTOgXzONqCQJqB37pacA53L7OlXPFONvT9KWYvbsVeiw=="
+	},
 	"4GkJs9YsYS4=": {
 		"serialNumber": "6bf8149eb2ad4a8e17cd75533e457600fb4fc171",
 		"subject": "C=HU, ST=Budapest, L=Budapest, O=OKFO, CN=DGC_DSC_HU_PRD_20210628_01",
