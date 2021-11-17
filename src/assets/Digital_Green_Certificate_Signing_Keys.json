@@ -101,6 +101,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEU/f/KsmP3NasU/jZo7aulTrd9GHoznfnwWvX8xmHtK49EoobMAG7LhXnpLQ+aRwmmnSMcIWy8wPxM8QDMBUtyA=="
 	},
+	"aCU0KJl+gMg=": {
+		"serialNumber": "1be0d2eb679998fb",
+		"subject": "C=BE, O=eHealth - Belgium, CN=Belgium Covid19 DSC 02",
+		"issuer": "C=BE, O=eHealth - Belgium, CN=Belgium Covid19 Country Signing CA 01",
+		"notBefore": "2021-11-16T09:14:32.000Z",
+		"notAfter": "2023-11-16T09:14:32.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "e1620d6f1f86e581fa165c616f4f0742147e0ab2",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEX79y3o+S4vY8UyqO1uzSAT6W7zULpaFWqe6MqPue8fVNOhQ1bwN/yKHKN64HkcJ+sGIpLtgaJb4iGr06NiAWfQ=="
+	},
 	"Jjql9rBrjHI=": {
 		"serialNumber": "457555fc6ab622b9fa83f36a841516f8af746d0a",
 		"subject": "C=BG, L=Sofia, O=Ministry of Health, OU=Health Information System, CN=DGC DSC 1",
@@ -3988,6 +4005,28 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgUesihG8ECIDnqxEoU9RouOR9y3NVLBUlpZ+ri+Ur7TQLORQDE3s/M5KGEllwCbsgT6cXUAT8kun12mOcJt78g=="
+	},
+	"YgBnrpZDGXk=": {
+		"serialNumber": "06c172f21c0a8270c0646cff6e2ffef0db096ebb",
+		"subject": "CN=RS PROD DSC2, O=Kancelarija za informacione tehnologije i elektronsku upravu, C=RS",
+		"issuer": "C=RS, L=Beograd, 2.5.4.97=VATRS-110177886, O=Kancelarija za informacione tehnologije i elektronsku upravu, CN=RS NBCSCA",
+		"notBefore": "2021-11-15T14:34:18.000Z",
+		"notAfter": "2023-11-15T14:34:18.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "75852ba213c116a5a7b83c17518132f39062864b",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 2048
+		},
+		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtc0dmUPU8wLDfYTVnSXDxhCr4AHEG+GKSy13pMGI5Fj8IK1e9JVLrLoemtLnlaFV5WAPr6G8ialeG9TV9XnwfiiWzAaxLT28u8/8MG4jihRKw5cVAPC0mizABynleAzU+dOYkNFlmwEpt6M6+VXl39aild/WVqMnZ0I/k/Vg0tQe5lS7aBPBtb7WJaaOYhzDx2hcv0z7IrYSBmigWgl3jOO0TN+/1viQPtMbtbvC6gxXGDyQ8/HCwgt69HYNDHrBglFjLIvbelLuTsgoDoozIV+BUKIDal2vtAGvd1cDrN6YvqqiZRwqOn3gtv1oj/XmZUnl7aMtKisQ1MuqKVHmtQIDAQAB"
 	},
 	"FDNJjaSCWi0=": {
 		"serialNumber": "36b705ef7b615d27",
