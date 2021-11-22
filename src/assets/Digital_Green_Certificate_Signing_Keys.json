@@ -3666,6 +3666,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEa5QqEDGwiaDJSMCLVHg6l9ScX3LI/9mzuzs6e+E0YBgeKTdQ5VV0IBCSIZkgjSb/Hfzghmi9rOa9aGuww7BU9Q=="
 	},
+	"AcOmDWpm7kI=": {
+		"serialNumber": "6eaf1ed919f0cddb7c6c8988e4a85d4fbc2f2192",
+		"subject": "CN=DGC DS Signer 2, OU=LEPL Information Technologies Agency, O=Ministry of Internally Displaced Persons From the Occupied Territories\\, Labour\\, Health and Social Affairs of Georgia, C=GE",
+		"issuer": "CN=DGC Country Signing CA, OU=Public Service Development Agency, O=Ministry of Justice of Georgia, C=GE",
+		"notBefore": "2021-10-29T17:08:08.000Z",
+		"notAfter": "2023-10-29T17:08:07.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "dd996a9fbfa32e8a67550a4b650d8dad5aad4ebe",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE0OUh2s00z3fKc2NTrYN+8SQERWvy3gRdGsmjrGMZQ9nZPT3bYLYDuyuhpYfQ8CSOuU2bScmWN9xthX3T6V1T8g=="
+	},
 	"KG9lzdohSY0=": {
 		"serialNumber": "6fbdb8a5e535ddd74ad9489a5df67c9490372a90",
 		"subject": "CN=DGC DS, 2.5.4.5=001, O=Republica Portuguesa - Portuguese Republic, C=PT",
