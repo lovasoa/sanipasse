@@ -3343,6 +3343,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEH2+GOTdCPhSUdDZmaM7hq/hRJkZCd3wPyOwB8lS30s4N81r4XFpv1Yev+1bfB4A173DByhZyIKkdnZc/FfaAXQ=="
 	},
+	"6ptpKJA1J90=": {
+		"serialNumber": "2e8b88f33be316dac02d5f4cfdde81312c2e2463",
+		"subject": "C=TG, ST=MARITIME, L=LOME, O=INH, OU=INH, CN=inh.tg, E=wemboo.halatoko@inh.tg",
+		"issuer": "C=TG, ST=MARITIME, L=LOME, O=MENTD, OU=DCA, CN=e-certs.gouv.tg, E=support_it@support.gouv.tg",
+		"notBefore": "2021-11-25T08:54:40.000Z",
+		"notAfter": "2023-11-25T08:54:40.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "3e8fd576efb79fca389b8129fb8daeef368f7947",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/t+Slm3djgmEU6EDiHQ9NbBluAowmiJ1WRBnCP8M+zS4nz8F8i3999918JYKA4wJni8OaHwhzb+ay8KJIxhNFA=="
+	},
 	"gEIK4Q/lAG0=": {
 		"serialNumber": "00a875f8a85cfe85f0",
 		"subject": "C=TR, ST=ANKARA, L=ÃANKAYA, O=T.C. SAÄLIK BAKANLIÄI, OU=SAÄLIK BÄ°LGÄ° SÄ°STEMLERÄ° GENEL MÃDÃRLÃÄÃ, CN=healthpassgwuat.saglik.gov.tr",
