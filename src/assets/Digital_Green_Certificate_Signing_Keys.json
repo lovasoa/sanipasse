@@ -3292,6 +3292,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEaLOo1IGTspZSdr2BqdAvKjZjHfW/Zq8VDrI6nEhBlXUr3VCDlzjrXo5v6ix2qF9RCySJsHgZxUrqWQpFQbrbMw=="
 	},
+	"sG0xboj/6v0=": {
+		"serialNumber": "26261ac16d538af56d54535500daf17ae3ee1e0a",
+		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
+		"issuer": "C=SG, ST=Singapore, O=Ministry Of Health, CN=csca.notarise.gov.sg",
+		"notBefore": "2021-11-25T02:55:58.000Z",
+		"notAfter": "2023-11-25T02:55:58.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "569480c31d3ea4ff2bcbf83f9872826c58ab2d82",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcB5dWRJJkB1uJ6kGT/8FmeZvT/clMjPkEwgfnJgbgvzANk6VgEHWnGqJ7TdLpbO8+c8fTlTYPhr7+PoHrV8wrw=="
+	},
 	"90CNG8dcdn0=": {
 		"serialNumber": "254006017a711ec5354bcd8b7272128204eb6587",
 		"subject": "C=SI, O=NIJZ\\, National Institute of Public Health of Slovenia, OU=NIJZ eHealth, CN=Slovenian Digital Covid Certificate Signer",
