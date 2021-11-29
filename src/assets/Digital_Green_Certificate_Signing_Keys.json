@@ -1458,6 +1458,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEBmdgY/VORsecXxY/0xNNOzoJNRaVnMMmHs5jiXrGvaDOy1jzDUOyvR++Jxgf0+YuGyp5/UAY0QIh75b+JQnlHA=="
 	},
+	"3PjDrYgWm+s=": {
+		"serialNumber": "03",
+		"subject": "C=DK, O=The Danish Health Data Authority, OU=The Danish Health Data Authority, CN=PROD_DSC_DGC_DK_02, E=kontakt@sundhedsdata.dk",
+		"issuer": "C=DK, O=The Danish Health Data Authority, OU=The Danish Health Data Authority, CN=PROD_CSCA_DGC_DK_01, E=kontakt@sundhedsdata.dk",
+		"notBefore": "2021-11-26T13:19:08.000Z",
+		"notAfter": "2023-11-27T13:19:08.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "2eea5c243efd325266f836f470c9337294c84e23",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEBBCZuYS5AdmmA/1r2rDkZuzZEsQx3t+itWKrCplloA3T6hj0zjXxQ+VA8NL9zVMOs+qimse+1kmycNPxBuSO1g=="
+	},
 	"GuQPQRxbMsU=": {
 		"serialNumber": "03c228cf2be4325160b0efec53e4e7af",
 		"subject": "C=ES, O=EUSKO JAURLARITZA - GOBIERNO VASCO, OU=SELLO ELECTRONICO, 2.5.4.97=VATES-S4833001C, CN=DIRECCIÓN DE SALUD PÚBLICA Y ADICCIONES",
