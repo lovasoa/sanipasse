@@ -38,7 +38,7 @@ export function findCertificateError(
 	c: CommonCertificateInfo,
 	event?: DBEvent
 ): string | undefined {
-	const MAX_NEGATIVE_TEST_AGE_HOURS = 72;
+	const MAX_NEGATIVE_TEST_AGE_HOURS = 24;
 	const MIN_POSITIVE_TEST_AGE_DAYS = 15;
 	const MAX_POSITIVE_TEST_AGE_DAYS = 6 * 30;
 	const MIN_VACCINATION_AGE_DAYS = 7;
