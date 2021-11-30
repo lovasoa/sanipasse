@@ -84,6 +84,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEYE24qIKmdcfRWUh2TqklkfZ6nyNBpX4VHeLMxfFl8rkQ8Zku0bcnH5OZXckkSt+tKs+FGZ9tKJ1VtNDmedlL6w=="
 	},
+	"ffwxqXFau6Q=": {
+		"serialNumber": "017d6c73669e41996a22",
+		"subject": "C=AT, O=BMSGPK, 2.5.4.5=001002, CN=AT DGC DSC 2",
+		"issuer": "C=AT, O=BMSGPK, 2.5.4.5=001, CN=AT DGC CSCA 1",
+		"notBefore": "2021-11-29T16:07:22.000Z",
+		"notAfter": "2023-11-29T16:07:22.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "0dd0fc1fe036d110b91e9704a68905b747e597fd",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4L/6FXPhU5Bn0Z8byu4KQXQtyCbGJ1frBcXH4Hy5eCrKzevc72e1TnAi2yCMytCyQ5ULvtRxrVYHIQvQkpcskg=="
+	},
 	"ODqaG8mnbro=": {
 		"serialNumber": "5dfefffd3a560d58",
 		"subject": "C=BE, O=eHealth - Belgium, CN=Belgium Covid19 DSC 01",
@@ -3614,6 +3631,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvW8QeGk0YQMGQ/wG2vpPalRdoKNfd48O2qW5uP6gmgRm1OnrQr2gtH3XKxNfVDeuNuqeomsSRkDWa3DXqwLc4A=="
+	},
+	"uP22Xh56SMM=": {
+		"serialNumber": "017d6c6d102c66c270f9",
+		"subject": "CN=AT DGC DSC, OU=PROD, OU=Internal HSMF, O=BMSGPK, C=AT, 2.5.4.5=2",
+		"issuer": "C=AT, O=BMSGPK, 2.5.4.5=001, CN=AT DGC CSCA 1",
+		"notBefore": "2021-11-29T16:00:26.000Z",
+		"notAfter": "2023-11-29T16:00:26.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "78b288424d81a996dd2d64c2910208c4bff261d3",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4L/6FXPhU5Bn0Z8byu4KQXQtyCbGJ1frBcXH4Hy5eCrKzevc72e1TnAi2yCMytCyQ5ULvtRxrVYHIQvQkpcskg=="
 	},
 	"e9SH8dtWwdY=": {
 		"serialNumber": "739a56c15aa266ee4f",
