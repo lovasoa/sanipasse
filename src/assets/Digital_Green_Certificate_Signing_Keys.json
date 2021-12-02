@@ -1492,6 +1492,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEBBCZuYS5AdmmA/1r2rDkZuzZEsQx3t+itWKrCplloA3T6hj0zjXxQ+VA8NL9zVMOs+qimse+1kmycNPxBuSO1g=="
 	},
+	"Pp2KBZWzfPI=": {
+		"serialNumber": "1f",
+		"subject": "C=EE, O=Estonia, OU=Health and Welfare Information Systems Centre, CN=03-2021_DCC",
+		"issuer": "C=EE, O=Estonia, OU=Police and Border Guard Board, 2.5.4.5=01-2020, CN=CSCA_Estonia",
+		"notBefore": "2021-12-01T13:09:24.000Z",
+		"notAfter": "2024-05-29T13:09:24.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "ab22138807d70bc6b95d2776106ce275e250756c",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEV46zJLij0cY8emOFjsMFj8cAlEKPe2YMoVAlSG4c4FQ6TlvsXAcxQjJaJu6+GHNyzryOerA6BGialxIpGqlT3Q=="
+	},
 	"GuQPQRxbMsU=": {
 		"serialNumber": "03c228cf2be4325160b0efec53e4e7af",
 		"subject": "C=ES, O=EUSKO JAURLARITZA - GOBIERNO VASCO, OU=SELLO ELECTRONICO, 2.5.4.97=VATES-S4833001C, CN=DIRECCIÓN DE SALUD PÚBLICA Y ADICCIONES",
