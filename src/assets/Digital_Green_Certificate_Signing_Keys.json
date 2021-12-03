@@ -3921,6 +3921,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEqF22rG5bDXpWn/tKy358h2KwYyaSKzCZV0HJptUQq7sWxfeDE86HSoebBrpOvpjhZX2/ZkTF/YRlkh0ztnkclw=="
 	},
+	"kom9zby5Hiw=": {
+		"serialNumber": "024474bbfd036073ff",
+		"subject": "CN=IBSALUT-CCD-SELLO-2022S1, 2.5.4.5=Q0719003F, OU=SELLO ELECTRONICO, 2.5.4.97=VATES-Q0719003F, O=SERVICIO DE SALUD DE LAS ISLAS BALEARES, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2021-12-01T07:30:00.000Z",
+		"notAfter": "2023-12-01T07:29:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "e2348cbb0e107546bead709cf4a97ece63618535",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEHb40uYRSb8HldBeABfUUzccwn4CaKfb0+UlvuuRXAUodqSZq8D5YMFdQ7IWNHGz+snQ7jyya5IeXVneaQ1joew=="
+	},
 	"/IcqIBnnZzc=": {
 		"serialNumber": "0431c60cfc00ee4629",
 		"subject": "CN=IBSALUT-CVD-SELLO, 2.5.4.5=Q0719003F, OU=SELLO ELECTRONICO, 2.5.4.97=VATES-Q0719003F, O=SERVICIO DE SALUD DE LAS ISLAS BALEARES, C=ES",
