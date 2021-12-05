@@ -72,8 +72,8 @@
 					type="date"
 					class="form-control"
 					required
-					min={new Date().toISOString().substr(0, 10)}
-					value={date.toISOString().substr(0, 10)}
+					min={new Date().toISOString().slice(0, 10)}
+					value={date.toISOString().slice(0, 10)}
 					on:change={(e) => {
 						const d = inputDate(e);
 						date.setFullYear(d.getFullYear());
