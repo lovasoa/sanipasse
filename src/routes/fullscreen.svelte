@@ -15,12 +15,6 @@
 			? code
 			: 'https://bonjour.tousanticovid.gouv.fr/app/wallet2d#' + encodeURIComponent(code);
 		writer.writeToDom(div, contents, width, height, new Map());
-		// See https://github.com/zxing-js/browser/pull/59
-		const svg = div.querySelector('svg');
-		if (svg) {
-			svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
-			svg.style.width = '100%';
-		}
 	}
 	$: if (div) updateCode(div);
 </script>
