@@ -45,7 +45,7 @@
 		width: 100%;
 		min-height: 50vh;
 	}
-	div svg {
+	div :global(svg) {
 		width: 100%;
 	}
 </style>
