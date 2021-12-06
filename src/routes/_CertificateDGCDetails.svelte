@@ -50,14 +50,14 @@
 		'ORG-100010771': 'Sinopharm Weiqida Europe Pharmaceutical s.r.o. - Prague location',
 		'ORG-100024420': 'Sinopharm Zhijun (Shenzhen) Pharmaceutical Co. Ltd. - Shenzhen location',
 		'ORG-100032020': 'Novavax CZ AS',
-		'ORG-100007893': 'R-Pharm CJSC',
+		'ORG-100007893': 'R-Pharm CJSC'
 	};
 
 	const vaccines: { [code: string]: string } = {
 		'EU/1/20/1528': 'vaccin Pfizer–BioNTech contre la Covid-19',
 		'EU/1/20/1507': 'vaccin de Moderna contre la Covid-19',
 		'EU/1/21/1529': "vaccin d'AstraZeneca-Oxford contre la Covid-19",
-		'EU/1/20/1525': 'vaccin de Janssen contre la Covid-19',
+		'EU/1/20/1525': 'vaccin de Janssen contre la Covid-19'
 	};
 
 	const diseases: { [code: string]: string } = {
