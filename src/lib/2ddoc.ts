@@ -242,6 +242,7 @@ function getCertificateInfo(cert: Certificate2ddoc): CommonCertificateInfo {
 		return {
 			type: 'test',
 			test_date: cert.analysis_datetime,
+			test_type: cert.analysis_code,
 			is_negative: cert.analysis_result === 'N',
 			is_inconclusive: cert.analysis_result === 'X',
 			first_name: cert.tested_first_name,

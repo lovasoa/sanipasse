@@ -243,6 +243,7 @@ function getCertificateInfo(cert: DGC): CommonCertificateInfo {
 		return {
 			type: 'test',
 			test_date: new Date(hcert.t[0].sc),
+			test_type: hcert.t[0].tt,
 			// 260415000=not detected: http://purl.bioontology.org/ontology/SNOMEDCT/260415000
 			is_negative: hcert.t[0].tr === '260415000',
 			is_inconclusive: !['260415000', '260373001'].includes(hcert.t[0].tr),
@@ -253,6 +254,7 @@ function getCertificateInfo(cert: DGC): CommonCertificateInfo {
 		return {
 			type: 'test',
 			test_date: new Date(hcert.r[0].fr), // date of positive test
+			test_type: '943092', // PCR test
 			is_negative: false,
 			is_inconclusive: false,
 			...common
