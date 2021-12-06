@@ -4,7 +4,9 @@ on:
   schedule: # every day at 3:37 and 13:37 UTC
     - cron: '37 3,13 * * *'
   push:
-    branches: ['auto_fetch_certificate']
+    paths:
+      - '.github/workflows/renew_certificates.yml'
+      - 'fetch_certificates.js'
 
 jobs:
   build:
