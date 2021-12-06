@@ -11,9 +11,11 @@ async function main() {
 	if (!TOKEN)
 		return console.log(
 			'Missing environment variable TACV_TOKEN. ' +
-				'You can get the value of the token from the TousAntiCovid Verif application.'
+			'You can get the value of the token from the TousAntiCovid Verif application.'
 		);
-	const certs = await get_data(TOKEN);
+	const tacv_data = await get_data(TOKEN);
+	fs.promises.writeFile('/tmp/tacv_data.json', JSON.stringify(tacv_data));
+	const certs = await get_certs(tacv_data);
 	const contents = JSON.stringify(certs, null, '\t') + '\n';
 	await fs.promises.writeFile(OUTFILE, contents);
 	console.log(`Wrote ${Object.keys(certs).length} certificates to ${OUTFILE}`);
@@ -25,8 +27,11 @@ async function get_data(token) {
 		headers: { Authorization: `Bearer ${token}` }
 	});
 	if (resp.status !== 200) throw new Error(`API returned error: ${await resp.text()}`);
-	const { certificates2DDoc, certificatesDCC } = await resp.json();
-	const entries = Object.entries(certificatesDCC);
+	return await resp.json();
+}
+
+async function get_certs(tacv_data) {
+	const entries = Object.entries(tacv_data.certificatesDCC);
 	const parsed = await Promise.all(
 		entries.map(async ([kid, cert]) => {
 			return [kid, await parseCert(cert)];
