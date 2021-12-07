@@ -44,6 +44,6 @@ export function findCertificateError(
 	const { start, end } = validity;
 	const target_date = event?.date || new Date();
 	const err_msg = `La validité de ce certificat de ${c.type}`;
-	if (start > target_date) return `${err_msg} commence le ${start.toLocaleDateString()}.`;
-	if (end < target_date) return `${err_msg} se termine le ${end.toLocaleDateString()}.`;
+	if (start > target_date) return `${err_msg} commence le ${start.toLocaleDateString('fr')}.`;
+	if (end < target_date) return `${err_msg} se termine le ${end.toLocaleDateString('fr')}.`;
 }
