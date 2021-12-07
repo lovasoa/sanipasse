@@ -36,17 +36,9 @@
 				<span class="last_name">{info.last_name}</span>
 			</p>
 			<p>🎂 Né(e) le {info.date_of_birth.toLocaleDateString('fr')}</p>
-			{#if 'invalid' in validity}
-				<p>❌ {validity.invalid}</p>
-			{:else}
-				<p>
-					📅 Certificat valide
-					{#if new Date() < validity.start}
-						à partir du {validity.start.toLocaleDateString('fr')}
-					{:else if Date.now() + 1000 * 3600 * 24 * 365 * 2 > validity.end.getTime()}
-						jusqu'au {validity.end.toLocaleDateString('fr')}
-					{/if}
-				</p>
+			{#if !error && 'end' in validity && Date.now() + 1000 * 3600 * 24 * 365 > validity.end.getTime()}
+				<!-- Avertissement à propos des certificats qui vont expirer -->
+				<p class="error">📅 Certificat valide jusqu'au {validity.end.toLocaleDateString('fr')}</p>
 			{/if}
 		</Col>
 	</Row>
