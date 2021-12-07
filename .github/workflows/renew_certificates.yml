@@ -26,6 +26,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@6bb739433928fbc2bdc635d41105e124d0dce021
         with:
+          base: master
           commit-message: Auto-update certificates from TAC-Verif
           branch: auto-certificate-updates
           title: '[Bot] Update Digital Green Certificate signing keys'
