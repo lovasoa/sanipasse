@@ -4,8 +4,10 @@
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import Certificate2ddocDetails from './_Certificate2ddocDetails.svelte';
 	import CertificateDgcDetails from './_CertificateDGCDetails.svelte';
+	import { validityInterval } from '$lib/tac_verif_rules';
 	export let info: CommonCertificateInfo;
 	export let with_fullscreen = false;
+	const validity = validityInterval(info);
 	$: error = findCertificateError(info);
 	$: source = info.source;
 </script>
@@ -34,6 +36,18 @@
 				<span class="last_name">{info.last_name}</span>
 			</p>
 			<p>🎂 Né(e) le {info.date_of_birth.toLocaleDateString('fr')}</p>
+			{#if 'invalid' in validity}
+				<p>❌ {validity.invalid}</p>
+			{:else}
+				<p>
+					📅 Certificat valide
+					{#if new Date() < validity.start}
+						à partir du {validity.start.toLocaleDateString('fr')}
+					{:else if Date.now() + 1000 * 3600 * 24 * 365 * 2 > validity.end.getTime()}
+						jusqu'au {validity.end.toLocaleDateString('fr')}
+					{/if}
+				</p>
+			{/if}
 		</Col>
 	</Row>
 	<Row>

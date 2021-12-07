@@ -7,6 +7,8 @@ import fs from 'fs';
 
 async function main() {
 	const OUTFILE = 'src/assets/Digital_Green_Certificate_Signing_Keys.json';
+	const ALL_DATA_FILE = '/tmp/tacv_data.json';
+	const VALIDITY_DATA_FILE = 'src/assets/validity_data.json';
 	const TOKEN = process.env['TACV_TOKEN'];
 	if (!TOKEN)
 		return console.log(
@@ -14,7 +16,16 @@ async function main() {
 				'You can get the value of the token from the TousAntiCovid Verif application.'
 		);
 	const tacv_data = await get_data(TOKEN);
-	fs.promises.writeFile('/tmp/tacv_data.json', JSON.stringify(tacv_data));
+
+	fs.promises.writeFile(ALL_DATA_FILE, JSON.stringify(tacv_data));
+	console.log('Saved all data to ' + ALL_DATA_FILE);
+
+	fs.promises.writeFile(
+		VALIDITY_DATA_FILE,
+		JSON.stringify(tacv_data.specificValues.validity, null, '\t') + '\n'
+	);
+	console.log('Saved validity data to ' + VALIDITY_DATA_FILE);
+
 	const certs = await get_certs(tacv_data);
 	const contents = JSON.stringify(certs, null, '\t') + '\n';
 	await fs.promises.writeFile(OUTFILE, contents);
