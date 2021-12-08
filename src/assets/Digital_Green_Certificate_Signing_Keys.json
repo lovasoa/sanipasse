@@ -3343,6 +3343,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEaLOo1IGTspZSdr2BqdAvKjZjHfW/Zq8VDrI6nEhBlXUr3VCDlzjrXo5v6ix2qF9RCySJsHgZxUrqWQpFQbrbMw=="
 	},
+	"+vl/c99Cv/8=": {
+		"serialNumber": "60e1483b9e0b106a8e73cc3c6ead36e5",
+		"subject": "C=SE, O=Swedish eHealth Agency, 2.5.4.97=202100-6552, CN=DCC Signer 2112",
+		"issuer": "C=SE, O=Swedish eHealth Agency, OU=Digital Covid Certificate Services, 2.5.4.97=202100-6552, CN=Swedish Digital Covid Certificate CSCA",
+		"notBefore": "2021-12-08T15:24:13.000Z",
+		"notAfter": "2023-12-08T15:44:13.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "f06c7a8cd8774fb7425fe1531843c5d3f797f3e3",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAENqC9CFgwoaauq1YH3Z9eCqrQMj5baENs73YJbL+iXVTs3aBZRYMlmZsHdD5fT74SCqhU5zfAW+RSQTuX5dF37Q=="
+	},
 	"sG0xboj/6v0=": {
 		"serialNumber": "26261ac16d538af56d54535500daf17ae3ee1e0a",
 		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
