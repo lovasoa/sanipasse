@@ -12,6 +12,6 @@ export const put = async ({ body }: { body: EventData }): Promise<EndpointOutput
 	});
 	return {
 		status: 201, // created
-		body: created.toJSON() as unknown as DefaultBody
+		body: (created.toJSON() as unknown) as DefaultBody
 	};
 };
