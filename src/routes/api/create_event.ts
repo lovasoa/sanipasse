@@ -1,7 +1,7 @@
 import type { EndpointOutput } from '@sveltejs/kit';
 import { Event } from '$lib/database';
 import type { EventData } from '$lib/event';
-import type { JSONValue } from '@sveltejs/kit/types/endpoint';
+import type { DefaultBody } from '@sveltejs/kit/types/endpoint';
 
 export const put = async ({ body }: { body: EventData }): Promise<EndpointOutput> => {
 	const date = new Date(body.date);
@@ -12,6 +12,6 @@ export const put = async ({ body }: { body: EventData }): Promise<EndpointOutput
 	});
 	return {
 		status: 201, // created
-		body: created.toJSON() as JSONValue
+		body: created.toJSON() as unknown as DefaultBody
 	};
 };

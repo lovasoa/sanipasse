@@ -49,7 +49,7 @@ export const post: Endpoint = async ({ body: { code, key } }) => {
 		};
 		error = findCertificateError(parsed);
 	} catch (err) {
-		error = err.message;
+		error = (err as Error).message;
 	}
 	if (!error) validated = true;
 	return { status: 200, body: { validated, error, person } };
