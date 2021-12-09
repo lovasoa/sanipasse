@@ -11,11 +11,11 @@
 	"recoveryEndDay": 183,
 	"vaccineDelay": 7,
 	"vaccineDelayMax": 214,
+	"vaccineDelayMaxRecovery": 221,
 	"vaccineDelayJanssen": 28,
 	"vaccineDelayMaxJanssen": 6000,
 	"vaccineBoosterDelay": 0,
 	"vaccineBoosterDelayMax": 6000,
 	"vaccineBoosterDelayUnderAge": 0,
-	"vaccineBoosterAge": 650,
-	"vaccineDelayMaxRecovery": 221
+	"vaccineBoosterAge": 650
 }
