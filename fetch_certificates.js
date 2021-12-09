@@ -8,7 +8,6 @@ import fs from 'fs';
 async function main() {
 	const OUTFILE = 'src/assets/Digital_Green_Certificate_Signing_Keys.json';
 	const ALL_DATA_FILE = '/tmp/tacv_data.json';
-	const VALIDITY_DATA_FILE = 'src/assets/validity_data.json';
 	// Concatenated sh256 fingerprints of blacklisted certificates
 	const BLACKLIST_FILE = 'src/assets/blacklist.json';
 
@@ -16,7 +15,7 @@ async function main() {
 	if (!TOKEN)
 		return console.log(
 			'Missing environment variable TACV_TOKEN. ' +
-				'You can get the value of the token from the TousAntiCovid Verif application.'
+			'You can get the value of the token from the TousAntiCovid Verif application.'
 		);
 	const tacv_data = await get_data(TOKEN);
 
@@ -24,12 +23,7 @@ async function main() {
 		.writeFile(ALL_DATA_FILE, JSON.stringify(tacv_data))
 		.then(() => console.log('Saved all data to ' + ALL_DATA_FILE));
 
-	fs.promises
-		.writeFile(
-			VALIDITY_DATA_FILE,
-			JSON.stringify(tacv_data.specificValues.validity, null, '\t') + '\n'
-		)
-		.then(() => console.log('Saved validity data to ' + VALIDITY_DATA_FILE));
+	save_validity_data(tacv_data);
 
 	fs.promises
 		.writeFile(
@@ -60,6 +54,22 @@ async function get_data(token) {
 	return await resp.json();
 }
 
+async function save_validity_data(tacv_data) {
+	const VALIDITY_DATA_FILE = 'src/assets/validity_data.json';
+	const validity = tacv_data.specificValues.validity;
+	const sorted = Object.fromEntries(
+		Object.entries(validity)
+			.sort(([a], [b]) => a > b ? 1 : -1)
+	);
+	await writeNiceJson(sorted, VALIDITY_DATA_FILE);
+	console.log('Saved validity data to ' + VALIDITY_DATA_FILE);
+}
+
+async function writeNiceJson(data, filename) {
+	const nice = JSON.stringify(data, null, '\t') + '\n';
+	return fs.promises.writeFile(filename, nice);
+}
+
 async function get_certs(tacv_data) {
 	const entries = Object.entries(tacv_data.certificatesDCC);
 	const parsed = await Promise.all(
@@ -69,7 +79,7 @@ async function get_certs(tacv_data) {
 	);
 	const sorted = parsed
 		.filter((cert) => !!cert) // Remove certificates that could not be decoded
-		.sort(([k1, a], [k2, b]) => (a.subject < b.subject ? -1 : 1));
+		.sort(([_k1, a], [_k2, b]) => (a.subject < b.subject ? -1 : 1));
 	return Object.fromEntries(sorted);
 }
 async function parseCert(cert) {
