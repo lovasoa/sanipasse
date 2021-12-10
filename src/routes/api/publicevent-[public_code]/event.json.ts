@@ -1,6 +1,5 @@
 import type { EndpointOutput } from '@sveltejs/kit';
 import { Event } from '$lib/database';
-import type { JSONValue } from '@sveltejs/kit/types/endpoint';
 
 export async function get({
 	params: { public_code }
@@ -12,6 +11,6 @@ export async function get({
 		attributes: ['name', 'date']
 	});
 	if (!found) return { status: 404, body: { error: `event ${public_code} does not exist` } };
-	const body = found.toJSON() as JSONValue;
+	const body = found.toJSON<{ name: string; date: Date }>();
 	return { body };
 }

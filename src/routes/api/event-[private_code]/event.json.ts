@@ -1,6 +1,6 @@
 import type { EndpointOutput } from '@sveltejs/kit';
-import { Event, Person } from '$lib/database';
-import type { JSONValue } from '@sveltejs/kit/types/endpoint';
+import { AsJson, Event, Person } from '$lib/database';
+import type { DBEvent } from '$lib/event';
 
 export async function get({
 	params: { private_code }
@@ -12,6 +12,6 @@ export async function get({
 		include: { model: await Person, attributes: ['key', 'validated', 'invited'] }
 	});
 	if (!found) return { status: 404, body: { error: `event ${private_code} does not exist` } };
-	const body = found.toJSON() as JSONValue;
+	const body = found.toJSON<AsJson<DBEvent>>();
 	return { body };
 }

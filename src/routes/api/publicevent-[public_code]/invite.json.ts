@@ -1,13 +1,14 @@
 import type { EndpointOutput } from '@sveltejs/kit';
-import { Person, Event } from '$lib/database';
+import { Person, Event, AsJson } from '$lib/database';
 import { getKey } from '$lib/invitees';
 import type { DBEvent } from '$lib/event';
 import { findCertificateError, parse_any } from '$lib/detect_certificate';
+import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 
 export async function post({ rawBody }: { rawBody: Uint8Array | string }): Promise<EndpointOutput> {
 	const code = rawBody instanceof Uint8Array ? new TextDecoder().decode(rawBody) : rawBody;
 	try {
-		const parsed = await parse_any(code);
+		const parsed: AsJson<CommonCertificateInfo> = await parse_any(code);
 		return { body: parsed };
 	} catch (e) {
 		return { status: 403, body: { error: `${e}` } };

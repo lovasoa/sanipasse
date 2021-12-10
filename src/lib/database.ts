@@ -83,6 +83,8 @@ const SyncedPerson = sync.then(() => Person);
 const SyncedBorneConfig = sync.then(() => BorneConfig);
 const SyncedApiKeys = sync.then(() => ApiKeys);
 
+export type AsJson<T> = T extends Date ? Date : { [K in keyof T]: AsJson<T[K]> };
+
 export {
 	SyncedEvent as Event,
 	SyncedPerson as Person,

@@ -15,7 +15,7 @@ async function main() {
 	if (!TOKEN)
 		return console.log(
 			'Missing environment variable TACV_TOKEN. ' +
-			'You can get the value of the token from the TousAntiCovid Verif application.'
+				'You can get the value of the token from the TousAntiCovid Verif application.'
 		);
 	const tacv_data = await get_data(TOKEN);
 
@@ -57,10 +57,7 @@ async function get_data(token) {
 async function save_validity_data(tacv_data) {
 	const VALIDITY_DATA_FILE = 'src/assets/validity_data.json';
 	const validity = tacv_data.specificValues.validity;
-	const sorted = Object.fromEntries(
-		Object.entries(validity)
-			.sort(([a], [b]) => a > b ? 1 : -1)
-	);
+	const sorted = Object.fromEntries(Object.entries(validity).sort(([a], [b]) => (a > b ? 1 : -1)));
 	await writeNiceJson(sorted, VALIDITY_DATA_FILE);
 	console.log('Saved validity data to ' + VALIDITY_DATA_FILE);
 }
