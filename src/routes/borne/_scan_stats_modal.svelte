@@ -3,13 +3,18 @@
 	import Statistiques from './statistiques.svelte';
 	let open = false;
 	const toggle = () => (open = !open);
+	$: console.log({ open });
 </script>
 
-<button
+<div
+	role="button"
+	id="stats-btn"
 	class="fixed-bottom btn btn-outline-secondary"
 	title="statistiques d'utilisation"
-	on:click={toggle}><Icon name="bar-chart-line" /></button
+	on:click={toggle}
 >
+	<Icon name="bar-chart-line" />
+</div>
 
 <Modal isOpen={open} {toggle}>
 	<ModalHeader {toggle}>Sanipasse borne: statistiques</ModalHeader>
@@ -22,11 +27,12 @@
 </Modal>
 
 <style>
-	button {
+	#stats-btn {
 		border-radius: 100%;
 		width: 3em;
 		height: 3em;
 		margin: 1.2em;
+		line-height: 2em;
 		right: 0;
 		left: auto;
 	}
