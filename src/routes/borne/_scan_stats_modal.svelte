@@ -2,8 +2,9 @@
 	import { Button, Modal, ModalBody, ModalFooter, ModalHeader, Icon } from 'sveltestrap';
 	import Statistiques from './statistiques.svelte';
 	let open = false;
-	const toggle = () => (open = !open);
-	$: console.log({ open });
+	function toggle() {
+		open = !open;
+	}
 </script>
 
 <div
