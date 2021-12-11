@@ -2,7 +2,9 @@
 	import { Button, Modal, ModalBody, ModalFooter, ModalHeader, Icon } from 'sveltestrap';
 	import Statistiques from './statistiques.svelte';
 	let open = false;
+	let status: 'opening' | 'opened' | 'closing' | 'closed' = 'closed';
 	function toggle() {
+		if (status === 'opening' || status === 'closing') return;
 		open = !open;
 	}
 </script>
@@ -17,7 +19,14 @@
 	<Icon name="bar-chart-line" />
 </div>
 
-<Modal isOpen={open} {toggle}>
+<Modal
+	isOpen={open}
+	{toggle}
+	on:close={(_) => (status = 'closed')}
+	on:open={(_) => (status = 'opened')}
+	on:closing={(_) => (status = 'closing')}
+	on:opening={(_) => (status = 'opening')}
+>
 	<ModalHeader {toggle}>Sanipasse borne: statistiques</ModalHeader>
 	<ModalBody>
 		<Statistiques with_interactions={false} />
