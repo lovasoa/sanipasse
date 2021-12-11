@@ -1,5 +1,6 @@
 import type { EndpointOutput } from '@sveltejs/kit';
-import { AsJson, Event, Person } from '$lib/database';
+import { Event, Person } from '$lib/database';
+import type { AsJson } from '$lib/database';
 import type { DBEvent } from '$lib/event';
 
 export async function get({

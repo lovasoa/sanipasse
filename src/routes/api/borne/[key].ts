@@ -1,5 +1,6 @@
 import type { EndpointOutput } from '@sveltejs/kit';
-import { BorneConfig, DBConfig } from '$lib/database';
+import { BorneConfig } from '$lib/database';
+import type { DBConfig } from '$lib/database';
 
 export async function get({
 	params: { key }

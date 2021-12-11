@@ -1,5 +1,6 @@
 import type { EndpointOutput } from '@sveltejs/kit';
-import { Person, Event, AsJson } from '$lib/database';
+import { Person, Event } from '$lib/database';
+import type { AsJson } from '$lib/database';
 import { getKey } from '$lib/invitees';
 import type { DBEvent } from '$lib/event';
 import { findCertificateError, parse_any } from '$lib/detect_certificate';
