@@ -7,6 +7,9 @@ on:
 
 jobs:
   deploy:
+    concurrency: 
+      group: deploy
+      cancel-in-progress: true
     runs-on: ubuntu-latest
 
     steps:
