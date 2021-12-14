@@ -2947,6 +2947,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcrxlv5/uGbsaXM/QMSpvZV2iNtF0o4QBech6LGpy3OEefbJLf+4iqI19QNWtUXEjlMMytB4+1ESLHdXyki5X2g=="
 	},
+	"b6DvtaUKH6Y=": {
+		"serialNumber": "4eb2bc89b390e339eb187cdcc9b51b981b0232",
+		"subject": "C=MC, O=Principality of Monaco, OU=Ministry of Health and Social Affairs, CN=DSPKI_MC_DGC_1",
+		"issuer": "C=MC, O=Principality of Monaco, OU=Foreign Office of Monaco, CN=CSCAPKI_MC",
+		"notBefore": "2021-12-13T14:30:46.000Z",
+		"notAfter": "2023-06-14T14:30:46.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "c618fd970436e90618f5bcd0c19a5c37e82d8f0d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEEnUNIFFBEfndNvfTXjq2n3bH1sQJFNt7Q2JUyrLhuwjQ1zYLmDWqDvO/X4AQYviLvYCFVHxy6wDrpZnWhVg2kw=="
+	},
 	"p64sutu48UA=": {
 		"serialNumber": "7ca54f089d8348e425066bb901c8162fea6df709",
 		"subject": "C=MD, ST=Republic of Moldova, L=Chisinau, O=Ministry of Health, CN=Republic of Moldova DSC 01",
