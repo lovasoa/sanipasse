@@ -152,6 +152,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEmyxlsE2inBusapxY7LvRiPN0s+dsHnakaaa9M/5NDZZTljSZCzeK77fWO9MFRcGCXrTQaXNE3FhkV4+a92hRaw=="
 	},
+	"MelIsUdzjbY=": {
+		"serialNumber": "2bf5f8376f75f4e5ff5b4523c96bc29b41a47f53",
+		"subject": "C=BG, L=Sofia, O=Ministry of Health, OU=Health Information System, CN=DGC DSC 5",
+		"issuer": "C=BG, O=Ministry of Health, OU=Health Information System, CN=Bulgaria DGC CSCA 1",
+		"notBefore": "2021-12-15T10:28:11.000Z",
+		"notAfter": "2023-12-15T10:28:11.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "5bd8850d32e2a4491eb7ad5906f306bcea21e0db",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgXN2exOO6pXc25U65XXQUyYp72uNpsdKpUVDFqUUuf2oTodJhNxNQfLamVcq0ZSCsaZT3YDGyLNb2D/7m/kFYQ=="
+	},
 	"rTEJEs6D1ik=": {
 		"serialNumber": "110bc8215d13541021885feb600bb4e6",
 		"subject": "C=CH, ST=Bern, L=Köniz, 2.5.4.15=Government Entity, 2.5.4.97=NTRCH-CHE-467.023.568, O=Bundesamt für Gesundheit (BAG), OU=GE-0220-BAG, OU=Taskforce BAG Covid-19, CN=CC_CH01_RecoveredCertificate_13_10",
