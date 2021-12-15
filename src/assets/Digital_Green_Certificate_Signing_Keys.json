@@ -2981,6 +2981,28 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEurid6V6ennaGMYu1h8Q2PFJ7eMkj7FiBzBEiQMnNb/YzAj60g6cnvX02AB+E48Hoz4amNlralKXL3CvjaxHGLw=="
 	},
+	"WhTtEgoip/Q=": {
+		"serialNumber": "01",
+		"subject": "C=MK, ST=North Macedonia, L=Skopje, O=Avicena Lab\\, North Macedonia, OU=Avicena Lab\\, North Macedonia, CN=avicenalab.com.mk, E=lab@avicenalab.com.mk",
+		"issuer": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health, CN=zdravstvo.gov.mk, E=contact@zdravstvo.gov.mk",
+		"notBefore": "2021-12-14T12:56:08.000Z",
+		"notAfter": "2022-12-14T12:56:08.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "bdd9ed42872840c78e3344a374af3fcb0bcc276d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 4096
+		},
+		"publicKeyPem": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAzSAYJtlrxfoMhcJT6QTVJCTb40E+qsZmuiIjtCG9XRdRQTppo2tZe8LnERPnQ9xqMzHaq525WcRO3uMJNF4lEDsqXNflTABwB61w2IgfJioHEaRvqMOawIOxU8YKDmHcIPoXSizD1VfstPB25uKUGFVh/IJWsYzIQOOmORS7S4ZODq+UBWqjVzIgyEjx0Eya1OQPn853jylGTflmDKl0f98X5TpGDNtoHtenX/e+u+UPiBRFQ2HEk1R+O5EeOg6fodhpEP/RIpzavTf66JWTRhxeX8TdtHktuuLosbf0MGiM4TS/tTd7vjPvx3RK2m06QJ8N9ZJLjp7v1gW5cLFlCZsF85dVR9G849siMGF8onUTP1mAg1WrgitVTCwjNYcJ4CTojiEcD8+SViTDpSuUTJ8yOP1Mq2+lJAhmro7XTyzRFI/lKdncC2wV6u2zNvNAmRr9BuJmLYtc5ONLgnxhO06P9kJlHnCvt1vLa+iuzorfoac/vIQs+dApsMUwknVDTMfm0AJZC0awXrfUvz233AATX/c9ZEKizjw+LpoLTrZxFe/iaZ2We/ygf/OZtKwT9pO5bO13erVJVcscd8vS9/+l2YYmQdxoYdoVr3fKu/0mlaa9t6CAQb1xr5mxjf3FQrseVRKW1QaFtikRs9rt4tC9PEJ/E16W76GwclUhDcMCAwEAAQ=="
+	},
 	"KBPNEuXUvrY=": {
 		"serialNumber": "01",
 		"subject": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health\\, North Macedonia, OU=E-Health\\, North Macedonia, CN=zdravstvo.gov.mk, E=contact@zdravstvo.gov.mk",
