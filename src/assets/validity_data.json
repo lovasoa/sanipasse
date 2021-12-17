@@ -12,10 +12,13 @@
 	"vaccineBoosterAge": 650,
 	"vaccineBoosterDelay": 0,
 	"vaccineBoosterDelayMax": 6000,
+	"vaccineBoosterDelayNew": 7,
 	"vaccineBoosterDelayUnderAge": 0,
+	"vaccineBoosterDelayUnderAgeNew": 7,
+	"vaccineBoosterToggleDate": "2021-12-21",
 	"vaccineDelay": 7,
 	"vaccineDelayJanssen": 28,
-	"vaccineDelayMax": 214,
+	"vaccineDelayMax": 221,
 	"vaccineDelayMaxJanssen": 6000,
 	"vaccineDelayMaxRecovery": 221
 }
