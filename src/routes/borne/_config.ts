@@ -34,6 +34,8 @@ export interface ConfigProperties {
 	store_statistics?: boolean;
 	// Whether to show the statistics on the scan page
 	show_statistics_on_scan?: boolean;
+	// Whether to close the statistics modal automatically after a few seconds
+	autoclose_statistics?: boolean;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {

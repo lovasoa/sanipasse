@@ -397,6 +397,13 @@
 			<input type="checkbox" bind:checked={config.show_statistics_on_scan} />
 			Donner accès aux statistiques depuis l'interface de scan
 		</label>
+
+		{#if config.show_statistics_on_scan}
+			<label>
+				<input type="checkbox" bind:checked={config.autoclose_statistics} />
+				Fermer la fenêtre de statistiques automatiquement après quelques secondes.
+			</label>
+		{/if}
 	</details>
 
 	<ShowPromiseError promise={uploadConfigPromise} />

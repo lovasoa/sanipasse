@@ -113,6 +113,12 @@
 {/await}
 
 <StatsChart {datapoints} show_toolbar={with_interactions} />
+
+<p>
+	Vous utilisez actuellement Sanipasse. Sanipasse est un logiciel libre, distribué gratuitement par
+	Ophir Lojkine sous la license publique générale AGPLv3.
+</p>
+
 <table class="table">
 	<colgroup>
 		<col span="1" style="width: 45%;" />

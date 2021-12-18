@@ -219,7 +219,7 @@
 </div>
 
 {#if config.show_statistics_on_scan}
-	<ScanStatsModal />
+	<ScanStatsModal autoclose={config.autoclose_statistics} />
 {/if}
 
 <style>

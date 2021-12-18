@@ -1,11 +1,32 @@
 <script lang="ts">
 	import { Button, Modal, ModalBody, ModalFooter, ModalHeader, Icon } from 'sveltestrap';
 	import Statistiques from './statistiques.svelte';
+	export let autoclose: boolean | undefined = false;
 	let open = false;
 	let status: 'opening' | 'opened' | 'closing' | 'closed' = 'closed';
+
+	let autoclose_timer: NodeJS.Timer | null = null;
+	let autoclose_remaining_seconds = 0;
+
 	function toggle() {
 		if (status === 'opening' || status === 'closing') return;
 		open = !open;
+		if (autoclose_timer) {
+			clearInterval(autoclose_timer);
+			autoclose_remaining_seconds = 0;
+		}
+		if (open && autoclose) {
+			autoclose_remaining_seconds = 30;
+			autoclose_timer = setInterval(autoclose_callback, 1000);
+		}
+	}
+
+	function autoclose_callback() {
+		autoclose_remaining_seconds -= 1;
+		if (autoclose_remaining_seconds <= 0) {
+			open = false;
+			if (autoclose_timer) clearInterval(autoclose_timer);
+		}
 	}
 </script>
 
@@ -16,7 +37,11 @@
 	title="statistiques d'utilisation"
 	on:click={toggle}
 >
-	<Icon name="bar-chart-line" />
+	{#if autoclose_remaining_seconds}
+		<strong>{autoclose_remaining_seconds}</strong>
+	{:else}
+		<Icon name="bar-chart-line" />
+	{/if}
 </div>
 
 <Modal
