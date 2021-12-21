@@ -3909,6 +3909,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEmlrTLdtSzBKZEcWZ4n+DGYA7zAORp8nmaqftIoRB7CRaCSaAnx5Zmb6m4B/bdYQVJKb6EM3HbrnYIZNo0tAYjA=="
 	},
+	"fr1YOKr2CAU=": {
+		"serialNumber": "6302e484bcd4da92",
+		"subject": "CN=CENTRE INFORMATIQUE DU MINISTERE DE LA SANTE PUBLIQUE, O=CENTRE INFORMATIQUE DU MINISTERE DE LA SANTE PUBLIQUE, C=TN",
+		"issuer": "CN=CSCA TUNISIA DGC, O=AGENCE NATIONALE DE CERTIFICATION ELECTRONIQUE, C=TN",
+		"notBefore": "2021-12-03T09:27:21.000Z",
+		"notAfter": "2023-12-03T09:27:21.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "1246988243edc43700a58bb29ce72cbc6eafcbe8",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEVS2Wh9yNcy8NluUMlxHAAHlW6YuEU7R7w9zlM4sb1OIcRhZJq8klg0iIcbWsWkE+Epr9Admd1RR7GBkA9vq4Bw=="
+	},
 	"e9SH8dtWwdY=": {
 		"serialNumber": "739a56c15aa266ee4f",
 		"subject": "CN=CERT-GENCAT-1S-21, 2.5.4.5=S0811001G, OU=SELLO ELECTRONICO, OU=Departament de Salut, 2.5.4.97=VATES-S0811001G, O=Departament de Salut de la Generalitat de Catalunya, C=ES",
