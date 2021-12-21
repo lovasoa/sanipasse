@@ -10,6 +10,7 @@
 
 	import { load_config } from './_config_storage';
 	import StatsChart from './_stats_chart.svelte';
+	import { Tooltip } from 'sveltestrap';
 
 	export let with_interactions = true;
 
@@ -115,8 +116,15 @@
 <StatsChart {datapoints} show_toolbar={with_interactions} />
 
 <p>
-	Vous utilisez actuellement Sanipasse. Sanipasse est un logiciel libre, distribué gratuitement par
-	Ophir Lojkine sous la license publique générale AGPLv3.
+	Vous utilisez actuellement Sanipasse
+	<i id="sanipasse_version">v{process.env.SANIPASSE_VERSION}</i>
+	<Tooltip target="sanipasse_version">
+		version {process.env.SANIPASSE_VERSION}, itération du {new Date(
+			process.env.SANIPASSE_BUILD_DATE || 0
+		).toLocaleString("fr")}
+	</Tooltip>
+	. Sanipasse est un logiciel libre, distribué gratuitement par <i>Ophir Lojkine</i> sous la license
+	publique générale AGPLv3.
 </p>
 
 <table class="table">
