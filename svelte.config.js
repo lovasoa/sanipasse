@@ -1,7 +1,7 @@
 import preprocess from 'svelte-preprocess';
 import adapter_static from '@sveltejs/adapter-static';
 import adapter_node from '@sveltejs/adapter-node';
-import fs from "fs";
+import fs from 'fs';
 
 const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
 
@@ -9,10 +9,10 @@ const adapter =
 	process.env.SVELTEKIT_ADAPTER === 'node'
 		? adapter_node({ out: 'build' })
 		: adapter_static({
-			pages: 'build',
-			assets: 'build',
-			fallback: 'index.html'
-		});
+				pages: 'build',
+				assets: 'build',
+				fallback: 'index.html'
+		  });
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {

@@ -121,7 +121,7 @@
 	<Tooltip target="sanipasse_version">
 		version {process.env.SANIPASSE_VERSION}, itération du {new Date(
 			process.env.SANIPASSE_BUILD_DATE || 0
-		).toLocaleString("fr")}
+		).toLocaleString('fr')}
 	</Tooltip>
 	. Sanipasse est un logiciel libre, distribué gratuitement par <i>Ophir Lojkine</i> sous la license
 	publique générale AGPLv3.
