@@ -9,7 +9,7 @@
 	"testPositiveAntigenicStartDay": 11,
 	"testPositivePcrEndDay": 183,
 	"testPositivePcrStartDay": 11,
-	"vaccineBoosterAge": 650,
+	"vaccineBoosterAge": 65,
 	"vaccineBoosterDelay": 0,
 	"vaccineBoosterDelayMax": 6000,
 	"vaccineBoosterDelayNew": 7,
@@ -19,6 +19,6 @@
 	"vaccineDelay": 7,
 	"vaccineDelayJanssen": 28,
 	"vaccineDelayMax": 221,
-	"vaccineDelayMaxJanssen": 6000,
+	"vaccineDelayMaxJanssen": 68,
 	"vaccineDelayMaxRecovery": 221
 }
