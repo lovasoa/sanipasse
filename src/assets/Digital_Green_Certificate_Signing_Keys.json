@@ -2682,6 +2682,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEmCCGUDO95y6Rj40KX74cFgc99I9BnFoPBkZ3kcAyo2q/smN4gbYWkrC2WMErsN8zZ37C9RhAGlHYDN8tPJbiAw=="
 	},
+	"fY2/Tt1410Q=": {
+		"serialNumber": "5e3563d784486727",
+		"subject": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-DSC-RECOVERY-PROD-202112, E=webmaster@llv.li",
+		"issuer": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-CSCA-PROD-20210608, E=webmaster@llv.li",
+		"notBefore": "2021-12-17T09:03:00.000Z",
+		"notAfter": "2023-12-17T09:03:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "d9b993b87c22f93e379eee74e3a2bd1ac70a607f",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEw4vxNntTlkq+won/gm/lRHJ65kJW/Y6cY9UsXhHCmahZKgpvBAF5bFMhR/GD2ON2wRA0AhDRFEn4Gv6HPuaYwg=="
+	},
 	"JkFekJel6/o=": {
 		"serialNumber": "3fdf992c70b61584",
 		"subject": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-DSC-TEST-PROD-20210608, E=webmaster@llv.li",
@@ -2699,6 +2716,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEBnFUjr8FpfpVaVFtCUW7Yg6JBk/n1TlJKEKpm/rZOvAEzKpwoTCpXpXPP1SPGhvQXzJ+i4dBQHgbdw2SDpcZmQ=="
 	},
+	"6ADRGDyDJsg=": {
+		"serialNumber": "5d85dd83fa288e77",
+		"subject": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-DSC-TEST-PROD-202112, E=webmaster@llv.li",
+		"issuer": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-CSCA-PROD-20210608, E=webmaster@llv.li",
+		"notBefore": "2021-12-17T08:41:00.000Z",
+		"notAfter": "2023-12-17T08:41:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "3553c2447a13919ba157b704c84cdad034872ba4",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEg8kXgMTKe5FHCkKazhfuQJuaTax0ZhNWYKalEw0wJv4RTeTUS3/zciDZw6NPRW4by+uvDb95+oCGVMOJ0/2Ixw=="
+	},
 	"jYpr5GHCDiQ=": {
 		"serialNumber": "10237f2e565bee49",
 		"subject": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-DSC-VACCINATION-PROD-20210608, E=webmaster@llv.li",
@@ -2715,6 +2749,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAElHOTKQPe3GZKCAIsaBbPpAfJZ30ftIUsb/r6gHu19cI21XMfiZDQuI3we82ezsmyjL/jfr1zlRYqXLmbqOrkJA=="
+	},
+	"r4En9QHau9Q=": {
+		"serialNumber": "767361e0585d39d4",
+		"subject": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-DSC-VACCINATION-PROD-202112, E=webmaster@llv.li",
+		"issuer": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-CSCA-PROD-20210608, E=webmaster@llv.li",
+		"notBefore": "2021-12-17T08:41:00.000Z",
+		"notAfter": "2023-12-17T08:41:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "a926628552cc80682dbc92c01c9e384013fe1f48",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/1NU5hg8FRXzOeyWMCJQM9h+Yyp3TO+RntDq4xwb/2T0egudugyuMeGkBftHUwNsZdZhZi1uNIqFac8p1Py2lg=="
 	},
 	"lshLbYfCWRg=": {
 		"serialNumber": "0179e2e06287",
@@ -2997,6 +3048,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEurid6V6ennaGMYu1h8Q2PFJ7eMkj7FiBzBEiQMnNb/YzAj60g6cnvX02AB+E48Hoz4amNlralKXL3CvjaxHGLw=="
+	},
+	"8evCz42ziiM=": {
+		"serialNumber": "0d5b21b87c621e224d9ab201f01370ef1b6f29ce",
+		"subject": "C=ME, ST=Podgorica, L=Podgorica, O=MinistryOfHealth, OU=IT, CN=DSC_DGC_PROD_ME_01",
+		"issuer": "C=ME, ST=Podgorica, L=Podgorica, O=MinistryOfHealth, OU=IT, CN=CSCA_DGC_PROD_ME_01",
+		"notBefore": "2021-12-17T13:49:53.000Z",
+		"notAfter": "2023-12-17T13:49:53.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "9ae54b8535fff67b64d6968c88c8df2af7c6479d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE1T6McghQDmKBlMIuniA+ftbyBDBYKrcZNFRNn+gvrCPL5gyx2PgyFHqaRTFUicFWXCwEP5aTbOHh2BzIAHoBhQ=="
 	},
 	"WhTtEgoip/Q=": {
 		"serialNumber": "01",
@@ -3671,6 +3739,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/t+Slm3djgmEU6EDiHQ9NbBluAowmiJ1WRBnCP8M+zS4nz8F8i3999918JYKA4wJni8OaHwhzb+ay8KJIxhNFA=="
 	},
+	"3I94YIEMN5Q=": {
+		"serialNumber": "7debf44cf51052ff1a3b0dd4b03a69d9",
+		"subject": "C=TH, O=Ministry of Public Health (กระทรวงสาธารณสุข), CN=Ministry of Public Health - DGC Signer Certificate, 2.5.4.97=0994000241801",
+		"issuer": "CN=INET CA - G1, O=Internet Thailand Public Company Limited, C=TH",
+		"notBefore": "2021-11-24T13:48:21.000Z",
+		"notAfter": "2023-11-24T13:48:21.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "72ab719a4b63ee4887a9d9c95d35535a71ffbaf5",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErYuZsg8e0RlYRtH5rH8kqEG6IzR/uG3AHevcDoUIT+KdZmD0Ij2WMA0lvqfKwfOU6kwwJbuw5GmL/b7T6hNK8Q=="
+	},
 	"gEIK4Q/lAG0=": {
 		"serialNumber": "00a875f8a85cfe85f0",
 		"subject": "C=TR, ST=ANKARA, L=ÃANKAYA, O=T.C. SAÄLIK BAKANLIÄI, OU=SAÄLIK BÄ°LGÄ° SÄ°STEMLERÄ° GENEL MÃDÃRLÃÄÃ, CN=healthpassgwuat.saglik.gov.tr",
@@ -3687,6 +3772,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4gGExz9UXm77v21gaWNSjjtigr9VIyGL9S92FqnF99YqS/ekrLWvW4N6fmHfUST9VJLJVaB9uP3SX1rXlfq7lg=="
+	},
+	"fjT5xGlTa3c=": {
+		"serialNumber": "570025fae3dc4b96b6c3cb918f031b2a4a0c8b47",
+		"subject": "C=TW, O=Executive Yuan, OU=Ministry of Health and Welfare, OU=Centers for Disease Control, CN=Document Signer",
+		"issuer": "C=TW, O=Executive Yuan, OU=Ministry of Health and Welfare, OU=Centers for Disease Control, CN=Country Signing CA",
+		"notBefore": "2021-09-13T13:49:01.000Z",
+		"notAfter": "2022-09-13T13:49:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "d9d57ebc5fbbba81d1c2ac1cbfe793a2e9b380c5",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEKmgDuJ+3Qj2w2o3fFUOI6bWXfrXFOS2t/+pQkNwRgNzIvNbvmVpzQDPNwWkRGFD/tcrm9DAUscZYyvCnrcPbcA=="
 	},
 	"S2V5M1BSTw==": {
 		"serialNumber": "4f0e753c1291e6b8",
