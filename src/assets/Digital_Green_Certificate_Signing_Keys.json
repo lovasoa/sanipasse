@@ -2648,6 +2648,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGwlU23NYZQba7t++TVejbvPxgS6wdW8uE7UPe14VkhXoKINhhrCT0EWHP+aPim6apT46Ktd0lfoNVTsbg2QQ2A=="
 	},
+	"jnFYIu1y3ic=": {
+		"serialNumber": "2da56f13f316e2e8d5a2eadf16fe51e7b7c00eb7",
+		"subject": "C=IT, O=Ministero della Salute, CN=Italy DGC DSC 4",
+		"issuer": "C=IT, O=Ministero della Salute, CN=Italy DGC CSCA 1",
+		"notBefore": "2021-12-21T10:42:57.000Z",
+		"notAfter": "2023-12-21T10:42:56.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "2f61a6ddcf771d7c937a0e085bae36486f237cec",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEI0G5ENQ8EMymNXtdaJN/9tu/eQgw/DYXzQg+F+u/AASb/1TOwqBuXjIZKux0DGP2E8wnQDd+J6JPV+SwtLa1Hg=="
+	},
 	"4vUVzV7f6kg=": {
 		"serialNumber": "41120ef36051fa867c332ea1255023c64e1dd322",
 		"subject": "C=LB, ST=Beirut, L=Beirut, O=Ministry of Public Health (MOPH), OU=Siren Analytics",
@@ -4401,6 +4418,28 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5/m2YdN8L81Ajoi+2brFJbul628alfXRXU26t7hRYEvvsb74tSVm2Dm9cbuhrgFJ+/wXecdxh0tTSHCkMfB0hQ=="
+	},
+	"woowbyJtRFo=": {
+		"serialNumber": "097a9331b6877d8f0eb1fa55d8f5459b68f29910",
+		"subject": "CN=MINISTERIO DE SALUD PUBLICA, O=MINISTERIO DE SALUD PUBLICA, C=UY, 2.5.4.5=RUC214048830014",
+		"issuer": "CN=Correo Uruguayo - CA, O=Administración Nacional de Correos, C=UY",
+		"notBefore": "2021-12-06T15:50:53.000Z",
+		"notAfter": "2023-12-06T15:50:53.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "dc7a23a6e70d8fa2113f4a2a7490863ec0e09a21",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 2048
+		},
+		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu1i+3+eUHdPFZPnB3ExqAH7pZbqITkSSpV/HYH8itLTdm7CytZQWiw2BXjFHroF5fdpyl6eW0qTSBeKao+dSn4nyB8AIs4F5bnGDQOqGA/FeTnOOSAX10mzjFtiRrMsf8X+rGXwWd9WWmPk1HP0UZEE2TeMTm2Pi/84a0ICI+gNYDT7yCrGZezI8Mm+Gd4oQZ1ndt2NtXi7BWbqZoPx2KRnSWR8KqH8fTiE3UEXXfJjueA2zwIwmzVNFCcDUBKblazJMS1gnw0xS++l3fdSt5dtBNFZcNNV3J0NridxlnI55MWVqthv2mQ7Uze9nD8LH4K3gr9+TZ35G9UQe3Y4AYQIDAQAB"
 	},
 	"f6J92LRKpj0=": {
 		"serialNumber": "2be1ddbd75a437d6",
