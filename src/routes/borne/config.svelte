@@ -31,7 +31,6 @@
 		video_scan_num = +(config.video_scan || 0);
 	});
 	let loading = false;
-	$: config.video_scan = !!video_scan_num;
 
 	let logosFileInput: HTMLInputElement | null = null;
 	async function updateLogosUrls() {
@@ -204,11 +203,22 @@
 				Cacher l'identité de la personne
 			</label>
 			<label class="col-4 mb-3">
-				<input type="radio" bind:group={video_scan_num} value={0} />
+				<input
+					type="radio"
+					bind:group={video_scan_num}
+					value={0}
+					on:change={(_) => (config.video_scan = !!video_scan_num)}
+				/>
 				Scanneur de QR code USB physique
 			</label>
 			<label class="col-4 mb-3">
-				<input type="radio" bind:group={video_scan_num} value={1} on:change={setPreview} />
+				<input
+					type="radio"
+					bind:group={video_scan_num}
+					value={1}
+					on:change={setPreview}
+					on:change={(_) => (config.video_scan = !!video_scan_num)}
+				/>
 				Scanner les QR code par vidéo
 			</label>
 			{#if video_scan_num}
