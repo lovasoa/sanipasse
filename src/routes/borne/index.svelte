@@ -1,7 +1,7 @@
 <script type="ts">
-	import { DEFAULT_CONFIG } from './config/_config';
-	import type { ConfigProperties } from './config/_config';
-	import { load_config as load_config_from_storage, save_config } from './config/_config_storage';
+	import { DEFAULT_CONFIG } from './_config';
+	import type { ConfigProperties } from './_config';
+	import { load_config as load_config_from_storage, save_config } from './_config_storage';
 	import Scan from './_scan.svelte';
 	import { get } from '$lib/http';
 	import { onMount } from 'svelte';
