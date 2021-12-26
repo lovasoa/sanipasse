@@ -8,7 +8,7 @@
 	import type { StatsDataPoint } from './_stats_storage';
 	import { onMount } from 'svelte';
 
-	import { load_config } from './_config_storage';
+	import { load_config } from './config/_config_storage';
 	import StatsChart from './_stats_chart.svelte';
 	import { Tooltip } from 'sveltestrap';
 
