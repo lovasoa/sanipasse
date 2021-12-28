@@ -4,7 +4,6 @@
 	import SoundPicker from './_sound_picker.svelte';
 
 	export let config = DEFAULT_CONFIG;
-	let video_scan_num = 0;
 
 	let logosFileInput: HTMLInputElement | null = null;
 	async function updateLogosUrls() {

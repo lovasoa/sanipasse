@@ -1,5 +1,4 @@
 <script lang="ts">
-	import b64 from 'base64-js';
 	import { DEFAULT_CONFIG } from './_config';
 	import ExternalRequestsConfig from './_external_request_config.svelte';
 	import SoundPicker from './_sound_picker.svelte';
