@@ -51,7 +51,7 @@
 				<div
 					class="progress-bar animate"
 					class:bg-danger={!valid}
-					class:bg-success={!valid}
+					class:bg-success={valid}
 					role="progressbar"
 					style="animation-duration: {config.reset_after_s}s"
 				/>
