@@ -160,6 +160,14 @@
 
 <fieldset class="col-md-12 mt-3 row gy-2">
 	<legend>Messages affichés après le scan</legend>
+	<p>
+		Vous pouvez choisir le message qui sera affiché aux utilisateurs lorsqu'ils scanneront leur
+		passe. Dans le message de validation du passe,
+		<code>$first_name</code> sera remplacé par le prénom du porteur du passe,
+		<code>$last_name</code> par son nom de famille, et
+		<code>$date_of_birth</code> par sa date de naissance. Dans le message de refus,
+		<code>$message</code> sera remplacé par une phrase expliquant pourquoi le passe est invalide.
+	</p>
 	<div class="form-floating col-12 col-md-6 text-muted">
 		<textarea
 			bind:value={config.accepted_message}
