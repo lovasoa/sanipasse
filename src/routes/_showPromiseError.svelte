@@ -18,7 +18,7 @@
 	.alert {
 		max-height: 10em;
 		overflow-y: hidden;
-		transition: .2s;
+		transition: 0.2s;
 	}
 	.alert:hover {
 		max-height: 25em;

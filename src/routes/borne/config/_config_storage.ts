@@ -14,8 +14,8 @@ export async function load_config(): Promise<ConfigProperties> {
 		const any_config = await get_from_local_store(STORAGE_KEY);
 		const config = (any_config as ConfigProperties) || DEFAULT_CONFIG;
 		// Migration from older versions
-		if (config.sound_valid === undefined) config.sound_valid = "valid.mp3";
-		if (config.sound_invalid === undefined) config.sound_invalid = "invalid.mp3";
+		if (config.sound_valid === undefined) config.sound_valid = 'valid.mp3';
+		if (config.sound_invalid === undefined) config.sound_invalid = 'invalid.mp3';
 		config.accepted_message = config.accepted_message || DEFAULT_CONFIG.accepted_message;
 		config.refused_message = config.refused_message || DEFAULT_CONFIG.refused_message;
 		return config;

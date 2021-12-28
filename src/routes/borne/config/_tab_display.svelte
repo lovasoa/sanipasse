@@ -168,7 +168,9 @@
 			id="accepted_message"
 			style="height: 7em"
 		/>
-		<label for="accepted_message" class="p-2">Message affiché lorsqu'un passe est <b>accepté</b></label>
+		<label for="accepted_message" class="p-2"
+			>Message affiché lorsqu'un passe est <b>accepté</b></label
+		>
 	</div>
 
 	<div class="form-floating col-12 col-md-6 text-muted">

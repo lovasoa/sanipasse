@@ -57,6 +57,7 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 	prevent_revalidation_before_minutes: 0,
 	video_scan: true,
 	store_statistics: true,
-	accepted_message: "Bienvenue, $first_name $last_name\n\nCe passe, appartenant à $first_name $last_name, né(e) le $date_of_birth, est valide.",
-	refused_message: "Passe sanitaire invalide\n\n$message",
+	accepted_message:
+		'Bienvenue, $first_name $last_name\n\nCe passe, appartenant à $first_name $last_name, né(e) le $date_of_birth, est valide.',
+	refused_message: 'Passe sanitaire invalide\n\n$message'
 };
