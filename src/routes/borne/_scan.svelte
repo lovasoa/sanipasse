@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import { findCertificateError, parse_any } from '$lib/detect_certificate';
-	import { assets } from '$app/paths';
 	import type { ConfigProperties, HTTPRequest } from './config/_config';
 	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
 	import { store_statistics_datapoint } from './_stats_storage';
 	import ScanStatsModal from './_scan_stats_modal.svelte';
+	import ValidationMessage from './_validationMessage.svelte';
 
 	export let config: ConfigProperties;
 	const { decode_after_s, reset_after_s, prevent_revalidation_before_minutes } = config;
@@ -90,15 +90,6 @@
 			codeFoundPromise = undefined;
 		}, reset_after_s * 1000);
 	}
-
-	function showName({ first_name, last_name }: CommonCertificateInfo): string {
-		return (
-			(first_name[0] || '').toUpperCase() +
-			first_name.slice(1).toLowerCase() +
-			' ' +
-			last_name.toUpperCase()
-		);
-	}
 </script>
 
 <svelte:window on:keypress={onKeyPress} on:paste={onPaste} />
@@ -118,49 +109,9 @@
 		{#await codeFoundPromise}
 			Décodage du code...
 		{:then pass}
-			{#if config.sound_valid !== null}
-				<!-- svelte-ignore a11y-media-has-caption -->
-				<audio autoplay src="{assets}/{config.sound_valid || 'valid.mp3'}" />
-			{/if}
-			<div class="validated_pass alert alert-success" role="alert">
-				<div class="row">
-					<div class="col-md-2"><div class="sign shallpass" /></div>
-					<div class="col-md-10">
-						<h3>
-							Bienvenue, {#if !config.anonymize}{showName(pass)}{/if}
-						</h3>
-						<p>Votre passe est validé.</p>
-						<div class="progress">
-							<div
-								class="progress-bar bg-success animate"
-								role="progressbar"
-								style="animation-duration: {reset_after_s}s"
-							/>
-						</div>
-					</div>
-				</div>
-			</div>
+			<ValidationMessage context={pass} valid={true} {config} />
 		{:catch err}
-			{#if config.sound_invalid !== null}
-				<!-- svelte-ignore a11y-media-has-caption -->
-				<audio autoplay src="{assets}/{config.sound_invalid || 'invalid.mp3'}" />
-			{/if}
-			<div class="refused_pass alert alert-danger" role="alert">
-				<div class="row">
-					<div class="col-md-2"><div class="sign shallnotpass" /></div>
-					<div class="col-md-10">
-						<h3>Passe sanitaire invalide</h3>
-						<p class="font-monospace">{err.message}</p>
-						<div class="progress">
-							<div
-								class="progress-bar bg-danger animate"
-								role="progressbar"
-								style="animation-duration: {reset_after_s}s"
-							/>
-						</div>
-					</div>
-				</div>
-			</div>
+			<ValidationMessage context={err} valid={false} {config} />
 		{/await}
 	{:else}
 		<section id="welcome_message">
@@ -223,81 +174,6 @@
 {/if}
 
 <style>
-	.progress-bar {
-		width: 100%;
-		transition: 100ms;
-	}
-
-	.progress-bar.animate {
-		animation: reduce_width;
-	}
-
-	@keyframes reduce_width {
-		to {
-			width: 0%;
-		}
-	}
-
-	.sign {
-		border: 0.1em solid white;
-		width: 5em;
-		height: 5em;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.shallnotpass {
-		background-color: var(--bs-danger);
-	}
-	.shallnotpass::after {
-		content: ' ';
-		display: block;
-		background-color: white;
-		animation: shallnotpass 0.5s;
-		height: 0.8em;
-		width: 65%;
-	}
-	@keyframes shallnotpass {
-		from {
-			height: 0;
-			width: 0%;
-		}
-		to {
-			height: 0.8em;
-			width: 65%;
-		}
-	}
-
-	.shallpass {
-		background-color: var(--bs-success);
-		animation: shallpass 0.8s;
-	}
-	.shallpass::before {
-		content: ' ';
-		display: block;
-		background-color: white;
-		height: 1em;
-		width: 0.8em;
-		transform: rotate(-45deg) translate(0.37em, 0.4em);
-	}
-	.shallpass::after {
-		content: ' ';
-		display: block;
-		background-color: white;
-		height: 0.8em;
-		width: 50%;
-		transform: rotate(-45deg);
-	}
-	@keyframes shallpass {
-		from {
-			transform: rotate(360deg);
-		}
-		to {
-			transform: rotate(0);
-		}
-	}
 	.videoinput {
 		max-height: 45vh;
 		display: flex;

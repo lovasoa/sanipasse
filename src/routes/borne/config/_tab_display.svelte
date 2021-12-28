@@ -77,14 +77,6 @@
 			<label for="desc">Instructions</label>
 		</div>
 
-		<label
-			class="col-12 mb-3"
-			title="Si cette option est activée, le message de validation ne contiendra pas le nom de la personne dont le passe a été validé"
-		>
-			<input type="checkbox" bind:checked={config.anonymize} />
-			Cacher l'identité de la personne dans le message affiché lorsqu'un passe est valide.
-		</label>
-
 		<div class="row">
 			<label class="col-6 mb-3">
 				Police de caractères du texte
@@ -163,5 +155,30 @@
 				<div class="input-group-text">minutes</div>
 			</div>
 		</div>
+	</div>
+</fieldset>
+
+<fieldset class="col-md-12 mt-3 row gy-2">
+	<legend>Messages affichés après le scan</legend>
+	<div class="form-floating col-12 col-md-6 text-muted">
+		<textarea
+			bind:value={config.accepted_message}
+			class="form-control"
+			placeholder="Instructions"
+			id="accepted_message"
+			style="height: 7em"
+		/>
+		<label for="accepted_message" class="p-2">Message affiché lorsqu'un passe est <b>accepté</b></label>
+	</div>
+
+	<div class="form-floating col-12 col-md-6 text-muted">
+		<textarea
+			bind:value={config.refused_message}
+			class="form-control"
+			placeholder="Instructions"
+			id="refused_message"
+			style="height: 7em"
+		/>
+		<label for="refused_message">Message affiché lorsqu'un passe est <b>refusé</b></label>
 	</div>
 </fieldset>

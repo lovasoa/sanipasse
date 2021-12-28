@@ -36,6 +36,10 @@ export interface ConfigProperties {
 	show_statistics_on_scan?: boolean;
 	// Whether to close the statistics modal automatically after a few seconds
 	autoclose_statistics?: boolean;
+	// Message displayed when a pass is valid
+	accepted_message?: string;
+	// Message displayed when a pass is invalid
+	refused_message?: string;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
@@ -52,5 +56,7 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 	anonymize: false,
 	prevent_revalidation_before_minutes: 0,
 	video_scan: true,
-	store_statistics: true
+	store_statistics: true,
+	accepted_message: "Bienvenue, $first_name $last_name\n\nVotre passe est validé.",
+	refused_message: "Passe sanitaire invalide\n\n$message",
 };
