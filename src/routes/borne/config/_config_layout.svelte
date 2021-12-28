@@ -16,9 +16,7 @@
 	let config = DEFAULT_CONFIG;
 	let config_promise = load_config();
 
-	config_promise.then((data) => {
-		config = data;
-	});
+	config_promise.then((data) => (config = data));
 	let loading = false;
 
 	async function load_config_from_key(): Promise<ConfigProperties> {
@@ -103,8 +101,10 @@
 	<ShowPromiseError promise={uploadConfigPromise} />
 
 	<button
-		class="btn btn-outline-primary col-md-5 mt-6 mx-2"
+		class="btn col-md-5 mt-6 mx-2"
 		disabled={loading}
+		class:btn-primary={configKey}
+		class:btn-outline-primary={!configKey}
 		on:click|preventDefault={uploadConfig}
 		title="Enregistrer ces paramètres sur le serveur de sanipasse pour pouvoir y accéder depuis un autre appareil"
 		>Sauvegarder ces paramètres en ligne</button
@@ -112,6 +112,8 @@
 	<input
 		type="submit"
 		class="btn btn-primary col-md-5 mt-6 mx-2"
+		class:btn-primary={!configKey}
+		class:btn-outline-primary={configKey}
 		disabled={loading}
 		title="Sauvegarder les paramètres localement sur ce navigateur, et lancer l'interface de contrôle des passes sanitaires avec cette configuration"
 		value={loading ? 'Chargement' : "Lancer l'interface de scan localement"}
