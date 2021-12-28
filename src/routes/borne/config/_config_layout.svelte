@@ -57,12 +57,16 @@
 		suivante :
 		<a href="/borne?key={configKey}" class="font-monospace"
 			>{typeof window === 'object' ? window.location.host : 'sanipasse.fr'}/borne?key={configKey}</a
-		>
+		>.
 	</p>
-	<p>
-		La configuration est modifiable uniquement à partir de la page actuelle, dont vous pouvez
-		partager l'adresse avec vos collaborateurs.
-	</p>
+	{#if with_technical}
+		<p>
+			La configuration complète est modifiable à partir de
+			<a href="/borne/config?key={configKey}">l'URL de la page actuelle</a>. Une
+			<a href="/borne/config/simple?key={configKey}">URL de configuration simplifiée</a>, ne donnant
+			accès qu'aux paramètres d'affichage est également disponible.
+		</p>
+	{/if}
 {:else}
 	<p>
 		<i>Sanipasse borne</i> est un logiciel libre et gratuit à installer sur une borne de contrôle automatique
