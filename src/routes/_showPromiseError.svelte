@@ -13,3 +13,15 @@
 		<pre><code>{e.message || e}</code></pre>
 	</div>
 {/await}
+
+<style>
+	.alert {
+		max-height: 10em;
+		overflow-y: hidden;
+		transition: .2s;
+	}
+	.alert:hover {
+		max-height: 25em;
+		overflow-y: auto;
+	}
+</style>
