@@ -1,16 +1,16 @@
 <script lang="ts">
-	import { DEFAULT_CONFIG } from './_config';
+	import type { ConfigProperties } from './_config';
 	import ExternalRequestsConfig from './_external_request_config.svelte';
 	import SoundPicker from './_sound_picker.svelte';
 
-	export let config = DEFAULT_CONFIG;
-	let video_scan_num = 0;
+	export let config: ConfigProperties;
+	$: video_scan_num = +(config.video_scan || 0);
 	let video_preview: HTMLVideoElement | undefined = undefined;
 	let has_video_preview = false;
 	let video_preview_error: Error | null = null;
 
 	async function setPreview() {
-		if (!video_preview || !video_scan_num) return;
+		if (!video_preview || !config.video_scan) return;
 		has_video_preview = false;
 		if (video_preview.srcObject instanceof MediaStream) {
 			video_preview.srcObject.getTracks().forEach((t) => t.stop());
@@ -36,7 +36,7 @@
 			type="radio"
 			bind:group={video_scan_num}
 			value={0}
-			on:change={(_) => (config.video_scan = !!video_scan_num)}
+			on:change={() => (config.video_scan = false)}
 		/>
 		Scanneur de QR code USB physique
 	</label>
@@ -46,11 +46,11 @@
 			bind:group={video_scan_num}
 			value={1}
 			on:change={setPreview}
-			on:change={(_) => (config.video_scan = !!video_scan_num)}
+			on:click={() => (config.video_scan = true)}
 		/>
 		Scanner les QR code par vidéo
 	</label>
-	{#if video_scan_num}
+	{#if config.video_scan}
 		<div class="col-12 col-sm-6 mb-3">
 			Caméra à utiliser de préférence:
 			<ul>
