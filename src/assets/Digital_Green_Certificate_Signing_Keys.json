@@ -4752,6 +4752,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE3KVI7Sy+id+bprJ8Eh9AHtW+1qeC4qoHH1oK7HN87UKH9KxQix0jq0RySb2c+5CN+kbAfsYEvULfHToz2FWzWQ=="
 	},
+	"ukusTTcSnQ8=": {
+		"serialNumber": "75632913ac71060273",
+		"subject": "CN=SELLO MINISTERIO SANIDAD CERTIFICADO COVID19 DIGITAL UE 2022S1, 2.5.4.5=S2827001E, OU=SELLO ELECTRONICO, OU=SELLO MINISTERIO SANIDAD CERTIFICADO COVID19 DIGITAL UE 2022S1, 2.5.4.97=VATES-S2827001E, O=MINISTERIO DE SANIDAD, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2021-12-22T13:30:00.000Z",
+		"notAfter": "2022-12-22T13:29:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "2124972db8db9923f85158eed8d61f4a609f6f34",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEAJV9wVkG7LM6TUw5LNuvYBeSYbi4x+HXtB+2mS2q4KKNevlFhwHac7r1xZlCUqS3WnUJ6TKxHk2tlnCCCuplIQ=="
+	},
 	"GMFMBu1RlCg=": {
 		"serialNumber": "7219d71aae22ead2e8",
 		"subject": "CN=SELLO SAS PARA CERTIFICADO COVID DE LA UE, 2.5.4.5=Q9150013B, OU=SELLO ELECTRONICO, OU=SERVICIO ANDALUZ DE SALUD, 2.5.4.97=VATES-Q9150013B, O=SERVICIO ANDALUZ DE SALUD, C=ES",
