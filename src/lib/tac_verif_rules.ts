@@ -57,12 +57,12 @@ function vaccinationValidityInterval(vac: CommonVaccineInfo, date_of_birth: Date
 	// Date at which the patient will have (or had) the age for a booster shot
 	const booster_date = add_days(date_of_birth, v.vaccineBoosterAge * 365.25);
 	const is_under_age = add_days(vaccination_date, v.vaccineBoosterDelayUnderAge) < booster_date;
-	const start_days =
-		doses_expected <= 2
-			? v.vaccineDelay
-			: is_under_age
-			? v.vaccineBoosterDelayUnderAge
-			: v.vaccineBoosterDelay;
+	const toggle_date = new Date(v.vaccineBoosterToggleDate);
+	const delays = is_under_age
+		? [v.vaccineBoosterDelay, v.vaccineBoosterDelayNew]
+		: [v.vaccineBoosterDelayUnderAge, v.vaccineBoosterDelayUnderAgeNew];
+	const booster_delay = delays[vaccination_date < toggle_date ? 0 : 1];
+	const start_days = doses_expected <= 2 ? v.vaccineDelay : booster_delay;
 	const start = add_days(vaccination_date, start_days);
 	const over_age_max_delay = doses_expected <= 2 ? v.vaccineDelayMax : v.vaccineBoosterDelayMax;
 	const over_age_end = add_days(vaccination_date, over_age_max_delay);
