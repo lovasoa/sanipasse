@@ -2,9 +2,8 @@ import SequelizePKG from 'sequelize';
 const { Sequelize, STRING, DATE, BOOLEAN, Model } = SequelizePKG;
 import { generateKey } from '$lib/random_key';
 import type { DBEvent, DBPerson } from '$lib/event';
+import { DATABASE_CONNECTION_STRING } from './global_config';
 
-const DATABASE_CONNECTION_STRING =
-	process.env['DATABASE_CONNECTION_STRING'] || 'sqlite:sanipasse.db';
 const sequelize = new Sequelize(DATABASE_CONNECTION_STRING);
 
 class Event extends Model<DBEvent> {}

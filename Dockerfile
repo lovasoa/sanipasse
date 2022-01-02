@@ -22,7 +22,9 @@ RUN SVELTEKIT_ADAPTER=node npm run build
 # You can mount /data on the host to persist data
 RUN mkdir /data
 RUN chown daemon:daemon /data
-ENV DATABASE_CONNECTION_STRING='sqlite:/data/sanipasse.db'
+
+ENV DATA_FOLDER='/data'
+ENV MAX_FILESIZE=500000
 
 USER daemon
 
