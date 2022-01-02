@@ -2845,6 +2845,28 @@
 		},
 		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsIcppmCVhq96vMc4NtW8X+yV6O1oC7hfKnewK1/pxfByqlVTPpETDLAjNq9knNQpCs7vGjadCbDAylsQRK7qfU3sUUKamh6FgDhFo1dzC4mUHCy3XBL04XJie2eT/a6Wgjrn6NjEFk5M4Jl4N8u/RbfaVxqaOjUM0hBfuzfZeL2LT30POqDHj1hcyod1fIbG4vv2Upqxe3OX/WLr+WzSPbRkPwxcJjmYeNYODT0rEcd9VSzJpljaK+eDVwxT0wMRnCH2QLxdw8sR+oDYDTZBaabeHYyZ0CfYzSoBOZT3fVMAbjkVAl8GFyH8tUm4lMQbYEMbl/FkftcZQicaqvRdQQIDAQAB"
 	},
+	"EiHZHYyihOA=": {
+		"serialNumber": "017e12b8aee8",
+		"subject": "C=LT, ST=Lithuania, O=Ministry of Health of The Republic of Lithuania, CN=LT_DGC_DSC_3",
+		"issuer": "C=LT, O=State Enterprise Centre of Registers, CN=LT_DGC_CSCA_1",
+		"notBefore": "2021-12-31T23:00:00.000Z",
+		"notAfter": "2023-12-31T23:00:00.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "b890a44261367c8b1bf98ca8ac647f5cce2473c7",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 2048
+		},
+		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwe2+M9R5WSlTgKkEF26VT6H0VtdN8pA4z7NXx2HyHBgyj2puI6/q6Q1uiCdgF2vmt6iPfK0hV7BIaIZlUVqIGO50Pd0BYf8TIn/coDzOD/rchTMFGgdcjIQs6DV7lPMr0TUiqn1RUgI0l4XlCHk71PlktuaQxsmSe5rCOjVtGiQJeCFCsae0IRr3VT+oMQC8V6Bkw/99zAO/Ku4IPRG7r3wHx+daCHX9PlanyM7CARcP2rReIRFKjZLv34NhVKci2/zpUo234UvDGVG2ljt8K3jDXYanAAfzrEcyPc7M0+SkO1EF/a4H5ct33dhwHRjFCeO1Yf32fdtSUc/VLxBu3wIDAQAB"
+	},
 	"ln8K+9SqfuA=": {
 		"serialNumber": "3392244c19e0afe0",
 		"subject": "C=LU, O=Ministry of Health, CN=Grand Duchy of Luxembourg DS DCC 1",
