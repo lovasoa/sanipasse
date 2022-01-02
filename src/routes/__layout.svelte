@@ -14,7 +14,7 @@
 	let isOpen = false;
 	let hide_menu = false;
 	const onupdate = (e: any) => (isOpen = e.detail.isOpen);
-	$: hide_menu = $page.path === '/borne';
+	$: hide_menu = $page.url.pathname === '/borne';
 </script>
 
 <svelte:head>

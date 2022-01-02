@@ -1,6 +1,6 @@
 {
 	"name": "sanipasse",
-	"version": "2.2.1",
+	"version": "2.2.2",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -51,7 +51,7 @@
 		"pdfjs-dist": "^2.7.570",
 		"sequelize": "^6.6.2",
 		"sqlite3": "^5.0.2",
-		"sveltestrap": "^5.6.3",
+		"sveltestrap": "^5.7.0",
 		"workbox-precaching": "^6.1.5",
 		"workbox-recipes": "^6.1.5"
 	}
