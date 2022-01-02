@@ -21,7 +21,7 @@
 		bind:this={linkInput}
 		type="text"
 		class="form-control"
-		value="http://{$page.host}#{event.public_code || '...'}"
+		value="http://{$page.url.host}#{event.public_code || '...'}"
 	/>
 	<button class="input-group-text" title="Copier" on:click={copyLink}>
 		{#if !linkCopied}📋
