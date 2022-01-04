@@ -10,7 +10,6 @@
 
 	import { load_config } from './config/_config_storage';
 	import StatsChart from './_stats_chart.svelte';
-	import { Tooltip } from 'sveltestrap';
 	import TooltipFix from '$lib/TooltipFix.svelte';
 
 	export let with_interactions = true;

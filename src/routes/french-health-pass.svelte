@@ -1,6 +1,5 @@
 <script lang="ts">
 	import TooltipFix from '$lib/TooltipFix.svelte';
-	import { Tooltip } from 'sveltestrap';
 </script>
 
 <svelte:head>
