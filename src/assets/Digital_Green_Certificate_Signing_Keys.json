@@ -3676,6 +3676,40 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfBeQBQBjyKpvjsCujqi15xnygRMyhjNsEy198LzTYuB+Mje1lxIvPYkfO/PEHQFgA52gn26bHCXE75GWqq6UMw=="
 	},
+	"aALsL8qmVzY=": {
+		"serialNumber": "590000000746b6ff0ba8daabee000000000007",
+		"subject": "C=NO, O=Norwegian Institute of Public Health, CN=DSC AN EU 6",
+		"issuer": "C=NO, O=Norsk helsenett SF, CN=NO NHN CSCA PROD",
+		"notBefore": "2021-12-14T09:43:35.000Z",
+		"notAfter": "2023-12-14T09:53:35.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "ab4409e18c2a7b8838a13414b933091bf4eaad73",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwPgmBzsUtuEccbSTLuyhRClBaEq4TQrDavqcRNoJfJWZj0xqtE8MZ4MHYoSLvbMbMaajg5BgNGNRHSuVPrgIBg=="
+	},
+	"sjNjo20da78=": {
+		"serialNumber": "590000000824479ca47500f665000000000008",
+		"subject": "C=NO, O=Norwegian Institute of Public Health, CN=DSC AN EU 7",
+		"issuer": "C=NO, O=Norsk helsenett SF, CN=NO NHN CSCA PROD",
+		"notBefore": "2021-12-14T09:43:38.000Z",
+		"notAfter": "2023-12-14T09:53:38.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "c9e585b5fbf495478baf62e637b96123853c4a1e",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEW4GPbMNWqJHqDqmdGEpB3v+C3igf3QwjAb/u0wkUUqrgtQsdkps3gBNSG/9h3p/LNJxRhDpnRY8CQIdETrnWgg=="
+	},
 	"7z8+6oww2a8=": {
 		"serialNumber": "59000000032417dbd45e12ffbf000000000003",
 		"subject": "C=NO, O=Norwegian Institute of Public Health, CN=DSC HN EU 2",
@@ -3692,6 +3726,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErbWQM5hj5SeR23DzCV0TVKrFhfYsmNVVSbPFxwyw4ZEfersZ3bp2h+rw2BhbLbzVHZIwWfnhaKZ72+JciUksFQ=="
+	},
+	"ajqCX4tylQM=": {
+		"serialNumber": "5900000004578a922055c0e1df000000000004",
+		"subject": "C=NO, O=Norwegian Institute of Public Health, CN=DSC HN EU 3",
+		"issuer": "C=NO, O=Norsk helsenett SF, CN=NO NHN CSCA PROD",
+		"notBefore": "2021-06-07T09:17:12.000Z",
+		"notAfter": "2023-06-07T09:27:12.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "256b18214f28671ede6bb58beec3aba6f40a6b74",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEw/L5IqQTBETiI2YVVkJ3Zb3iLlPqrUErSi2UvWb/1z9foPAK1dhkQXs763JNoLyWqelVnhBJy4mdR+01xUC13A=="
 	},
 	"0NQWnxTv90c=": {
 		"serialNumber": "37b400950c11b41922019666428e84b92cebd939",
