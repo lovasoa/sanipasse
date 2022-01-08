@@ -17,6 +17,7 @@ export const get: RequestHandler = async ({ params: { key } }) => {
 	return {
 		headers: {
 			'Content-Type': type,
+			"Cache-Control": "public, max-age=31536000, immutable",
 			'Content-Security-Policy': "script-src 'none';"
 		},
 		body
@@ -29,7 +30,7 @@ export const put: RequestHandler = async ({ params: { key }, rawBody }) => {
 	if (rawBody.byteLength > MAX_FILESIZE)
 		return { status: 413, body: `maximum file size: ${MAX_FILESIZE / 1_000_000} Mb` };
 	await fs.writeFile(`${DATA_FOLDER}/${key}`, rawBody);
-	return { body: 'Success' };
+	return { body: { success: true, url: '/api/file/' + key } };
 };
 
 export const del: RequestHandler = async ({ params: { key } }) => {
