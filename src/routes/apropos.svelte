@@ -162,7 +162,7 @@ contact@ophir.dev
 
 <h2>📝 Code source</h2>
 <p>
-	Cette application est un logiciel libre, sous licence <a href="/licence">AGPLv3</a>. Vous pouvez
+	Cette application est un logiciel libre, sous licence <a href="/LICENSE">AGPLv3</a>. Vous pouvez
 	lire et télécharger son
 	<a href="https://github.com/lovasoa/sanipasse">code source sur Github</a>. La licence AGPLv3 vous
 	permet de d'utiliser le logiciel et de le modifier librement quels que soient vos besoins, mais
