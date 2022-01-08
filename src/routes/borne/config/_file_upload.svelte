@@ -3,7 +3,6 @@
 	import { _ } from 'ajv';
 	import ShowPromiseError from '../../_showPromiseError.svelte';
 	import { sha256 } from '$lib/sha256';
-	import { page } from '$app/stores';
 	import { browser } from '$app/env';
 
 	export let label = 'Fichiers';
@@ -17,9 +16,7 @@
 	const file_config: Promise<{
 		ALLOWED_FILE_TYPES: Record<string, string>;
 		MAX_FILESIZE: number;
-	}> = browser
-		? fetch($page.url.origin + '/api/file/config.json').then((r) => r.json())
-		: new Promise(() => {});
+	}> = browser ? fetch('/api/file/config.json').then((r) => r.json()) : new Promise(() => {});
 
 	let extension_types = new Map();
 
