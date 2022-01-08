@@ -1,9 +1,9 @@
 <script lang="ts">
 	import b64 from 'base64-js';
-	import { ALLOWED_FILE_TYPES, MAX_FILESIZE } from '$lib/global_config';
 	import { _ } from 'ajv';
 	import ShowPromiseError from '../../_showPromiseError.svelte';
 	import { sha256 } from '$lib/sha256';
+	import { page } from '$app/stores';
 
 	export let label = 'Fichiers';
 	export let file_urls: string[];
@@ -13,11 +13,21 @@
 
 	let loading: Promise<void> = Promise.resolve();
 
-	const extension_types = new Map(
-		Object.entries(ALLOWED_FILE_TYPES).filter(([_, type]) =>
-			allowed_types.some((t) => type.startsWith(t))
-		)
-	);
+	const file_config: Promise<{
+		ALLOWED_FILE_TYPES: Record<string, string>;
+		MAX_FILESIZE: number;
+	}> = fetch($page.url.origin + '/api/file/config.json').then((r) => r.json());
+
+	let extension_types = new Map();
+
+	file_config.then(({ ALLOWED_FILE_TYPES }) => {
+		extension_types = new Map(
+			Object.entries(ALLOWED_FILE_TYPES).filter(([_, type]) =>
+				allowed_types.some((t) => type.startsWith(t))
+			)
+		);
+	});
+
 	async function updateLogosUrls() {
 		if (!fileInput) throw new Error('missing file element');
 		const { files } = fileInput;
@@ -30,6 +40,7 @@
 	}
 
 	async function file_to_url(file: File): Promise<string> {
+		const { MAX_FILESIZE } = await file_config;
 		if (file.size > MAX_FILESIZE)
 			throw `Les fichiers de plus de ${(MAX_FILESIZE / 1e6).toFixed(1)} Mo ne sont pas autorisés.`;
 		// Inline small files as data URLs
@@ -65,7 +76,6 @@
 			await middle_bytes.text(),
 			await end_bytes.text()
 		].join('\t');
-		console.log(hash_key);
 		const hash = await sha256(hash_key);
 
 		const path = `/api/file/${hash}.${extension}`;
