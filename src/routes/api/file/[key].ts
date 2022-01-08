@@ -17,7 +17,7 @@ export const get: RequestHandler = async ({ params: { key } }) => {
 	return {
 		headers: {
 			'Content-Type': type,
-			"Cache-Control": "public, max-age=31536000, immutable",
+			'Cache-Control': 'public, max-age=31536000, immutable',
 			'Content-Security-Policy': "script-src 'none';"
 		},
 		body
