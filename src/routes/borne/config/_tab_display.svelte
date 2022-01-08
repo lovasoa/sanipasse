@@ -1,62 +1,20 @@
 <script lang="ts">
-	import b64 from 'base64-js';
 	import { DEFAULT_CONFIG } from './_config';
+	import FileUpload from './_file_upload.svelte';
 	import SoundPicker from './_sound_picker.svelte';
 
 	export let config = DEFAULT_CONFIG;
-
-	let logosFileInput: HTMLInputElement | null = null;
-	async function updateLogosUrls() {
-		if (!logosFileInput) throw new Error('missing file element');
-		const { files } = logosFileInput;
-		if (!files || !files.length) throw new Error('No file in input');
-		const files_buffers = Array.from(files).map((file) => ({
-			file,
-			arrayBuffer: file.arrayBuffer()
-		}));
-		config.logo_urls = [];
-		for (const { file, arrayBuffer } of files_buffers) {
-			const buffer = await arrayBuffer;
-			const bytes = new Uint8Array(buffer);
-			const url = `data:${file.type};base64,${b64.fromByteArray(bytes)}`;
-			config.logo_urls.push(url);
-			config.logo_urls = config.logo_urls; // refresh
-		}
-	}
-	function resetLogosUrls() {
-		config.logo_urls = [];
-		if (logosFileInput) logosFileInput.value = '';
-	}
 </script>
 
 <fieldset class="col-md-12">
 	<legend>Interface d'accueil</legend>
 
 	<div class="row">
-		<div class="form-label col-12 mb-0">
-			<div class="input-group">
-				<label class="input-group-text" for="bgimage">Logos supérieurs</label>
-				<input
-					type="file"
-					class="form-control"
-					bind:this={logosFileInput}
-					on:change={updateLogosUrls}
-					accept="image/*"
-					multiple
-					id="bgimage"
-				/>
-			</div>
-		</div>
-		<div class="col-12 mb-3">
-			{#each config.logo_urls as url}
-				<img alt="logo" src={url} class="m-1" style="max-height: 3em" />
-			{/each}
-			{#if config.logo_urls.length > 0}
-				<button type="button" class="btn btn-sm btn-outline-danger" on:click={resetLogosUrls}
-					>Supprimer</button
-				>
-			{/if}
-		</div>
+		<FileUpload
+			bind:file_urls={config.logo_urls}
+			label="Logos supérieurs"
+			allowed_types={['image']}
+		/>
 		<label class="col-12 mb-3">
 			Titre de la page
 			<input

@@ -6,3 +6,5 @@ node_modules
 /sanipasse.db
 .env
 .vscode/settings.json
+*.mp4
+*.webm
