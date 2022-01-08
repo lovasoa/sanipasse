@@ -1,20 +1,12 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { DATA_FOLDER, MAX_FILESIZE } from '$lib/global_config';
+import { DATA_FOLDER, MAX_FILESIZE, ALLOWED_FILE_TYPES } from '$lib/global_config';
 import fs from 'fs/promises';
-
-// No dynamic type should be allowed here: no svg
-const allowed_types: Record<string, string> = {
-	jpg: 'image/jpeg',
-	png: 'image/png',
-	mp4: 'video/mp4',
-	webm: 'video/webm'
-};
 
 function checkKey(key: string): string {
 	const match = key.match(/^[0-9a-f]{64}\.(.{2,4})$/);
 	if (!match) throw new Error('Invalid name');
 	const extension = match[1];
-	const type = allowed_types[extension];
+	const type = ALLOWED_FILE_TYPES[extension];
 	if (!type) throw new Error('Invalid file type');
 	return type;
 }
