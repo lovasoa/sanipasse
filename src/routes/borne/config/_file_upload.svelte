@@ -4,6 +4,7 @@
 	import ShowPromiseError from '../../_showPromiseError.svelte';
 	import { sha256 } from '$lib/sha256';
 	import { page } from '$app/stores';
+	import { browser } from '$app/env';
 
 	export let label = 'Fichiers';
 	export let file_urls: string[];
@@ -16,7 +17,9 @@
 	const file_config: Promise<{
 		ALLOWED_FILE_TYPES: Record<string, string>;
 		MAX_FILESIZE: number;
-	}> = fetch($page.url.origin + '/api/file/config.json').then((r) => r.json());
+	}> = browser
+		? fetch($page.url.origin + '/api/file/config.json').then((r) => r.json())
+		: Promise.reject();
 
 	let extension_types = new Map();
 
