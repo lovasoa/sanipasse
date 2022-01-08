@@ -19,7 +19,7 @@
 		MAX_FILESIZE: number;
 	}> = browser
 		? fetch($page.url.origin + '/api/file/config.json').then((r) => r.json())
-		: Promise.reject();
+		: new Promise(() => {});
 
 	let extension_types = new Map();
 
@@ -99,8 +99,9 @@
 	}
 
 	async function resetFiles() {
-		await Promise.all(file_urls.map(deleteFile));
-		file_urls = [];
+		const deletions = Promise.all(file_urls.map(deleteFile));
+		file_urls = []; // Reset the array even if the deletion failed
+		await deletions;
 		setTimeout(() => fileInput && (fileInput.value = ''), 0);
 	}
 </script>
