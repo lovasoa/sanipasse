@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Tooltip } from 'sveltestrap';
+	import TooltipFix from '$lib/TooltipFix.svelte';
 </script>
 
 <svelte:head>
@@ -92,33 +92,34 @@
 			information, but without the link:
 			<code
 				>DC04
-				<span id="countrycode">FR03</span>
-				<Tooltip target="countrycode">ID of the certificate authority</Tooltip>
 
-				<span id="signkey">AHP1</span>
-				<Tooltip target="signkey">ID of the signing key used to sign the document</Tooltip>
+				<TooltipFix><span slot="target">FR03</span>ID of the certificate authority</TooltipFix>
 
-				<span id="cdate">1E69</span>
-				<Tooltip target="cdate">Creation date of the document</Tooltip>
+				<TooltipFix
+					><span slot="target">AHP1</span>ID of the signing key used to sign the document</TooltipFix
+				>
 
-				<span id="sdate">1E69</span>
-				<Tooltip target="sdate">Date of the signature of the document</Tooltip>
+				<TooltipFix><span slot="target">1E69</span>Creation date of the document</TooltipFix>
 
-				<span id="doctype">B2</span>
-				<Tooltip target="doctype">Document type (B2 = test, L1 = vaccine)</Tooltip>
+				<TooltipFix><span slot="target">1E69</span>Date of the signature of the document</TooltipFix
+				>
+
+				<TooltipFix><span slot="target">B2</span>Document type (B2 = test, L1 = vaccine)</TooltipFix
+				>
 
 				01
 
-				<span id="countrycode2">FR</span>
-				<Tooltip target="countrycode2">Country Code</Tooltip>
+				<TooltipFix><span slot="target">FR</span>Country Code</TooltipFix>
 
 				F0 OPHIR
 				<abbr title="ASCII control character 29 (group separator)">\x1D</abbr>
 				F1 LOJKINE
 				<abbr title="ASCII control character 29 (group separator)">\x1D</abbr>
 
-				<span id="birth">F2 16 04 1994</span>
-				<Tooltip target="birth">Birth date</Tooltip>
+				<TooltipFix>
+					<span slot="target">F2 16 04 1994</span>
+					Birth date
+				</TooltipFix>
 
 				F3 M F4 945006
 
@@ -126,10 +127,12 @@
 				F5 N F6 24 04 2021 09 29
 				<abbr title="ASCII control character 31 (unit separator)">\x1F</abbr>
 
-				<span id="sign">
-					7N6GCZR3FHC3JL2WYDE4LQ3GHG7TJAK3U6RLBPZJYHK43KJDJA32RUZTXG2LVDKNVYXFL6YPP2TPWMVGPB3H7MNZUTE7X3GN3RZHCUY
-				</span>
-				<Tooltip target="sign">Base32 ECDSA signature</Tooltip>
+				<TooltipFix>
+					<span slot="target">
+						7N6GCZR3FHC3JL2WYDE4LQ3GHG7TJAK3U6RLBPZJYHK43KJDJA32RUZTXG2LVDKNVYXFL6YPP2TPWMVGPB3H7MNZUTE7X3GN3RZHCUY
+					</span>
+					Base32 ECDSA signature
+				</TooltipFix>
 			</code> (whitespaces added for legibility).
 		</li>
 	</ul>

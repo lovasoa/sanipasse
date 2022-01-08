@@ -47,7 +47,9 @@ function testValidityInterval(test: CommonTestInfo): ValidityPeriod {
 }
 
 function vaccinationValidityInterval(vac: CommonVaccineInfo, date_of_birth: Date): ValidityPeriod {
-	const { vaccination_date, prophylactic_agent, doses_expected } = vac;
+	const { vaccination_date, prophylactic_agent, doses_expected, doses_received } = vac;
+	if (doses_received < doses_expected)
+		throw new Error(`Cycle vaccinal incomplet: dose ${doses_received} sur ${doses_expected}`);
 	const vaccine: string = prophylactic_agent.toUpperCase().trim();
 	if (vaccine === JANSSEN) {
 		const start = add_days(vaccination_date, v.vaccineDelayJanssen);
@@ -79,6 +81,6 @@ export function validityInterval(
 			? testValidityInterval(cert)
 			: vaccinationValidityInterval(cert, date_of_birth);
 	} catch (e) {
-		return { invalid: `${e}` };
+		return { invalid: e instanceof Error ? e.message : `${e}` };
 	}
 }

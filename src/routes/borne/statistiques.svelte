@@ -10,7 +10,7 @@
 
 	import { load_config } from './config/_config_storage';
 	import StatsChart from './_stats_chart.svelte';
-	import { Tooltip } from 'sveltestrap';
+	import TooltipFix from '$lib/TooltipFix.svelte';
 
 	export let with_interactions = true;
 
@@ -117,12 +117,13 @@
 
 <p>
 	Vous utilisez actuellement Sanipasse
-	<i id="sanipasse_version">v{process.env.SANIPASSE_VERSION}</i>
-	<Tooltip target="sanipasse_version">
+
+	<TooltipFix>
+		<i slot="target">v{process.env.SANIPASSE_VERSION}</i>
 		version {process.env.SANIPASSE_VERSION}, itération du {new Date(
 			process.env.SANIPASSE_BUILD_DATE || 0
 		).toLocaleString('fr')}
-	</Tooltip>
+	</TooltipFix>
 	. Sanipasse est un logiciel libre, distribué gratuitement par <i>Ophir Lojkine</i> sous la license
 	publique générale AGPLv3.
 </p>
