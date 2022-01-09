@@ -1,9 +1,12 @@
 <script type="ts">
 	import { DEFAULT_CONFIG } from './config/_config';
 	import type { ConfigProperties } from './config/_config';
-	import { load_config as load_config_from_storage, save_config } from './config/_config_storage';
+	import {
+		load_config as load_config_from_storage,
+		load_config_from_key,
+		save_config
+	} from './config/_config_storage';
 	import Scan from './_scan.svelte';
-	import { get } from '$lib/http';
 	import { onMount } from 'svelte';
 
 	let configKey: string = '';
@@ -18,12 +21,8 @@
 	// Always save the config to local storage when it is loaded
 	config_promise.then(save_config);
 
-	async function load_config_from_key(): Promise<ConfigProperties> {
-		return get(`/api/borne/${configKey}`);
-	}
-
 	async function load_config(): Promise<ConfigProperties> {
-		if (configKey) return load_config_from_key();
+		if (configKey) return load_config_from_key(configKey);
 		else return load_config_from_storage();
 	}
 
