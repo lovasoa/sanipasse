@@ -18,6 +18,7 @@ export async function load_config(): Promise<ConfigProperties> {
 		if (config.sound_invalid === undefined) config.sound_invalid = 'invalid.mp3';
 		config.accepted_message = config.accepted_message || DEFAULT_CONFIG.accepted_message;
 		config.refused_message = config.refused_message || DEFAULT_CONFIG.refused_message;
+		config.background_images = config.background_images || DEFAULT_CONFIG.background_images;
 		return config;
 	} catch (e) {
 		console.error('Unable to load config', e);

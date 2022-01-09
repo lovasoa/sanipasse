@@ -15,6 +15,11 @@
 			label="Logos supérieurs"
 			allowed_types={['image']}
 		/>
+		<FileUpload
+			bind:file_urls={config.background_images}
+			label="Image de fond"
+			allowed_types={['image']}
+		/>
 		<label class="col-12 mb-3">
 			Titre de la page
 			<input

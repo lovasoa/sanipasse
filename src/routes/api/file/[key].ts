@@ -1,6 +1,7 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { DATA_FOLDER, MAX_FILESIZE, ALLOWED_FILE_TYPES } from '$lib/global_config';
+import { DATA_FOLDER, MAX_FILESIZE } from '$lib/global_config';
 import fs from 'fs/promises';
+import { ALLOWED_FILE_TYPES } from '$lib/file_types';
 
 function checkKey(key: string): string {
 	const match = key.match(/^[0-9a-f]{64}\.(.{2,4})$/);

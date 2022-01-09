@@ -6,6 +6,7 @@
 	import { store_statistics_datapoint } from './_stats_storage';
 	import ScanStatsModal from './_scan_stats_modal.svelte';
 	import ValidationMessage from './_validationMessage.svelte';
+	import Slideshow from './_slideshow.svelte';
 
 	export let config: ConfigProperties;
 	const { decode_after_s, reset_after_s, prevent_revalidation_before_minutes } = config;
@@ -98,6 +99,17 @@
 		<link rel="stylesheet" href="data:text/css,{encodeURIComponent(config.custom_css)}" />
 	{/if}
 </svelte:head>
+
+<Slideshow
+	file_urls={config.background_images}
+	style="
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		z-index: -1;"
+/>
 
 <div
 	class="main container"

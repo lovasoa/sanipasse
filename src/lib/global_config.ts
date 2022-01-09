@@ -6,11 +6,3 @@ export const DATABASE_CONNECTION_STRING =
 	process.env['DATABASE_CONNECTION_STRING'] || `sqlite:${DATA_FOLDER}/sanipasse.db`;
 // Maximum file size
 export const MAX_FILESIZE = Number(process.env['MAX_FILESIZE'] || 500_000);
-
-// No dynamic type should be allowed here: no svg
-export const ALLOWED_FILE_TYPES: Record<string, string> = {
-	jpg: 'image/jpeg',
-	png: 'image/png',
-	mp4: 'video/mp4',
-	webm: 'video/webm'
-};

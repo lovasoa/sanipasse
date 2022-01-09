@@ -4,29 +4,25 @@
 	import ShowPromiseError from '../../_showPromiseError.svelte';
 	import { sha256 } from '$lib/sha256';
 	import { browser } from '$app/env';
+	import type { MainType } from '$lib/file_types';
+	import {
+		extensions_for_types,
+		file_of_type,
+		get_extension,
+		mimes_for_types
+	} from '$lib/file_types';
 
 	export let label = 'Fichiers';
 	export let file_urls: string[];
-	export let allowed_types = ['image', 'video'];
+	export let allowed_types: MainType[] = ['image', 'video'];
 
 	let fileInput: HTMLInputElement | null = null;
 
 	let loading: Promise<void> = Promise.resolve();
 
-	const file_config: Promise<{
-		ALLOWED_FILE_TYPES: Record<string, string>;
-		MAX_FILESIZE: number;
-	}> = browser ? fetch('/api/file/config.json').then((r) => r.json()) : new Promise(() => {});
-
-	let extension_types = new Map();
-
-	file_config.then(({ ALLOWED_FILE_TYPES }) => {
-		extension_types = new Map(
-			Object.entries(ALLOWED_FILE_TYPES).filter(([_, type]) =>
-				allowed_types.some((t) => type.startsWith(t))
-			)
-		);
-	});
+	const file_config: Promise<{ MAX_FILESIZE: number }> = browser
+		? fetch('/api/file/config.json').then((r) => r.json())
+		: new Promise(() => {});
 
 	async function updateLogosUrls() {
 		if (!fileInput) throw new Error('missing file element');
@@ -54,14 +50,11 @@
 	}
 
 	async function upload_file_and_return_url(file: File): Promise<string> {
-		const parts = file.name.split('.');
-		const extension = parts[parts.length - 1].toLowerCase();
-		if (!extension_types.has(extension)) {
+		if (!file_of_type(file.name, allowed_types)) {
 			throw (
-				`Les fichiers .${extension} ne sont pas supportés. ` +
-				`Veuillez insérer un fichier dans l'en des formats suivants: ${[
-					...extension_types.keys()
-				].join(', ')}`
+				`Les fichiers .${get_extension(file.name)} ne sont pas supportés. ` +
+				`Veuillez insérer un fichier dans l'un des formats suivants: 
+				${extensions_for_types(allowed_types).join(', ')}.`
 			);
 		}
 		const start_bytes = file.slice(0, 100);
@@ -78,7 +71,7 @@
 		].join('\t');
 		const hash = await sha256(hash_key);
 
-		const path = `/api/file/${hash}.${extension}`;
+		const path = `/api/file/${hash}.${get_extension(file.name)}`;
 		const result = await fetch(path, {
 			method: 'PUT',
 			body: file
@@ -112,7 +105,9 @@
 				class="form-control"
 				bind:this={fileInput}
 				on:change={() => (loading = updateLogosUrls())}
-				accept={[...extension_types.entries()].flatMap(([ext, typ]) => ['.' + ext, typ]).join(',')}
+				accept={[...extensions_for_types(allowed_types), ...mimes_for_types(allowed_types)].join(
+					','
+				)}
 				multiple
 				id="bgimage"
 			/>
