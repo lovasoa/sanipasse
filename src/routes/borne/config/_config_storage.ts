@@ -21,7 +21,7 @@ export async function load_config(): Promise<ConfigProperties> {
 }
 
 export async function load_config_from_key(configKey: string): Promise<ConfigProperties> {
-	const config = get(`/api/borne/${configKey}`);
+	const config = await get(`/api/borne/${configKey}`);
 	return migrate_config(config);
 }
 
