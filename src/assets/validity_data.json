@@ -24,6 +24,10 @@
 		"vaccineBoosterDelayUnderAgeNew": 7,
 		"vaccineBoosterToggleDate": "2021-12-21"
 	},
+	"plus": {
+		"recoveryStartDay": 11,
+		"recoveryEndDay": 183
+	},
 	"recoveryEndDay": 183,
 	"recoveryStartDay": 11,
 	"testNegativeAntigenicEndHour": 24,
@@ -43,6 +47,7 @@
 		"testPositivePcrEndDay": 183,
 		"testPositiveAntigenicStartDay": 11,
 		"testPositiveAntigenicEndDay": 183,
+		"testAcceptanceAgePeriod": "P18Y1M",
 		"recoveryStartDay": 11,
 		"recoveryEndDay": 183,
 		"vaccineDelay": 7,
