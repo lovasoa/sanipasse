@@ -47,7 +47,7 @@
 		"testPositivePcrEndDay": 183,
 		"testPositiveAntigenicStartDay": 11,
 		"testPositiveAntigenicEndDay": 183,
-		"testAcceptanceAgePeriod": "P18Y1M",
+		"testAcceptanceAgePeriod": "P0Y",
 		"recoveryStartDay": 11,
 		"recoveryEndDay": 183,
 		"vaccineDelay": 7,
@@ -77,5 +77,5 @@
 	"vaccineDelayMax": 221,
 	"vaccineDelayMaxJanssen": 68,
 	"vaccineDelayMaxRecovery": 221,
-	"vaccinePassStartDate": "2022-01-15"
+	"vaccinePassStartDate": "2022-01-25"
 }
