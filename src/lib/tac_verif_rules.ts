@@ -11,12 +11,13 @@ const JANSSEN = 'EU/1/20/1525';
 const PCR_TESTS = new Set(['943092', '945006', '948455', 'LP6464-4']);
 const ANTIGENIC_TESTS = new Set(['945584', 'LP217198-3']);
 
-const v =
-	new Date(validity_data.vaccinePassStartDate) > new Date()
-		? validity_data.vaccine
-		: validity_data.health;
+const vaccinePass = new Date(validity_data.vaccinePassStartDate) < new Date();
+const v = vaccinePass ? validity_data.vaccine : validity_data.health;
 
 const VACCINE_BOOSTER_AGE_PERIOD = parse_period(v.vaccineBoosterAgePeriod);
+const TEST_ACCEPTANCE_AGE_PERIOD = vaccinePass
+	? parse_period(validity_data.vaccine.testAcceptanceAgePeriod)
+	: undefined;
 
 function add_period(date: Date, duration: Period): Date {
 	const m = duration.negative ? -1 : 1;
@@ -47,7 +48,7 @@ export class ValidityPeriod {
 	}
 }
 
-function testValidityInterval(test: CommonTestInfo): ValidityPeriod {
+function testValidityInterval(test: CommonTestInfo, date_of_birth: Date): ValidityPeriod {
 	const { test_date, is_negative, is_inconclusive, test_type } = test;
 	const is_pcr = PCR_TESTS.has(test_type);
 	const is_antigenic = ANTIGENIC_TESTS.has(test_type);
@@ -56,7 +57,14 @@ function testValidityInterval(test: CommonTestInfo): ValidityPeriod {
 
 	if (is_negative) {
 		const duration = is_pcr ? v.testNegativePcrEndHour : v.testNegativeAntigenicEndHour;
-		return new ValidityPeriod(test_date, add_hours(test_date, duration));
+		let start = test_date;
+		let end = add_hours(test_date, duration);
+		if (TEST_ACCEPTANCE_AGE_PERIOD) {
+			const end_accept = add_period(date_of_birth, TEST_ACCEPTANCE_AGE_PERIOD);
+			end = end < end_accept ? end : end_accept;
+		}
+		if (end < start) throw new Error('Les tests ne sont plus acceptés');
+		return new ValidityPeriod(start, end);
 	} else if (is_positive) {
 		const start_days = is_pcr ? v.testPositivePcrStartDay : v.testPositiveAntigenicStartDay;
 		const end_days = is_pcr ? v.testPositivePcrEndDay : v.testPositiveAntigenicEndDay;
@@ -99,7 +107,7 @@ export function validityInterval(
 	const { type, date_of_birth } = cert;
 	try {
 		return type === 'test'
-			? testValidityInterval(cert)
+			? testValidityInterval(cert, date_of_birth)
 			: vaccinationValidityInterval(cert, date_of_birth);
 	} catch (e) {
 		return { invalid: e instanceof Error ? e.message : `${e}` };
