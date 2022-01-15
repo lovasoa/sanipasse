@@ -3,7 +3,7 @@ import type {
 	CommonTestInfo,
 	CommonVaccineInfo
 } from './common_certificate_info';
-import v from '../assets/validity_data.json'; // Constants containing the rules for the verification of the certificate
+import validity_data from '../assets/validity_data.json'; // Constants containing the rules for the verification of the certificate
 import { parse as parse_period } from 'tinyduration';
 import type { Duration as Period } from 'tinyduration';
 
@@ -11,8 +11,12 @@ const JANSSEN = 'EU/1/20/1525';
 const PCR_TESTS = new Set(['943092', '945006', '948455', 'LP6464-4']);
 const ANTIGENIC_TESTS = new Set(['945584', 'LP217198-3']);
 
-const VACCINE_BOOSTER_AGE_PERIOD = parse_period(v.vaccineBoosterAgePeriod);
+const v =
+	new Date(validity_data.vaccinePassStartDate) > new Date()
+		? validity_data.vaccine
+		: validity_data.health;
 
+const VACCINE_BOOSTER_AGE_PERIOD = parse_period(v.vaccineBoosterAgePeriod);
 
 function add_period(date: Date, duration: Period): Date {
 	const m = duration.negative ? -1 : 1;
