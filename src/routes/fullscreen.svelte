@@ -35,6 +35,13 @@
 					wallet.remove(code);
 				}}>Supprimer de mon carnet</button
 			>
+		{:else}
+			<button
+				class="btn btn-success w-100"
+				on:click={(_) => {
+					wallet.add(code);
+				}}>Ajouter à mon carnet</button
+			>
 		{/if}
 	</div>
 {/if}
