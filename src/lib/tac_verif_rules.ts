@@ -4,17 +4,34 @@ import type {
 	CommonVaccineInfo
 } from './common_certificate_info';
 import v from '../assets/validity_data.json'; // Constants containing the rules for the verification of the certificate
+import { parse as parse_period } from 'tinyduration';
+import type { Duration as Period } from 'tinyduration';
 
 const JANSSEN = 'EU/1/20/1525';
 const PCR_TESTS = new Set(['943092', '945006', '948455', 'LP6464-4']);
 const ANTIGENIC_TESTS = new Set(['945584', 'LP217198-3']);
 
+const VACCINE_BOOSTER_AGE_PERIOD = parse_period(v.vaccineBoosterAgePeriod);
+
+
+function add_period(date: Date, duration: Period): Date {
+	const m = duration.negative ? -1 : 1;
+	const d = new Date(date);
+	if (duration.years) d.setFullYear(d.getFullYear() + duration.years * m);
+	if (duration.months) d.setMonth(d.getMonth() + duration.months * m);
+	if (duration.days) d.setDate(d.getDate() + duration.days * m);
+	if (duration.hours) d.setHours(d.getHours() + duration.hours * m);
+	if (duration.minutes) d.setMinutes(d.getMinutes() + duration.minutes * m);
+	if (duration.seconds) d.setSeconds(d.getSeconds() + duration.seconds * m);
+	return d;
+}
+
 function add_hours(date: Date, hours: number): Date {
-	return new Date(date.getTime() + hours * 60 * 60 * 1000);
+	return add_period(date, { hours });
 }
 
 function add_days(date: Date, days: number): Date {
-	return add_hours(date, days * 24);
+	return add_period(date, { days });
 }
 
 export class ValidityPeriod {
@@ -57,7 +74,7 @@ function vaccinationValidityInterval(vac: CommonVaccineInfo, date_of_birth: Date
 		return new ValidityPeriod(start, end);
 	}
 	// Date at which the patient will have (or had) the age for a booster shot
-	const booster_date = add_days(date_of_birth, v.vaccineBoosterAge * 365.25);
+	const booster_date = add_period(date_of_birth, VACCINE_BOOSTER_AGE_PERIOD);
 	const is_under_age = add_days(vaccination_date, v.vaccineBoosterDelayUnderAge) < booster_date;
 	const toggle_date = new Date(v.vaccineBoosterToggleDate);
 	const delays = is_under_age
