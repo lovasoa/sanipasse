@@ -29,15 +29,24 @@
 			<pre class="alert alert-danger">Certificat invalide: {e} </pre>
 		{/await}
 		{#if $wallet.includes(code)}
+			{#if $wallet[0] !== code}
+				<button
+					class="btn btn-primary w-100 mt-2"
+					on:click={(_) => {
+						wallet.favorite(code);
+					}}>Marquer comme certificat préféré</button
+				>
+			{/if}
 			<button
-				class="btn btn-danger w-100"
+				class="btn btn-danger w-100 mt-2"
 				on:click={(_) => {
-					wallet.remove(code);
+					if (confirm('Êtes-vous sûr de vouloir supprimer définitivement ce passe ?'))
+						wallet.remove(code);
 				}}>Supprimer de mon carnet</button
 			>
 		{:else}
 			<button
-				class="btn btn-success w-100"
+				class="btn btn-success w-100 mt-2"
 				on:click={(_) => {
 					wallet.add(code);
 				}}>Ajouter à mon carnet</button

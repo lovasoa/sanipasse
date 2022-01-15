@@ -30,6 +30,13 @@ function createWalletStore() {
 				walletSet(newWallet);
 				return newWallet;
 			});
+		},
+		favorite: (cert: string) => {
+			update((wallet) => {
+				const newWallet = [cert, ...wallet.filter((c) => c !== cert)];
+				walletSet(newWallet);
+				return newWallet;
+			});
 		}
 	};
 }
