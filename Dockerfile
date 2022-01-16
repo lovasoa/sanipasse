@@ -24,7 +24,7 @@ RUN mkdir /data
 RUN chown daemon:daemon /data
 
 ENV DATA_FOLDER='/data'
-ENV MAX_FILESIZE=500000
+ENV MAX_FILESIZE=5000000
 
 USER daemon
 
