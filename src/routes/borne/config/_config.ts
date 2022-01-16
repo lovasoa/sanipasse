@@ -42,6 +42,8 @@ export interface ConfigProperties {
 	refused_message?: string;
 	// URL of background image
 	background_images: string[];
+	// Slideshow above the welcome message
+	slideshow_media: string[];
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
@@ -62,5 +64,6 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 	accepted_message:
 		'Bienvenue, $first_name $last_name\n\nCe passe, appartenant à $first_name $last_name, né(e) le $date_of_birth, est valide.',
 	refused_message: 'Passe sanitaire invalide\n\n$message',
-	background_images: []
+	background_images: [],
+	slideshow_media: []
 };

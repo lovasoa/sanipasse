@@ -107,7 +107,7 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		width: 100%;
+		bottom: 0;
 		z-index: -1;"
 />
 
@@ -126,6 +126,14 @@
 			<ValidationMessage context={err} valid={false} {config} />
 		{/await}
 	{:else}
+		{#if config.slideshow_media.length}
+			<section
+				id="top_media"
+				style="height:25vh; margin-bottom: 1em; border-radius: 10px; overflow:hidden;"
+			>
+				<Slideshow file_urls={config.slideshow_media} style="width:100%" />
+			</section>
+		{/if}
 		<section id="welcome_message">
 			<div class="logos row justify-content-center w-100">
 				{#each config.logo_urls as url}
@@ -133,7 +141,7 @@
 						alt="logo"
 						src={url}
 						class="logo col"
-						style="object-fit: contain; max-height: 10em;"
+						style="object-fit: contain; max-height: 10em"
 					/>
 				{/each}
 			</div>

@@ -11,13 +11,18 @@
 
 	<div class="row">
 		<FileUpload
-			bind:file_urls={config.logo_urls}
-			label="Logos supérieurs"
-			allowed_types={['image']}
-		/>
-		<FileUpload
 			bind:file_urls={config.background_images}
 			label="Image de fond"
+			allowed_types={['image', 'video']}
+		/>
+		<FileUpload
+			bind:file_urls={config.slideshow_media}
+			label="Média à afficher au dessus du message d'accueil"
+			allowed_types={['image', 'video']}
+		/>
+		<FileUpload
+			bind:file_urls={config.logo_urls}
+			label="Logos supérieurs"
 			allowed_types={['image']}
 		/>
 		<label class="col-12 mb-3">

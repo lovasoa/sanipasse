@@ -24,15 +24,14 @@
 		? fetch('/api/file/config.json').then((r) => r.json())
 		: new Promise(() => {});
 
-	async function updateLogosUrls() {
+	async function updateUrls() {
 		if (!fileInput) throw new Error('missing file element');
 		const { files } = fileInput;
 		if (!files || !files.length) throw new Error('No file in input');
-		await resetFiles();
-		file_urls = [];
 		for (const url of Array.from(files).map(file_to_url)) {
 			file_urls = [...file_urls, await url];
 		}
+		if (fileInput) fileInput.value = '';
 	}
 
 	async function file_to_url(file: File): Promise<string> {
@@ -104,28 +103,52 @@
 				type="file"
 				class="form-control"
 				bind:this={fileInput}
-				on:change={() => (loading = updateLogosUrls())}
+				on:change={() => (loading = updateUrls())}
 				accept={[...extensions_for_types(allowed_types), ...mimes_for_types(allowed_types)].join(
 					','
 				)}
 				multiple
 				id="bgimage"
 			/>
+			{#if file_urls.length > 0}
+				<button
+					type="button"
+					class="btn btn-sm btn-outline-danger"
+					on:click={() => (loading = resetFiles())}>Supprimer</button
+				>
+			{/if}
 		</div>
 	</div>
 	<div class="col-12 mb-3">
 		<ShowPromiseError promise={loading} />
 	</div>
-	<div class="col-12 mb-3">
+	<div class="col-12 mb-3 d-flex flex-wrap">
 		{#each file_urls as url}
-			<img alt="logo" src={url} class="m-1" style="max-height: 3em" />
+			{#if file_of_type(url, ['image'])}
+				<img src={url} alt="image: {label}" class="preview" />
+			{:else}
+				<video
+					muted
+					src={url}
+					controls
+					playsinline
+					loop
+					autoplay
+					height="50"
+					class="preview"
+					alt="video: {label}"
+				/>
+			{/if}
 		{/each}
-		{#if file_urls.length > 0}
-			<button
-				type="button"
-				class="btn btn-sm btn-outline-danger"
-				on:click={() => (loading = resetFiles())}>Supprimer</button
-			>
-		{/if}
 	</div>
 </div>
+
+<style>
+	.preview {
+		max-height: 50px;
+		border: 1px solid #aaa;
+		border-radius: 2px;
+		min-width: 25px;
+		margin: 5px;
+	}
+</style>

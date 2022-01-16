@@ -33,5 +33,6 @@ export function migrate_config(config: any): ConfigProperties {
 	config.accepted_message = config.accepted_message || DEFAULT_CONFIG.accepted_message;
 	config.refused_message = config.refused_message || DEFAULT_CONFIG.refused_message;
 	config.background_images = config.background_images || DEFAULT_CONFIG.background_images;
+	config.slideshow_media = config.slideshow_media || DEFAULT_CONFIG.slideshow_media;
 	return config;
 }
