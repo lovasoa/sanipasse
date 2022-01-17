@@ -64,7 +64,7 @@ et d'organiser des évènements en toute sécurité."
 	</Row>
 {/each}
 
-<footer class="mb-2">
+<section class="mb-2">
 	{#if !$invitedTo.eventId}
 		<p>
 			Vous pouvez également <i>Créer un événement</i>, pour construire une
@@ -85,12 +85,25 @@ et d'organiser des évènements en toute sécurité."
 		</Row>
 	{/if}
 	<Wallet />
+</section>
+
+<footer class="text-center fs-6 fw-light text-muted mt-3">
+	Sanipasse v{process.env.SANIPASSE_VERSION}. Dernière mise à jour le {new Date(
+		process.env.SANIPASSE_BUILD_DATE || 0
+	).toLocaleDateString('fr')}
+	<p>
+		<a href="/apropos" class="text-reset">à propos</a>
+		-
+		<a href="https://ophir.dev" class="text-reset">contact</a>
+		-
+		<a href="https://github.com/lovasoa/sanipasse" class="text-reset">code source</a>
+	</p>
 </footer>
 
 <style>
 	a,
 	header,
-	footer {
+	section {
 		max-width: 512px;
 		margin: 1em auto;
 	}
