@@ -98,7 +98,7 @@
 <div class="row">
 	<div class="form-label col-12 mb-0">
 		<div class="input-group">
-			<label class="input-group-text" for="bgimage">{label}</label>
+			<label class="input-group-text" for="file_{label}">{label}</label>
 			<input
 				type="file"
 				class="form-control"
@@ -108,7 +108,7 @@
 					','
 				)}
 				multiple
-				id="bgimage"
+				id="file_{label}"
 			/>
 			{#if file_urls.length > 0}
 				<button
