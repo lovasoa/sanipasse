@@ -127,10 +127,7 @@
 		{/await}
 	{:else}
 		{#if config.slideshow_media.length}
-			<section
-				id="top_media"
-				style="height:25vh; margin-bottom: 1em; border-radius: 10px; overflow:hidden;"
-			>
+			<section id="top_media">
 				<Slideshow file_urls={config.slideshow_media} style="width:100%" />
 			</section>
 		{/if}
@@ -201,5 +198,18 @@
 	}
 	h1 {
 		font-size: 2em;
+	}
+
+	#top_media {
+		aspect-ratio: 16/9;
+		margin-bottom: 1em;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+
+	@media (min-width: 770px) {
+		#top_media {
+			aspect-ratio: 12/5;
+		}
 	}
 </style>
