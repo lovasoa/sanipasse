@@ -19,6 +19,7 @@
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<video
 				muted
+				autoplay
 				controls={false}
 				loop
 				src={file_url}
