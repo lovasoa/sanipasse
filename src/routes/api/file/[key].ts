@@ -25,12 +25,13 @@ export const get: RequestHandler = async ({ params: { key } }) => {
 	};
 };
 
-export const put: RequestHandler = async ({ params: { key }, rawBody }) => {
+export const put: RequestHandler = async ({ params: { key }, request }) => {
 	checkKey(key);
+	const rawBody = await request.arrayBuffer();
 	if (!rawBody || rawBody.byteLength === 0) return { status: 400, body: `missing request body` };
 	if (rawBody.byteLength > MAX_FILESIZE)
 		return { status: 413, body: `maximum file size: ${MAX_FILESIZE / 1_000_000} Mb` };
-	await fs.writeFile(`${DATA_FOLDER}/${key}`, rawBody);
+	await fs.writeFile(`${DATA_FOLDER}/${key}`, new DataView(rawBody));
 	return { body: { success: true, url: '/api/file/' + key } };
 };
 

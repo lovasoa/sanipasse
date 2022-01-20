@@ -1,9 +1,9 @@
-import type { EndpointOutput } from '@sveltejs/kit';
 import { Event } from '$lib/database';
-import type { EventData } from '$lib/event';
-import type { DefaultBody } from '@sveltejs/kit/types/endpoint';
+import type { DBEvent, EventData } from '$lib/event';
+import type { RequestHandler } from '@sveltejs/kit';
 
-export const put = async ({ body }: { body: EventData }): Promise<EndpointOutput> => {
+export const put: RequestHandler = async ({ request }) => {
+	const body: EventData = await request.json();
 	const date = new Date(body.date);
 	if (isNaN(+date)) throw new Error('invalid date');
 	const created = await (await Event).create({
@@ -12,6 +12,6 @@ export const put = async ({ body }: { body: EventData }): Promise<EndpointOutput
 	});
 	return {
 		status: 201, // created
-		body: (created.toJSON() as unknown) as DefaultBody
+		body: created.toJSON<any>()
 	};
 };
