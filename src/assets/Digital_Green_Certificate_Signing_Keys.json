@@ -2427,6 +2427,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAECR/tRXmgevftHnx7YjSZv1DTVISChlp0xW01dZA8Ts/JAS8A/fWvFemixZt8R4IZAFohxeDQb9ScuJAKBEiWrA=="
 	},
+	"h3FwCzKaHF8=": {
+		"serialNumber": "254d4adde16f57b6ef69f27af0160df42c407d55",
+		"subject": "C=FR, ST=Paris, L=Paris, O=INRIA, OU=INRIA, CN=dcclight.tousanticovid.gouv.fr",
+		"issuer": "C=FR, ST=Paris, L=Paris, O=INRIA, OU=INRIA, CN=dcclight.tousanticovid.gouv.fr",
+		"notBefore": "2021-12-07T13:32:57.000Z",
+		"notAfter": "2022-12-07T13:32:57.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "9251706404e473419ed0e784055f039042415b86",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEhXR8T7bSr9YasfTlZR59/HGpu4xHNnk544Ph9LLLQIheYj2qRySl8EuYIJtAp7KWSks4Ssy5HbBymbGjg0h8pg=="
+	},
 	"Qw0ebn8uT4I=": {
 		"serialNumber": "421f4dbc5fcded82f2c0f42eda13031fb762243b",
 		"subject": "C=FR, ST=Some-State, O=Inria",
