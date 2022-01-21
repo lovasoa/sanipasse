@@ -47,7 +47,7 @@
 		"testPositivePcrEndDay": 183,
 		"testPositiveAntigenicStartDay": 11,
 		"testPositiveAntigenicEndDay": 183,
-		"testAcceptanceAgePeriod": "P0Y",
+		"testAcceptanceAgePeriod": "P16Y",
 		"recoveryStartDay": 11,
 		"recoveryEndDay": 183,
 		"vaccineDelay": 7,
