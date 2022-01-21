@@ -433,6 +433,28 @@
 		},
 		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2MyDsFqh2Xhdc6PUbR+0alU0hD8tT6BSJpCbigvdZAbz5slDPAIrXvyz2Aac79U6jvyyMHHDbIOL1DxU1/pc7shgd/B0btHJogwQQUxyh149GnA8e1i3LLJhu8dtC4LxBPZK91nknkgrKyYU55sJiQTnx2VYuF6WDBXFW4Q2EHsN+KIC68uDNousFHdw4Dk9rb4vEHLqsbY/afEZ1HmWbrvN+6pPyPFh43ogvYWkVcn5JahOXQqpoePVFUAq0sdqG9DluoSXWqpyNfcTQp3WCVldqsyMfAzGwceR/hKohMDXBmxAAbv5h8U05KX1xHgwAWfPPiITtqqIKt0EvFJPzwIDAQAB"
 	},
+	"kaJFrIZIBnA=": {
+		"serialNumber": "589f045bbee031e5ea1ec3684d3bd016",
+		"subject": "C=CH, ST=Bern, L=Köniz, 2.5.4.15=Government Entity, 2.5.4.97=NTRCH-CHE-467.023.568, O=Bundesamt für Gesundheit (BAG), OU=GE-0220-BAG, OU=Taskforce BAG Covid-19, CN=CC_EU_NVX-CoV2373_05_01",
+		"issuer": "C=CH, 2.5.4.97=VATCH-CHE-221.032.573, O=Bundesamt fuer Informatik und Telekommunikation (BIT), OU=Swiss Government PKI, CN=Swiss Government Regulated CA 02",
+		"notBefore": "2022-01-11T14:37:58.000Z",
+		"notAfter": "2025-01-11T14:37:58.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "5aac622c8b0612f3e9fbbc17e976853889e363ff",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 2048
+		},
+		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr+lVZeF6avauEGpS5CLuyb1S+fCM2KIHgNLwRi4/WSccHw37ZEKL75ceo/3lVwnnyiOmgjd3vWEavHdTYey5Zj9LsejrHREvhwOWL6atYuq0uP1RS51deikMmE/YZ1TveLAg1FHbpmXs2jBqUPPohyeoPJotUs7LuUYXEIf6L1tEB/BQjurgRT6YjEMcvYZg0hrPe+aBXAAnTpE0pIY41bmf0uAooQ7LLFzzQTwpgNMSHU8eKl03FHs0hKtfH67zKJwoBr0v3eoOhI+6d1eepV78XbAYkNUtkqs2I39PPuSS2b31XbswJlVdZuPWz3nbl8BfSrgXHKHlRzmOTegjfQIDAQAB"
+	},
 	"Ll3NP03zOxY=": {
 		"serialNumber": "1479dce89e848ba6077c57b16f925eca",
 		"subject": "C=CH, ST=Bern, L=Köniz, 2.5.4.15=Government Entity, 2.5.4.97=NTRCH-CHE-467.023.568, O=Bundesamt für Gesundheit (BAG), OU=GE-0220-BAG, OU=Taskforce BAG Covid-19, CN=COVID-certificate-CH-21-05",
