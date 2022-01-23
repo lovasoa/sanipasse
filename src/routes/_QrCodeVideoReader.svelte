@@ -13,7 +13,6 @@
 	export let videoError: Error | null = null;
 
 	let videoElement: HTMLVideoElement | undefined = undefined;
-	let stop = () => {};
 
 	const codeReader = new BrowserMultiFormatReader(
 		new Map([
@@ -22,18 +21,23 @@
 		])
 	);
 
-	let decodePromise: Promise<void> = Promise.resolve();
+	let controls: IScannerControls | undefined = undefined;
+	let mediaStreamPromise: Promise<MediaStream> | undefined = undefined;
+	$: decodePromise = mediaStreamPromise ? mediaStreamPromise.then(start) : Promise.resolve();
+	$: if (mediaStreamPromise) mediaStreamPromise.catch((e) => (videoError = e));
 
-	function error(e: any) {
-		decodePromise = Promise.reject(e);
+	function loadCamera() {
+		stop();
+		mediaStreamPromise = navigator.mediaDevices.getUserMedia({
+			audio: false,
+			video: facingMode ? { facingMode } : true
+		});
 	}
 
+	onMount(loadCamera);
+
 	async function start(mediaStream: MediaStream) {
-		let controls: IScannerControls | undefined = undefined;
-		stop = () => {
-			if (controls) controls.stop();
-			mediaStream.getTracks().forEach((track) => track.stop());
-		};
+		started = true;
 		try {
 			console.log(`Started decode from camera with id ${mediaStream.id}`);
 			// you can use the controls to stop() the scan or switchTorch() if available
@@ -45,7 +49,6 @@
 					return;
 				} else onResult(result);
 			});
-			started = true;
 		} catch (e) {
 			error(e);
 		}
@@ -56,23 +59,20 @@
 		dispatch('qrcode', data);
 	}
 
-	onDestroy(function destroy() {
+	function error(e: any) {
 		stop();
-		started = false;
-	});
-
-	function loadCamera() {
-		started = false;
-		stop();
-		const videoPromise = navigator.mediaDevices.getUserMedia({
-			audio: false,
-			video: facingMode ? { facingMode } : true
-		});
-		decodePromise = videoPromise.then(start);
-		videoPromise.catch((e) => (videoError = e));
+		decodePromise = Promise.reject(e);
 	}
 
-	onMount(loadCamera);
+	async function stop() {
+		if (controls) controls.stop();
+		if (mediaStreamPromise) {
+			const mediaStream = await mediaStreamPromise;
+			mediaStream.getTracks().forEach((track) => track.stop());
+		}
+		started = false;
+	}
+	onDestroy(stop);
 </script>
 
 <div class="video-container" class:started>
