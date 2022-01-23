@@ -34,7 +34,6 @@
 			if (controls) controls.stop();
 			mediaStream.getTracks().forEach((track) => track.stop());
 		};
-		onDestroy(stop);
 		try {
 			console.log(`Started decode from camera with id ${mediaStream.id}`);
 			// you can use the controls to stop() the scan or switchTorch() if available
