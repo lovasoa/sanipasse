@@ -74,8 +74,9 @@
 	</p>
 	<p>
 		Cette page vous permet de configurer l'interface de scan et de contrôle des passes. Une fois sur
-		la page de scan, il vous faudra soit un lecteur physique de QR code, soit une webcam pour lire
-		les passes sanitaires.
+		la page de scan, il vous faudra soit
+		<a class="link-dark" href="/borne/config/lecteur-physique">un lecteur physique de QR code</a>, soit une webcam pour lire les
+		passes sanitaires.
 	</p>
 {/if}
 

@@ -89,7 +89,25 @@
 			<video height={has_video_preview ? 100 : 0} autoplay={true} bind:this={video_preview} />
 		</div>
 	{:else}<!-- USB scanning -->
-		<div class="form-label col-xl-5">
+		<div class="col-xl-6">
+			Les lecteurs suivants, de l’entreprise française Solucode, ont été testés par le distributeur
+			et fonctionnent avec sanipasse borne:
+			<ul>
+				<li>
+					<a
+						href="https://solucode.com/fr/inventaires-codebarre/189-dc320-lecteur-2d-imageur-filaire-kit-complet-usb-noir-districode.html"
+						>Pistolet 2D DC 320</a
+					>
+				</li>
+				<li>
+					<a
+					href="https://solucode.com/fr/accueil/257-dc7500-scanner-omnidirectionnel-filaire-2d-rs232.html"
+						>Mini Scanner DC 7500</a
+					>
+				</li>
+			</ul>
+		</div>
+		<div class="form-label col-xl-6">
 			<label for="wait">Durée d'attente avant la validation du code saisi</label>
 			<div class="input-group">
 				<input
