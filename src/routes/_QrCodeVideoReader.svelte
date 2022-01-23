@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { BarcodeFormat, DecodeHintType, NotFoundException } from '@zxing/library';
 	import type { Result } from '@zxing/library';
-	import { BrowserMultiFormatReader } from '@zxing/browser';
-	import { onMount } from 'svelte';
+	import { BrowserMultiFormatReader, IScannerControls } from '@zxing/browser';
+	import { onDestroy, onMount } from 'svelte';
 	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher<{ qrcode: string }>();
@@ -29,25 +29,23 @@
 	}
 
 	async function start(mediaStream: MediaStream) {
+		let controls: IScannerControls | undefined = undefined;
+		stop = () => {
+			if (controls) controls.stop();
+			mediaStream.getTracks().forEach((track) => track.stop());
+		};
+		onDestroy(stop);
 		try {
 			console.log(`Started decode from camera with id ${mediaStream.id}`);
 			// you can use the controls to stop() the scan or switchTorch() if available
-			const controls = await codeReader.decodeFromStream(
-				mediaStream,
-				videoElement,
-				(result, err) => {
-					console.log(`zxing callback called, result: ${result}, err: ${err}`);
-					if (!started) return;
-					if (err || !result) {
-						if (!(err instanceof NotFoundException)) error(err);
-						return;
-					} else onResult(result);
-				}
-			);
-			stop = () => {
-				controls.stop();
-				mediaStream.getTracks().forEach((track) => track.stop());
-			};
+			controls = await codeReader.decodeFromStream(mediaStream, videoElement, (result, err) => {
+				console.log(`zxing callback called, result: ${result}, err: ${err}`);
+				if (!started) return;
+				if (err || !result) {
+					if (!(err instanceof NotFoundException)) error(err);
+					return;
+				} else onResult(result);
+			});
 			started = true;
 		} catch (e) {
 			error(e);
@@ -59,10 +57,10 @@
 		dispatch('qrcode', data);
 	}
 
-	function onUnMount() {
+	onDestroy(function destroy() {
 		stop();
 		started = false;
-	}
+	});
 
 	function loadCamera() {
 		started = false;
@@ -73,7 +71,6 @@
 		});
 		decodePromise = videoPromise.then(start);
 		videoPromise.catch((e) => (videoError = e));
-		return onUnMount;
 	}
 
 	onMount(loadCamera);
