@@ -37,6 +37,11 @@ export const put: RequestHandler = async ({ params: { key }, request }) => {
 
 export const del: RequestHandler = async ({ params: { key } }) => {
 	checkKey(key);
-	await fs.unlink(`${DATA_FOLDER}/${key}`);
-	return { body: 'Success' };
+	try {
+		await fs.unlink(`${DATA_FOLDER}/${key}`);
+		return { body: 'Success' };
+	} catch (e) {
+		if (e && (e as any).code === 'ENOENT') return { status: 208, body: 'File did not exist' };
+		else throw e;
+	}
 };

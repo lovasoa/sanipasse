@@ -93,6 +93,11 @@
 		await deletions;
 		setTimeout(() => fileInput && (fileInput.value = ''), 0);
 	}
+
+	function remove(url: string) {
+		console.log('Remove file', url);
+		file_urls = file_urls.filter((u) => u !== url);
+	}
 </script>
 
 <div class="row">
@@ -125,7 +130,7 @@
 	<div class="col-12 mb-3 d-flex flex-wrap">
 		{#each file_urls as url}
 			{#if file_of_type(url, ['image'])}
-				<img src={url} alt="image: {label}" class="preview" />
+				<img src={url} alt="image: {label}" class="preview" on:error={() => remove(url)} />
 			{:else}
 				<video
 					muted
@@ -137,6 +142,7 @@
 					height="50"
 					class="preview"
 					alt="video: {label}"
+					on:error={() => remove(url)}
 				/>
 			{/if}
 		{/each}

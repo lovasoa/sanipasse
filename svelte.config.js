@@ -8,13 +8,13 @@ const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url),
 const adapter =
 	process.env.SVELTEKIT_ADAPTER === 'node'
 		? adapter_node({
-			out: 'build',
-		})
+				out: 'build'
+		  })
 		: adapter_static({
-			pages: 'build',
-			assets: 'build',
-			fallback: 'index.html'
-		});
+				pages: 'build',
+				assets: 'build',
+				fallback: 'index.html'
+		  });
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
