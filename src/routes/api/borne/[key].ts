@@ -11,10 +11,7 @@ export const get: RequestHandler = async ({ params: { key } }) => {
 	return { body };
 };
 
-export const put: RequestHandler<any, string | { created?: boolean | null }> = async ({
-	params: { key },
-	request
-}) => {
+export const put: RequestHandler = async ({ params: { key }, request }) => {
 	const rawBody = await request.text();
 	if (rawBody.length > MAX_FILESIZE)
 		return {

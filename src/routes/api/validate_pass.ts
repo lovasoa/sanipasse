@@ -6,14 +6,16 @@ const ACCEPTED_KEYS = new Set((process.env['ACCEPTED_KEYS'] || '').split(','));
 
 type Person = { first_name: string; last_name: string; date_of_birth: Date };
 
-export const post: RequestHandler<
-	any,
-	{
+type PostResponse = Promise<{
+	status: number;
+	body: {
 		error?: string;
 		validated?: boolean;
 		person?: Person;
-	}
-> = async ({ request }) => {
+	};
+}>;
+
+export const post: RequestHandler = async function ({ request }): PostResponse {
 	const { code, key } = await request.json();
 	if (!code || !key)
 		return {
