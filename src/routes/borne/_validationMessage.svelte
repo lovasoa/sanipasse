@@ -21,7 +21,7 @@
 	function format(s: string) {
 		return s.replace(/\$(\w+)/g, (_, param: string) => {
 			let target = context[param];
-			if (param in format_funcs) target = format_funcs[param](target);
+			if (target && param in format_funcs) target = format_funcs[param](target);
 			return typeof target === 'string' ? target : '';
 		});
 	}
