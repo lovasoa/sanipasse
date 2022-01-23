@@ -51,7 +51,7 @@
 		"pdfjs-dist": "^2.7.570",
 		"sequelize": "^6.6.2",
 		"sqlite3": "^5.0.2",
-		"sveltestrap": "^5.7.0",
+		"sveltestrap": "^5.8.0",
 		"tinyduration": "^3.2.2",
 		"workbox-precaching": "^6.1.5",
 		"workbox-recipes": "^6.1.5"
