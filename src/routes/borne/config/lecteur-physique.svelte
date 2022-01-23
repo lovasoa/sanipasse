@@ -27,7 +27,8 @@
 			src="https://solucode.com/306-thickbox_default/dc320-lecteur-2d-imageur-filaire-kit-complet-usb-noir-districode.jpg"
 			class="rounded float-start m-1"
 			alt="DC320 Lecteur 2D imageur filaire kit complet USB noir DISTRICODE"
-			height="75"
+			height="74"
+			width="80"
 		/>
 		<b>Pistolet</b>
 		<p>
@@ -43,7 +44,8 @@
 			src="https://solucode.com/424-thickbox_default/dc7500-scanner-omnidirectionnel-filaire-2d-rs232.jpg"
 			class="rounded float-start m-1"
 			alt="DC7500 scanner omnidirectionnel filaire 2D RS232"
-			height="75"
+			height="74"
+			width="80"
 		/>
 		<b>Mini Scanner intégrable</b>
 		<p>
