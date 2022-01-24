@@ -3,7 +3,7 @@ import { Person, Event } from '$lib/database';
 import type { AsJson } from '$lib/database';
 import { getKey } from '$lib/invitees';
 import type { DBEvent } from '$lib/event';
-import { findCertificateError, parse_any } from '$lib/detect_certificate';
+import { PASS_VALIDITY_RULES, parse_any } from '$lib/detect_certificate';
 import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 
 export const post: RequestHandler = async ({ request }) => {
@@ -22,7 +22,7 @@ export const put: RequestHandler = async ({ params: { public_code }, request }) 
 	const parsed_promise = parse_any(code); // Will resolve as an error if the signature is invalid
 	const [event, parsed] = await Promise.all([event_promise, parsed_promise]);
 	if (!event) return { status: 404, body: 'event not found' };
-	const error = findCertificateError(parsed, event.toJSON() as DBEvent);
+	const error = PASS_VALIDITY_RULES.tousAntiCovidDefaultRules.findCertificateError(parsed, event.getDataValue('date'));
 	if (error) return { status: 401, body: error };
 	const key = getKey(parsed);
 	(await Person).upsert({

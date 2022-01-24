@@ -6,18 +6,17 @@ import type {
 import validity_data from '../assets/validity_data.json'; // Constants containing the rules for the verification of the certificate
 import { parse as parse_period } from 'tinyduration';
 import type { Duration as Period } from 'tinyduration';
+import blacklist_array from '../assets/blacklist.json';
+
+const blacklist_set = new Set(blacklist_array);
 
 const JANSSEN = 'EU/1/20/1525';
 const PCR_TESTS = new Set(['943092', '945006', '948455', 'LP6464-4']);
 const ANTIGENIC_TESTS = new Set(['945584', 'LP217198-3']);
 
-const vaccinePass = new Date(validity_data.vaccinePassStartDate) < new Date();
-const v = vaccinePass ? validity_data.vaccine : validity_data.health;
-
-const VACCINE_BOOSTER_AGE_PERIOD = parse_period(v.vaccineBoosterAgePeriod);
-const TEST_ACCEPTANCE_AGE_PERIOD = vaccinePass
-	? parse_period(validity_data.vaccine.testAcceptanceAgePeriod)
-	: undefined;
+type RuleData =
+	| typeof validity_data.health
+	| typeof validity_data.vaccine;
 
 function add_period(date: Date, duration: Period): Date {
 	const m = duration.negative ? -1 : 1;
@@ -48,7 +47,11 @@ export class ValidityPeriod {
 	}
 }
 
-function testValidityInterval(test: CommonTestInfo, date_of_birth: Date): ValidityPeriod {
+function testValidityInterval(
+	test: CommonTestInfo,
+	date_of_birth: Date,
+	v: RuleData
+): ValidityPeriod {
 	const { test_date, is_negative, is_inconclusive, test_type } = test;
 	const is_pcr = PCR_TESTS.has(test_type);
 	const is_antigenic = ANTIGENIC_TESTS.has(test_type);
@@ -59,8 +62,9 @@ function testValidityInterval(test: CommonTestInfo, date_of_birth: Date): Validi
 		const duration = is_pcr ? v.testNegativePcrEndHour : v.testNegativeAntigenicEndHour;
 		let start = test_date;
 		let end = add_hours(test_date, duration);
-		if (TEST_ACCEPTANCE_AGE_PERIOD) {
-			const end_accept = add_period(date_of_birth, TEST_ACCEPTANCE_AGE_PERIOD);
+		if ("testAcceptanceAgePeriod" in v) {
+			const period = parse_period(v.testAcceptanceAgePeriod);
+			const end_accept = add_period(date_of_birth, period);
 			end = end < end_accept ? end : end_accept;
 		}
 		if (end < start) throw new Error('Les tests ne sont plus acceptés');
@@ -75,7 +79,11 @@ function testValidityInterval(test: CommonTestInfo, date_of_birth: Date): Validi
 	throw new Error('Test non conclusif');
 }
 
-function vaccinationValidityInterval(vac: CommonVaccineInfo, date_of_birth: Date): ValidityPeriod {
+function vaccinationValidityInterval(
+	vac: CommonVaccineInfo,
+	date_of_birth: Date,
+	v: RuleData,
+): ValidityPeriod {
 	const { vaccination_date, prophylactic_agent, doses_expected, doses_received } = vac;
 	if (doses_received < doses_expected)
 		throw new Error(`Cycle vaccinal incomplet: dose ${doses_received} sur ${doses_expected}`);
@@ -86,6 +94,7 @@ function vaccinationValidityInterval(vac: CommonVaccineInfo, date_of_birth: Date
 		return new ValidityPeriod(start, end);
 	}
 	// Date at which the patient will have (or had) the age for a booster shot
+	const VACCINE_BOOSTER_AGE_PERIOD = parse_period(v.vaccineBoosterAgePeriod);
 	const booster_date = add_period(date_of_birth, VACCINE_BOOSTER_AGE_PERIOD);
 	const is_under_age = add_days(vaccination_date, v.vaccineBoosterDelayUnderAge) < booster_date;
 	const toggle_date = new Date(v.vaccineBoosterToggleDate);
@@ -102,14 +111,34 @@ function vaccinationValidityInterval(vac: CommonVaccineInfo, date_of_birth: Date
 }
 
 export function validityInterval(
-	cert: CommonCertificateInfo
+	cert: CommonCertificateInfo,
+	vaccinePass?: boolean
 ): ValidityPeriod | { invalid: string } {
+	if (vaccinePass === undefined)
+		vaccinePass = new Date(validity_data.vaccinePassStartDate) < new Date();
+	const v = vaccinePass ? validity_data.vaccine : validity_data.health;
 	const { type, date_of_birth } = cert;
 	try {
 		return type === 'test'
-			? testValidityInterval(cert, date_of_birth)
-			: vaccinationValidityInterval(cert, date_of_birth);
+			? testValidityInterval(cert, date_of_birth, v)
+			: vaccinationValidityInterval(cert, date_of_birth, v);
 	} catch (e) {
 		return { invalid: e instanceof Error ? e.message : `${e}` };
 	}
+}
+
+export function findCertificateError(
+	c: CommonCertificateInfo,
+	target_date?: Date,
+	vaccinePass?: boolean
+): string | undefined {
+	if (target_date === undefined) target_date = new Date();
+	if (blacklist_set.has(c.fingerprint))
+		return 'Ce certificat est sur liste noire. Il est probablement frauduleux.';
+	const validity = validityInterval(c, vaccinePass);
+	if ('invalid' in validity) return validity.invalid;
+	const { start, end } = validity;
+	const err_msg = `La validité de ce certificat de ${c.type}`;
+	if (start > target_date) return `${err_msg} commence le ${start.toLocaleDateString('fr')}.`;
+	if (end < target_date) return `${err_msg} se termine le ${end.toLocaleDateString('fr')}.`;
 }

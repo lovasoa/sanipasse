@@ -1,6 +1,6 @@
 <script type="ts">
 	import { Alert, Icon, Row, Col } from 'sveltestrap';
-	import { findCertificateError } from '$lib/detect_certificate';
+	import { PASS_VALIDITY_RULES } from '$lib/detect_certificate';
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
 	import Certificate2ddocDetails from './_Certificate2ddocDetails.svelte';
 	import CertificateDgcDetails from './_CertificateDGCDetails.svelte';
@@ -8,7 +8,7 @@
 	export let info: CommonCertificateInfo;
 	export let with_fullscreen = false;
 	const validity = validityInterval(info);
-	$: error = findCertificateError(info);
+	$: error = PASS_VALIDITY_RULES.tousAntiCovidDefaultRules.findCertificateErrorNow(info);
 	$: source = info.source;
 </script>
 

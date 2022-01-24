@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { CommonCertificateInfo } from '$lib/common_certificate_info';
-	import { findCertificateError, parse_any } from '$lib/detect_certificate';
+	import { PASS_VALIDITY_RULES, parse_any } from '$lib/detect_certificate';
 	import type { ConfigProperties, HTTPRequest } from './config/_config';
 	import QrCodeVideoReader from '../_QrCodeVideoReader.svelte';
 	import { store_statistics_datapoint } from './_stats_storage';
@@ -44,9 +44,7 @@
 
 	async function validateCertificateCode(code: string): Promise<CommonCertificateInfo> {
 		const cert = await parse_any(code);
-		const error = findCertificateError(cert);
-		if (error) throw new Error(error);
-
+		PASS_VALIDITY_RULES.tousAntiCovidDefaultRules.checkCertificate(cert);
 		let code_digest = cert.fingerprint;
 		const last_validated = validated_passes.get(code_digest);
 		const now = Date.now();

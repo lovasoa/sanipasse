@@ -1,8 +1,5 @@
 import type { CommonCertificateInfo } from './common_certificate_info';
-import type { DBEvent } from './event';
-import { validityInterval } from './tac_verif_rules';
-import blacklist_array from '../assets/blacklist.json';
-const blacklist_set = new Set(blacklist_array);
+import { findCertificateError, validityInterval } from './tac_verif_rules';
 
 export const DGC_PREFIX = 'HC1:';
 
@@ -37,17 +34,28 @@ export async function parse_any(doc_or_link: string): Promise<CommonCertificateI
 	return await parse(doc);
 }
 
-export function findCertificateError(
-	c: CommonCertificateInfo,
-	event?: DBEvent
-): string | undefined {
-	if (blacklist_set.has(c.fingerprint))
-		return 'Ce certificat est sur liste noire. Il est probablement frauduleux.';
-	const validity = validityInterval(c);
-	if ('invalid' in validity) return validity.invalid;
-	const { start, end } = validity;
-	const target_date = event?.date || new Date();
-	const err_msg = `La validité de ce certificat de ${c.type}`;
-	if (start > target_date) return `${err_msg} commence le ${start.toLocaleDateString('fr')}.`;
-	if (end < target_date) return `${err_msg} se termine le ${end.toLocaleDateString('fr')}.`;
+export abstract class RuleSet {
+	public abstract findCertificateError(c: CommonCertificateInfo, date: Date): string | undefined;
+	public findCertificateErrorNow(c: CommonCertificateInfo): string | undefined {
+		return this.findCertificateError(c, new Date());
+	}
+	public checkCertificate(c: CommonCertificateInfo) {
+		const date = new Date();
+		const error = this.findCertificateError(c, date);
+		if (error != null) throw new Error(error);
+	}
 }
+class TousAntiCovidRules extends RuleSet {
+	constructor(public vaccinePass?: boolean) {
+		super()
+	}
+	findCertificateError(c: CommonCertificateInfo, date: Date): string | undefined {
+		return findCertificateError(c, date, this.vaccinePass)
+	}
+}
+
+export const PASS_VALIDITY_RULES = {
+	tousAntiCovidDefaultRules: new TousAntiCovidRules(),
+	tousAntiCovidVaccineRules: new TousAntiCovidRules(true),
+	tousAntiCovidHealthRules: new TousAntiCovidRules(false),
+} as const;

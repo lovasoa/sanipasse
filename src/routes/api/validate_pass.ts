@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { findCertificateError, parse_any } from '$lib/detect_certificate';
+import { PASS_VALIDITY_RULES, parse_any } from '$lib/detect_certificate';
 import { ApiKeys } from '$lib/database';
 
 const ACCEPTED_KEYS = new Set((process.env['ACCEPTED_KEYS'] || '').split(','));
@@ -45,7 +45,7 @@ export const post: RequestHandler = async function ({ request }): PostResponse {
 			last_name: parsed.last_name,
 			date_of_birth: parsed.date_of_birth
 		};
-		error = findCertificateError(parsed);
+		error = PASS_VALIDITY_RULES.tousAntiCovidDefaultRules.findCertificateErrorNow(parsed);
 	} catch (err) {
 		error = (err as Error).message;
 	}
