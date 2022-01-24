@@ -2,12 +2,15 @@
 	import ShowPromiseError from '../../_showPromiseError.svelte';
 	import { TabContent, TabPane } from 'sveltestrap';
 	import TechnicalParams from './_tab_technical.svelte';
-	import { load_config as load_config_local_storage, save_config } from './_config_storage';
+	import {
+		load_config as load_config_local_storage,
+		load_config_from_key,
+		save_config
+	} from './_config_storage';
 	import { generateKey } from '$lib/random_key';
-	import { get, put } from '$lib/http';
+	import { put } from '$lib/http';
 	import { goto } from '$app/navigation';
 	import { DEFAULT_CONFIG } from './_config';
-	import type { ConfigProperties } from './_config';
 	import TabDisplay from './_tab_display.svelte';
 
 	let configKey: string = '';
@@ -19,12 +22,8 @@
 	config_promise.then((data) => (config = data));
 	let loading = false;
 
-	async function load_config_from_key(): Promise<ConfigProperties> {
-		return get(`/api/borne/${configKey}`);
-	}
-
 	async function load_config() {
-		if (configKey) return load_config_from_key();
+		if (configKey) return load_config_from_key(configKey);
 		else return load_config_local_storage();
 	}
 
