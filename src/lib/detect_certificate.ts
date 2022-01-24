@@ -47,15 +47,17 @@ export abstract class RuleSet {
 }
 class TousAntiCovidRules extends RuleSet {
 	constructor(public vaccinePass?: boolean) {
-		super()
+		super();
 	}
 	findCertificateError(c: CommonCertificateInfo, date: Date): string | undefined {
-		return findCertificateError(c, date, this.vaccinePass)
+		return findCertificateError(c, date, this.vaccinePass);
 	}
 }
 
 export const PASS_VALIDITY_RULES = {
 	tousAntiCovidDefaultRules: new TousAntiCovidRules(),
 	tousAntiCovidVaccineRules: new TousAntiCovidRules(true),
-	tousAntiCovidHealthRules: new TousAntiCovidRules(false),
+	tousAntiCovidHealthRules: new TousAntiCovidRules(false)
 } as const;
+
+export type ValidityRuleName = keyof typeof PASS_VALIDITY_RULES;

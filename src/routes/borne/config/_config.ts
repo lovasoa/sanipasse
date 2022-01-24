@@ -1,3 +1,5 @@
+import type { ValidityRuleName } from '$lib/detect_certificate';
+
 export interface HTTPRequest {
 	method: string;
 	url: string;
@@ -44,6 +46,8 @@ export interface ConfigProperties {
 	background_images: string[];
 	// Slideshow above the welcome message
 	slideshow_media: string[];
+	// Name of the set of rules to apply
+	validation_ruleset: ValidityRuleName;
 }
 
 export const DEFAULT_CONFIG: ConfigProperties = {
@@ -65,5 +69,6 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 		'Bienvenue, $first_name $last_name\n\nCe passe, appartenant à $first_name $last_name, né(e) le $date_of_birth, est valide.',
 	refused_message: 'Passe sanitaire invalide\n\n$message',
 	background_images: [],
-	slideshow_media: []
+	slideshow_media: [],
+	validation_ruleset: 'tousAntiCovidDefaultRules'
 };

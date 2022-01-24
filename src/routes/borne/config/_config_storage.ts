@@ -34,5 +34,6 @@ export function migrate_config(config: any): ConfigProperties {
 	config.refused_message = config.refused_message || DEFAULT_CONFIG.refused_message;
 	config.background_images = config.background_images || DEFAULT_CONFIG.background_images;
 	config.slideshow_media = config.slideshow_media || DEFAULT_CONFIG.slideshow_media;
+	config.validation_ruleset = config.validation_ruleset || DEFAULT_CONFIG.validation_ruleset;
 	return config;
 }

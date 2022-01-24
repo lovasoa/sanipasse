@@ -22,7 +22,10 @@ export const put: RequestHandler = async ({ params: { public_code }, request }) 
 	const parsed_promise = parse_any(code); // Will resolve as an error if the signature is invalid
 	const [event, parsed] = await Promise.all([event_promise, parsed_promise]);
 	if (!event) return { status: 404, body: 'event not found' };
-	const error = PASS_VALIDITY_RULES.tousAntiCovidDefaultRules.findCertificateError(parsed, event.getDataValue('date'));
+	const error = PASS_VALIDITY_RULES.tousAntiCovidDefaultRules.findCertificateError(
+		parsed,
+		event.getDataValue('date')
+	);
 	if (error) return { status: 401, body: error };
 	const key = getKey(parsed);
 	(await Person).upsert({

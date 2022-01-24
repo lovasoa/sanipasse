@@ -44,7 +44,12 @@
 
 	async function validateCertificateCode(code: string): Promise<CommonCertificateInfo> {
 		const cert = await parse_any(code);
-		PASS_VALIDITY_RULES.tousAntiCovidDefaultRules.checkCertificate(cert);
+		let rules = PASS_VALIDITY_RULES[config.validation_ruleset];
+		if (!rules) {
+			console.error('Unknown validation ruleset:', config.validation_ruleset);
+			rules = PASS_VALIDITY_RULES.tousAntiCovidDefaultRules;
+		}
+		rules.checkCertificate(cert);
 		let code_digest = cert.fingerprint;
 		const last_validated = validated_passes.get(code_digest);
 		const now = Date.now();

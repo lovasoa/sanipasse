@@ -29,7 +29,7 @@
 	}
 </script>
 
-<fieldset class="col-md-12 row">
+<fieldset class="col-md-12 row mt-2">
 	<legend>Mode de saisie des QR codes</legend>
 	<label class="col-4 mb-3">
 		<input
@@ -123,6 +123,43 @@
 			</div>
 		</div>
 	{/if}
+</fieldset>
+
+<fieldset class="col-md-12 row mt-2">
+	<legend>Règles de validation des passes à appliquer</legend>
+	<div class="list-group">
+		<label class="list-group-item list-group-item-action d-flex">
+			<input
+				class="form-check-input m-3 align-self-center flex-shrink-0"
+				type="radio"
+				bind:group={config.validation_ruleset}
+				value={'tousAntiCovidDefaultRules'}
+			/>
+			<div>
+				<h5>Règles par défaut</h5>
+				Depuis le 24 janvier, et l'instauration du passe vaccinal, seuls les vaccins sont acceptés dans
+				la plupart des lieux.
+			</div>
+		</label>
+		<label class="list-group-item list-group-item-action d-flex">
+			<input
+				class="form-check-input m-3 align-self-center flex-shrink-0"
+				type="radio"
+				bind:group={config.validation_ruleset}
+				value={'tousAntiCovidHealthRules'}
+			/>
+			<div>
+				<h5>Règles pour les établissements de santé</h5>
+				La loi sur le passe vaccinal ne concerne pas hôpitaux, maisons de retraite et établissements
+				médico-sociaux.
+			</div>
+		</label>
+	</div>
+</fieldset>
+
+<fieldset class="col-md-12 row mt-2">
+	<legend>Personnalisation avancée</legend>
+
 	<label class="col-12">
 		<input type="checkbox" bind:checked={config.debug} />
 		Affichage des informations de débogage

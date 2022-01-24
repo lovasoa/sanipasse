@@ -14,9 +14,7 @@ const JANSSEN = 'EU/1/20/1525';
 const PCR_TESTS = new Set(['943092', '945006', '948455', 'LP6464-4']);
 const ANTIGENIC_TESTS = new Set(['945584', 'LP217198-3']);
 
-type RuleData =
-	| typeof validity_data.health
-	| typeof validity_data.vaccine;
+type RuleData = typeof validity_data.health | typeof validity_data.vaccine;
 
 function add_period(date: Date, duration: Period): Date {
 	const m = duration.negative ? -1 : 1;
@@ -62,12 +60,12 @@ function testValidityInterval(
 		const duration = is_pcr ? v.testNegativePcrEndHour : v.testNegativeAntigenicEndHour;
 		let start = test_date;
 		let end = add_hours(test_date, duration);
-		if ("testAcceptanceAgePeriod" in v) {
+		if ('testAcceptanceAgePeriod' in v) {
 			const period = parse_period(v.testAcceptanceAgePeriod);
 			const end_accept = add_period(date_of_birth, period);
 			end = end < end_accept ? end : end_accept;
 		}
-		if (end < start) throw new Error('Les tests ne sont plus acceptés');
+		if (end < start) throw new Error('Passe vaccinal: les tests ne sont plus acceptés');
 		return new ValidityPeriod(start, end);
 	} else if (is_positive) {
 		const start_days = is_pcr ? v.testPositivePcrStartDay : v.testPositiveAntigenicStartDay;
@@ -82,7 +80,7 @@ function testValidityInterval(
 function vaccinationValidityInterval(
 	vac: CommonVaccineInfo,
 	date_of_birth: Date,
-	v: RuleData,
+	v: RuleData
 ): ValidityPeriod {
 	const { vaccination_date, prophylactic_agent, doses_expected, doses_received } = vac;
 	if (doses_received < doses_expected)
