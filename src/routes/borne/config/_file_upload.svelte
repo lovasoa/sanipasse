@@ -94,9 +94,13 @@
 		setTimeout(() => fileInput && (fileInput.value = ''), 0);
 	}
 
-	function remove(url: string) {
-		console.log('Remove file', url);
-		file_urls = file_urls.filter((u) => u !== url);
+	function onerror(e: Event) {
+		const details = (e.target instanceof HTMLVideoElement && e.target.error?.message) || '';
+		const type =
+			e.target instanceof HTMLVideoElement || e.target instanceof HTMLImageElement
+				? get_extension(e.target.src)
+				: '';
+		loading = Promise.reject(new Error(`Impossible de charger le fichier ${type}. ${details}`));
 	}
 </script>
 
@@ -130,7 +134,7 @@
 	<div class="col-12 mb-3 d-flex flex-wrap">
 		{#each file_urls as url}
 			{#if file_of_type(url, ['image'])}
-				<img src={url} alt="image: {label}" class="preview" on:error={() => remove(url)} />
+				<img src={url} height="50" alt="image: {label}" class="preview" on:error={onerror} />
 			{:else}
 				<video
 					muted
@@ -142,7 +146,7 @@
 					height="50"
 					class="preview"
 					alt="video: {label}"
-					on:error={() => remove(url)}
+					on:error={onerror}
 				/>
 			{/if}
 		{/each}
