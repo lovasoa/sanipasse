@@ -68,6 +68,6 @@
 </p>
 <img
 	class="img-fluid shadow-sm border"
-	src="/static/screenshot-qrscanner.png"
+	src="/screenshot-qrscanner.png"
 	alt="scan-lecteur-qr-code"
 />
