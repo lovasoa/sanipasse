@@ -4514,6 +4514,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEhe+kvml2tx/+/wipHR5ttSw1PdmWGLpoEqzNiel2mWsZovfSBR+Jzri7NpH8s8RBSnEDc0kQTl2dSiECy9D45Q=="
 	},
+	"OFuszKRHwBg=": {
+		"serialNumber": "316d59baf0cf218385",
+		"subject": "CN=FIRMA CERTIFICADO COVID DIGITAL UE 1S2022, 2.5.4.5=Q2801221I, OU=SELLO ELECTRONICO, OU=DG SISTEMAS DE INFORMACION Y EQUIPAMIENTOS SANITARIOS, 2.5.4.97=VATES-Q2801221I, O=SERVICIO MADRILEÑO DE SALUD, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2021-12-20T11:30:00.000Z",
+		"notAfter": "2023-12-20T11:29:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "627835a949c135e3292ce1486675eb451023c485",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAERtumh/vSoJJwJ3c0Txb9GM8FSuQh4vzASOC0UQuRMDhctp7chlpAyivtu/z581vOAVuLBSs8txwqpwhNDj2feg=="
+	},
 	"ZcfkloEvfGQ=": {
 		"serialNumber": "17298a3ddcc9757f2a",
 		"subject": "CN=GENERALITAT VALENCIANA, 2.5.4.5=S4611001A, OU=SELLO ELECTRONICO, OU=CONSELLERIA DE SANITAT UNIVERSAL I SALUT PÚBLICA, 2.5.4.97=VATES-S4611001A, O=GENERALITAT VALENCIANA, C=ES",
