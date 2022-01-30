@@ -5,6 +5,7 @@
 	export let file_urls: string[];
 	export let slideshow_interval_ms = 10_000;
 	export let style = '';
+	export let classes = 'slideshow';
 
 	let active = 0;
 	const interval = setInterval(() => {
@@ -13,7 +14,7 @@
 	onDestroy(() => clearInterval(interval));
 </script>
 
-<div {style}>
+<div {style} class={classes}>
 	{#each file_urls as file_url, i}
 		{#if main_type_from_filename(file_url) === 'video'}
 			<!-- svelte-ignore a11y-media-has-caption -->

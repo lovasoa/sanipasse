@@ -105,6 +105,7 @@
 
 <Slideshow
 	file_urls={config.background_images}
+	classes="background slideshow"
 	style="
 		position: fixed;
 		top: 0;
@@ -131,7 +132,11 @@
 	{:else}
 		{#if config.slideshow_media.length}
 			<section id="top_media">
-				<Slideshow file_urls={config.slideshow_media} style="width:100%" />
+				<Slideshow
+					file_urls={config.slideshow_media}
+					style="width:100%"
+					classes="top_media slideshow"
+				/>
 			</section>
 		{/if}
 		<section id="welcome_message">

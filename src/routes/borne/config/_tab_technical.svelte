@@ -166,6 +166,11 @@
 	</label>
 
 	<div class="row mt-3">
+		<p class="text-muted">
+			Vous pouvez personnaliser tous les aspects de l'apparence de votre interface de validation à
+			l'aide du langage <i>CSS</i>.
+			<a href="/borne/config/custom-css-documentation" class="link-dark">En savoir plus</a>.
+		</p>
 		<div class="form-floating col-12  font-monospace text-muted">
 			<textarea
 				bind:value={config.custom_css}

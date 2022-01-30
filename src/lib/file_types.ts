@@ -11,7 +11,7 @@ export const ALLOWED_FILE_TYPES: Record<string, `${MainType}/${string}`> = {
 	gif: 'image/gif',
 	webp: 'image/webp',
 	mp4: 'video/mp4',
-	webm: 'video/webm',
+	webm: 'video/webm'
 };
 
 export function get_extension(name: string): string {
