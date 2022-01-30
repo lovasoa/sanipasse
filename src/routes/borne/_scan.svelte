@@ -151,7 +151,11 @@
 				{/each}
 			</div>
 			<h1>{config.title}</h1>
-			<p class="description">{config.description}</p>
+			<p class="description">
+				{#each config.description.split('\n') as p}
+					<p>{p}</p>
+				{/each}
+			</p>
 		</section>
 	{/if}
 
