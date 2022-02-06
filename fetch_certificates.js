@@ -16,13 +16,10 @@ async function main() {
 	if (!TOKEN)
 		return console.log(
 			'Missing environment variable TACV_TOKEN. ' +
-			'You can get the value of the token from the TousAntiCovid Verif application.'
+				'You can get the value of the token from the TousAntiCovid Verif application.'
 		);
 
-	await Promise.all([
-		handle_blacklist(TOKEN),
-		handle_tacv_data(TOKEN),
-	])
+	await Promise.all([handle_blacklist(TOKEN), handle_tacv_data(TOKEN)]);
 }
 
 async function handle_tacv_data(TOKEN) {
@@ -30,17 +27,15 @@ async function handle_tacv_data(TOKEN) {
 	await Promise.all([
 		save_tacv_data(tacv_data),
 		save_validity_data(tacv_data),
-		save_certs(tacv_data),
-	])
+		save_certs(tacv_data)
+	]);
 }
 
-
 async function handle_blacklist(TOKEN) {
-	const promises = ['dcc', '2ddoc'].map(t => get_blacklist(t, TOKEN));
+	const promises = ['dcc', '2ddoc'].map((t) => get_blacklist(t, TOKEN));
 	const blacklists = await Promise.all(promises);
 	await save_blacklist(blacklists.flat());
 }
-
 
 async function save_tacv_data(tacv_data) {
 	await fs.promises.writeFile(ALL_DATA_FILE, JSON.stringify(tacv_data));
@@ -59,7 +54,7 @@ async function get_data(token) {
 		headers: { Authorization: `Bearer ${token}` }
 	});
 	if (resp.status !== 200) throw new Error(`API returned error: ${await resp.text()}`);
-	console.log("Fetched validity and certificates data");
+	console.log('Fetched validity and certificates data');
 	return await resp.json();
 }
 
@@ -70,7 +65,6 @@ async function save_validity_data(tacv_data) {
 	await writeNiceJson(sorted, VALIDITY_DATA_FILE);
 	console.log('Saved validity data to ' + VALIDITY_DATA_FILE);
 }
-
 
 /**
  * @param {'dcc'|'2ddoc'} type blacklist type
@@ -84,14 +78,13 @@ async function get_blacklist(type, token) {
 	if (resp.status !== 200) throw new Error(`API returned error: ${await resp.text()}`);
 	const { elements, _lastIndexBlacklist } = await resp.json();
 	console.log(`Fetched ${elements.length} blacklisted ${type} certificates`);
-	return elements.flatMap(({ hash, active }) => active ? [hash] : []);
+	return elements.flatMap(({ hash, active }) => (active ? [hash] : []));
 }
 
 async function save_blacklist(blacklist) {
 	await writeNiceJson(blacklist.join(' '), BLACKLIST_FILE);
 	console.log(`Saved ${blacklist.length}-item blacklist to ${BLACKLIST_FILE}`);
 }
-
 
 async function writeNiceJson(data, filename) {
 	const nice = JSON.stringify(data, null, '\t') + '\n';
