@@ -8,6 +8,7 @@
 	} from './config/_config_storage';
 	import Scan from './_scan.svelte';
 	import { onMount } from 'svelte';
+	import ShowPromiseError from '../_showPromiseError.svelte';
 
 	let configKey: string = '';
 	if (typeof window === 'object') configKey = new URLSearchParams(location.search).get('key') || '';
@@ -52,9 +53,8 @@
 	onMount(mount_handler);
 </script>
 
-{#await config_promise}
-	<p class="w-100">Chargement de la configuration…</p>
-	<Scan config={DEFAULT_CONFIG} />
-{:then config}
+<ShowPromiseError promise={config_promise} />
+
+{#await config_promise then config}
 	<Scan {config} />
 {/await}
