@@ -7,8 +7,12 @@
 	import ScanStatsModal from './_scan_stats_modal.svelte';
 	import ValidationMessage from './_validationMessage.svelte';
 	import Slideshow from './_slideshow.svelte';
+	import ConnectionIndicator from './_connectionIndicator.svelte';
 
 	export let config: ConfigProperties;
+	export let last_update = new Date();
+	export let last_sync = new Date();
+
 	const { decode_after_s, reset_after_s, prevent_revalidation_before_minutes } = config;
 
 	let code: string = '';
@@ -194,6 +198,7 @@
 	{/if}
 
 	<p class="fixed-bottom text-muted fw-lighter fst-italic" style="font-size: .8em">
+		<ConnectionIndicator {last_sync} {last_update} />
 		{config.bottom_infos}
 	</p>
 </div>
