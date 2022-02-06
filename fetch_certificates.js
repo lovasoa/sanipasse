@@ -8,7 +8,7 @@ import fs from 'fs';
 const OUTFILE = 'src/assets/Digital_Green_Certificate_Signing_Keys.json';
 const ALL_DATA_FILE = '/tmp/tacv_data.json';
 // Concatenated sh256 fingerprints of blacklisted certificates
-const BLACKLIST_FILE = 'src/assets/blacklist.json';
+const BLACKLIST_FILE = 'src/assets/blacklist_text.json';
 const ENDPOINT = 'https://portail.tacv.myservices-ingroupe.com';
 
 async function main() {
@@ -88,7 +88,7 @@ async function get_blacklist(type, token) {
 }
 
 async function save_blacklist(blacklist) {
-	await writeNiceJson(blacklist, BLACKLIST_FILE);
+	await writeNiceJson(blacklist.join(' '), BLACKLIST_FILE);
 	console.log(`Saved ${blacklist.length}-item blacklist to ${BLACKLIST_FILE}`);
 }
 

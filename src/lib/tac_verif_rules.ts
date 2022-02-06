@@ -6,9 +6,8 @@ import type {
 import validity_data from '../assets/validity_data.json'; // Constants containing the rules for the verification of the certificate
 import { parse as parse_period } from 'tinyduration';
 import type { Duration as Period } from 'tinyduration';
-import blacklist_array from '../assets/blacklist.json';
-
-const blacklist_set = new Set(blacklist_array);
+import blacklist_text from '../assets/blacklist_text.json';
+const blacklist_set = new Set(blacklist_text.split(' '));
 
 const JANSSEN = 'EU/1/20/1525';
 const PCR_TESTS = new Set(['943092', '945006', '948455', 'LP6464-4']);
