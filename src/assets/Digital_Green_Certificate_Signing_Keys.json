@@ -4922,6 +4922,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIp1kjKkjq85G7p7edy5EfNsWF0l4XZu5Rz+nL3viEVP/qiZYWwsQ30RXMDwixcFXI2tSzfu82J31dIEGQ3Ceog=="
 	},
+	"wsMe8L4zWNE=": {
+		"serialNumber": "4541037b9551542fb116ebf36d00f123e35c1b74",
+		"subject": "CN=DSC_DGC_GB_NI_02, OU=DHCNI, O=Department of Health, L=Belfast, ST=NI, C=GB",
+		"issuer": "C=GB, ST=NI, L=Belfast, O=Department of Health, OU=DHCNI, CN=CSCA_DGC_GB_NI_01",
+		"notBefore": "2022-02-08T22:28:42.000Z",
+		"notAfter": "2024-02-08T22:28:42.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "a7fc9d182048de47914af0d0bf0cb29d215416c8",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEPhObKyKu7OpwB1AF6YmfvAhn7QiVPjmIKcV8GWtV/7IfeJJEgE46vQgeq+EBQUupOTjV5L1CsGM9IiJK0yUFQQ=="
+	},
 	"ub6Qmv9xtAo=": {
 		"serialNumber": "3d728332f59a570b7b",
 		"subject": "CN=FIRMA CERTIFICADO COVID DIGITAL UE 1, 2.5.4.5=Q2801221I, OU=SELLO ELECTRONICO, OU=DG SISTEMAS DE INFORMACION Y EQUIPAMIENTOS SANITARIOS, 2.5.4.97=VATES-Q2801221I, O=SERVICIO MADRILEÑO DE SALUD, C=ES",
