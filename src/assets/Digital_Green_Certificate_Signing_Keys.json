@@ -4820,6 +4820,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEDOg7lpxitz9+ytOAKFXxS7F4qc9IfKWrj388ETiCbLEQuoYeWEp+4wXPLCF7RRpg6Zxt9iGG93ZAwxl8g05Oag=="
 	},
+	"lh7tBDCiAic=": {
+		"serialNumber": "4fec31912256ad97ca993e11a4c047d23ad30ba1",
+		"subject": "CN=DGC Country Signing CA, OU=Public Service Development Agency, O=Ministry of Justice of Georgia, C=GE",
+		"issuer": "CN=DGC Country Signing CA, OU=Public Service Development Agency, O=Ministry of Justice of Georgia, C=GE",
+		"notBefore": "2021-10-29T16:07:08.000Z",
+		"notAfter": "2025-10-28T16:07:07.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "4dc476f47e9470026e9919e215bce011d070d792",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4JWoz8qfIVfxfvAiVOu+jZ+kKa8eJItSVUBzLm5atlFY5HWylG32UDP7bG8q+kydI4XjbK6565vtP6C0H3aWKQ=="
+	},
 	"ZqPYe26eEEk=": {
 		"serialNumber": "54edb4890c0926d5fdb5530442b11097f07ee57b",
 		"subject": "CN=DGC DS Signer 1, OU=LEPL Information Technologies Agency, O=Ministry of Internally Displaced Persons From the Occupied Territories\\, Labour\\, Health and Social Affairs of Georgia, C=GE",
