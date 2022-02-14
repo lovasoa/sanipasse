@@ -198,7 +198,7 @@
 	{/if}
 
 	<p class="fixed-bottom text-muted fw-lighter fst-italic" style="font-size: .8em">
-		<ConnectionIndicator {last_sync} {last_update} />
+		<ConnectionIndicator {config} {last_sync} {last_update} />
 		{config.bottom_infos}
 	</p>
 </div>

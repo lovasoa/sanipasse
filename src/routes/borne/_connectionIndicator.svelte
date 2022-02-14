@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Modal, ModalBody, ModalHeader } from 'sveltestrap';
+	import type { ConfigProperties } from './config/_config';
 
+	export let config: ConfigProperties;
 	export let last_update = new Date();
 	export let last_sync = new Date();
 
@@ -28,6 +30,24 @@
 		{#if last_update !== last_sync}
 			<p>Mise à jour de configuration le {last_update.toLocaleString('fr')}.</p>
 		{/if}
+		<p>
+			Sanipasse v{process.env.SANIPASSE_VERSION}, mis à jour le {new Date(
+				process.env.SANIPASSE_BUILD_DATE || 0
+			).toLocaleString('fr')}
+		</p>
+		<p>
+			Passes validés avec les
+			{#if config.validation_ruleset === 'tousAntiCovidDefaultRules'}
+				règles par défaut de TousAntiCovid
+			{:else if config.validation_ruleset === 'tousAntiCovidVaccineRules'}
+				règles du passe vaccinal
+			{:else if config.validation_ruleset === 'tousAntiCovidHealthRules'}
+				règles du passe sanitaire (tests acceptés)
+			{:else}
+				règles personnalisées définies par l'opérateur
+			{/if}
+			.
+		</p>
 		<p>Vous êtes {online ? 'en ligne' : 'hors ligne'}.</p>
 	</ModalBody>
 </Modal>
