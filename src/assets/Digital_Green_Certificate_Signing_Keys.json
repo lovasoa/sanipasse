@@ -169,6 +169,40 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgXN2exOO6pXc25U65XXQUyYp72uNpsdKpUVDFqUUuf2oTodJhNxNQfLamVcq0ZSCsaZT3YDGyLNb2D/7m/kFYQ=="
 	},
+	"ozBiB4arj/0=": {
+		"serialNumber": "5423ed5e3fb95f67df3ff63f1f8bce641fa1f296",
+		"subject": "C=BJ, ST=Littoral, O=MINISTERE DE LA SANTE, CN=DS-Sanitaire-01",
+		"issuer": "C=BJ, O=MINISTERE DE LA SANTE, CN=CSCA_DGC_BJ_01",
+		"notBefore": "2022-02-06T12:04:13.000Z",
+		"notAfter": "2024-02-06T12:04:13.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "76eb7edc922048f17ca32e52bd6e5eb132abb89e",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE3pcGA5BtQsLAA8SALbN2VzyKOjsLRWwzQASvr1rsXB+XYeWun27KIlIMST76u+CeGR0kwY7Wlf5J2+UlILNHqA=="
+	},
+	"9v4n5M3gIsU=": {
+		"serialNumber": "5423ed5e3fb95f67df3ff63f1f8bce641fa1f297",
+		"subject": "C=BJ, ST=Littoral, O=MINISTERE DE LA SANTE, CN=DS-Sanitaire-01",
+		"issuer": "C=BJ, O=MINISTERE DE LA SANTE, CN=CSCA_DGC_BJ_01",
+		"notBefore": "2022-02-06T12:13:14.000Z",
+		"notAfter": "2024-02-06T12:13:14.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "d7f926e021fd7648b715ae560f7110c0de431436",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE1eafQkFnEHdgmdO4ZkAnpznVJlN2vhXb5czc/zO+82Kbp5PIUmtWid1wnLWcRv5NjVx3MtjpU8vRT4X2ej79Jg=="
+	},
 	"rTEJEs6D1ik=": {
 		"serialNumber": "110bc8215d13541021885feb600bb4e6",
 		"subject": "C=CH, ST=Bern, L=Köniz, 2.5.4.15=Government Entity, 2.5.4.97=NTRCH-CHE-467.023.568, O=Bundesamt für Gesundheit (BAG), OU=GE-0220-BAG, OU=Taskforce BAG Covid-19, CN=CC_CH01_RecoveredCertificate_13_10",
