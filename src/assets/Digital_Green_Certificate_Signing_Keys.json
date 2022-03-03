@@ -4990,6 +4990,40 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnjK8A8ato900a+wQ1IaxJyaeUGQ5lwsYOCRlq47X4DKGe+P3L22utYcGTWtCekBqarcEzzSHH/X+s5aeEQgYYA=="
 	},
+	"Z6kz8fZkpcQ=": {
+		"serialNumber": "7dd14ad01b6d08bd8e6531a7dddb8296d8d0662f",
+		"subject": "CN=DGC DS, 2.5.4.5=003, O=Republica Portuguesa - Portuguese Republic, C=PT",
+		"issuer": "CN=CSCA Saude, 2.5.4.5=001, O=Republica Portuguesa - Portuguese Republic, C=PT",
+		"notBefore": "2022-02-16T16:30:59.000Z",
+		"notAfter": "2024-02-16T16:30:58.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "b815e008e9ba3668b0e9341a50085293a5bbc80d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2GN2TF18re0OeS4eEwitfuDoojU1JVSg+L89rYlbKUi5BzXI3IzfHEr96IpQXgEKJksYjnphXmz/x5qgFLlyCg=="
+	},
+	"ooy9KW9xjVs=": {
+		"serialNumber": "2773fd8a2e6ef51815351f189b2a2b2284f8a061",
+		"subject": "CN=DGC DS, 2.5.4.5=004, O=Republica Portuguesa - Portuguese Republic, C=PT",
+		"issuer": "CN=CSCA Saude, 2.5.4.5=001, O=Republica Portuguesa - Portuguese Republic, C=PT",
+		"notBefore": "2022-02-16T16:32:15.000Z",
+		"notAfter": "2024-02-16T16:32:14.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "80e816e83f9451fad4e5fc3e9c83ffb7060c2890",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEPgX8O0km5XF1vUriqydadZwTTbcO5uCuJ3Dztp6D8B4KoabnPRgJAWRc9rLmE5/QaW5wtWFxSv+GJuKPBfslsw=="
+	},
 	"hgpHHrTb4ws=": {
 		"serialNumber": "03ece56b6dfce88cbf",
 		"subject": "CN=DIRECCIÓN GENERAL DE SALUD PÚBLICA Y ADICCIONES, 2.5.4.5=S3011001l, OU=SELLO ELECTRONICO, OU=DIRECCION GENERAL INFORMATICA CORPORATIVA, 2.5.4.97=VATES- S3011001l, O=COMUNIDAD AUTONOMA DE LA REGION DE MURCIA, C=ES",
