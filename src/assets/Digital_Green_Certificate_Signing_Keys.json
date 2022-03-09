@@ -5041,6 +5041,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEli8eKthiom9EydKvhg7LHXj/f88/ZeNUpfEFm6kIAr3K1NCRSv1grJnNiBc9lvggtAjqFHQSGTovtRcGHcVuRA=="
 	},
+	"zPt5QMRAGLE=": {
+		"serialNumber": "2ce253065c97cd154820634532d6a0fc92cea161",
+		"subject": "CN=DSC_DGC_FO_345334_RECOVERY_01, O=SJUKRAHUSVERKID, C=FO",
+		"issuer": "CN=Faroe Islands Health Authority CSCA v1, O=Gjaldstovan, C=FO",
+		"notBefore": "2021-07-08T14:36:26.000Z",
+		"notAfter": "2023-07-08T14:36:26.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "f6d8a478abd7043140f38b6d5856a23da4ad056a",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAELlAbjlqgxI/4RSkTe48ujrHtkfbMQXlQbAj3rcSoV0cZhAHCFWFKIiZte1MycsYlSPgNBPh4RkWfe+iy5ipklQ=="
+	},
 	"fNstNUxgGSI=": {
 		"serialNumber": "3447095cc60170774e024318abf3b17a1f0eda1c",
 		"subject": "CN=DSC_DGC_FO_345334_TEST_01, O=SJUKRAHUSVERKID, C=FO",
