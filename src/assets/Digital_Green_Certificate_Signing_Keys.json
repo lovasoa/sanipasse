@@ -3817,6 +3817,28 @@
 		},
 		"publicKeyPem": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA65H+Vak/9kWmQXGYEZEuA2hSykjqYu72g//uaBs/Ac0JYV9Zhqwjb6iPf1tATe87vzg7sD5gGOqtabbOYMcVW50e3X5Ix4XxKMMoAvtkyDI/TbMK4HqiEY5FVf/JhPZEp4+nSVjwhozn0p7pKSk+WKYEjIG/zpceLyikArxxSt5SwYdVMmau+6kdHT4Q0m3btE5ORl+B0exu+KS3xb6WRsiU5E8kXyQFBS3zK6DxFqDDVyWhWVt4NfoJt76ZE3zuXPutyPs3AVscJDWB5mkn/yM8Fg20WAsZ0O9p3uyyK+MSwFdRmUzK7Gr6dnQhce4oh0HTAFsodFwnDsPCfJxcskoIYZW2xWX1W03jpngQWXgA1eJ44/4Ve0u09w5DpwNrgT3SoznZhZ3DPfH38NV3fxhm8KuVmNtmKms2ctExY8RftHXMFAQC4jDgutnaJz1zyC95QVkp06drreGLzX4XvPYZZdZhh4UYqT/IYXaX2yt09Tu+ueVm1MRlWeuEzlYYApbMceBseE7MuWdCVPwcx/QMjp7b4BSnRH+w4XIqs/wS8nXkMyBEdCMbCH3PFKNQOmbmA3Lq6X2eFWhgRud3FGyPacS5ADeV/s/aei+UJY/i9tY/NeXCYLtox4PXucUU4gbU9wV7rvLTNvwWIr5gga/gu18hrHe6Dag7p9wsU3ECAwEAAQ=="
 	},
+	"uqn9mGbms+I=": {
+		"serialNumber": "01",
+		"subject": "C=MK, ST=North Macedonia, L=Skopje, O=Nikob Laboratory\\, North Macedonia, OU=Nikob Laboratory\\, North Macedonia, CN=nikobmedical.mk, E=info@nikoblab.mk",
+		"issuer": "C=MK, ST=North Macedonia, L=Skopje, O=Ministry of Health, CN=zdravstvo.gov.mk, E=contact@zdravstvo.gov.mk",
+		"notBefore": "2022-03-14T12:07:32.000Z",
+		"notAfter": "2023-03-14T12:07:32.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "4a21abaaf3b6b9a0cb76baf0db955f7a4d4aba1c",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 4096
+		},
+		"publicKeyPem": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA3p/v4TCdRMlTScmrt9XZjAs4K9vBfJOwTIFXDoVAgGDaU4lnysP3Tes0N4iADMhqurrSYFVVuKhdkF0wdFY3wqQFGMnPyuRuK8dP455Yh/cDw3mjE29/XiDHYzhPPIekCb3r/hnkf7D8YQBUoDtshhgJrFgNCyr8JvSElRG/fTPwC9XWwCtJS9iumwXvDb/or8IdS7d+DHF4xejwRFA56t2a9g/4CXzxmRyQLc9zTgKwi1vXXPvYxH2K2U+t8IwuGwg6E13bvO7pB9Camxx1lvjIe1u+ws02pCgGVW6WY5E46pIniL256ESwVtjPrgF1TT9zsspv8HSC6v/7XnKCjUEz1y2E0bhAjLwjxxKzrCoE/+u1cyn0a/qXTvyQ6WeHFhT6lIO3P8W3kXGGivZ7ODhvYpoajRCXWzbdCnsle0aCIYqq1+lmhdW6chvAPF29jWu4CupgMFBGn9W5T1r9SpvIBw+q2h4si+OVjdLGo/9SHlkQFP7y8xZA7zBWMMuIXHpsF6Ew1PVW3KzGMfcDMGtCxbhvFg3L6xMWOFo99Cb/7lwhEgnkDhzRLFz01yhvrtcl+bciWcAznewmqS9MNx2v0C8dwx4CW+aw33coIyxqUtIiY7AQoKvXCFrd+yYMOKEpc62aJi7EOTQ0csowR4AGwzE901WuQkDZZQLUAm0CAwEAAQ=="
+	},
 	"lzGYCpOBQsU=": {
 		"serialNumber": "7fe579a881eb001055ae27216b30da120634c771",
 		"subject": "C=NL, O=Aruba, OU=Ministry of Tourism Public Health and Sports, 2.5.4.5=1, CN=Health DSC for recovery",
@@ -4938,6 +4960,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4JWoz8qfIVfxfvAiVOu+jZ+kKa8eJItSVUBzLm5atlFY5HWylG32UDP7bG8q+kydI4XjbK6565vtP6C0H3aWKQ=="
+	},
+	"j0Q/p/Eme5g=": {
+		"serialNumber": "1c96550f97ccff9224ae309a3313ea0dd8622a8f",
+		"subject": "CN=DGC DS Signer 1, OU=LEPL Information Technologies Agency, O=Ministry of Internally Displaced Persons From the Occupied Territories\\, Labour\\, Health and Social Affairs of Georgia, C=GE",
+		"issuer": "CN=DGC Country Signing CA, OU=Public Service Development Agency, O=Ministry of Justice of Georgia, C=GE",
+		"notBefore": "2022-03-10T17:17:59.000Z",
+		"notAfter": "2024-03-09T17:17:58.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "b3fc1a7f95e0b1884d8e2946824ed2558979329f",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwNh8XO3W6lmRGkBdBXUSC/3ZQzo4qiWLRyQqzH2ANTYVWUx/ZYpuDnPOMJ78a9L+ncO6I0xF6hg69qWhBY/2Iw=="
 	},
 	"ZqPYe26eEEk=": {
 		"serialNumber": "54edb4890c0926d5fdb5530442b11097f07ee57b",
