@@ -4553,6 +4553,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEH2+GOTdCPhSUdDZmaM7hq/hRJkZCd3wPyOwB8lS30s4N81r4XFpv1Yev+1bfB4A173DByhZyIKkdnZc/FfaAXQ=="
 	},
+	"4j3TpTCKDsM=": {
+		"serialNumber": "0086712e16d8154fb8",
+		"subject": "C=SV, O=Gobierno de El Salvador, OU=Ministerio de Salud, CN=Credencial de Inmunización Nacional",
+		"issuer": "C=SV, O=Gobierno de El Salvador, OU=Ministerio de Salud, CN=Autoridad de Certificación",
+		"notBefore": "2021-11-04T14:29:27.000Z",
+		"notAfter": "2023-11-04T14:29:27.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "828d30270aec3e883958595136de520113b7c69a",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoIGFi/JHAKlVan6JIfy98egHkReqI+luG49gmEHWcZnqwfptsMmIzWDROZA1PzxM2gumufQp5Hb/wGUIrBt1GQ=="
+	},
 	"6ptpKJA1J90=": {
 		"serialNumber": "2e8b88f33be316dac02d5f4cfdde81312c2e2463",
 		"subject": "C=TG, ST=MARITIME, L=LOME, O=INH, OU=INH, CN=inh.tg, E=wemboo.halatoko@inh.tg",
