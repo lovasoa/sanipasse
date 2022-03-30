@@ -6474,6 +6474,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEd+TX4Oo+eGR3uK7FR2CcR1f488VBSkV15VBWYjZlupZaOlZJxHFxgTinRnsCFTGmgkJzfAy9L2H7oLSTIL9C7A=="
 	},
+	"L/ELKGrvm10=": {
+		"serialNumber": "70f30897127504e659b2ec791b602811bf40d3ff",
+		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
+		"issuer": "C=SG, ST=Singapore, O=Ministry Of Health, CN=csca.notarise.gov.sg",
+		"notBefore": "2022-03-30T09:52:00.000Z",
+		"notAfter": "2024-03-29T09:52:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "7cf695b18e6d8c33975660eef08ac0af94e95002",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEy8cvU3EHGmsjAc7PuHdO5t8IRVR4xtzPLJ8MOtDC+3Qr7bnXJlDcayi3uxBVuevSvx4K9mcfJWN5AgBN/LLI1Q=="
+	},
 	"JKKAxTT7Wg4=": {
 		"serialNumber": "5a83b97ad63c1196cf7fc3891685801dfbcfc163",
 		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
