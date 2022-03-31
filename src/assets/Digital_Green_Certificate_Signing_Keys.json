@@ -4642,23 +4642,6 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE17Mn/OPO2RQfYEZM62rPQcvhfRd6ZTWo1MZnPvSBMCzjuY0ZdmtsXwDHH7wDOVcTs1NSylkb+/EmC1t/7XV0Ow=="
 	},
-	"RdyYLqteXuU=": {
-		"serialNumber": "615085f5",
-		"subject": "C=GB, O=NHS Digital, ST=Gibraltar, CN=DSC-DCC-GB-GI-04",
-		"issuer": "C=GB, O=NHS Digital, CN=England DCC CSCA",
-		"notBefore": "2022-03-22T16:52:40.000Z",
-		"notAfter": "2024-03-22T17:22:40.000Z",
-		"signatureAlgorithm": "ECDSA",
-		"fingerprint": "2eb45da74edddc2b4d54689d02f6ce9c1b2b4557",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4hlKpOFaDx4jQkfXJCHr80EW3Nswn80z1Rx3e5SRh1OLY4u7PAosOt3w3K/mVFI2gzHUPIt0rSpDNyjuaoEzHA=="
-	},
 	"rDoGMhFXdIc=": {
 		"serialNumber": "615085f4",
 		"subject": "C=GB, O=NHS Digital, ST=Guernsey, CN=DSC-DCC-GB-GG-04",
