@@ -5641,6 +5641,23 @@
 		},
 		"publicKeyPem": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA3p/v4TCdRMlTScmrt9XZjAs4K9vBfJOwTIFXDoVAgGDaU4lnysP3Tes0N4iADMhqurrSYFVVuKhdkF0wdFY3wqQFGMnPyuRuK8dP455Yh/cDw3mjE29/XiDHYzhPPIekCb3r/hnkf7D8YQBUoDtshhgJrFgNCyr8JvSElRG/fTPwC9XWwCtJS9iumwXvDb/or8IdS7d+DHF4xejwRFA56t2a9g/4CXzxmRyQLc9zTgKwi1vXXPvYxH2K2U+t8IwuGwg6E13bvO7pB9Camxx1lvjIe1u+ws02pCgGVW6WY5E46pIniL256ESwVtjPrgF1TT9zsspv8HSC6v/7XnKCjUEz1y2E0bhAjLwjxxKzrCoE/+u1cyn0a/qXTvyQ6WeHFhT6lIO3P8W3kXGGivZ7ODhvYpoajRCXWzbdCnsle0aCIYqq1+lmhdW6chvAPF29jWu4CupgMFBGn9W5T1r9SpvIBw+q2h4si+OVjdLGo/9SHlkQFP7y8xZA7zBWMMuIXHpsF6Ew1PVW3KzGMfcDMGtCxbhvFg3L6xMWOFo99Cb/7lwhEgnkDhzRLFz01yhvrtcl+bciWcAznewmqS9MNx2v0C8dwx4CW+aw33coIyxqUtIiY7AQoKvXCFrd+yYMOKEpc62aJi7EOTQ0csowR4AGwzE901WuQkDZZQLUAm0CAwEAAQ=="
 	},
+	"FQyLctAwMZA=": {
+		"serialNumber": "12d8a207a24c2c759cc754a4c0e67467820b6035",
+		"subject": "C=MY, CN=Malaysia Covid19 DSC 01, O=Ministry of Health",
+		"issuer": "C=MY, CN=Malaysia Covid19 Country Signing CA 01, O=Ministry of Health",
+		"notBefore": "2021-07-30T09:39:55.000Z",
+		"notAfter": "2023-07-30T09:39:55.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "e8de66ce9484e930141a7476de90863e99b59abb",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEbP5zZhl/Nfvfk9Ocmj4kVz6BnMesxexyPMHW+vbveCzQwCj4MOkQaQcC932W3+f5/FV2081EKlp2zhL9ks0qLQ=="
+	},
 	"lzGYCpOBQsU=": {
 		"serialNumber": "7fe579a881eb001055ae27216b30da120634c771",
 		"subject": "C=NL, O=Aruba, OU=Ministry of Tourism Public Health and Sports, 2.5.4.5=1, CN=Health DSC for recovery",
