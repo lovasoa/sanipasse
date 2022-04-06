@@ -511,6 +511,23 @@
 		},
 		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtk/51stJXU48RqD2lh4IdsxFrjlJfmTCrLr3cQNEXkrEoI3OEV8NnotE1RjVmQrqLTT04oxpWlcbMolXtJBtu3rOiLNwQvyVEbj/xSc6KT84Tp7GBo1P/kkunY+Vmab6HUCV/oGZYmsdiUP/OnTPX6Wy6delDhnrgHIDti73/TSsG7Zl1V6km7+KIkjAkVCEDkkUD7uffd4G+GBZ0B9F1KOT0IcFQNvDm0zlROVoGFlmPS8DWlrLHuIdMbB281uiDjcN+kNUt7rUyyj6TFgX9WCgEB/5mQBMRaaXK1zeDTaNkmC2S7IWxhMQsMBXJyAdbD9AnQOZc6XRjBauO7gz0wIDAQAB"
 	},
+	"h9wqAy+GiEs=": {
+		"serialNumber": "63158454d3553885e9b9ab140b0a2d406393a9c0",
+		"subject": "C=CO, O=Gobierno de Colombia, OU=Ministerio de Salud, CN=Gestión de Credencial de Inmunización",
+		"issuer": "C=CO, ST=BOGOTA, L=BOGOTA, O=MINISTERIO DE SALUD Y PROTECCION SOCIAL, OU=OTIC, CN=CDVCOL.SISPRO.GOV.CO",
+		"notBefore": "2022-04-04T21:02:34.000Z",
+		"notAfter": "2024-04-03T21:02:34.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "ef6ae1fe8c64ce1359fd5992c8372f5c5cb282a3",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIRa3WfYnCYTaHv78wrlFo3X0LOQcMU8kpBzloaEuc+yYjUlpjk8cds5sTXXOgv3f7rsnvZHmzRyjxwApXJlcgA=="
+	},
 	"7rZbUrXNlLk=": {
 		"serialNumber": "00f4b455b9b72f7313",
 		"subject": "C=CY, ST=Nicosia, L=Nicosia, O=Ministry of Health, OU=IT Department, CN=DSC_EUDCC_CY_01",
