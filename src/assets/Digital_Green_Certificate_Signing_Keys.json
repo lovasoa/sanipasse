@@ -528,6 +528,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIRa3WfYnCYTaHv78wrlFo3X0LOQcMU8kpBzloaEuc+yYjUlpjk8cds5sTXXOgv3f7rsnvZHmzRyjxwApXJlcgA=="
 	},
+	"CtE/PQJLZn8=": {
+		"serialNumber": "00f4b455b9b72f7314",
+		"subject": "C=CY, ST=Nicosia, L=Nicosia, O=Ministry of Health, OU=IT Department, CN=DSC_EUDCC_CY_01",
+		"issuer": "C=CY, ST=Nicosia, L=Nicosia, O=Ministry of Health, OU=IT Department, CN=CSCA_EUDCC_CY_01",
+		"notBefore": "2022-04-18T07:36:08.000Z",
+		"notAfter": "2024-04-07T07:36:08.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "126cfd97fa8d0d3ce7963e249fe8f802ae59452e",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEK+8LG4s2tdPUnQRmysQDlbO3Jz5slJSv248A1FKri1CD98IEfpzow2RtBw0OXH/+7FWc6D8oNc7GsmeDQTprmw=="
+	},
 	"7rZbUrXNlLk=": {
 		"serialNumber": "00f4b455b9b72f7313",
 		"subject": "C=CY, ST=Nicosia, L=Nicosia, O=Ministry of Health, OU=IT Department, CN=DSC_EUDCC_CY_01",
