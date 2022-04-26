@@ -5320,6 +5320,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEExXQauou3f3g77qOsZ0rSPFjoTDiKQDhG+Bpf34YyoeFkYMBML890KaqmZL4uezBc8xxg1f170qcZWHILjp4qw=="
 	},
+	"kBt6NBX/31s=": {
+		"serialNumber": "399d3ebdd2ddd92e",
+		"subject": "C=LU, O=Ministry of Health, CN=Grand Duchy of Luxembourg DS DCC 10",
+		"issuer": "C=LU, O=INCERT public agency, CN=Grand Duchy of Luxembourg CSCA",
+		"notBefore": "2022-04-25T13:19:53.000Z",
+		"notAfter": "2024-04-24T13:19:53.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "3e3c7e640345a810ff84c8ca7700ffc9cbcf8ac0",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEeH0bmMbg0K4M25Uq28fDp+b0X7WWLSI3Km2CG+BoJs+1xu1x2WNs54DbBWnG/q0G8I7FNQZbFupB/hyZ1nkBgw=="
+	},
 	"0EaALxX+MTM=": {
 		"serialNumber": "0f0b38f92a93042d",
 		"subject": "C=LU, O=Ministry of Health, CN=Grand Duchy of Luxembourg DS DCC 11",
@@ -5336,6 +5353,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGdOxELNFPTkbpKrnZvKdU2uKpQ7YfiKrBO2NARpl+jPYz2Y9NctYh/bTrvR+5CHXlkcW/O0C9+V1e/wACM7HAw=="
+	},
+	"oUcCNXKCMqY=": {
+		"serialNumber": "5c423b29bfba8f3f",
+		"subject": "C=LU, O=Ministry of Health, CN=Grand Duchy of Luxembourg DS DCC 12",
+		"issuer": "C=LU, O=INCERT public agency, CN=Grand Duchy of Luxembourg CSCA",
+		"notBefore": "2022-04-25T13:20:49.000Z",
+		"notAfter": "2024-04-24T13:20:49.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "626fd92623d82ce76d42855febdf58b81566c90a",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoZL0eL/k3Tdv7XVExyJB5AlD0JKEMtYF+Gt0J9qGe74/kCBSo4wd5GxyVPdevVpTjz4lY9WLYsUfIdaWIuCDQQ=="
 	},
 	"0kAwFy+vLpg=": {
 		"serialNumber": "5fb2152071bf338b",
@@ -6541,6 +6575,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEYr0q8m/Bn8gswRYGwehaoi3AGrM7En+hQT5ZfOfiWvtylzWhKCUeK0QrEH1XQxHVQG7jD+k+OaIrqCDOy1T2dw=="
+	},
+	"p37P713chgg=": {
+		"serialNumber": "5df06d4622890eebfe58a41e0befb390f83e0996",
+		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
+		"issuer": "C=SG, ST=Singapore, O=Ministry Of Health, CN=csca.notarise.gov.sg",
+		"notBefore": "2022-04-25T03:35:40.000Z",
+		"notAfter": "2024-04-24T03:35:40.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "55498413a4673a6440ec1d600e30edea493a59c7",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEAw9jwcxxcV56K6ZENlQ0MphtzWCZoq5Dm4K3XmtA6+TXlx4P6FL2XLcItHq5Ss8JxmBuctaDIUqv3yv1fPvuuA=="
 	},
 	"nqMnAMnvASg=": {
 		"serialNumber": "2a980c1455fd55f64ad2b3de017893ca24283636",
