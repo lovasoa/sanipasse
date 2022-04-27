@@ -7737,6 +7737,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAERG4yI/SSv70zEtVjzIrn/CypR1e0BZO5u8bIgltZicrg+992n2a7GucxK6zy91xq8F8XH7B0SJU75qkr8Z1d9A=="
 	},
+	"4ikbLHbM1xM=": {
+		"serialNumber": "0a84d817dc8a483f",
+		"subject": "CN=Poland Test DGC Service 2, OU=eHealth Centre, O=Ministry of Health, C=PL",
+		"issuer": "CN=Poland DGC RootCSCA 1, O=Ministry of Health, C=PL",
+		"notBefore": "2022-04-21T08:24:28.000Z",
+		"notAfter": "2024-04-20T08:24:27.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "000054ae2b15bad03dd9b78d3b3e469fb1538b1a",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2lqRTFL8NpbenY0NmO3C98OfBeC3m0E1BXQ9Ps9bvv+s6xpTC1uxO6hnkFpfMPwah7rQms+e31LYkfCfQhZt1A=="
+	},
 	"HhkeqvrtQ0U=": {
 		"serialNumber": "3eb81376ec182fce",
 		"subject": "CN=Poland Vaccination DGC Service 1, OU=eHealth Centre, O=Ministry of Health, C=PL",
@@ -7753,6 +7770,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgUesihG8ECIDnqxEoU9RouOR9y3NVLBUlpZ+ri+Ur7TQLORQDE3s/M5KGEllwCbsgT6cXUAT8kun12mOcJt78g=="
+	},
+	"GCts5YyKfpI=": {
+		"serialNumber": "09d7e549fdc68ed8",
+		"subject": "CN=Poland Vaccination DGC Service 2, OU=eHealth Centre, O=Ministry of Health, C=PL",
+		"issuer": "CN=Poland DGC RootCSCA 1, O=Ministry of Health, C=PL",
+		"notBefore": "2022-04-21T08:25:38.000Z",
+		"notAfter": "2024-04-20T08:25:37.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "08a2bc07df9baadd13ac1441f32b7a0104e29c00",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEQ88hCY6sOa7/95q9MOE2u7jfLDHZsr2j1+Tuv5aZ57dIORhLb0H1lja7vVMXB1OyHL8qjBEKuxqcihnk1bWd6A=="
 	},
 	"YgBnrpZDGXk=": {
 		"serialNumber": "06c172f21c0a8270c0646cff6e2ffef0db096ebb",
@@ -7792,6 +7826,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEdxvWMfuk6CHCbffZWPS6bRgVYglYdED1NT1FCfXstUZ81AWmYOh6tbZgOF9OM1lzqdpFD1uOmEZ0A8XXYmkB1A=="
+	},
+	"Z/cybJ0GUUU=": {
+		"serialNumber": "5a3937adb00b4193",
+		"subject": "CN=Recovery DGC Service 2, OU=eHealth Centre, O=Ministry of Health, C=PL",
+		"issuer": "CN=Poland DGC RootCSCA 1, O=Ministry of Health, C=PL",
+		"notBefore": "2022-04-21T08:23:16.000Z",
+		"notAfter": "2024-04-20T08:23:15.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "c1862f138583c4bbf99396acea33c610dc05f8dc",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUmAL+OVah+Iy1P/6a44JP7HnJAIloGZda8P73OrY9pIvwZ0mPIgBli3le+FkJm2jOVNzcw09fp2R8b2AFkrObg=="
 	},
 	"BEnvMVnNFK8=": {
 		"serialNumber": "716d0d82405ada569a",
