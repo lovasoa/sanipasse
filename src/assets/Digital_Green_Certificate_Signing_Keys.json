@@ -6644,6 +6644,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEEmxEg2iFDaol9DVnrqIY5zkPXrBANQlakmUfrBhogaDC2ZZ7fkQ2IcOJgEF4rQSyb34g5jDw88g7QaIknaLKMw=="
 	},
+	"3TnANQ0RLnM=": {
+		"serialNumber": "73b86d9f02ae2ef003f3140ddff8fc840ef77a69",
+		"subject": "C=SI, O=NIJZ\\, National Institute of Public Health of Slovenia, OU=NIJZ eHealth, CN=Slovenian Digital Covid Certificate Signer 2022",
+		"issuer": "C=SI, O=NIJZ\\, National Institute of Public Health of Slovenia, OU=NIJZ eHealth, CN=Slovenian Digital Covid Certificate CSCA 2022",
+		"notBefore": "2022-04-28T12:44:46.000Z",
+		"notAfter": "2024-04-27T12:44:46.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "da857750a15a0f91259889a8157e3a242ec06190",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEyZmbjdLBaw1oW3OU3qvHousP0v8E4nKhvrHcGpeYXuYGKmZDq66vQvAgNI6OBs0RRVQBy+CQ3Ap/sM+A9Aqqww=="
+	},
 	"6CDB1hL+uKU=": {
 		"serialNumber": "49f025579468efe851a916bd907e149fde572064",
 		"subject": "C=SK, L=Bratislava, O=NCZI, OU=DGCOperations, CN=DGC_01",
@@ -8052,6 +8069,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEKahy71MvfUTeQtS+u4x6vFVmWT7zLEgfHk0KjJl2M0LJ46Rnfnnw4CvSEv+RrRbqDg+vP262UGaldYPc3OPpFw=="
+	},
+	"Nzah4qJrsTI=": {
+		"serialNumber": "3ba90a76f827297a",
+		"subject": "OU=Siren Analytics, O=Ministry of Public Health (MOPH), ST=Beirut, L=Beirut, C=LB",
+		"issuer": "C=LB, ST=Jnah, L=Beirut, O=Ministry of Public Health (MOPH), OU=Siren Analytics, CN=CSCA_DGC_LB_01",
+		"notBefore": "2022-05-01T10:39:00.000Z",
+		"notAfter": "2022-11-01T11:39:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "31d56d8561b010259cf45ce6bc2c6ddf0114476b",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2dnjU8GXvJtGcndbsp1sN4DGv1GNZZQtMZAib3s+8ft6cxPpI7jH/MbuWAS3dQd2DRBmQ1nqal/CT1dijTDILQ=="
 	},
 	"qiD+pDXhCb8=": {
 		"serialNumber": "798828772f738881",
