@@ -101,6 +101,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAERFDliGDvd/2OKXevNNyURLSR+0qv7Ajz8C6yTLXJ1QbJCqPrQOVq4CXiyKiit98fWLotTelMpow4z1m09Ys6Ww=="
 	},
+	"+VD9C2Ba1Nc=": {
+		"serialNumber": "0180507c8a11f57f4bf7",
+		"subject": "C=AT, O=BMSGPK, 2.5.4.5=002004, CN=AT DGC DSC 4",
+		"issuer": "C=AT, O=BMSGPK, 2.5.4.5=002, CN=AT DGC CSCA 2",
+		"notBefore": "2022-04-22T08:56:20.000Z",
+		"notAfter": "2024-04-22T08:56:20.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "20e79fe46a995aee9b3a7ec0f71e6ee3ef63b1e1",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnUCwHzUFZ+mgTU6DTrGGVCmqBGp2Sf3IyqFYl7sNoFv/wZalMMZB+ELjfR2C004iK7RygtVe/si82YRs0MPLCw=="
+	},
 	"ODqaG8mnbro=": {
 		"serialNumber": "5dfefffd3a560d58",
 		"subject": "C=BE, O=eHealth - Belgium, CN=Belgium Covid19 DSC 01",
@@ -4969,6 +4986,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsHGctEPFotenAxVqYr/5Ztl46BU9hWNYAYdGWihiGzRTOgXzONqCQJqB37pacA53L7OlXPFONvT9KWYvbsVeiw=="
+	},
+	"6bIOyLG6PvM=": {
+		"serialNumber": "18b19ec2c76d2391",
+		"subject": "C=HR, O=AKD d.o.o., CN=Croatia DGC DS 003",
+		"issuer": "C=HR, O=AKD d.o.o., CN=Croatia DGC CSCA",
+		"notBefore": "2022-05-03T19:55:37.000Z",
+		"notAfter": "2024-05-02T19:55:36.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "a2db36babf50c3520e9b232b59a15ec36b6e666e",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEjuRgEwZ/BJ5kgAvVphm6MFLjure30Xh9TIV5WNXidi6AxH/E0N+WZ7/1eWgglu3fIxSnlP6hAZtda0Y9zFIXRQ=="
 	},
 	"4GkJs9YsYS4=": {
 		"serialNumber": "6bf8149eb2ad4a8e17cd75533e457600fb4fc171",
