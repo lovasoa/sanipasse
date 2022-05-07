@@ -7499,6 +7499,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEO42X7C2X5bSDTnfSJwnk4qAjSk2m11Cy/mmFqryl7J1MhrZDfy77ky4uS0o1iW181Ev51mAiW0J3i3SeKYeEOw=="
 	},
+	"4KBF0rWZIck=": {
+		"serialNumber": "5041",
+		"subject": "CN=IS-DSC-2, 2.5.4.5=3, OU=Directorate of Health, O=Directorate of Health, C=IS",
+		"issuer": "CN=IS DGC CSCA 1, 2.5.4.5=1, OU=Directorate of Health, O=Directorate of Health, C=IS",
+		"notBefore": "2022-05-06T14:48:54.000Z",
+		"notAfter": "2024-05-05T14:48:54.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "0609641c932e85f3fb0b8cd7e8f062213d6155ec",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEiphDOt0kU+Kdo89BFr1FedhfiZRUEHi1AJ9tLX3sN+bgw109d11ll97BVaImBAHGoWlh4iXQKS2GeKm2mXGfsw=="
+	},
 	"HeWuzGwEM5c=": {
 		"serialNumber": "704b",
 		"subject": "CN=IS-DSC-testrec-1, 2.5.4.5=2, OU=Directorate of Health, O=Directorate of Health, C=IS",
@@ -7515,6 +7532,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvwlwjQL5cId7nINp/A/b+XNY/WzgX9sIOde8ggZmZjXvIYhDhz7Fvs52ozmdqatDp3yIwPpr6nAMmaNTj0KdZg=="
+	},
+	"YmxYYw+LB84=": {
+		"serialNumber": "55ef",
+		"subject": "CN=IS-DSC-testrec-2, 2.5.4.5=4, OU=Directorate of Health, O=Directorate of Health, C=IS",
+		"issuer": "CN=IS DGC CSCA 1, 2.5.4.5=1, OU=Directorate of Health, O=Directorate of Health, C=IS",
+		"notBefore": "2022-05-06T14:53:05.000Z",
+		"notAfter": "2024-05-05T14:53:05.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "241e680f6fbbf4c949fddbe731806db258af3fe7",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE7FNjCEoUVb/YPjRuU0qwwZgXiBj6OvvbqIZxiCJ28CjOqRBKo7ugGWhTRFz8lIYR+Sr4N1Gez/rMpF7OwkOXbA=="
 	},
 	"MtI93IMknMk=": {
 		"serialNumber": "243c6b316b131e673e",
