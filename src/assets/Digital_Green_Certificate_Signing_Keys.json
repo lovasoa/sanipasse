@@ -7108,6 +7108,28 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEI6Q/krjPDaHJ2WsrBzR9sGYnYjFqkflAAWhJgXbXt3RuUVfJt4c53N6v9J2BE3kPqCVl9FbYrwqQ0vZ+Ps5e+Q=="
 	},
+	"ZtJVElOdWm0=": {
+		"serialNumber": "2ed863ac6b283bb7",
+		"subject": "C=VN, L=HÀ NỘI, O=BỘ Y TẾ, OU=CỤC Y TẾ DỰ PHÒNG, CN=CHỨNG NHẬN TIÊM CHỦNG - CỤC Y TẾ DỰ PHÒNG",
+		"issuer": "C=VN, O=Ban Cơ yếu Chính phủ, CN=CA phục vụ các cơ quan Nhà nước G2",
+		"notBefore": "2021-07-15T11:43:43.000Z",
+		"notAfter": "2026-07-14T11:43:43.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "0f5756ab0e5932cfc5d4d152c233b6881b314013",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 2048
+		},
+		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs683/CIJci81XiAyyyn/LBzvV7Q47tQIDBjX1+dcbGhN7eaQQvM3L8tpibNiWVBEP9jWOzHMJUGv5uOjXs76z5fPEWHNkb8my2qyJt5N3SXQQOafa4lj9awvY7KFZmPwivyfXYw19nlgk+rhJHNVzZ3Hzx+Dy4lmJpUgdh5j9Hd7M9PvVvgoeHZ7KoegfanoPRFhVNwp6BpDOBHHLTQLQ5TUsGNSl6TXo0PO5YgpZRxBjA5zh02YxLRQ3vglLDKxVfmhkO5z3kK2xczVWmE6fZ9l6dnh54Tht043T4WuFLygJCO+yiyVsiNc2G5Y8f3cP7Vf1B9su2ueB2ZnmPGMiwIDAQAB"
+	},
 	"EzYR1uk/E0I=": {
 		"serialNumber": "16",
 		"subject": "CN=02-2021_DCC, 2.5.4.5=02-2021, C=EE, O=Estonia, OU=Health and Welfare Information Systems Centre",
@@ -8086,6 +8108,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEAJV9wVkG7LM6TUw5LNuvYBeSYbi4x+HXtB+2mS2q4KKNevlFhwHac7r1xZlCUqS3WnUJ6TKxHk2tlnCCCuplIQ=="
+	},
+	"cJsuzNIdcHA=": {
+		"serialNumber": "04e3f89922d57011d5",
+		"subject": "CN=SELLO SAS PARA CERTIFICADO COVID DE LA UE 2022, 2.5.4.5=Q9150013B, OU=SELLO ELECTRONICO, OU=SERVICIO ANDALUZ DE SALUD, 2.5.4.97=VATES-Q9150013B, O=SERVICIO ANDALUZ DE SALUD, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-05-03T12:00:00.000Z",
+		"notAfter": "2026-05-03T11:59:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "c48700cad4d1ec7e9555067851d9aa7410366b69",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8hTSdBqxxyAyUhmxrCjAIUQkRUverBe6qKPtMvPfqz5xrmmehfF4mUX7Tl1+XFCiQWye43/qDitCDFw4sHPf+Q=="
 	},
 	"GMFMBu1RlCg=": {
 		"serialNumber": "7219d71aae22ead2e8",
