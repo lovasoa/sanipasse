@@ -3355,6 +3355,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEBBCZuYS5AdmmA/1r2rDkZuzZEsQx3t+itWKrCplloA3T6hj0zjXxQ+VA8NL9zVMOs+qimse+1kmycNPxBuSO1g=="
 	},
+	"4LmAwH++JF8=": {
+		"serialNumber": "24",
+		"subject": "C=EE, O=Estonia, OU=Health and Welfare Information Systems Centre, CN=01-2022_DCC, 2.5.4.5=01-2022",
+		"issuer": "C=EE, O=Estonia, OU=Police and Border Guard Board, 2.5.4.5=01-2020, CN=CSCA_Estonia",
+		"notBefore": "2022-05-17T11:03:14.000Z",
+		"notAfter": "2024-11-12T11:03:14.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "6ef3a73e06b617412d9aa13f97498ed914f44bf9",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAESRQNwfbHTrs/l83+e/2tJ9SChNHWK5/Tkg/KhEggFV4+c9mw2zxuQRdx3TLGsV0P+ReXCC/47bUIt/5uzYk8Fg=="
+	},
 	"Pp2KBZWzfPI=": {
 		"serialNumber": "1f",
 		"subject": "C=EE, O=Estonia, OU=Health and Welfare Information Systems Centre, CN=03-2021_DCC",
@@ -5106,6 +5123,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE38At9Wmpp3GwmuvmnWRV467ycIu9DIxEIxM35IxlT9vqJxEWhyZ2Wg3sTa618IRd+U6VljlaEJuTVHHuZcWwtQ=="
 	},
+	"+EcGd0CKYtg=": {
+		"serialNumber": "19af94ad2d8db9cf00647c262525e8ccdbdd8469",
+		"subject": "C=ID, ST=DKI Jakarta, L=South Jakarta, O=Ministry of Health Republic of Indonesia, CN=eu.kemkes.go.id",
+		"issuer": "C=ID, ST=DKI Jakarta, L=Jakarta Selatan, O=Kementerian Kesehatan Republik Indonesia, OU=Digital Transformation Office, CN=CSCA_DGC_ID_03",
+		"notBefore": "2022-04-08T16:10:52.000Z",
+		"notAfter": "2024-04-07T16:10:52.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "fed963be8b5b64a4aecfdb0d502662b9fe26be2a",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE9YqgNXmmXgWijLg6ci7eRK/PVWrb1YSBqzpKek8r4L/Qhl+R+4l+hJi2Q+ShyhJtBL2D9yYajyYykkC++Lpmxw=="
+	},
 	"PBpDVqnJ7Us=": {
 		"serialNumber": "00815a02704a550479",
 		"subject": "C=IE, O=Department of Health, CN=validateqr.gov.ie 2020135457912391810539600999694555",
@@ -5224,6 +5258,40 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEI0G5ENQ8EMymNXtdaJN/9tu/eQgw/DYXzQg+F+u/AASb/1TOwqBuXjIZKux0DGP2E8wnQDd+J6JPV+SwtLa1Hg=="
+	},
+	"xJzkJGzIV3k=": {
+		"serialNumber": "009de58ff7cabc80a7e847fd7b2784597ba0eda5",
+		"subject": "C=IT, O=Ministero della Salute, CN=Italy DGC DSC 5",
+		"issuer": "C=IT, O=Ministero della Salute, CN=Italy DGC CSCA 1",
+		"notBefore": "2022-05-18T09:22:37.000Z",
+		"notAfter": "2024-05-17T09:22:36.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "90d1227a729613c95f217c8a532778fd2f61e85f",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwCNpcwRXc5zbrNTl24xEz1NUzN+LECCnoRKo9a5xOJz1cFV0a63I2AJ//fn3SCao2A+fQN1PUKUQUbmLPTmhiQ=="
+	},
+	"VubkOgeOJHA=": {
+		"serialNumber": "2ed7defeb329b36020e155af65896522287de71b",
+		"subject": "C=IT, O=Ministero della Salute, CN=Italy DGC DSC 6",
+		"issuer": "C=IT, O=Ministero della Salute, CN=Italy DGC CSCA 1",
+		"notBefore": "2022-05-18T09:23:08.000Z",
+		"notAfter": "2024-05-17T09:23:07.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "bbdcf0efc43c3e56ba2cee3ffc14384c62613e15",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2MbVmPY6Us+MGrEiP1lce5jzZKUuvbRGGP9TIHnCTJYefRmSEIuBvMle+4mb3gYtMWtkfY9mE5WQ9HYFDvLGTA=="
 	},
 	"yCbDxn6A9oQ=": {
 		"serialNumber": "6f70bbf6037628c1957cba87404e283fc4fdfb4c",
