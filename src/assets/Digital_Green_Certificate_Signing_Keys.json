@@ -4137,6 +4137,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE0YhjcN1uCJkRuccorSqS7XmCy4TV74ki7Q9+uOl4cgVghDAIXdy/mFyFQkelz8hpFJUbNOm2ksI3E7gCkTk0DQ=="
 	},
+	"2ZzbzrhNVtw=": {
+		"serialNumber": "00d5eb40826b3b9faf24cce20583692732e83269",
+		"subject": "C=FR, O=DGS, OU=120036017, CN=DSC_FR_01003",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2022-05-24T22:00:00.000Z",
+		"notAfter": "2024-05-24T22:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "dca9cef543bb159f1dd5f698363b7e7cc3fdcec6",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEqRFOaCZ8OnuDWEoq3StEvhzhwvZ/lKEJKKkAm6emtw9bYabgOOTyQCQB8iRmHJWj2e27xxuHGnPUmIxpdF65CQ=="
+	},
 	"lrxgMs2Duac=": {
 		"serialNumber": "76100c1f3266b5f23d282d87799bad789f3ea379",
 		"subject": "C=FR, O=DGS, OU=120036017, CN=DSC_FR_012",
@@ -7141,6 +7158,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/t+Slm3djgmEU6EDiHQ9NbBluAowmiJ1WRBnCP8M+zS4nz8F8i3999918JYKA4wJni8OaHwhzb+ay8KJIxhNFA=="
+	},
+	"7Kxw3+O5bzs=": {
+		"serialNumber": "60e643efbfb93010827d008127d04a5a912c1587",
+		"subject": "C=TG, ST=MARITIME, L=LOME, O=INH, OU=INH, CN=inh.tg, E=wemboo.halatoko@inh.tg",
+		"issuer": "C=TG, ST=MARITIME, L=LOME, O=MENTD, OU=DCA, CN=e-certs.gouv.tg, E=support_it@support.gouv.tg",
+		"notBefore": "2022-05-27T00:15:08.000Z",
+		"notAfter": "2024-05-26T00:15:08.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "7ba3e869d894855d137e94bffad6b9ec22d1617d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEbdoT9Ekb/OZ40LPfmU6vBKfP+jJpGUJ372Dm4DEsp3WYKPRcU82a9kemJ9IepgJkX0Vq1jababqJ4mzyckb+Hg=="
 	},
 	"3I94YIEMN5Q=": {
 		"serialNumber": "7debf44cf51052ff1a3b0dd4b03a69d9",
