@@ -7385,6 +7385,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEmlrTLdtSzBKZEcWZ4n+DGYA7zAORp8nmaqftIoRB7CRaCSaAnx5Zmb6m4B/bdYQVJKb6EM3HbrnYIZNo0tAYjA=="
 	},
+	"HPY5pjISktg=": {
+		"serialNumber": "62289e4820497749",
+		"subject": "CN=CENTRE INFORMATIQUE DU MINISTERE DE LA SANTE PUBLIQUE, O=CENTRE INFORMATIQUE DU MINISTERE DE LA SANTE PUBLIQUE, C=TN",
+		"issuer": "CN=CSCA TUNISIA DGC, O=AGENCE NATIONALE DE CERTIFICATION ELECTRONIQUE, C=TN",
+		"notBefore": "2022-05-30T13:32:03.000Z",
+		"notAfter": "2024-05-29T13:32:03.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "1fc7f986c65d38438cef6eebe3091d14da39970d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEU3cJYiJ+61umVyy/MNDun7+XHJ69b7T/wwZ4c8hMvRv+k+BuZjsBTXH2OCAAu8eo5s2+rNlE525oKnXfajs3YQ=="
+	},
 	"fr1YOKr2CAU=": {
 		"serialNumber": "6302e484bcd4da92",
 		"subject": "CN=CENTRE INFORMATIQUE DU MINISTERE DE LA SANTE PUBLIQUE, O=CENTRE INFORMATIQUE DU MINISTERE DE LA SANTE PUBLIQUE, C=TN",
