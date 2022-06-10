@@ -6819,6 +6819,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIQ5LJGhrs3m//HC60//4N8WDL1DiHJRUTirld4U9ebBYYsTtxWknGG0Uton12x8yDHm7wm7aRoFhd5MxW4G5cw=="
 	},
+	"GaMFkOwQiSQ=": {
+		"serialNumber": "00904567af0c65be25",
+		"subject": "C=SC, ST=Mahe, L=Victoria, O=Travizory, OU=Health Certificates, CN=DSC-prod, E=morten.jorgensen@travizory.com",
+		"issuer": "C=SC, ST=Mahe, L=Victoria, O=Travizory, OU=Health Certificates, CN=CSCA-prod, E=morten.jorgensen@travizory.com",
+		"notBefore": "2022-04-05T17:46:47.000Z",
+		"notAfter": "2024-04-04T17:46:47.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "dd80b5239cb55b76315b5bbd296522a30a68d776",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAETri+03AeZQGUv/sYFe5jicMLJHc4fmm976PnoXL7rZu2zoAhNrWUZD9m24qI5eX7/mVDEgvM4XnalzRXwU37sA=="
+	},
 	"Z7k1XpIWZOE=": {
 		"serialNumber": "00ace33f75d1033c2c11b6dfc5d84bb0ad",
 		"subject": "C=SE, O=Swedish eHealth Agency, 2.5.4.97=202100-6552, CN=DCC Signer",
