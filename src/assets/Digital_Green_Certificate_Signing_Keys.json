@@ -152,6 +152,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEX79y3o+S4vY8UyqO1uzSAT6W7zULpaFWqe6MqPue8fVNOhQ1bwN/yKHKN64HkcJ+sGIpLtgaJb4iGr06NiAWfQ=="
 	},
+	"Ocz7BD1MsIM=": {
+		"serialNumber": "0e73fffc8819740b",
+		"subject": "C=BE, O=eHealth - Belgium, CN=Belgium Covid19 DSC 03",
+		"issuer": "C=BE, O=eHealth - Belgium, CN=Belgium Covid19 Country Signing CA 01",
+		"notBefore": "2022-06-09T14:39:28.000Z",
+		"notAfter": "2024-06-09T14:39:28.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "590315cc654ffad057229cb767653a2574f2ee43",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEzTmTebduMLwoThdK2ZfhMXTQs6jWErAq5fRrhESSSNIzNcJROcUFVZDeTp/O7bn5/gCtIVf0fJA7XKXE6cFWKA=="
+	},
 	"Jjql9rBrjHI=": {
 		"serialNumber": "457555fc6ab622b9fa83f36a841516f8af746d0a",
 		"subject": "C=BG, L=Sofia, O=Ministry of Health, OU=Health Information System, CN=DGC DSC 1",
