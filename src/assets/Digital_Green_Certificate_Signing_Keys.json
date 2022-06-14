@@ -5446,23 +5446,6 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsmHUTw8vhvIFlNXH1vLaPbRe21KR24LcYBq3fvirZmVIbWnFqBiEGA3Bm5BWMsUqvVqXxiISJSoKAE4YH26tug=="
 	},
-	"4vUVzV7f6kg=": {
-		"serialNumber": "41120ef36051fa867c332ea1255023c64e1dd322",
-		"subject": "C=LB, ST=Beirut, L=Beirut, O=Ministry of Public Health (MOPH), OU=Siren Analytics",
-		"issuer": "C=LB, ST=Jnah, L=Beirut, O=Ministry of Public Health (MOPH), OU=Siren Analytics, CN=CSCA_DGC_LB_01",
-		"notBefore": "2021-12-10T14:20:02.000Z",
-		"notAfter": "2022-06-08T14:20:02.000Z",
-		"signatureAlgorithm": "ECDSA",
-		"fingerprint": "d0ef071ba5db1268b1951a80ee0a40c9e3dd675e",
-		"publicKeyAlgorithm": {
-			"hash": {
-				"name": "SHA-256"
-			},
-			"name": "ECDSA",
-			"namedCurve": "P-256"
-		},
-		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEFDFfEzPM21RWXsxx1WUrduwbIxCEQXvGONuKpvxVgWEHeNeEyd27x5Y36wYqfjpTQg6L/Mzilq/HROPmimpC5Q=="
-	},
 	"tHv696xL75E=": {
 		"serialNumber": "23ccb8455a3427fe9bba92649fd08286404f64a1",
 		"subject": "C=LB, ST=Jnah, L=Beirut, O=Ministry of Public Health (MOPH), OU=Central Inspection, CN=CSCA_DGC_LB_02",
@@ -7809,6 +7792,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAERtumh/vSoJJwJ3c0Txb9GM8FSuQh4vzASOC0UQuRMDhctp7chlpAyivtu/z581vOAVuLBSs8txwqpwhNDj2feg=="
+	},
+	"lRKNJOaPsrE=": {
+		"serialNumber": "3dabae8117fb7a54b3",
+		"subject": "CN=FIRMA CERTIFICADO COVID DIGITAL UE 2S2022, 2.5.4.5=Q2801221I, OU=SELLO ELECTRONICO, OU=DG SISTEMAS DE INFORMACION Y EQUIPAMIENTOS SANITARIOS, 2.5.4.97=VATES-Q2801221I, O=SERVICIO MADRILEÑO DE SALUD, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-06-10T08:30:00.000Z",
+		"notAfter": "2024-06-10T08:29:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "f510ef8ffa2410d547dc4389f2012d9c2f05ac4b",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAElpS+MegEWvmYu5JRH1k2v78mVG9MlBkhgWC/OrDyXF7B15LzMhm1O3EM44K8vAFPGViXUuRO1zmrCmmtchZT5g=="
 	},
 	"ZcfkloEvfGQ=": {
 		"serialNumber": "17298a3ddcc9757f2a",
