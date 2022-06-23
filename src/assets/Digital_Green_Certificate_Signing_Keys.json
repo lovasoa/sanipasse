@@ -3423,6 +3423,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEKMpkfLlexSZAyOl3FjSomlb4P8POpQb7PYz1bg8uca+S/l/hpPiW0U2Cx5gSVvodEJOJdcbMMCgRoGHHdwD+1Q=="
 	},
+	"HjS8YEkE3cU=": {
+		"serialNumber": "01818a70070983f646ff78c5e916d1",
+		"subject": "C=FI, ST=Finland, L=Helsinki, O=Kansanelakelaitos, OU=Kanta, 2.5.4.5=1.2.246.556.12.21.2, CN=Todistuspalvelu",
+		"issuer": "C=FI, O=Digi- ja vaestotietovirasto CA, OU=Sosiaali- ja terveydenhuollon palveluvarmenteet, CN=DVV Social Welfare and Healthcare Service Certificates - G3E",
+		"notBefore": "2022-06-22T08:00:00.000Z",
+		"notAfter": "2024-06-22T20:59:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "df8cd6e762aee88a4df93cdf1aed166438ac8a1f",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE08W1RJyOwzKKG4/DQc63cdFZd+Jbw+JfzWgF0b/681+eUW1wjgJSFlBMTiL9OxEtoG3Ii0ROPabwQtUavsGk4g=="
+	},
 	"7EkLpCQPXgg=": {
 		"serialNumber": "017dd7810fc3030e71245bda512189",
 		"subject": "C=FI, ST=Finland, L=Helsinki, O=Kansanelakelaitos, OU=Kanta, 2.5.4.5=1.2.246.556.12.21.2, CN=Todistuspalvelu",
@@ -5428,6 +5445,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2MbVmPY6Us+MGrEiP1lce5jzZKUuvbRGGP9TIHnCTJYefRmSEIuBvMle+4mb3gYtMWtkfY9mE5WQ9HYFDvLGTA=="
+	},
+	"GxVcR9pTElc=": {
+		"serialNumber": "68dfb29f4927a5a5438d4bda253ba804f6d603bc",
+		"subject": "C=IT, O=Ministero della Salute, CN=Italy DGC DSC 7",
+		"issuer": "C=IT, O=Ministero della Salute, CN=Italy DGC CSCA 1",
+		"notBefore": "2022-06-22T10:06:57.000Z",
+		"notAfter": "2024-06-21T10:06:56.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "6bc076bc482b1acb5d2d58d4d2a85c1fe146e845",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEocoPRP7GdGnE3yZIbw5TAERX5wABekituBTRnPrG1d0gHA7wcA9TiyLSgVP+gth34lSMjpvKxENjJeWEe3M1wA=="
 	},
 	"yCbDxn6A9oQ=": {
 		"serialNumber": "6f70bbf6037628c1957cba87404e283fc4fdfb4c",
