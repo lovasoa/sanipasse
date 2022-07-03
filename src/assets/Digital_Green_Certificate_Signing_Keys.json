@@ -203,6 +203,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgXN2exOO6pXc25U65XXQUyYp72uNpsdKpUVDFqUUuf2oTodJhNxNQfLamVcq0ZSCsaZT3YDGyLNb2D/7m/kFYQ=="
 	},
+	"02/qsZyiry0=": {
+		"serialNumber": "279af50fbe5f7300c665fec53e366671",
+		"subject": "C=BH, O=Information and eGovernment Authority, CN=BeAware DSC A1 Production",
+		"issuer": "C=BH, O=Information and eGovernment Authority, CN=BeAware CSCA A Production",
+		"notBefore": "2022-06-01T00:00:00.000Z",
+		"notAfter": "2024-06-01T00:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "17f7b4c808c1c71388b2f2f8e778a212330dbd2a",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAED7I9DYHnOqEDZJV8XKIdAs78gHoNGm1UjuM9WR6an+SUjH0LDWKFUs272hK7X6h1oSB2dsz/vp+RIeX72OmE0Q=="
+	},
 	"ozBiB4arj/0=": {
 		"serialNumber": "5423ed5e3fb95f67df3ff63f1f8bce641fa1f296",
 		"subject": "C=BJ, ST=Littoral, O=MINISTERE DE LA SANTE, CN=DS-Sanitaire-01",
@@ -236,6 +253,28 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE1eafQkFnEHdgmdO4ZkAnpznVJlN2vhXb5czc/zO+82Kbp5PIUmtWid1wnLWcRv5NjVx3MtjpU8vRT4X2ej79Jg=="
+	},
+	"HUOTMBM2tGk=": {
+		"serialNumber": "68ff31c6fd07163508aa5b0a514c61fe",
+		"subject": "C=CH, ST=Bern, L=Köniz, 2.5.4.15=Government Entity, 2.5.4.97=NTRCH-CHE-467.023.568, O=Bundesamt für Gesundheit (BAG), OU=GE-0220-BAG, OU=Taskforce BAG Covid-19, CN=CC_CH01_CONVERTCERT",
+		"issuer": "C=CH, 2.5.4.97=VATCH-CHE-221.032.573, O=Bundesamt fuer Informatik und Telekommunikation (BIT), OU=Swiss Government PKI, CN=Swiss Government Regulated CA 02",
+		"notBefore": "2022-06-23T14:22:05.000Z",
+		"notAfter": "2025-06-23T14:22:05.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "9eb2ac5de522b3c9763d3a1b0fc558914f391dd7",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 2048
+		},
+		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq5Z3FXsLu5D+PK2VHRjdLjOrk78+sTwQHhMB7mJlgG2QiNT7JX4BBq6kh679Hw+t+qhyyaqUlXb2su/jz7QbOWjkxlM+CFsk0PXQgvZtISl0lGDBt0gukjc9dIJryAIzi3H6sWQxeZhO0koJiYtL5xe5GXnXjp8JtkiRxriXDkY5UOgoEewCxIILoBn9dNgC7+Z9pj4anpom9oU8CwkL8UJGIfxsj2g9eKeMGElYDKBJCN3AFM4m6IfhJU3GqDs8SOGLrkFVBhwKt7dLfWi5vn8ZB3GTIM4TSo2MIgdJrpQMdBY+Z179tHO75qjqHkQyQgitE27Wo7u5KN5aTkLn5QIDAQAB"
 	},
 	"SVePeyrJHKw=": {
 		"serialNumber": "720511042d8f0028c9a981c3de06d4d5",
@@ -4545,6 +4584,125 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAECR/tRXmgevftHnx7YjSZv1DTVISChlp0xW01dZA8Ts/JAS8A/fWvFemixZt8R4IZAFohxeDQb9ScuJAKBEiWrA=="
 	},
+	"C1j5MBv1tew=": {
+		"serialNumber": "42ce417bd2a860c98e4bc238627d4f336688b01a",
+		"subject": "C=FR, O=DGS, OU=120036017, CN=DSC_FR_33",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2022-05-10T22:00:00.000Z",
+		"notAfter": "2024-05-10T22:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "b7e1603a9fb2ae7ad0153cf549b29e2a9ad094a2",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2o1ZtZeaAaHbXumdRe/C8sGdJ8BqpJevK2bAYUf4DIP8zUcjk9je/pvn9Z4q6tkCFdlRZp7Su8JnMfjb1+Ohsg=="
+	},
+	"GMNe2WIpUSk=": {
+		"serialNumber": "7afbe7edae7f3bb73c469dc70574abb433a2c7f6",
+		"subject": "C=FR, O=DGS, OU=120036017, CN=DSC_FR_34",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2022-05-31T22:00:00.000Z",
+		"notAfter": "2024-05-31T22:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "8953a99bcde5330775f0d2fbd952b23f43f82d0a",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEFTMmN0eeZWte/EcL4/uhxbITulOt2Lw8C4if4jjUhDCmJsH0t6tckuHzO/xekU42eKG4ZpBYUDGkRNvwBW06Rg=="
+	},
+	"EYrqzRfMy3w=": {
+		"serialNumber": "1531be1cedd622b2185c4e29fe19c51ba1b3c0a6",
+		"subject": "C=FR, O=DGS, OU=120036017, CN=DSC_FR_35",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2022-06-21T22:00:00.000Z",
+		"notAfter": "2024-06-21T22:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "027b76126d802159e1a77fef39a6c69e346fdb32",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAETA3u/3HhGzU4duf+71NcblLYOFp9UoQLTtbE0nMEC35xoirirQ+fAplUotQIkhEdkj1tewTgUUSQ/658W9nsQg=="
+	},
+	"9Z9Llv0ra9k=": {
+		"serialNumber": "420b702919c75fdb16893e2d8fa434daab3e13f1",
+		"subject": "C=FR, O=DGS, OU=120036017, CN=DSC_FR_36",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2022-07-12T22:00:00.000Z",
+		"notAfter": "2024-07-12T22:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "d5902dcb7fcef0934b4d0ebdec5c9d2266b2ab23",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEziMhNpWZBzGUqMf2rDfEfhnd0BhPyVIrjpujRhqKEayJ2c8EtCLBr4LFMfkhCzgGG0td0i7o+BVi9klARmd9Dg=="
+	},
+	"kiUXcKzrlns=": {
+		"serialNumber": "0924cacac40c6526d08824862ab5b6ef1d94daf7",
+		"subject": "C=FR, O=DGS, OU=120036017, CN=DSC_FR_37",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2022-08-02T22:00:00.000Z",
+		"notAfter": "2024-08-02T22:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "68c4b203d8bfe26a491a0089eef46b85d7730133",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEWIfQOA5OJDlblwZr6WHe5kG0W08MQGM+M3KEcTdEvpXMQ/wxyqJRIK/QrRYwcia58wj9y3hViWJ9SmcJVtxgVA=="
+	},
+	"cBa9xetIGGw=": {
+		"serialNumber": "585b9f291f1ff657035dc2e79f2f1a255ff501c0",
+		"subject": "C=FR, O=DGS, OU=120036017, CN=DSC_FR_38",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2022-08-23T22:00:00.000Z",
+		"notAfter": "2024-08-23T22:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "12110ca75938ce5067ec46a5c5b14fabcc18a8ac",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE03aPVzhGhs97AATkTzx7liK8ELA/ocPlxSDYQSY2Vv8x+pMeuAAzHFBu9u73IFIZBDmDd1ISrEaRqK2L3hJiog=="
+	},
+	"P18vIcaDA3g=": {
+		"serialNumber": "0e446115b53484360fdf6eeec74f70b04ba8e019",
+		"subject": "C=FR, O=DGS, OU=120036017, CN=DSC_FR_39",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2022-05-10T22:00:00.000Z",
+		"notAfter": "2024-05-10T22:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "60d2cb0f9dde368bd1feb05a6c8de2c5785dd9ae",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAExkiY98AWol0JaSaPkwylkwAFch1Wv5ZeVWDKijggho8pFiwUbYFs5qi0tw2AcirtcGegPPOrMQ4JXb6VfKzjUQ=="
+	},
 	"3RHFNel1O3Y=": {
 		"serialNumber": "55699ca5edf0c0f67f8d4a99de3e9a30726da80f",
 		"subject": "C=FR, O=DGS, OU=120036017, CN=INGROUPE_DCCC_0001",
@@ -5665,6 +5823,28 @@
 		},
 		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwe2+M9R5WSlTgKkEF26VT6H0VtdN8pA4z7NXx2HyHBgyj2puI6/q6Q1uiCdgF2vmt6iPfK0hV7BIaIZlUVqIGO50Pd0BYf8TIn/coDzOD/rchTMFGgdcjIQs6DV7lPMr0TUiqn1RUgI0l4XlCHk71PlktuaQxsmSe5rCOjVtGiQJeCFCsae0IRr3VT+oMQC8V6Bkw/99zAO/Ku4IPRG7r3wHx+daCHX9PlanyM7CARcP2rReIRFKjZLv34NhVKci2/zpUo234UvDGVG2ljt8K3jDXYanAAfzrEcyPc7M0+SkO1EF/a4H5ct33dhwHRjFCeO1Yf32fdtSUc/VLxBu3wIDAQAB"
 	},
+	"WlKJrMM2i9k=": {
+		"serialNumber": "0181b6aeec86",
+		"subject": "C=LT, ST=Lithuania, O=Ministry of Health of The Republic of Lithuania, CN=LT_DGC_DSC_4",
+		"issuer": "C=LT, O=State Enterprise Centre of Registers, CN=LT_DGC_CSCA_1",
+		"notBefore": "2022-06-30T22:15:26.000Z",
+		"notAfter": "2024-06-30T22:15:26.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "a10d06721cc602a9824b8243baaa6ca7ac400629",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 2048
+		},
+		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv+b4ktiqqFml/L9nydMUEkq2OI3FYgfD1ErjizKn5WCfD3ggdu3KsVPTkS09JFx62/bzlHWECnyYjppXW6nFyZ4zl9557p5HYsgFFlsYv9SKP5JYovtnuJUgyc/wlo4lPeXMNMqSxSH+lHMRDdDWDHBxGdWoyNI0VXSkNTiASWf3TwnI0oeQQ09IpodY72iLQMCjYFqeotl0RR/8y1E+AOu1jvXXYH5y8SpHxiPGIbsmjXKv85mjfQvcXtNnw752zK5pfuv0iItEpbjGIKsec4xi8lUr8fAtwPwoo3jbGGWAdDJtkrLQuc5Iz8/OhoFiwJnaJSbbl6bvAlKGWEFTpwIDAQAB"
+	},
 	"ln8K+9SqfuA=": {
 		"serialNumber": "3392244c19e0afe0",
 		"subject": "C=LU, O=Ministry of Health, CN=Grand Duchy of Luxembourg DS DCC 1",
@@ -6021,6 +6201,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE1T6McghQDmKBlMIuniA+ftbyBDBYKrcZNFRNn+gvrCPL5gyx2PgyFHqaRTFUicFWXCwEP5aTbOHh2BzIAHoBhQ=="
+	},
+	"blJfz2yN0Rw=": {
+		"serialNumber": "47bf04aeefcf35e040570df18f01fbefe929f74e",
+		"subject": "C=MG, ST=MALAGASY, L=Antananarivo, O=The Government of Madagascar, OU=Public Heath Ministry, CN=MG/GOV/MSANP/DCC/DSC",
+		"issuer": "C=MG, ST=MALAGASY, L=Antananarivo, O=The Government of Madagascar, OU=Digital Governance Unit, CN=MG/GOV/DGU/CSCA",
+		"notBefore": "2022-05-18T11:45:34.000Z",
+		"notAfter": "2024-05-17T11:45:34.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "2e4a3ce44b4482ca70829a440eaf57fe11f46fc5",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEtubU9tZPwYevcvbM6bcs+tlj9aIxzmtLPjl2IxNHkkLTdXKw6C0dTryjKhfT3GcnpB4KyJFWNiBgNhvSEV13dA=="
 	},
 	"WhTtEgoip/Q=": {
 		"serialNumber": "01",
@@ -6513,6 +6710,159 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE3pxkcxOGoU7P0WKPBfOovd6bNlNHpaTbGWRvqzklktvAigHjF1NynrtJP/2m9PI+fupg6HuB/AMw0aC9HnN8LA=="
 	},
+	"K57kn2CzOZM=": {
+		"serialNumber": "4f15eef66ae1bca815ab17cd4f3d016fba0fd988",
+		"subject": "C=NL, O=Kingdom of the Netherlands, OU=Ministry of Health Welfare and Sport, 2.5.4.5=5, CN=Health DSC for recovery",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2022-06-29T09:15:18.000Z",
+		"notAfter": "2033-06-26T09:15:18.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "f710ed79cfbbdb26b2ed618b26a408020b05a25a",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEo3oZOKt2xk/GcnP03wpNmVKOGWbNRMWC+ALdlW66jyZgLxpU27AcC3QO6t/t42Cyxu9HfV9kM5qjOCBAGgdDSw=="
+	},
+	"GHEPcIekXjA=": {
+		"serialNumber": "324e7d0307994df3072d1196b21f133ad119bc4b",
+		"subject": "C=NL, O=Kingdom of the Netherlands, OU=Ministry of Health Welfare and Sport, 2.5.4.5=5, CN=Health DSC for test",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2022-06-29T09:21:03.000Z",
+		"notAfter": "2033-06-26T09:21:03.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "ec70faea9ba2e7c7e4ef3cbb30701e51d3fcfe41",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEywngJdR5rkk/5ZRqQu44M66x2yefN90TB69TOo/FIUUSk0BWlNSO1WSGmAYBhTO+uHaYIqiFCJxBEnDdzPQMfQ=="
+	},
+	"weM+F/cIulM=": {
+		"serialNumber": "3b33b666cba5ed61f62b815bb4f5d9093c0ae7db",
+		"subject": "C=NL, O=Kingdom of the Netherlands, OU=Ministry of Health Welfare and Sport, 2.5.4.5=5, CN=Health DSC for vaccinations",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2022-06-29T10:39:03.000Z",
+		"notAfter": "2033-06-26T10:39:03.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "e3c713132aa4e792bec416adcc8d81b47dc8b3e7",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEMjRYS1au2N/zK6T4Q+gAEkK3CHrPUbcvOjF4JZ47jnRqadJvsrTW73hB6ssXr672071qDJ+N6eDxI8PJeT/eUw=="
+	},
+	"R1cBKUcYM7k=": {
+		"serialNumber": "51287ea1cf7dcb50dc62e19a0cf716e402e6397f",
+		"subject": "C=NL, O=Kingdom of the Netherlands, OU=Ministry of Health Welfare and Sport, 2.5.4.5=6, CN=Health DSC for recovery",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2022-06-29T09:17:29.000Z",
+		"notAfter": "2033-06-26T09:17:29.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "19be2a71e3279007d6b42198d306e6c0fa55e5ab",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEmOloh2Tl2OkWwkLz6LcLcb0km+UEagPv2DGGZqheQMR+K7GpEv7MK8cT34377cW3JbzU+rFm9qRkv7pmOFo+4A=="
+	},
+	"SqxWbzIFRso=": {
+		"serialNumber": "51988e2045a3ce7ae989f151c5ca465cf52bc340",
+		"subject": "C=NL, O=Kingdom of the Netherlands, OU=Ministry of Health Welfare and Sport, 2.5.4.5=6, CN=Health DSC for test",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2022-06-29T09:22:52.000Z",
+		"notAfter": "2033-06-26T09:22:52.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "084dfada04ea2c2e3a93e4f4cb562e56eb7de07f",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEu0UBHnb4JBvjoYzsbkvXPHm2yqt3HNm4ytS9rxr8bJXHdVA6EhCH0OIXZZj6n7fT5WduzXfTa0yfIohL8n/j3g=="
+	},
+	"1mhJAPkGoTI=": {
+		"serialNumber": "593e5bc10bd10350f0cb359507ea0d781e259fd9",
+		"subject": "C=NL, O=Kingdom of the Netherlands, OU=Ministry of Health Welfare and Sport, 2.5.4.5=6, CN=Health DSC for vaccinations",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2022-06-29T10:49:18.000Z",
+		"notAfter": "2033-06-26T10:49:18.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "14fcf575e84924e1d03def75fc63c1c549d2ca13",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoCWU2Q6uXujdA4EOy+4vv5IdEtyAvtmryWjNS7NFLpvpw0W1YKFPA241lF6zQNkP8Fj3ycA2gsXDhPVPCYgOFw=="
+	},
+	"oEki3VGflrs=": {
+		"serialNumber": "49b2a5df06d79bb48e101e62230b4dc658bbb8e5",
+		"subject": "C=NL, O=Kingdom of the Netherlands, OU=Ministry of Health Welfare and Sport, 2.5.4.5=7, CN=Health DSC for recovery",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2022-06-29T09:18:55.000Z",
+		"notAfter": "2033-06-26T09:18:55.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "cd1fe64f3f09f6280bf50e8ab5419022b9843e5c",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEYVJOSIFiDNfYQqKQSzezcJzsYm1EHY+ph500bFESM0GPmb9XQEHbsvdTvzCwSl01iN56KNbY9POqcC33ECmxVQ=="
+	},
+	"z27pPcNC70s=": {
+		"serialNumber": "25b9981262250fffe836817d67b741b92538798c",
+		"subject": "C=NL, O=Kingdom of the Netherlands, OU=Ministry of Health Welfare and Sport, 2.5.4.5=7, CN=Health DSC for test",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2022-06-29T09:55:51.000Z",
+		"notAfter": "2033-06-26T09:55:51.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "de5443dccaa2a1a524f36b0e92ad9cb9ce49f8b6",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2EgoE31SdHpCR0wn5dIqdfk9+oJzsiISn7jpFB1UBVcn/vjut4+7D4JweDnyoHMJBL7U83gR1V+Pj6yEiGoo5w=="
+	},
+	"Fk97A2WHdKk=": {
+		"serialNumber": "4472783bb4acb389da4bc84e0819bdcd8d1c4af0",
+		"subject": "C=NL, O=Kingdom of the Netherlands, OU=Ministry of Health Welfare and Sport, 2.5.4.5=7, CN=Health DSC for vaccinations",
+		"issuer": "CN=CSCA Health NL, 2.5.4.5=1, OU=Ministry of Health Welfare and Sport, O=Kingdom of the Netherlands, C=NL",
+		"notBefore": "2022-06-29T10:50:07.000Z",
+		"notAfter": "2033-06-26T10:50:07.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "0590578fbbfdf7ea6532a516e6af324ee6b1c146",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE1GUqD3ChA0ecWyJBWG8rmmcNGQY05EeULUx0NaIKAxLrYUBgeu4XaqbX9cnq5ktoNLKF8t7J7zmtDOrKRZJQFA=="
+	},
 	"4Ss2raOqhTw=": {
 		"serialNumber": "45961aa092a5fd6cbaf8c48903eeca0407cb4291",
 		"subject": "C=NL, O=Sint Maarten, OU=Ministry of Public Health Social Development and Labor, 2.5.4.5=1, CN=Health DSC for recovery",
@@ -6954,6 +7304,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEy8cvU3EHGmsjAc7PuHdO5t8IRVR4xtzPLJ8MOtDC+3Qr7bnXJlDcayi3uxBVuevSvx4K9mcfJWN5AgBN/LLI1Q=="
+	},
+	"+TjdHsRA9SU=": {
+		"serialNumber": "6765403f359be1a73fc93bf30580d1c8f1fbb8b6",
+		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
+		"issuer": "C=SG, ST=Singapore, O=Ministry Of Health, CN=csca.notarise.gov.sg",
+		"notBefore": "2022-06-25T03:30:05.000Z",
+		"notAfter": "2024-06-24T03:30:05.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "b0e8efd33a2c288c38521de2cca457685be1df52",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2CnBuPNBZv3Q335eiK8GekAYzQZc5qw9ia9J2tgfz50KCcX/KO4NopERFkTNQKlrrs9YmE5ahhwS/2hk1UF23g=="
 	},
 	"JKKAxTT7Wg4=": {
 		"serialNumber": "5a83b97ad63c1196cf7fc3891685801dfbcfc163",
@@ -7503,6 +7870,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEHZjrINN6u+ZGfRqaYqgqL+yZZCDlu+PKPCkVS/ysPosrontwlhznbPsq5W+d2NyxXeaUAT+lTyRKy1NAxOFqAA=="
+	},
+	"Saf0s5eMkIQ=": {
+		"serialNumber": "7d84c7a574d2c7df42",
+		"subject": "CN=CERT-GENCAT-2S-2022, 2.5.4.5=S0811001G, OU=SELLO ELECTRONICO, OU=Departament de Salut, 2.5.4.97=VATES-S0811001G, O=Departament de Salut de la Generalitat de Catalunya, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-06-20T11:00:00.000Z",
+		"notAfter": "2024-06-20T10:59:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "9e823741bbee1c181f09a6e01710ffe8e8bb92bb",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEej6yg+gtP53DoIr1rtWVVHPsyqLRbdOwhHEpC+oFAo0zpgfxXgdb3BigabKwZy04+3uPTDqXpVYSgE0oFr+ihg=="
 	},
 	"YU9+X9nepqU=": {
 		"serialNumber": "14c4e25253ae19b48f",
@@ -8568,6 +8952,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEAJV9wVkG7LM6TUw5LNuvYBeSYbi4x+HXtB+2mS2q4KKNevlFhwHac7r1xZlCUqS3WnUJ6TKxHk2tlnCCCuplIQ=="
 	},
+	"7PpSwSlvogM=": {
+		"serialNumber": "5162523b6f8e4b7605",
+		"subject": "CN=SELLO MINISTERIO SANIDAD CERTIFICADO COVID19 DIGITAL UE 2022S2, 2.5.4.5=S2827001E, OU=SELLO ELECTRONICO, OU=SELLO MINISTERIO DE SANIDAD CERTIFICACION COVID-19, 2.5.4.97=VATES-S2827001E, O=MINISTERIO DE SANIDAD, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-06-20T10:30:00.000Z",
+		"notAfter": "2023-06-20T10:29:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "96671b5d975ed857ce1bfbd456c262f854d2b067",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE00q9talfH28Bklu1NWSmYyYAp1q++S17YDt4sLo2UmAjtfDhVqHyGIzY0LK9BbhyinSaTQvXmOV6aDjf3FtTmg=="
+	},
 	"cJsuzNIdcHA=": {
 		"serialNumber": "04e3f89922d57011d5",
 		"subject": "CN=SELLO SAS PARA CERTIFICADO COVID DE LA UE 2022, 2.5.4.5=Q9150013B, OU=SELLO ELECTRONICO, OU=SERVICIO ANDALUZ DE SALUD, 2.5.4.97=VATES-Q9150013B, O=SERVICIO ANDALUZ DE SALUD, C=ES",
@@ -8725,6 +9126,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEd22zt56DQx1ao5dd4u6jU3KPELJdcWfl0+FJ6cVhCb8s0SmQleFtS9m5RQqVzbBr/JnUfqVZjvrPFzwpbgdMeQ=="
+	},
+	"F3g5fqyS1BE=": {
+		"serialNumber": "befa27895b3cb7e2",
+		"subject": "OU=Siren Analytics, O=Ministry of Public Health (MOPH), ST=Beirut, L=Beirut, C=LB",
+		"issuer": "C=LB, ST=Jnah, L=Beirut, O=Ministry of Public Health (MOPH), OU=Siren Analytics, CN=CSCA_DGC_LB_01",
+		"notBefore": "2022-07-01T10:39:02.000Z",
+		"notAfter": "2023-01-01T11:39:02.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "891f224786db896024a50fca7fdc48a387464a51",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEPDu2S+2+7CbtfSiIy1sDrgBQ/H2ghNX8P02Bacoo7234Gp4E6TE3YvIsg/6is4dZC2BP5TL/3rDj4wlOdnU5HA=="
 	},
 	"QFoseLbiTFM=": {
 		"serialNumber": "13ae700c57874f6f",
