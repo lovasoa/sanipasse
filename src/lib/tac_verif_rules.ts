@@ -101,7 +101,7 @@ function vaccinationValidityInterval(
 	const booster_delay = delays[vaccination_date < toggle_date ? 0 : 1];
 	const start_days = doses_expected <= 2 ? v.vaccineDelay : booster_delay;
 	const start = add_days(vaccination_date, start_days);
-	const over_age_max_delay = doses_expected <= 2 ? v.vaccineDelayMax : v.vaccineBoosterDelayMax;
+	const over_age_max_delay = (doses_expected <= 2 && doses_received == doses_expected) ? v.vaccineDelayMax : v.vaccineBoosterDelayMax;
 	const over_age_end = add_days(vaccination_date, over_age_max_delay);
 	const end = over_age_end < booster_date ? booster_date : over_age_end;
 	return new ValidityPeriod(start, end);
