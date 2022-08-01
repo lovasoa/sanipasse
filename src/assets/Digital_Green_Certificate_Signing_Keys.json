@@ -5930,6 +5930,40 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoZL0eL/k3Tdv7XVExyJB5AlD0JKEMtYF+Gt0J9qGe74/kCBSo4wd5GxyVPdevVpTjz4lY9WLYsUfIdaWIuCDQQ=="
 	},
+	"plha4xea49I=": {
+		"serialNumber": "3b3c8db65fe6984a",
+		"subject": "C=LU, O=Ministry of Health, CN=Grand Duchy of Luxembourg DS DCC 13",
+		"issuer": "C=LU, O=INCERT public agency, CN=Grand Duchy of Luxembourg CSCA",
+		"notBefore": "2022-07-29T09:01:06.000Z",
+		"notAfter": "2024-07-28T09:01:06.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "9aec81a9e703251f789f2efd953133a036f61411",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEz75XZWLMUnWmKiGPoeTC6rwcxj59CiMORoCuiGRpep33Qv2nChAT/MYrVmZiZAdAOZuMfiugG/QmL2Nfw+HmOw=="
+	},
+	"kJuUqV8vXg4=": {
+		"serialNumber": "41b9d7129a074817",
+		"subject": "C=LU, O=Ministry of Health, CN=Grand Duchy of Luxembourg DS DCC 15",
+		"issuer": "C=LU, O=INCERT public agency, CN=Grand Duchy of Luxembourg CSCA",
+		"notBefore": "2022-07-29T09:01:43.000Z",
+		"notAfter": "2024-07-28T09:01:43.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "a6b0a10c0ea29f239a5ff2ec8a2e730ee7f64795",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEH6tiaWoYdmKys/wN0AWRCAEirq0/guHKh76pSR/l3Yhub8q9AEpHz+wUTjSWbzLyb42aBxhMGd2HJaOExj1dpA=="
+	},
 	"0kAwFy+vLpg=": {
 		"serialNumber": "5fb2152071bf338b",
 		"subject": "C=LU, O=Ministry of Health, CN=Grand Duchy of Luxembourg DS DCC 2",
@@ -6167,6 +6201,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEmf2tHBhkjcwD5zvJYqnLU40axPWSSfO84WfcbwK7Ffj4UhDlw1vZm6vNxJ3YEQz82+MsgVoVHjAfgvkohZ5SMw=="
+	},
+	"Aqi6P40Dbqc=": {
+		"serialNumber": "00da95efeb66c5ec4ec4e8ddf23ec54d8824bec6",
+		"subject": "C=MC, O=Principality of Monaco, OU=Ministry of Health and Social Affairs, CN=DSPKI_MC_DGC_1",
+		"issuer": "C=MC, O=Principality of Monaco, OU=Foreign Office of Monaco, CN=CSCAPKI_MC",
+		"notBefore": "2022-07-27T12:32:31.000Z",
+		"notAfter": "2024-01-26T12:32:31.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "1885a20bdb24918bf60555f4a6aa7454967f5ca6",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEmgtBPudRrms/fnIWJ7Tij4p7qz9InVJYuxS11Tt001QgIKWoqglqjLIOhYt6Pgl0aQySTn7t1fJZvTEh/KLL6A=="
 	},
 	"Pcl7yBWEQ7c=": {
 		"serialNumber": "009747113986845f5ccc2040c73dfac46af030f9",
@@ -7916,6 +7967,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEI6Q/krjPDaHJ2WsrBzR9sGYnYjFqkflAAWhJgXbXt3RuUVfJt4c53N6v9J2BE3kPqCVl9FbYrwqQ0vZ+Ps5e+Q=="
+	},
+	"I8/Tk79X1Gw=": {
+		"serialNumber": "6c3f9ba53196be08",
+		"subject": "C=VA, O=STATO CITTA’ DEL VATICANO, OU=DIREZIONE DI SANITA' E IGIENE, CN=DSC_DGC_VA_02",
+		"issuer": "C=VA, O=STATO CITTA’ DEL VATICANO, OU=DIREZIONE DI SANITA' E IGIENE, CN=CSCA_DGC_VA_01",
+		"notBefore": "2022-07-29T08:22:00.000Z",
+		"notAfter": "2024-07-29T08:22:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "bdf7aef34b498ddcda3bfe3377ca4ddf1594104f",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEa+x3Y8uNkD0flp0w7+XquZfuvwFRpl7AgZASGRMj1SwLytfxplfyAmPR3Pi7aKHSNdCilgCq/6yqHldYZk/owQ=="
 	},
 	"ZtJVElOdWm0=": {
 		"serialNumber": "2ed863ac6b283bb7",
