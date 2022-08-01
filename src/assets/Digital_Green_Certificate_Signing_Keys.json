@@ -8364,6 +8364,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAELlAbjlqgxI/4RSkTe48ujrHtkfbMQXlQbAj3rcSoV0cZhAHCFWFKIiZte1MycsYlSPgNBPh4RkWfe+iy5ipklQ=="
 	},
+	"armdhu3aEic=": {
+		"serialNumber": "6d3f2035ed94da028a9d8f465e35430f79808ff8",
+		"subject": "CN=DSC_DGC_FO_345334_RECOVERY_02, O=SJUKRAHUSVERKID, C=FO",
+		"issuer": "CN=Faroe Islands Health Authority CSCA v1, O=Gjaldstovan, C=FO",
+		"notBefore": "2022-07-07T13:09:35.000Z",
+		"notAfter": "2024-07-06T13:09:34.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "01ba427b63329ab404ce2014e3becf5aac436f08",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEVUe1sIuI3omvwdUbdgkUCHl+bhZGaGJjY7Q8Iam4wvlWBpPkMy94j8IYJIco6KEVbosTtefDXZh5SJmBASLaMw=="
+	},
 	"fNstNUxgGSI=": {
 		"serialNumber": "3447095cc60170774e024318abf3b17a1f0eda1c",
 		"subject": "CN=DSC_DGC_FO_345334_TEST_01, O=SJUKRAHUSVERKID, C=FO",
@@ -9466,5 +9483,22 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEpqXxQ3wXpnOZh0uA/nAY0fX+BY5SkF6Y6uyEym1bnZNwxTB42KUuPClWx3cOgWhKNprFNWcYnC8c47uGwG1q5A=="
+	},
+	"1uOlNJPSRNk=": {
+		"serialNumber": "5026cf5741c7f48d",
+		"subject": "OU=Siren Analytics, O=Ministry of Public Health (MOPH), ST=Beirut, L=Beirut, C=LB",
+		"issuer": "C=LB, ST=Jnah, L=Beirut, O=Ministry of Public Health (MOPH), OU=Siren Analytics, CN=CSCA_DGC_LB_01",
+		"notBefore": "2022-08-01T10:39:00.000Z",
+		"notAfter": "2023-02-01T11:39:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "d7ca19f9f0741e4f8fb25523c8ed461564261d56",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUIKkegT0VPAnHO+KwRU6b42Z4mZwdwWoRemvcQbWLoz9w7l8Bq9KwdsxpGC+cCuUT8fRHRSHoffRJmsXq/wedw=="
 	}
 }
