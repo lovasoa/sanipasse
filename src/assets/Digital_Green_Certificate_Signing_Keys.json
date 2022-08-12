@@ -16,6 +16,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGvHqf7SYtlvevOyA/no+i1/WcmS0bOYP1bgP+pJTjTkBOpQi+f7Ie6415WFl9aoqzMmKRJmE6Ur4H+b9Vba7FA=="
 	},
+	"wkKPi6HIm5A=": {
+		"serialNumber": "4302964efdb313c6d9bcc928",
+		"subject": "C=AL, O=Ministria e Shendetesise dhe Mbrojtjes Sociale, OU=Production, CN=Ministria e Shendetesise dhe Mbrojtjes Sociale",
+		"issuer": "C=AL, O=NAIS, CN=NAIS Class 3 Certification Authority",
+		"notBefore": "2022-08-09T17:32:40.000Z",
+		"notAfter": "2023-08-09T17:32:40.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "23573fafa5204ff3ea9173fad44709e895fea490",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvnjA6h1xZDsyylY1C0vHrbrWAPniW/ksncTiBJOdk39tx8GtSXeqlDt8zBvwF8bP+lMiv+nxatX36pY0NgNczw=="
+	},
 	"udrotE0n7i0=": {
 		"serialNumber": "430152948273894fccf37672",
 		"subject": "C=AL, O=Ministria e Shendetesise dhe Mbrojtjes Sociale, OU=Production, CN=Ministria e Shendetesise dhe Mbrojtjes Sociale",
@@ -5094,6 +5111,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUOXG+vMbzpzkd0rmpI8erYChwTWSPcnAEo93BiH28hAQ+WyuhmClWS6q6FM5t9DM97M+njCQaqriBQ3ktH0eVA=="
 	},
+	"OVxhDZ1H5e0=": {
+		"serialNumber": "615074bc",
+		"subject": "C=GB, O=Department of Health, ST=Northern Ireland, OU=DHCNI, CN=DSC_DCC_GB_NI_DGC_3",
+		"issuer": "C=GB, O=Department of Health, ST=Northern Ireland, OU=DHCNI, CN=Northern Ireland DCC CSCA",
+		"notBefore": "2022-06-22T06:45:39.000Z",
+		"notAfter": "2024-06-22T07:15:39.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "a02331441242534095216d36d036fb8b20b50bcb",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4C/jhAYnRv6PruhU2k+DOpD6Yvz2kXO/w0TU/7ApbRc0dH2izrFRA76qx48bm/qZLN+SsQw5pZLplv+BpKGAgw=="
+	},
 	"8t2b9/PZTEM=": {
 		"serialNumber": "615085f3",
 		"subject": "C=GB, O=NHS Digital, ST=England & Wales, CN=DSC-DCC-GB-ENG-05",
@@ -7373,6 +7407,28 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE6B5cdgxOlktZr67WAjgdIgoJwG5ZSTRBM6yEZb0y3rrlIHQi95rlKO6dFtQxo5rRPZYjvWSbaqVBgvbc0djcxw=="
 	},
+	"nYaexeajHaY=": {
+		"serialNumber": "00ad3d501b07813716",
+		"subject": "C=PH, ST=MNL, L=City of Manila, O=Department of Health, OU=DOH-KMITS, CN=http://eu-vaxcert.doh.gov.ph",
+		"issuer": "C=PH, ST=MNL, L=City of Manila, O=Department of Health, OU=DOH-KMITS, CN=http://eu-vaxcert.doh.gov.ph",
+		"notBefore": "2022-06-28T00:59:44.000Z",
+		"notAfter": "2024-06-27T00:59:44.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "bcd129c01906d37a4f10fcd2495b2f4b1d8f350a",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 2048
+		},
+		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0FZeBMI94hwcFrtbmOoS7mYJtf9i3Pou/kQhVfydqGrZf0vrKXva8XpkImQ8EIUzkcmqqMUXb3FbMW0fflUmPdZZ2EkreyVLppTdkLkjbL7zoGrVX5ovf5KMGewKrkn5GBZFYsW6jN7EHHquF4ZWgR0ZaT7hjQmd4fOVKj7twprrBZSr40xlfjFJ9fNfEsYeqTaI2OuTeztcLhLzDu6oR5l9kLXzJAYy/9NGTqQF/gCb8a5LbV9H6cpbNAiENrci4KxVX2SE2qFppxUSoqlmCACMY41j6Au+iTfVFLa0TKlKx0u/d2HD9oXQXcDqHk8P7dTamEp8jt8Xx6BzQ+YBAQIDAQAB"
+	},
 	"hA1+pwEOxCI=": {
 		"serialNumber": "1618382320",
 		"subject": "C=RO, O=Ministerul Sanatatii, CN=BSC",
@@ -8177,6 +8233,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEeC6+zmnjgdAUmYG4kIPJsMwSFSJclYoKuHKcIQ5PpX4xKyM36Gp2fkKvARbyJYjduU8JzO9nrSILVxjuKRapFw=="
 	},
+	"PCt6GMTbV9w=": {
+		"serialNumber": "7b0dffcb06468858ea",
+		"subject": "CN=DEPARTAMENTO DE SANIDAD DEL GOBIERNO DE ARAGON 2022, 2.5.4.5=S5011001D, OU=SELLO ELECTRONICO, OU=DEPARTAMENTO DE SANIDAD, 2.5.4.97=VATES-S5011001D, O=GOBIERNO DE ARAGON, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-08-04T10:45:00.000Z",
+		"notAfter": "2024-08-04T10:30:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "22c6f2a81a7ac361f60da362290b5deb9109c2a8",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEriRhnq+2aMaGiNGqCOjG0ti4Nzhx+XcPwYROCi3dj+YhxjXhhJy8yopfARhXtCh50Uw9NvDgLuaSJml8IYiuYw=="
+	},
 	"tCM87WnaaQE=": {
 		"serialNumber": "7e10b9c776ffd183f7",
 		"subject": "CN=DEPARTAMENTO DE SANIDAD DEL GOBIERNO DE ARAGON, 2.5.4.5=S5011001D, OU=SELLO ELECTRONICO, OU=DEPARTAMENTO DE SANIDAD, 2.5.4.97=VATES-S5011001D, O=GOBIERNO DE ARAGON, C=ES",
@@ -8652,6 +8725,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE7FNjCEoUVb/YPjRuU0qwwZgXiBj6OvvbqIZxiCJ28CjOqRBKo7ugGWhTRFz8lIYR+Sr4N1Gez/rMpF7OwkOXbA=="
+	},
+	"kNv/TWeG+7c=": {
+		"serialNumber": "243adf5a5f07690bab",
+		"subject": "CN=Inspeccion General de Sanidad de la Defensa 2022, 2.5.4.5=S2830001J, OU=SELLO ELECTRONICO, OU=Inspeccion General de Sanidad de la Defensa, 2.5.4.97=VATES-S2830001J, O=Ministerio de Defensa, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-08-09T12:00:00.000Z",
+		"notAfter": "2024-08-09T11:59:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "3dcaceab6d37223c43f8d473e61c48a2c35cccb1",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEFYI5si93dvujjcJI22r5BbxPiDKTI+WimkwJJBuUTkXuM7foziyCdZf6miiWll61mcLlebzyAaRIUU1gm/V7xQ=="
 	},
 	"MtI93IMknMk=": {
 		"serialNumber": "243c6b316b131e673e",
@@ -9291,6 +9381,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEblis8RR4Oc4Xqq4RZdhrJ0DnkAvK4vY8AamWbFg9T7OG17La8TJYTq3FqJJd5KttTP71GojxRF0REKpF+uwAtw=="
+	},
+	"AlGlEHG63/I=": {
+		"serialNumber": "52f930189a42653e85",
+		"subject": "CN=Sello Electronico del Servicio Navarro de Salud-Osasunbidea 2022, 2.5.4.5=Q3150004D, OU=SELLO ELECTRONICO, OU=Servicio Navarro de Salud-Osasunbidea, 2.5.4.97=VATES-Q3150004D, O=Servicio Navarro de Salud-Osasunbidea, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-08-08T12:45:00.000Z",
+		"notAfter": "2024-08-08T11:45:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "ae6dddd3c11a6f8c88ebd778902a33c344dcfd15",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEr36Feas+nt1Vmspo02+ZM33oBBJ5kYCpiEsbnge2P+x+neLJ3t8Bea3ou21ct6fCxwNjnKdE1BBuuUSeGIMGgQ=="
 	},
 	"YRYidQ+wetg=": {
 		"serialNumber": "7e82f450faebb1bb88",
