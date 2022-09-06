@@ -1,4 +1,21 @@
 {
+	"alyJCgVIcWs=": {
+		"serialNumber": "3e51f824444f3e3dc6a14aef1290601c284998ea",
+		"subject": "C=AD, ST=ANDORRA, L=Escaldes-Engordany, O=SAAS-Andorra Healthcare System, OU=SSII, CN=DSC03, E=seguretat.logica@saas.ad",
+		"issuer": "2.5.4.97=NRTAD-U129638U, O=SAAS, CN=DGCG, C=AD",
+		"notBefore": "2022-08-25T09:50:06.000Z",
+		"notAfter": "2024-08-24T09:50:06.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "a4aad95254a54ed8fc42e0edb0d8665f2c6fec09",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEDLjAUZ2HAkYB3JXJQUXHasuyWY/OXe5qO8miKg5z+aYjpLXC8QIHUl5dLrlGhxSP2zBD1zAb4lVguWDHj/mXeA=="
+	},
 	"mqWkXpNR0Rk=": {
 		"serialNumber": "3e51f824444f3e3dc6a14aef1290601c284998e7",
 		"subject": "C=AD, ST=Andorra, L=Escaldes-Engordany, O=SAAS, OU=SSII, CN=dsc",
@@ -7566,6 +7583,28 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE63HhqBod+WiqRGfpvUcki8LIhIUH//B7j6xAZhvJGJuASmrIJvXUdFdBE3G2kU7cmjt4R7AkCOu0w+sgHovmFw=="
 	},
+	"jSYxfNKNus8=": {
+		"serialNumber": "112143a69903aa9e65ff96de99c3c3bc74b8",
+		"subject": "C=OM, O=Ministry of Health, CN=Oman_DSC01_Tarassud",
+		"issuer": "C=OM, O=OMAN National PKI Center, OU=Government, CN=Device CA - 2",
+		"notBefore": "2022-06-01T11:20:50.000Z",
+		"notAfter": "2028-06-01T11:20:50.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "8168fe397639fc7f9a9207d51ac7478fea2cb097",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 2048
+		},
+		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4/1oXiC05yJF1YRYu+QkiSHbbzuPwm/+i0sHJEv25b2Y/vW1MwDT94LLE+KGVJK+t4DI+NmU3PyFCaBw8rEi9BRt6zfxJgG87PP/82YVQXCt/8Bay/5poeF0wEnV9hFxoSdqwbtbv58uV/TXDf25A6EQeLu8t8zNGI+++xqT6nMsBsFM2xFQxsYggFajPq1JiMLBcKuRprrStxo3Gpa74PIB3yG6OtoCswYN69Iqn/6c2OYb1Xv5BqRU5O1Y7zoQOuEsWsz38pDZyKFA47zu2uerxuXnOwq4oUqxReToVPW0DRH9LqGIeQ2rT+VIeIk89OngWtf6zmrMELetzITeawIDAQAB"
+	},
 	"Ui7DXQikstE=": {
 		"serialNumber": "34b324f7ad6d2ff355f15db7b1608a2685308f89",
 		"subject": "C=PA, ST=Panama, L=Panama, O=AIG, OU=AIG, CN=AIG",
@@ -7860,6 +7899,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEP5NPmEOGzoQrcJCLYg5w9CJ2w8oFLsdZWKn4V8+U9DoezgTs1Wc5A6jUjcR4wWgNo7vTWLxKm8zNr1Rq78f25w=="
 	},
+	"EMjzLcPnhUM=": {
+		"serialNumber": "1ef719395558e4cc0e7290626131d72dff2ef687",
+		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
+		"issuer": "C=SG, ST=Singapore, O=Ministry Of Health, CN=csca.notarise.gov.sg",
+		"notBefore": "2022-08-25T04:11:33.000Z",
+		"notAfter": "2024-08-24T04:11:33.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "6c9a87210a05f50d5f43e37dc1b3fe47bcacca7c",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnPs26Jwmq06LO9vji7EHQe81I4zQHplzJCnZAvfTdru6LZgKi+IaHjxowqQ8wEEKL/lWqrJbQVLRMPnJrodVhQ=="
+	},
 	"90CNG8dcdn0=": {
 		"serialNumber": "254006017a711ec5354bcd8b7272128204eb6587",
 		"subject": "C=SI, O=NIJZ\\, National Institute of Public Health of Slovenia, OU=NIJZ eHealth, CN=Slovenian Digital Covid Certificate Signer",
@@ -8012,6 +8068,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4gGExz9UXm77v21gaWNSjjtigr9VIyGL9S92FqnF99YqS/ekrLWvW4N6fmHfUST9VJLJVaB9uP3SX1rXlfq7lg=="
+	},
+	"/23hUqa9yJo=": {
+		"serialNumber": "527f088b83d32e1c3355d70e4952bd9bd7b44d66",
+		"subject": "C=TW, O=Executive Yuan, OU=Ministry of Health and Welfare, OU=Centers for Disease Control, CN=Document Signer",
+		"issuer": "C=TW, O=Executive Yuan, OU=Ministry of Health and Welfare, OU=Centers for Disease Control, CN=Country Signing CA",
+		"notBefore": "2022-09-01T10:07:03.000Z",
+		"notAfter": "2024-08-31T10:07:02.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "5ea06b34fe160e3a02c22978ef442b99aa73bee8",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEO6niUgETcAlUOrFpZ3Dz9fMmfHHnxVnka+h24+3E/GYSUYR5M5zWEV3/bumK/K7UdsFLApN4BkyjbN2cPnbRKw=="
 	},
 	"fjT5xGlTa3c=": {
 		"serialNumber": "570025fae3dc4b96b6c3cb918f031b2a4a0c8b47",
@@ -8375,6 +8448,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEej6yg+gtP53DoIr1rtWVVHPsyqLRbdOwhHEpC+oFAo0zpgfxXgdb3BigabKwZy04+3uPTDqXpVYSgE0oFr+ihg=="
 	},
+	"7JiMkpiusvE=": {
+		"serialNumber": "19876d8aa5b664968f",
+		"subject": "CN=CEUTA 2022, 2.5.4.5=S6100007A, OU=SELLO ELECTRONICO, OU=CIUDAD AUTONOMA DE CEUTA, 2.5.4.97=VATES-S6100007A, O=CIUDAD AUTONOMA DE CEUTA, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-08-12T09:30:00.000Z",
+		"notAfter": "2024-08-12T09:29:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "8e2167c5a7a3aa7b8b174b78dc26707d429ac690",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwrJtv/j+zgaKjJxkGhsEognt8UnhwOJndcIWVd1orTO1WwyV5AEVAl9iUkWQSvWYAQ1IqRTvwyOy5aHVoMsqWg=="
+	},
 	"YU9+X9nepqU=": {
 		"serialNumber": "14c4e25253ae19b48f",
 		"subject": "CN=CEUTA, 2.5.4.5=S6100007A, OU=SELLO ELECTRONICO, OU=CIUDAD AUTONOMA DE CEUTA, 2.5.4.97=VATES-S6100007A, O=CIUDAD AUTONOMA DE CEUTA, C=ES",
@@ -8391,6 +8481,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgOuoVfBtfKWYpcffhNWfiCf4g4oZBdaPcdrn0HBtkQ/9xYp6FlfFAP1Ze29LaM1emnFxjyQNWV3KeNmoc/vFYA=="
+	},
+	"p8FESgNz/20=": {
+		"serialNumber": "30d653051f43afdfe5",
+		"subject": "CN=Consejería de Salud del Principado de Asturias 2022, 2.5.4.5=S3333001J, OU=SELLO ELECTRONICO, 2.5.4.97=VATES- S3333001J, O=Principado de Asturias, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-08-23T12:40:00.000Z",
+		"notAfter": "2024-08-23T12:35:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "d3405016e027b7406316441c39c6acbcad59a451",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEpOPWy5aVJuZ01W/VGOIYV4tUPU5ZNGMe182jkVRPeMI4ec/mbf8F3WH0HI6EF+WIh/bDjOCV4/bXfrwdquQiew=="
 	},
 	"NCc6YSsVioM=": {
 		"serialNumber": "11265a4dda72687fcc",
@@ -8493,6 +8600,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEa5QqEDGwiaDJSMCLVHg6l9ScX3LI/9mzuzs6e+E0YBgeKTdQ5VV0IBCSIZkgjSb/Hfzghmi9rOa9aGuww7BU9Q=="
+	},
+	"YD5SxeJU+6M=": {
+		"serialNumber": "7bdf123f5da927746152995da3c924ae626ba481",
+		"subject": "CN=DGC DS Signer 1, OU=LEPL Information Technologies Agency, O=Ministry of Internally Displaced Persons From the Occupied Territories\\, Labour\\, Health and Social Affairs of Georgia, C=GE",
+		"issuer": "CN=DGC Country Signing CA, OU=Public Service Development Agency, O=Ministry of Justice of Georgia, C=GE",
+		"notBefore": "2022-08-25T17:00:25.000Z",
+		"notAfter": "2024-08-24T17:00:24.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "7902a85754e4552711c7724b7fb85ac259305b2b",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEDbYQgZnOaoyatauj5dyR897XAl9KvQ0wMUQZhVd74d6YGkoTLnTzLTrbIDFcnZHkA2v0pwHKTWsz13QLsR/0pg=="
 	},
 	"j0Q/p/Eme5g=": {
 		"serialNumber": "1c96550f97ccff9224ae309a3313ea0dd8622a8f",
@@ -9592,6 +9716,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEDvCuOC6NlQCaL18+CEn4sbjC3NNnN4jBAmZo6lrGXbjIfAQ3YWmXc3gqLnSFq84EEV6+2PFy9yyLgq4JmFAfDA=="
 	},
+	"gYKFoHFI9cY=": {
+		"serialNumber": "5af7d5fbd5af7969fe",
+		"subject": "CN=Secretaria General del Servicio Canario de la Salud 2022, 2.5.4.5=Q8555011I, OU=SELLO ELECTRONICO, OU=Secretaria General del Servicio Canario de la Salud, 2.5.4.97=VATES-Q8555011I, O=Servicio Canario de la Salud, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-08-12T09:30:00.000Z",
+		"notAfter": "2024-08-12T09:29:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "b3cd194c970b3361467d18c3cb7a2e1c292b0e39",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGEHteEnU/XxOEa1mLuQV3Y8Ek/OZ0aQYS8ETDeJUdq3ab7aUXvv96yjPX8fmYY5+wQYZOCGeqTM5IEWFToUC7A=="
+	},
 	"ARrNkCRtprY=": {
 		"serialNumber": "39c928ce906e97ae99",
 		"subject": "CN=Secretaría General del Servicio Canario de la Salud, 2.5.4.5=Q8555011I, OU=SELLO ELECTRONICO, OU=Secretaría General del Servicio Canario de la Salud, 2.5.4.97=VATES-Q8555011I, O=Servicio Canario de la Salud, C=ES",
@@ -9715,6 +9856,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEd22zt56DQx1ao5dd4u6jU3KPELJdcWfl0+FJ6cVhCb8s0SmQleFtS9m5RQqVzbBr/JnUfqVZjvrPFzwpbgdMeQ=="
+	},
+	"mtvLRfpl58g=": {
+		"serialNumber": "5b2c223cc5afa958",
+		"subject": "OU=Siren Analytics, O=Ministry of Public Health (MOPH), ST=Beirut, L=Beirut, C=LB",
+		"issuer": "C=LB, ST=Jnah, L=Beirut, O=Ministry of Public Health (MOPH), OU=Siren Analytics, CN=CSCA_DGC_LB_01",
+		"notBefore": "2022-09-01T10:39:01.000Z",
+		"notAfter": "2023-03-01T11:39:01.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "33794dfd6a40960cf332c7cdfe5bc4486cd0e832",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE3z0VjN5L0bevNT7DVx41bI8ExJkUE0VURr1kb2KBJvGYu44QOTz7alpaNBNh1kPBiLs6oLiRvPDOW7qcS48U6g=="
 	},
 	"F3g5fqyS1BE=": {
 		"serialNumber": "befa27895b3cb7e2",
