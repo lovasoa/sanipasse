@@ -8001,6 +8001,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEP5NPmEOGzoQrcJCLYg5w9CJ2w8oFLsdZWKn4V8+U9DoezgTs1Wc5A6jUjcR4wWgNo7vTWLxKm8zNr1Rq78f25w=="
 	},
+	"GHn4w36P7hQ=": {
+		"serialNumber": "61670c56bd4b6c2c2467ee810057a78850cfecc5",
+		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
+		"issuer": "C=SG, ST=Singapore, O=Ministry Of Health, CN=csca.notarise.gov.sg",
+		"notBefore": "2022-09-25T04:09:58.000Z",
+		"notAfter": "2024-09-24T04:09:58.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "06ab1450920e6e8c6a762fcf27715ceba71fddad",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEdeGfEEutyGjVPq1j6zTxie4+yC5Ufv3tkcU5l8CH89S8S0Ly1LK+9kO64VZHhqg7+Jr2XIrIO+wcqqJskRxw7A=="
+	},
 	"EMjzLcPnhUM=": {
 		"serialNumber": "1ef719395558e4cc0e7290626131d72dff2ef687",
 		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
@@ -9698,6 +9715,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUmAL+OVah+Iy1P/6a44JP7HnJAIloGZda8P73OrY9pIvwZ0mPIgBli3le+FkJm2jOVNzcw09fp2R8b2AFkrObg=="
+	},
+	"YvL5+ij4oRI=": {
+		"serialNumber": "709710bc1e55152582",
+		"subject": "CN=SELLO ELECTRONICO DE LA CIUDAD AUTÓNOMA DE MELILLA 22, 2.5.4.5=S7900010E, OU=SELLO ELECTRONICO, OU=DIRECCIÓN GENERAL DE LA SOCIEDAD DE LA INFORMACIÓN, 2.5.4.97=VATES-S7900010E, O=CIUDAD AUTÓNOMA DE MELILLA, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-08-19T08:00:00.000Z",
+		"notAfter": "2024-08-19T07:45:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "d8c1a98937216467d01ea50e866a0b21d81b48da",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE7Tneev+53XUDTDnBo1xIXyyHd9UTb7Mra+dm8w1e88hyEMdIrBdJauIiPUTgdQGrTo2VRBaxVquui1GaYrBfXA=="
 	},
 	"BEnvMVnNFK8=": {
 		"serialNumber": "716d0d82405ada569a",
