@@ -6433,6 +6433,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/XCqYpwUi4RLldTOqsukogo6l4ZUIXO4ZtjkUxEpDToYLFI0uApt1KXSfpsn8EfNGPaWF+YW2B1QKpbCtbtZFg=="
 	},
+	"eCwPvG3TQaU=": {
+		"serialNumber": "537d3aec7727947e0172bc242e2bb2ae97d6d8",
+		"subject": "C=MC, O=Principality of Monaco, OU=Ministry of Health and Social Affairs, CN=DSPKI_MC_DGC_1",
+		"issuer": "C=MC, O=Principality of Monaco, OU=Foreign Office of Monaco, CN=CSCAPKI_MC",
+		"notBefore": "2022-10-12T12:31:00.000Z",
+		"notAfter": "2024-04-12T12:31:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "88471911345b5704befd0f1a53e10ca4e80eface",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5OtL2NCspDRkS7+W0uDc25/gRM9ivkWT4b/nlFz6XbWwLUTTlE5flaL1espthlxo3X3TQFQtd9gP8bBF1X3kZg=="
+	},
 	"b6DvtaUKH6Y=": {
 		"serialNumber": "4eb2bc89b390e339eb187cdcc9b51b981b0232",
 		"subject": "C=MC, O=Principality of Monaco, OU=Ministry of Health and Social Affairs, CN=DSPKI_MC_DGC_1",
@@ -9246,6 +9263,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAElpS+MegEWvmYu5JRH1k2v78mVG9MlBkhgWC/OrDyXF7B15LzMhm1O3EM44K8vAFPGViXUuRO1zmrCmmtchZT5g=="
+	},
+	"0C7DPfw0Nag=": {
+		"serialNumber": "61ca8d756078979786",
+		"subject": "CN=GENERALITAT VALENCIANA 2022, 2.5.4.5=S4611001A, OU=SELLO ELECTRONICO, OU=CONSELLERIA DE SANITAT UNIVERSAL I SALUT PUBLICA, 2.5.4.97=VATES-S4611001A, O=GENERALITAT VALENCIANA, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-08-08T11:30:00.000Z",
+		"notAfter": "2024-08-08T10:30:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "d512e1d5f557b9575842a6bf6a0077fd00e60869",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE+m78PsX737dufSB8K/IuoFX+WxS6Cifz/l52jE8bKEpHwJvzMi2Am4gYfqK1MzSQ26UZZIE2/cdjK7OWSeVU3A=="
 	},
 	"ZcfkloEvfGQ=": {
 		"serialNumber": "17298a3ddcc9757f2a",
