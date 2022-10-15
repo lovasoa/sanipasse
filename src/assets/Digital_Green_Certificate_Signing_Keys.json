@@ -305,6 +305,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE1eafQkFnEHdgmdO4ZkAnpznVJlN2vhXb5czc/zO+82Kbp5PIUmtWid1wnLWcRv5NjVx3MtjpU8vRT4X2ej79Jg=="
 	},
+	"ilPO8vVIV7Y=": {
+		"serialNumber": "04f7ae7393f5d000",
+		"subject": "C=BR, O=Ministerio da Saude, OU=DATASUS, OU=BR:CSCA:SN:339786822353014784, CN=BR:DSC:2022-09",
+		"issuer": "C=BR, O=Ministerio da Saude, OU=DATASUS, CN=BR:CSCA:SN:339786822353014784",
+		"notBefore": "2022-09-13T20:50:37.000Z",
+		"notAfter": "2024-09-12T20:51:37.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "d5257edf4b6eb41c9f907a1f005db043dc4615a0",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwQx+kMTZGwhcIeQU4B1ONaJwzO/Yl6JgiPbVKvOzmZGfTcoEp84V1wlhHPgZzdcNOaoeBMlRlS2PQIqX/iUlxw=="
+	},
 	"HUOTMBM2tGk=": {
 		"serialNumber": "68ff31c6fd07163508aa5b0a514c61fe",
 		"subject": "C=CH, ST=Bern, L=Köniz, 2.5.4.15=Government Entity, 2.5.4.97=NTRCH-CHE-467.023.568, O=Bundesamt für Gesundheit (BAG), OU=GE-0220-BAG, OU=Taskforce BAG Covid-19, CN=CC_CH01_CONVERTCERT",
