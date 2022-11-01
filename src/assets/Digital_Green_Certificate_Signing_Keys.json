@@ -169,6 +169,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnUCwHzUFZ+mgTU6DTrGGVCmqBGp2Sf3IyqFYl7sNoFv/wZalMMZB+ELjfR2C004iK7RygtVe/si82YRs0MPLCw=="
 	},
+	"m5BYY900gFY=": {
+		"serialNumber": "018409f387898320bf4e",
+		"subject": "C=AT, O=BMSGPK, 2.5.4.5=002005, CN=AT DGC DSC 5",
+		"issuer": "C=AT, O=BMSGPK, 2.5.4.5=002, CN=AT DGC CSCA 2",
+		"notBefore": "2022-10-24T12:24:25.000Z",
+		"notAfter": "2024-10-24T12:24:25.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "c575f4489118ec00b1cecd7cab8e98676caf588c",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEpsmQDA9d6ERVxW6/KeYlRxjXZUnm5b6W459bYMQQ9oCM6szxC0fP9pUN2TLOzsAenxmnWx8JrIpDB48bCCdJKg=="
+	},
 	"ODqaG8mnbro=": {
 		"serialNumber": "5dfefffd3a560d58",
 		"subject": "C=BE, O=eHealth - Belgium, CN=Belgium Covid19 DSC 01",
@@ -5682,6 +5699,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEjuRgEwZ/BJ5kgAvVphm6MFLjure30Xh9TIV5WNXidi6AxH/E0N+WZ7/1eWgglu3fIxSnlP6hAZtda0Y9zFIXRQ=="
 	},
+	"GfN3kOqkfTM=": {
+		"serialNumber": "5c054fb98ccbc1cc",
+		"subject": "C=HR, O=AKD d.o.o., CN=Croatia DGC DS 004",
+		"issuer": "C=HR, O=AKD d.o.o., CN=Croatia DGC CSCA",
+		"notBefore": "2022-10-23T16:37:24.000Z",
+		"notAfter": "2024-10-22T16:37:23.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "860baf32037c1d4bdb8ee2734cf59937d1fdc6fd",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEeNETBDGKOAQL/DZ3gWu+TEQstnEyuX3JPZiLEg5Nt3R63cMSKUhmyC8GZenBbFJBvxy+3d/u2Lgw5a6WrCqBjg=="
+	},
 	"4GkJs9YsYS4=": {
 		"serialNumber": "6bf8149eb2ad4a8e17cd75533e457600fb4fc171",
 		"subject": "C=HU, ST=Budapest, L=Budapest, O=OKFO, CN=DGC_DSC_HU_PRD_20210628_01",
@@ -8290,6 +8324,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEdeGfEEutyGjVPq1j6zTxie4+yC5Ufv3tkcU5l8CH89S8S0Ly1LK+9kO64VZHhqg7+Jr2XIrIO+wcqqJskRxw7A=="
 	},
+	"KeFA6MQS+Ys=": {
+		"serialNumber": "03ca37beb4ade69b17b4e5a88d984f9cb074bef7",
+		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
+		"issuer": "C=SG, ST=Singapore, O=Ministry Of Health, CN=csca.notarise.gov.sg",
+		"notBefore": "2022-10-25T04:28:57.000Z",
+		"notAfter": "2024-10-24T04:28:57.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "9874f44a64415ab847223bc7f9ae89d95c775a4f",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE59hlDmRnFKrMPSFDYHWkW4g0xv+7vN6tVoPtrErclaTf3w4o5X07MV8hQ9PmAUarTn6EHmSKuQ4+Vri/VgNBPg=="
+	},
 	"EMjzLcPnhUM=": {
 		"serialNumber": "1ef719395558e4cc0e7290626131d72dff2ef687",
 		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
@@ -10451,6 +10502,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEhCj8gyqrMeWbGYoPiWV3a0KL19YyY7RCDYYuLerZYkTAhRdi3tkw4TpTogIAaBy+WsfRX5Dndti/LAQgNa39sQ=="
+	},
+	"AwV4pHx0EvE=": {
+		"serialNumber": "f5f2f8f8ff8afd0a",
+		"subject": "OU=Siren Analytics, O=Ministry of Public Health (MOPH), ST=Beirut, L=Beirut, C=LB",
+		"issuer": "C=LB, ST=Jnah, L=Beirut, O=Ministry of Public Health (MOPH), OU=Siren Analytics, CN=CSCA_DGC_LB_01",
+		"notBefore": "2022-11-01T11:38:59.000Z",
+		"notAfter": "2023-05-01T10:38:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "1831c749a15caf2daf507644e60b06435735e30c",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEOzVMaZ0WBLAjrZheJ2391txNi9Whb+nRrEjg0IF0GjO1jmA5rxFtuznlyLrOFJnFcv/nITGvRu0Yi5XcMqg32Q=="
 	},
 	"taXid5fTt+s=": {
 		"serialNumber": "7957e38c6d757524",
