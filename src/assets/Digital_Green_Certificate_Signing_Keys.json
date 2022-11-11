@@ -8137,6 +8137,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAENqC9CFgwoaauq1YH3Z9eCqrQMj5baENs73YJbL+iXVTs3aBZRYMlmZsHdD5fT74SCqhU5zfAW+RSQTuX5dF37Q=="
 	},
+	"K825LkiBCsU=": {
+		"serialNumber": "00efc1945469012e6f0f3a249f1108a351",
+		"subject": "C=SE, O=Swedish eHealth Agency, 2.5.4.97=202100-6552, CN=DCC Signer 2211",
+		"issuer": "C=SE, O=Swedish eHealth Agency, OU=Digital Covid Certificate Services, 2.5.4.97=202100-6552, CN=Swedish Digital Covid Certificate CSCA",
+		"notBefore": "2022-11-10T09:36:44.000Z",
+		"notAfter": "2024-11-10T09:56:44.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "dbe7f4ec5a9e85b5068b7e5f3ec7e66d8c5d6979",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5cX9Xp1+V07wOjdxcXBdyTr6OtYvQo3iiX1ZLC70yTZxcBcLrqx68tEcI2vPOoz+bfzi7P+XXPTbFoBDE2EYnQ=="
+	},
 	"sG0xboj/6v0=": {
 		"serialNumber": "26261ac16d538af56d54535500daf17ae3ee1e0a",
 		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
@@ -8442,6 +8459,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoIGFi/JHAKlVan6JIfy98egHkReqI+luG49gmEHWcZnqwfptsMmIzWDROZA1PzxM2gumufQp5Hb/wGUIrBt1GQ=="
+	},
+	"Q7Xo2eHz63E=": {
+		"serialNumber": "6c01a46507abf6fe02e6e06eec9956f9a5445744",
+		"subject": "C=SV, O=Gobierno de\\ , OU=Ministerio de Salud, CN=Gestión de Credencial de Inmunización",
+		"issuer": "C=SV, O=Gobierno de El Salvador, OU=Ministerio de Salud, CN=Autoridad de Certificación",
+		"notBefore": "2022-10-31T16:11:38.000Z",
+		"notAfter": "2024-10-30T16:11:38.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "3722fd3a02ad1b0b6bed6f94639cb009a9d244c5",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8pYlvVYKBSoa4sRdZONLZwasUVA4PMbMuSUocsuMVl6nhTDi5YsIaxuxGIszzOYno8lNqRdUzBue8gtEC7XB1Q=="
 	},
 	"6ptpKJA1J90=": {
 		"serialNumber": "2e8b88f33be316dac02d5f4cfdde81312c2e2463",
