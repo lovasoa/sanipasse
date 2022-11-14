@@ -6037,6 +6037,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEHon1pAKV4wVDuVxeocIIkVseaEU5rR0ItAc/XPQ86rVs/zJnTzbPrIDC7QekzhHKQCO6uy27YgExfMA9tCicZw=="
 	},
+	"ErTfWhIUCvU=": {
+		"serialNumber": "305995b2c595fcb59053c9c6a288a04c2155c69d",
+		"subject": "C=LB, ST=Jnah, L=Beirut, O=Ministry of Public Health (MOPH), OU=Siren Analytics, CN=CSCA_DGC_LB_01",
+		"issuer": "C=LB, ST=Jnah, L=Beirut, O=Ministry of Public Health (MOPH), OU=Siren Analytics, CN=CSCA_DGC_LB_01",
+		"notBefore": "2022-10-31T14:58:33.000Z",
+		"notAfter": "2023-04-29T14:58:33.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "13e04114f74994ea9ec6145046d0b8c17f41bc27",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUJx4FK+Gp25yIBhalKruWn171ciCF/eAMsdOiSCRXJgPkhqfShoQ6waedfYAT+kOMTmQ05su5/bzL9aGcG5XtQ=="
+	},
 	"e/YRqyv++qY=": {
 		"serialNumber": "11587fbc2ddc8605",
 		"subject": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-DSC-RECOVERY-PROD-20210608, E=webmaster@llv.li",
@@ -10308,6 +10325,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEt3OX+XF/LZlHff6ZWiHRqQu4WBrgzNZYz4wFJkwkBmk/z0ROsLJ4FlwOLPs2cUEIIV0Pu1cmnngva6+EzQpbAA=="
+	},
+	"uHB7bsfKi80=": {
+		"serialNumber": "147b5adf01603dc1c2",
+		"subject": "CN=SESCAM Certificado Digital COVID UE 22, 2.5.4.5=Q4500146H, OU=SELLO ELECTRONICO, 2.5.4.97=VATES- Q4500146H, O=Servicio de Salud de Castilla-La Mancha, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2022-10-17T13:00:00.000Z",
+		"notAfter": "2024-10-17T12:59:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "3187e2731af20ba9372cc6821c9a17129527756d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAExQpD/JI2128MIEVwND6VFq3hIKv3ChPshO1CBve7MS6l9Kr30lBzRvnxfbjOLews8T3Bl+3+CGao/654h3m0Ow=="
 	},
 	"JHd4CkNzadI=": {
 		"serialNumber": "5283e6b4bf3744c5a2",
