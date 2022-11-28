@@ -3640,6 +3640,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAESRQNwfbHTrs/l83+e/2tJ9SChNHWK5/Tkg/KhEggFV4+c9mw2zxuQRdx3TLGsV0P+ReXCC/47bUIt/5uzYk8Fg=="
 	},
+	"+IYY54QHXs0=": {
+		"serialNumber": "30",
+		"subject": "C=EE, O=Estonia, OU=Health and Welfare Information Systems Centre, CN=01-2023_DCC, 2.5.4.5=01-2023",
+		"issuer": "C=EE, O=Estonia, OU=Police and Border Guard Board, 2.5.4.5=01-2020, CN=CSCA_Estonia",
+		"notBefore": "2023-04-15T01:36:06.000Z",
+		"notAfter": "2025-10-15T01:36:06.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "34390adcf2a43a1f86f286ce272b0d354072917f",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsRjUFNSJC5SMy55LUpgvkScEyh6eKwFecSVzkm/1DoqyYegTDr9/kJgDH+bkF+7jiV5mSxO9lUsdmbNEInAUyw=="
+	},
 	"Pp2KBZWzfPI=": {
 		"serialNumber": "1f",
 		"subject": "C=EE, O=Estonia, OU=Health and Welfare Information Systems Centre, CN=03-2021_DCC",
@@ -8339,6 +8356,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEAw9jwcxxcV56K6ZENlQ0MphtzWCZoq5Dm4K3XmtA6+TXlx4P6FL2XLcItHq5Ss8JxmBuctaDIUqv3yv1fPvuuA=="
 	},
+	"cB7ZUMM1lfA=": {
+		"serialNumber": "55aa1625d3b8b7cc804577cdbfa8cc6242464cdb",
+		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
+		"issuer": "C=SG, ST=Singapore, O=Ministry Of Health, CN=csca.notarise.gov.sg",
+		"notBefore": "2022-11-25T03:03:21.000Z",
+		"notAfter": "2024-11-24T03:03:21.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "6cd66fae951078284efa35de7e26b9d2f114ebca",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUWczYeRMUp4SSUbRMik0XXrtsLIndNpY6Sxq5MS1ihsNOtL9p1Sqkk97PwgW870TaghsZst9ZQVCoJOKMxnp6g=="
+	},
 	"xyO+2E2eszc=": {
 		"serialNumber": "23eed8c066b8612e754536d781f50c2a262c5926",
 		"subject": "C=SG, ST=Singapore, O=Ministry Of Health, CN=dsc.notarise.gov.sg",
@@ -9364,6 +9398,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAELlAbjlqgxI/4RSkTe48ujrHtkfbMQXlQbAj3rcSoV0cZhAHCFWFKIiZte1MycsYlSPgNBPh4RkWfe+iy5ipklQ=="
 	},
+	"tcGfF2l6kic=": {
+		"serialNumber": "273fcc4981e789825a438fac97490680eedaee03",
+		"subject": "CN=DSC_DGC_FO_345334_RECOVERY_02, O=SJUKRAHUSVERKID, C=FO",
+		"issuer": "CN=Faroe Islands Health Authority CSCA v1, O=Gjaldstovan, C=FO",
+		"notBefore": "2022-11-24T12:59:08.000Z",
+		"notAfter": "2024-11-23T12:59:07.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "2c5ec330010df826ddfce0c31dc8092be5208a5c",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEB6SJraVX4IFp1nmIKvTQy6zWkdTWPm1RuhKYE2fwTb2U6CsP+W71DJ8CHEg2Z1SJNjvbBNHsVIVTYZafjDDd2w=="
+	},
 	"armdhu3aEic=": {
 		"serialNumber": "6d3f2035ed94da028a9d8f465e35430f79808ff8",
 		"subject": "CN=DSC_DGC_FO_345334_RECOVERY_02, O=SJUKRAHUSVERKID, C=FO",
@@ -9398,6 +9449,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEyOmUr7E52s+yofKQE/TmtLQxLPEpZnZMA/OL647R1ZZG+O3tA7F3CfMXmgZZV4OOjuoaAbgHh01F5MdEg1eQpg=="
 	},
+	"K/movRnK5ek=": {
+		"serialNumber": "473dfd3a158bf6b4e6d5b2a69d90f24a5661e537",
+		"subject": "CN=DSC_DGC_FO_345334_TEST_02, O=SJUKRAHUSVERKID, C=FO",
+		"issuer": "CN=Faroe Islands Health Authority CSCA v1, O=Gjaldstovan, C=FO",
+		"notBefore": "2022-11-24T13:02:30.000Z",
+		"notAfter": "2024-11-23T13:02:29.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "9b9633437b9beeb0d215f6eac4bc676aa3ed6178",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEeSeOAx5vUokrWLnpRIV7jZP+vMqncgEIITCmNDNyZXAwp4Qge4Y1QJ4xALyIaa2lRzdW2chqpcC6f1m+88uKcQ=="
+	},
 	"l8W4rhh9nTs=": {
 		"serialNumber": "2545389f96e29ed9371b60fb91386f989f8d1e5c",
 		"subject": "CN=DSC_DGC_FO_345334_VACCINATION_01, O=SJUKRAHUSVERKID, C=FO",
@@ -9414,6 +9482,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIp1kjKkjq85G7p7edy5EfNsWF0l4XZu5Rz+nL3viEVP/qiZYWwsQ30RXMDwixcFXI2tSzfu82J31dIEGQ3Ceog=="
+	},
+	"jDclcBov6I4=": {
+		"serialNumber": "668602dae2de7b1658bf76fb0bf3ee398f1d8dba",
+		"subject": "CN=DSC_DGC_FO_345334_VACCINATION_02, O=SJUKRAHUSVERKID, C=FO",
+		"issuer": "CN=Faroe Islands Health Authority CSCA v1, O=Gjaldstovan, C=FO",
+		"notBefore": "2022-11-24T13:03:38.000Z",
+		"notAfter": "2024-11-23T13:03:37.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "9e278eca5e5618d064e40586303a0d4a9be9a81e",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/jl9tI6u+68z1uS2F8bYmoxriCrhnb2//bOJ68fJ6LLG/hehlkGsjJZ8w/YDaz2gqBp1C+CZCwKTmS1GaQAcMA=="
 	},
 	"wsMe8L4zWNE=": {
 		"serialNumber": "4541037b9551542fb116ebf36d00f123e35c1b74",
@@ -9896,6 +9981,40 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEPpWMG62ywH5vrKysVXNMt8KMUj6Vg1GNQ8Hb8pVcBwyEjap1wvei9yyOJR/abVbnjG+l+OVD+Y5QjMEA5a8BEQ=="
 	},
+	"XpIbra1TidY=": {
+		"serialNumber": "50efac86413d8c8a",
+		"subject": "CN=MLT-DSC-RECOVERY-008, O=Government of Malta, C=MT",
+		"issuer": "C=MT, O=Government of Malta, CN=Malta DCC Signing CA",
+		"notBefore": "2022-11-17T00:00:00.000Z",
+		"notAfter": "2024-11-17T23:59:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "4d988d95f03e5c1cc45fe045c27154929da1d59a",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAESZwrummVCQ86Cp3eOQsyeWpPpSKHFB/YQp51d7Z80aBRD3ZNQqMNUVFq2EmFjSIH36lqSzvSkFL2iL7B+nmq2g=="
+	},
+	"8+A7yo/yR5g=": {
+		"serialNumber": "4991fafa19e1f9c5",
+		"subject": "CN=MLT-DSC-RECOVERY-009, O=Government of Malta, C=MT",
+		"issuer": "C=MT, O=Government of Malta, CN=Malta DCC Signing CA",
+		"notBefore": "2022-11-17T00:00:00.000Z",
+		"notAfter": "2024-11-17T23:59:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "a5d177a4346cdc1ac0a585600d5bcf62ec3e40dc",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcauSCYukOImoSHDgyXFpmgd2CvcOE4YY68CQpwLEBkhZFtLQHWVabZKuhZ409/CtQArrS8W5//EkwS6oqsz/WQ=="
+	},
 	"QacbC7DdD4U=": {
 		"serialNumber": "7a34bb777ed55e01",
 		"subject": "CN=MLT-DSC-TEST-001, O=Government of Malta, C=MT",
@@ -9998,6 +10117,40 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEFHXVxxPkuzAcE5VHx4tYyb+hY49PB/g2JIbgHpfsZXlEca6EKnxx3TyWLiGrRcyHjrRHX24yi+6OGNDJl9H+/w=="
 	},
+	"ZUIOigaPX7k=": {
+		"serialNumber": "37d57cffaf00cfe1",
+		"subject": "CN=MLT-DSC-TEST-008, O=Government of Malta, C=MT",
+		"issuer": "C=MT, O=Government of Malta, CN=Malta DCC Signing CA",
+		"notBefore": "2022-11-17T00:00:00.000Z",
+		"notAfter": "2024-11-17T23:59:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "9421722972f6c3265b0291f2a3a908b194800cc9",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAED72BXH0aHMY8M8trCgY4dLun9LMDyPXGJpzm2D42E0DWp3DsgHAwAAmJvcICmqesP88z897/cnvjfTklzyq7Hw=="
+	},
+	"oEYqUERR9zw=": {
+		"serialNumber": "56bec8da436f3a2b",
+		"subject": "CN=MLT-DSC-TEST-009, O=Government of Malta, C=MT",
+		"issuer": "C=MT, O=Government of Malta, CN=Malta DCC Signing CA",
+		"notBefore": "2022-11-17T00:00:00.000Z",
+		"notAfter": "2024-11-17T23:59:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "6377c2e4acc90d27cc8e4b923b4dfc1bc10dd401",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgefiSSjGdQhNX2ccDaTB9CfJ+cBiE2gIo++vIVPqGwt8UutEqjDRWT3xjj6t1HCk2FQvFip/ErDE+F6dxiA0xQ=="
+	},
 	"UZ1cSMaPcaQ=": {
 		"serialNumber": "644c0333e36dd4a3",
 		"subject": "CN=MLT-DSC-VACCINATIONS-001, O=Government of Malta, C=MT",
@@ -10099,6 +10252,40 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEd8WOHa/cQ+JIog47HmP9qviuyBw0jbSHqBw3fJoGbqmrubZP9rMlg4m9xk0z8Y5Rofs+ply5mo45BqcMkwsx1w=="
+	},
+	"oT0iVQKS2mg=": {
+		"serialNumber": "3c8a1784c6fd9f8a",
+		"subject": "CN=MLT-DSC-VACCINATIONS-008, O=Government of Malta, C=MT",
+		"issuer": "C=MT, O=Government of Malta, CN=Malta DCC Signing CA",
+		"notBefore": "2022-11-17T00:00:00.000Z",
+		"notAfter": "2024-11-17T23:59:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "49c65133a7e7654949bef660a5df1d25aa037c20",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEBZfJ2rTXMGGIzi1IXGGwu4Y5OJWOPTQ+rnmLmcP11ddoCxnIAY+W3wwdKmOX6f4Fs1p699UkTKMeVepXI0cvSA=="
+	},
+	"guePI6rT8zw=": {
+		"serialNumber": "5375571b93e8fcfe",
+		"subject": "CN=MLT-DSC-VACCINATIONS-009, O=Government of Malta, C=MT",
+		"issuer": "C=MT, O=Government of Malta, CN=Malta DCC Signing CA",
+		"notBefore": "2022-11-17T00:00:00.000Z",
+		"notAfter": "2024-11-17T23:59:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "eb23e4c0acd8918f4a0e89e802c892e57d845288",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE+yVGHEoEj9wjvieYT6j/4rjfKBra5BWwBZcE7edQn3DDDmyMnrIH0TANFRhf8RMyNIAqOvzgsH7mOgZrzGogqg=="
 	},
 	"AN1EeLIMAmo=": {
 		"serialNumber": "48f1c7f5e37f0ec5",
