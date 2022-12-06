@@ -6020,6 +6020,40 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEocoPRP7GdGnE3yZIbw5TAERX5wABekituBTRnPrG1d0gHA7wcA9TiyLSgVP+gth34lSMjpvKxENjJeWEe3M1wA=="
 	},
+	"AAVQPX3O1fo=": {
+		"serialNumber": "02c10637f0733f99bb95b44e94e0e554c9bf42d7",
+		"subject": "C=IT, O=Ministero della Salute, CN=Italy DGC DSC 8",
+		"issuer": "C=IT, O=Ministero della Salute, CN=Italy DGC CSCA 1",
+		"notBefore": "2022-12-01T15:48:14.000Z",
+		"notAfter": "2024-11-30T15:48:13.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "93aa6d80a6482dfb43e449a99779fc507a41d0f2",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEVpPKSGX5lWvNy7B3JyqtyyBTR4NsbI2kZX0D0vvI1YvReXgnOZqZVlnpN4QGX1ipfnKrbhX6pHy5Yw4VX5jE7w=="
+	},
+	"I4c+aZxYx2s=": {
+		"serialNumber": "68f03d13ea8e297ac885fab8032688dd73a774ea",
+		"subject": "C=IT, O=Ministero della Salute, CN=Italy DGC DSC 9",
+		"issuer": "C=IT, O=Ministero della Salute, CN=Italy DGC CSCA 1",
+		"notBefore": "2022-12-01T15:57:15.000Z",
+		"notAfter": "2024-11-30T15:57:14.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "6f3436b7628bcc7e47e983f2aed0efac1db01775",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEh8XoK2xbO/fydoj4eRnedjlszGH3ukDL9Y00vCxVWKR1jt3NgmHUQ+hJMD1gcH7dAeLM3JX0DJTJeyrCRqvvyA=="
+	},
 	"yCbDxn6A9oQ=": {
 		"serialNumber": "6f70bbf6037628c1957cba87404e283fc4fdfb4c",
 		"subject": "C=JO, ST=Amman, L=Amman, O=MoDEE, OU=DGCOperations, CN=JordanDSC",
@@ -6105,6 +6139,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEw4vxNntTlkq+won/gm/lRHJ65kJW/Y6cY9UsXhHCmahZKgpvBAF5bFMhR/GD2ON2wRA0AhDRFEn4Gv6HPuaYwg=="
 	},
+	"TlI0C/O+4RI=": {
+		"serialNumber": "258171352982a637",
+		"subject": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-DSC-RECOVERY-PROD-202212, E=webmaster@llv.li",
+		"issuer": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-CSCA-PROD-20210608, E=webmaster@llv.li",
+		"notBefore": "2022-12-02T09:48:00.000Z",
+		"notAfter": "2024-12-02T09:48:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "df5a764fdc17b13413019057d7929960cf95cd58",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZmap8CSnmNUh4rQrMroxFUilvwur0fXlM3kw4gvq6Vz3skY4r+sLxPU013IXpSyjp72V0f6q8qYE18NuHTkZiQ=="
+	},
 	"JkFekJel6/o=": {
 		"serialNumber": "3fdf992c70b61584",
 		"subject": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-DSC-TEST-PROD-20210608, E=webmaster@llv.li",
@@ -6139,6 +6190,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEg8kXgMTKe5FHCkKazhfuQJuaTax0ZhNWYKalEw0wJv4RTeTUS3/zciDZw6NPRW4by+uvDb95+oCGVMOJ0/2Ixw=="
 	},
+	"/xaQklEBmbA=": {
+		"serialNumber": "372de892a0bccc5e",
+		"subject": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-DSC-TEST-PROD-202212, E=webmaster@llv.li",
+		"issuer": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-CSCA-PROD-20210608, E=webmaster@llv.li",
+		"notBefore": "2022-12-02T09:48:00.000Z",
+		"notAfter": "2023-12-02T09:48:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "de18a31497e8d843a5dc71e3f488d2eee46b77db",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE+PAheq1FiejDPBdxeBtQcPW7bBto4GgtPxPRCPbS5tESLG86xuCxSJ/RAqYlI+8Y52slXGsFyUX0WCYrfFsK3A=="
+	},
 	"jYpr5GHCDiQ=": {
 		"serialNumber": "10237f2e565bee49",
 		"subject": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-DSC-VACCINATION-PROD-20210608, E=webmaster@llv.li",
@@ -6172,6 +6240,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/1NU5hg8FRXzOeyWMCJQM9h+Yyp3TO+RntDq4xwb/2T0egudugyuMeGkBftHUwNsZdZhZi1uNIqFac8p1Py2lg=="
+	},
+	"2okfks4C/Hk=": {
+		"serialNumber": "6fdc8a006c0a8d6c",
+		"subject": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-DSC-VACCINATION-PROD-202212, E=webmaster@llv.li",
+		"issuer": "C=LI, L=Vaduz, O=Liechtensteinische Landesverwaltung, CN=DGC-NB-CSCA-PROD-20210608, E=webmaster@llv.li",
+		"notBefore": "2022-12-02T09:48:00.000Z",
+		"notAfter": "2023-12-02T09:48:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "bbef4058fb102594e59b29d7a5af07fe36f69eda",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEtFwARanpMDz1BXFyFqBWXKilOz6gz92xW+54ZhHTZ07PDxByBw37IrXUYaHnMWuaxmIDz2ek8/mBUKLmktWGSw=="
 	},
 	"lshLbYfCWRg=": {
 		"serialNumber": "0179e2e06287",
