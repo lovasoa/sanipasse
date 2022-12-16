@@ -4388,6 +4388,125 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEt9j2T4NNAPT01zMzL+Fr2oO0pgb0gybdWNu43E7bJ5WLJHTX7wFVhrY/g9uK+Kd60Kxw0qaSgQJwLtpc0v68jg=="
 	},
+	"B4mEbuzPmG4=": {
+		"serialNumber": "6a9a50b80b1b1b6837f460946c39424d082e01a2",
+		"subject": "C=FR, O=CNAM, OU=180035024, CN=DSC_FR_040",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2022-12-14T23:00:00.000Z",
+		"notAfter": "2024-12-14T23:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "fca669d84916c6a005e05955bc04f81c0634d9f9",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErMJSZa2DeFmn2ow7ZAOCB31exhIQkuQppEkfmVVIRiVbIeOwDk2WtEKF2k92pJAgpPkfEvp4oqx3sDm/nL5F6A=="
+	},
+	"WVexWoQMo+8=": {
+		"serialNumber": "51d494ddd52bebfdc5c9575740465cb232ec4c4c",
+		"subject": "C=FR, O=CNAM, OU=180035024, CN=DSC_FR_041",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2023-01-14T23:00:00.000Z",
+		"notAfter": "2025-01-14T23:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "514eed903055fc330b0dfae035634ac84eaf5094",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/sjkbOgWYV6IaW2/BIuoRpCSIZ11LvoFP+lc62cTisSQdIGjj5sMKeeuEAKFpbRLI0Gw2a+p8O7HMR5HvjZpZQ=="
+	},
+	"0N4yFxFaC3A=": {
+		"serialNumber": "31ea1da27f1548b626b08646858ea340148d3530",
+		"subject": "C=FR, O=CNAM, OU=180035024, CN=DSC_FR_042",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2023-02-14T23:00:00.000Z",
+		"notAfter": "2025-02-14T23:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "28df2e6857d6fde0d10f1084985d0baed5636ac9",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwikTeutiZNMhswxpKkVE+VAH0A6QqQSAHbfz2JeDPhqfakIQezXQY6PxozquAgUG0tleY090VgOybv/T/XWdXw=="
+	},
+	"PXe49/mH82c=": {
+		"serialNumber": "32a09448ca9d6db3a59d0b918c75079c058cf6ea",
+		"subject": "C=FR, O=CNAM, OU=180035024, CN=DSC_FR_043",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2023-03-14T23:00:00.000Z",
+		"notAfter": "2025-03-14T23:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "84f4f95d221b041ce62fbadd7a8cef358e0b99e9",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE+UEfcZwlNELeNB9eTHccQLMsoqn+5+X4Cq7DY51BnypdMR4LevH8sB/8SisTaQz+Nci9eL+zQgWk/ZY/GerokA=="
+	},
+	"wM91CBPraiE=": {
+		"serialNumber": "55540a7bb4b9eafb33163002f0970820ab86858b",
+		"subject": "C=FR, O=CNAM, OU=180035024, CN=DSC_FR_044",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2023-04-14T22:00:00.000Z",
+		"notAfter": "2025-04-14T22:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "9c8006daf3b39213c18fa681cc2a83928dbc6717",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoVL/TBk6fG+nhiOfFg3YbNFt2mvOZxM2GXL7BoDn5gVUahPPEaVPwlBHHKQrlT+6zGWeozaPCC1p09aS6lLBIQ=="
+	},
+	"ZC9B4/QdLgw=": {
+		"serialNumber": "20aa12bfa36172732d771e7ff6999d3122d6dd67",
+		"subject": "C=FR, O=CNAM, OU=180035024, CN=DSC_FR_045",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2023-05-14T22:00:00.000Z",
+		"notAfter": "2025-05-14T22:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "fe5d6e3818446ce754575296203ea3ec166f21aa",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEdUu74oP5cijv9t3xVap7rD4ICaHVkvY8vOllQK70o/05MFhzbCmpc2BdOiawVIrxn3SxgjKaJ4WyBEsqOTwEBw=="
+	},
+	"lb7J284appA=": {
+		"serialNumber": "1e8995f4bf5b86bb7a4fa4bf26b21c4f0e0bed97",
+		"subject": "C=FR, O=CNAM, OU=180035024, CN=DSC_FR_046",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2022-12-14T23:00:00.000Z",
+		"notAfter": "2024-12-14T23:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "c697d5a8d388f6c5846ebadf180aefc70d52837d",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE7IWo6cJNtiWVXNA6CLluZQl8NHfM0mL60d8/f9Cd3EfEAqoE25EU92RAi81CPjD7/SRpqSRQS982tVJsM8nZzA=="
+	},
 	"Yb1a+1WV/1Y=": {
 		"serialNumber": "24560ec502f213e2a9c18d0e34e8762b7904c98c",
 		"subject": "C=FR, O=DGS, OU=120036017, CN=DSCO_FR_0001",
@@ -6736,6 +6855,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/XCqYpwUi4RLldTOqsukogo6l4ZUIXO4ZtjkUxEpDToYLFI0uApt1KXSfpsn8EfNGPaWF+YW2B1QKpbCtbtZFg=="
+	},
+	"fRPR8UB/yPw=": {
+		"serialNumber": "0e14db22f8d066e41edbfe036a668129396678",
+		"subject": "C=MC, O=Principality of Monaco, OU=Ministry of Health and Social Affairs, CN=DSPKI_MC_DGC_1",
+		"issuer": "C=MC, O=Principality of Monaco, OU=Foreign Office of Monaco, CN=CSCAPKI_MC",
+		"notBefore": "2022-12-15T14:29:00.000Z",
+		"notAfter": "2024-06-15T14:29:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "823299ea76fa17fb66332d3a03f7a0a8402a59ca",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5PD8trDdV62NiENkrHD+KwBPcEs8KErCnfTyTnd6UJTqiLBDXtX4TsOSo0ISo+R1tb6RRGZiY/tCkuUKCAAmAA=="
 	},
 	"eCwPvG3TQaU=": {
 		"serialNumber": "537d3aec7727947e0172bc242e2bb2ae97d6d8",
