@@ -4677,6 +4677,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAES7l6eim7r8zX+uz/zgnjVasznkVk5TMoA/HgHFM1PSvuAKhhRG5L1MABeLhQqKri2xbnPbzqs0UU5kxCNYriPw=="
 	},
+	"CXeDmxHB9Lo=": {
+		"serialNumber": "300b6d30b12c5bd8db3c8d95db4471fbb5cafe63",
+		"subject": "C=FR, O=DGS, OU=120036017, CN=DSC_FR_01005",
+		"issuer": "C=FR, O=Gouv, CN=CSCA-FRANCE",
+		"notBefore": "2022-12-14T23:00:00.000Z",
+		"notAfter": "2024-12-14T23:00:00.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "e3a2cf4c744ce9eda9748d1c5fef2857eccd3b29",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsAsyQb7jQEwD320sXgSOoRYGwUePRuuALTUS6EdgUdJjDJjCr+xwhVbzqSnrzTH2bi7Y+BaMYEaFMgaUn/NMMg=="
+	},
 	"lrxgMs2Duac=": {
 		"serialNumber": "76100c1f3266b5f23d282d87799bad789f3ea379",
 		"subject": "C=FR, O=DGS, OU=120036017, CN=DSC_FR_012",
@@ -6532,6 +6549,28 @@
 			"modulusLength": 2048
 		},
 		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv+b4ktiqqFml/L9nydMUEkq2OI3FYgfD1ErjizKn5WCfD3ggdu3KsVPTkS09JFx62/bzlHWECnyYjppXW6nFyZ4zl9557p5HYsgFFlsYv9SKP5JYovtnuJUgyc/wlo4lPeXMNMqSxSH+lHMRDdDWDHBxGdWoyNI0VXSkNTiASWf3TwnI0oeQQ09IpodY72iLQMCjYFqeotl0RR/8y1E+AOu1jvXXYH5y8SpHxiPGIbsmjXKv85mjfQvcXtNnw752zK5pfuv0iItEpbjGIKsec4xi8lUr8fAtwPwoo3jbGGWAdDJtkrLQuc5Iz8/OhoFiwJnaJSbbl6bvAlKGWEFTpwIDAQAB"
+	},
+	"7wijeIisYwQ=": {
+		"serialNumber": "01856a69db92",
+		"subject": "C=LT, ST=Lithuania, O=Ministry of Health of The Republic of Lithuania, CN=LT_DGC_DSC_5",
+		"issuer": "C=LT, O=State Enterprise Centre of Registers, CN=LT_DGC_CSCA_1",
+		"notBefore": "2022-12-31T23:00:00.000Z",
+		"notAfter": "2024-12-31T23:00:00.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "6e3fa98665e27180bc80e5cec3184bf03ffdecf9",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "RSASSA-PKCS1-v1_5",
+			"publicExponent": {
+				"0": 1,
+				"1": 0,
+				"2": 1
+			},
+			"modulusLength": 2048
+		},
+		"publicKeyPem": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoCdjiBhBs8wIVtQrcmwIu4t7mKtXI62wPmv1+pGVqb95cdQ8w276vcj8DOWh70FVx5i/W2Kj3m0ileEEU/1Kt45jKUCVEUO2gR0hxQEloQa3oVuWZnUvW4Afnmr2QOw6HDa3O7T2KU1LVwxGsVXA+amnMgwUgKivQlwEBVc2GyrEK3hTZD/qdg9YshUR155zpUJJuUtIHteuu2CG1WFbNayrqIsjbyLFOzaskrA+KlAOLn55tqu1V8NkGqgY2xd1XsVlMAYRlTvlVpnYboBJrjzfwB6NVqTjXJXWFotBlqUx2a21MjSNOA9cDkc9LZhIpMCCGygxEuc2V7xY7Sa65QIDAQAB"
 	},
 	"ln8K+9SqfuA=": {
 		"serialNumber": "3392244c19e0afe0",
@@ -11231,5 +11270,22 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEtDrNihVTuDyHQg3TNuZRoykSxSi1424o9DEfOXT0q2VSzsspqQlZn2IT+1d/5p3R874YRGwuoHKy41Y80THx6g=="
+	},
+	"DKcxE4JQng4=": {
+		"serialNumber": "35bdd798715f9ea1",
+		"subject": "OU=Siren Analytics, O=Ministry of Public Health (MOPH), ST=Beirut, L=Beirut, C=LB",
+		"issuer": "C=LB, ST=Jnah, L=Beirut, O=Ministry of Public Health (MOPH), OU=Siren Analytics, CN=CSCA_DGC_LB_01",
+		"notBefore": "2023-01-01T11:38:59.000Z",
+		"notAfter": "2023-07-01T10:38:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "db0e153452e389995aaebb4bd4b8d252b51ea315",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEJvqynF/jKuYO61+BdFaMdcLy4tzNG7AurVs3y7wRZMPnAEm+n/Qc7mY0Rl+9eh/EWbvYUdpHjb7bDptehNPNqQ=="
 	}
 }
