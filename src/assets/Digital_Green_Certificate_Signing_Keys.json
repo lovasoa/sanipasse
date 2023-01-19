@@ -10032,6 +10032,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEDbYQgZnOaoyatauj5dyR897XAl9KvQ0wMUQZhVd74d6YGkoTLnTzLTrbIDFcnZHkA2v0pwHKTWsz13QLsR/0pg=="
 	},
+	"S7Q4uyMX7Vo=": {
+		"serialNumber": "369330da860dff6cdca9d7d79a174d9a74055f17",
+		"subject": "CN=DGC DS Signer 1, OU=LEPL Information Technologies Agency, O=Ministry of Internally Displaced Persons From the Occupied Territories\\, Labour\\, Health and Social Affairs of Georgia, C=GE",
+		"issuer": "CN=DGC Country Signing CA, OU=Public Service Development Agency, O=Ministry of Justice of Georgia, C=GE",
+		"notBefore": "2022-11-21T10:34:30.000Z",
+		"notAfter": "2024-11-20T10:34:29.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "3eaf8459882743dc655058acc2e15416a5e23e69",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEuxiIyvEemOCXUuMlWapSsF6uKgFVCAe+nMdhwqUR3yGy6ibZXqX6sW7UAK+wMPsN4LItVgN7qhwqnAHr8La8Ag=="
+	},
 	"j0Q/p/Eme5g=": {
 		"serialNumber": "1c96550f97ccff9224ae309a3313ea0dd8622a8f",
 		"subject": "CN=DGC DS Signer 1, OU=LEPL Information Technologies Agency, O=Ministry of Internally Displaced Persons From the Occupied Territories\\, Labour\\, Health and Social Affairs of Georgia, C=GE",
@@ -10337,6 +10354,23 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAERtumh/vSoJJwJ3c0Txb9GM8FSuQh4vzASOC0UQuRMDhctp7chlpAyivtu/z581vOAVuLBSs8txwqpwhNDj2feg=="
+	},
+	"fAncaxEkTPE=": {
+		"serialNumber": "6ca5738701911f2c9e",
+		"subject": "CN=FIRMA CERTIFICADO COVID DIGITAL UE 1S2023, 2.5.4.5=Q2801221I, OU=SELLO ELECTRONICO, OU=Dirección General de Sistemas de Información y Salud Digital (DGSISD), 2.5.4.97=VATES-Q2801221I, O=SERVICIO MADRILEÑO DE SALUD, C=ES",
+		"issuer": "CN=EADTrust ECC 256 SubCA For Qualified Certificates 2019, O=European Agency of Digital Trust\\, S.L., C=ES, 2.5.4.97=VATES-B85626240, OU=Legal Person",
+		"notBefore": "2023-01-09T06:50:00.000Z",
+		"notAfter": "2025-01-09T06:49:00.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "ed52dffc960415c6fb4666514ea2ed9bf966ce9e",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsjb2bGFhM1AlsI65ub7Mh+h+T02Bu/0Bqh5QvLAqUD6VRm+NVnx4/oMONgoPhysfbNNT1BGoFms/x79UdSixmA=="
 	},
 	"lRKNJOaPsrE=": {
 		"serialNumber": "3dabae8117fb7a54b3",
