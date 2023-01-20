@@ -3674,6 +3674,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEV46zJLij0cY8emOFjsMFj8cAlEKPe2YMoVAlSG4c4FQ6TlvsXAcxQjJaJu6+GHNyzryOerA6BGialxIpGqlT3Q=="
 	},
+	"pzT9WdL2vlM=": {
+		"serialNumber": "2f",
+		"subject": "C=EE, O=Estonia, OU=Health and Welfare Information Systems Centre, CN=04-2022_DCC, 2.5.4.5=04-2022",
+		"issuer": "C=EE, O=Estonia, OU=Police and Border Guard Board, 2.5.4.5=01-2020, CN=CSCA_Estonia",
+		"notBefore": "2022-10-24T11:27:08.000Z",
+		"notAfter": "2025-04-24T11:27:08.000Z",
+		"signatureAlgorithm": "1.2.840.113549.1.1.10",
+		"fingerprint": "e15771979bf87aa4994e4dc57499bc398fbc41b3",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIr441AKK5FHnT9KodgMvLMjX9TlhsnbCBjeYTsCamp19HI1VSrsqxybxT+9ao2vwpaSxn613EZCN0F3iTlX+gw=="
+	},
 	"ROHJQ9RSS/o=": {
 		"serialNumber": "210000001fd331b92e1078f77b00010000001f",
 		"subject": "C=ES, L=Santiago de Compostela, O=CONSELLERIA SANIDADE, OU=SISTEMAS E TECNOLOXIAS DA INFORMACION, CN=CVS-PRODUCCION-XUNTADEGALICIA",
