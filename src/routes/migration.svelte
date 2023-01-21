@@ -36,12 +36,14 @@
 		À partir du 21 janvier 2023, un message expliquant la migration sera affiché sur sanipasse.fr
 	</li>
 	<li>
-		À partir du <em>1er mars 2023</em>, les requêtes vers sanipasse.fr redirigeront vers <code
-			>sanipasse.ophir.dev</code
-		>.
+		À partir du <em>1er mars 2023</em>, les requêtes vers sanipasse.fr redirigeront vers
+		<code>sanipasse.ophir.dev</code>.
 	</li>
-    <li>À partir du <em>10 mai 2023</em>, <code>sanipasse.fr</code> ne sera plus disponible, et sanipasse ne sera plus accessible qu'à travers
-        <a href="https://sanipasse.ophir.dev"><code>sanipasse.ophir.dev</code></a></li>
+	<li>
+		À partir du <em>10 mai 2023</em>, <code>sanipasse.fr</code> ne sera plus disponible, et
+		sanipasse ne sera plus accessible qu'à travers
+		<a href="https://sanipasse.ophir.dev"><code>sanipasse.ophir.dev</code></a>
+	</li>
 </ol>
 
 <p>

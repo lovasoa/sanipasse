@@ -1,7 +1,6 @@
 <script context="module" lang="ts">
-
 	export async function load(data: { url: URL }) {
-		const target = 'sanipasse.ophir.dev'
+		const target = 'sanipasse.ophir.dev';
 		const url = new URL(data.url);
 		url.host = target;
 		url.port = '';
