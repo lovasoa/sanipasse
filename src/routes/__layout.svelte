@@ -7,7 +7,7 @@
 		if (data.url.hostname !== url.hostname) {
 			if (new Date() >= new Date('2023-03-01')) {
 				return {
-					status: 302,
+					status: 301,
 					redirect: url.toString()
 				};
 			}
