@@ -29,7 +29,10 @@
 		NavItem,
 		NavLink,
 		Container,
-		Icon
+		Icon,
+		Modal,
+		ModalBody,
+		ModalHeader
 	} from 'sveltestrap';
 	import { page } from '$app/stores';
 	let isOpen = false;
@@ -55,9 +58,11 @@
 		<NavbarToggler on:click={() => (isOpen = !isOpen)} class="me-2" />
 		<Collapse {isOpen} navbar expand="md" on:update={onupdate}>
 			<Nav navbar class="ms-auto">
-				<NavItem>
-					<NavLink class="text-danger border-dager" href="/migration">⚠️ Migration</NavLink>
-				</NavItem>
+				{#if canonical}
+					<NavItem>
+						<NavLink class="text-danger border-dager" href="/migration">⚠️ Migration</NavLink>
+					</NavItem>
+				{/if}
 				<NavItem>
 					<NavLink href="/articles">Articles</NavLink>
 				</NavItem>
@@ -68,6 +73,17 @@
 		</Collapse>
 	</Navbar>
 {/if}
+
+<Modal isOpen={!!canonical} toggle={() => (canonical = undefined)}>
+	<ModalHeader>Note importante</ModalHeader>
+	<ModalBody>
+		<p>
+			<code>sanipasse.fr</code> migre vers
+			<a href="https://sanipasse.ophir.dev"><code>sanipasse.ophir.dev</code></a>
+		</p>
+		<p><a href="https://sanipasse.ophir.dev/migration">Plus d'informations</a></p>
+	</ModalBody>
+</Modal>
 
 <main class="w-100 px-2 px-sm-5">
 	<Container>
