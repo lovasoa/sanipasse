@@ -1,3 +1,25 @@
+<script context="module" lang="ts">
+
+	export async function load(data: { url: URL }) {
+		const target = 'sanipasse.ophir.dev'
+		const url = new URL(data.url);
+		url.host = target;
+		url.port = '';
+		if (data.url.hostname !== url.hostname) {
+			if (new Date() >= new Date('2023-03-01')) {
+				return {
+					status: 302,
+					redirect: url.toString()
+				};
+			}
+		}
+		return {
+			status: 200,
+			props: { canonical: url }
+		};
+	}
+</script>
+
 <script lang="ts">
 	import {
 		Navbar,
@@ -13,12 +35,16 @@
 	import { page } from '$app/stores';
 	let isOpen = false;
 	let hide_menu = false;
+	export let canonical: string | undefined = undefined;
 	const onupdate = (e: any) => (isOpen = e.detail.isOpen);
 	$: hide_menu = $page.url.pathname === '/borne';
 </script>
 
 <svelte:head>
 	<title>Sanipasse - vérification de pass sanitaire</title>
+	{#if canonical}
+		<link rel="canonical" href={canonical} />
+	{/if}
 </svelte:head>
 
 {#if !hide_menu}
@@ -30,6 +56,9 @@
 		<NavbarToggler on:click={() => (isOpen = !isOpen)} class="me-2" />
 		<Collapse {isOpen} navbar expand="md" on:update={onupdate}>
 			<Nav navbar class="ms-auto">
+				<NavItem>
+					<NavLink class="text-danger border-dager" href="/migration">⚠️ Migration</NavLink>
+				</NavItem>
 				<NavItem>
 					<NavLink href="/articles">Articles</NavLink>
 				</NavItem>
