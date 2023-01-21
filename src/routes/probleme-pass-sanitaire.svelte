@@ -2,7 +2,7 @@
 	<title>Le problème avec les passes sanitaires - Sanipasse</title>
 	<meta property="og:title" content="Le problème avec les passes sanitaires" />
 	<meta property="og:type" content="article" />
-	<meta property="og:image" content="https://sanipasse.fr/mytest.png" />
+	<meta property="og:image" content="https://sanipasse.ophir.dev/mytest.png" />
 	<meta
 		name="description"
 		content="Les passes sanitaires sont censés respecter la vie privée, mais toutes les informations médicales qu'ils contiennent sont en clair."

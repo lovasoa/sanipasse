@@ -6,7 +6,7 @@
 <p>Bonjour ! 👋</p>
 <p>
 	Moi c'est <a href="https://ophir.dev">Ophir</a>, et je suis l'auteur de
-	<a href="https://sanipasse.fr">sanipasse</a>, l'application libre de vérification de passes
+	<a href="https://sanipasse.ophir.dev">sanipasse</a>, l'application libre de vérification de passes
 	sanitaires.
 </p>
 <p>

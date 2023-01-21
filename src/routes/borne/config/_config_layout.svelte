@@ -55,7 +55,9 @@
 		Cette configuration est utilisable depuis n'importe quel appareil en chargeant l'adresse
 		suivante :
 		<a href="/borne?key={configKey}" class="font-monospace"
-			>{typeof window === 'object' ? window.location.host : 'sanipasse.fr'}/borne?key={configKey}</a
+			>{typeof window === 'object'
+				? window.location.host
+				: 'sanipasse.ophir.dev'}/borne?key={configKey}</a
 		>.
 	</p>
 	{#if with_technical}

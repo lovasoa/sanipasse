@@ -60,7 +60,7 @@ export const DEFAULT_CONFIG: ConfigProperties = {
 		'Sanipasse. Vous pouvez aussi scanner directement le QR code papier qui vous a été remis lors de ' +
 		'votre test ou de votre vaccination.',
 	logo_urls: [],
-	bottom_infos: 'logiciel sanipasse.fr fourni par Ophir Lojkine sous licence AGPLv3.',
+	bottom_infos: 'logiciel sanipasse fourni par Ophir Lojkine sous licence AGPLv3.',
 	anonymize: false,
 	prevent_revalidation_before_minutes: 0,
 	video_scan: true,

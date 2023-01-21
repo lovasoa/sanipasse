@@ -18,7 +18,7 @@ jobs:
       - name: Deploy
         uses: dokku/github-action@db5e3b84461e5e73c56d8b0f6a67aab0df25256c
         with:
-          git_remote_url: ssh://dokku@sanipasse.fr/sanipasse
+          git_remote_url: ssh://dokku@185.132.67.32/sanipasse
           ssh_private_key: ${{ secrets.DEPLOY_KEY }}
   push_to_registry:
     name: Push Docker image to Docker Hub

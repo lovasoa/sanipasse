@@ -67,14 +67,14 @@
 
 <h5 class="mt-3">Envoyer une requête</h5>
 <p>Pour vérifier un passe, il faut envoyer une requête <code>POST</code> à l'adresse</p>
-<p><code>https://sanipasse.fr/api/validate_pass</code></p>
+<p><code>https://sanipasse.ophir.dev/api/validate_pass</code></p>
 <p>avec le Content-Type <code>application/json</code> et le corps de requête JSON suivant:</p>
 <pre>
     {JSON.stringify(code_example, null, '  ')}</pre>
 <p>Pour tester l'API en ligne de commande, on peut utiliser curl:</p>
 <p>
 	<code
-		>curl https://sanipasse.fr/api/validate_pass -H 'Content-Type: application/json' --data '{JSON.stringify(
+		>curl https://sanipasse.ophir.dev/api/validate_pass -H 'Content-Type: application/json' --data '{JSON.stringify(
 			code_example
 		)}' -v
 	</code>
@@ -88,7 +88,7 @@
 import requests
 
 validation = requests.post(
-	'https://sanipasse.fr/api/validate_pass',
+	'https://sanipasse.ophir.dev/api/validate_pass',
 	json={JSON.stringify(code_example)}
 ).json()
 </code></pre>

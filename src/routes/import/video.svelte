@@ -7,7 +7,7 @@
 	let started = false;
 	let videoError: Error | null = null;
 
-	let domain = 'sanipasse.fr';
+	let domain = 'sanipasse.ophir.dev';
 	onMount(() => (domain = window.location.host));
 </script>
 
