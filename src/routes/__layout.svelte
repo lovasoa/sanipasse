@@ -11,11 +11,12 @@
 					redirect: url.toString()
 				};
 			}
+			return {
+				status: 200,
+				props: { canonical: url }
+			};
 		}
-		return {
-			status: 200,
-			props: { canonical: url }
-		};
+		return { status: 200 };
 	}
 </script>
 
