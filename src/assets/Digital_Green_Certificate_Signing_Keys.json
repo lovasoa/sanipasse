@@ -10019,6 +10019,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAERHPqs7XQwXiKuDwJmzlVRffNcPK1noUthOV1usrtNpw6cp50rIFAYIJFIG7/Bmei1Um7qXCYZB6PyRCnIoWtsA=="
 	},
+	"9f6QkHHzg8U=": {
+		"serialNumber": "5697dd33601f0699e02ec8ff8da44d70eadf1c5c",
+		"subject": "CN=DGC DS Signer 2, OU=LEPL Information Technologies Agency, O=Ministry of Internally Displaced Persons From the Occupied Territories\\, Labour\\, Health and Social Affairs of Georgia, C=GE",
+		"issuer": "CN=DGC Country Signing CA, OU=Public Service Development Agency, O=Ministry of Justice of Georgia, C=GE",
+		"notBefore": "2023-02-02T17:17:25.000Z",
+		"notAfter": "2025-02-01T17:17:24.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "b0239d393538258e0283d40edf937979d71a877e",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEA/MWXwcXu2MuFsLj27vIREee5Jbol9bLM1Utzd/4csaR0PLlM/HeA56VXadf5b7/GtqHWV2rzKscySBVJRLJHg=="
+	},
 	"8KU6U7MLoTk=": {
 		"serialNumber": "0b8ca96d9500bcb10571ed18d8664149a47d60e4",
 		"subject": "CN=DGC DS Signer 2, OU=LEPL Information Technologies Agency, O=Ministry of Internally Displaced Persons From the Occupied Territories\\, Labour\\, Health and Social Affairs of Georgia, C=GE",
@@ -11512,5 +11529,22 @@
 			"namedCurve": "P-256"
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEJvqynF/jKuYO61+BdFaMdcLy4tzNG7AurVs3y7wRZMPnAEm+n/Qc7mY0Rl+9eh/EWbvYUdpHjb7bDptehNPNqQ=="
+	},
+	"cribuMeukFw=": {
+		"serialNumber": "6f45fcce5f6a0e0f",
+		"subject": "OU=Siren Analytics, O=Ministry of Public Health (MOPH), ST=Beirut, L=Beirut, C=LB",
+		"issuer": "C=LB, ST=Jnah, L=Beirut, O=Ministry of Public Health (MOPH), OU=Siren Analytics, CN=CSCA_DGC_LB_01",
+		"notBefore": "2023-02-01T11:38:59.000Z",
+		"notAfter": "2023-08-01T10:38:59.000Z",
+		"signatureAlgorithm": "ECDSA",
+		"fingerprint": "0fe850cdaa98c24c0f453c1dc151456676ed1c00",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAElJNyu7iyJACDLdk1cpFboAfaOfCFzIzxfOzmCpA1z2hJGDLgxxNwivzwFXbmHxrfjtFFWTCzYQsdmWS585Gk8w=="
 	}
 }
