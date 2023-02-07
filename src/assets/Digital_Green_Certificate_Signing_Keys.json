@@ -50,6 +50,23 @@
 		},
 		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvnjA6h1xZDsyylY1C0vHrbrWAPniW/ksncTiBJOdk39tx8GtSXeqlDt8zBvwF8bP+lMiv+nxatX36pY0NgNczw=="
 	},
+	"BJY+jzmss+0=": {
+		"serialNumber": "4303667b05fb924d01d4f953",
+		"subject": "C=AL, O=Ministria e Shendetesise dhe Mbrojtjes Sociale, OU=Production, CN=Ministria e Shendetesise dhe Mbrojtjes Sociale",
+		"issuer": "C=AL, O=NAIS, CN=NAIS Class 3 Certification Authority",
+		"notBefore": "2023-02-03T15:59:56.000Z",
+		"notAfter": "2024-02-03T15:59:56.000Z",
+		"signatureAlgorithm": "RSASSA-PKCS1-v1_5",
+		"fingerprint": "cffaa8054abbb12685feeaa7f8060382d4d455a3",
+		"publicKeyAlgorithm": {
+			"hash": {
+				"name": "SHA-256"
+			},
+			"name": "ECDSA",
+			"namedCurve": "P-256"
+		},
+		"publicKeyPem": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEs1cwe4sDIQ+3BwQn3FgDQcq89FLfGU5LLKSjTslC5P41V1PxGwm7upBfJSEnz4dhgalQdHcVE3hGkEEdxjWFfg=="
+	},
 	"udrotE0n7i0=": {
 		"serialNumber": "430152948273894fccf37672",
 		"subject": "C=AL, O=Ministria e Shendetesise dhe Mbrojtjes Sociale, OU=Production, CN=Ministria e Shendetesise dhe Mbrojtjes Sociale",
